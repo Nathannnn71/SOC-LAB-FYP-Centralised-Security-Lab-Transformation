@@ -66,7 +66,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 /* Research Design Table Styles */
 .research-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.75rem}
 .research-table th{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#d9ff88;border:1px solid var(--border);padding:.6rem .5rem;background:var(--bg);text-align:left;font-weight:600}
-.research-table td{border:1px solid var(--border);padding:.6rem .5rem;line-height:1.5;vertical-align:top;color:var(--text)}
+.research-table td{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:rgb(255, 255, 255);border:1px solid var(--border);padding:.6rem .5rem;line-height:1.5;vertical-align:top;}
 .research-table tr:hover{background:rgba(255,215,64,.03)}
 .research-table .rq-num{font-family:'Share Tech Mono',monospace;color:#d9ff88;font-weight:600;text-align:center}
 .research-table .method-cell{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:aqua}
@@ -74,7 +74,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 /* Project Scope Table Styles */
 .ps-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.75rem}
 .ps-table th{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#d9ff88;border:1px solid var(--border);padding:.6rem .5rem;background:var(--bg);text-align:left;font-weight:600}
-.ps-table td{border:1px solid var(--border);padding:.6rem .5rem;line-height:1.5;vertical-align:top;color:var(--text)}
+.ps-table td{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:rgb(255, 255, 255);border:1px solid var(--border);padding:.6rem .5rem;line-height:1.5;vertical-align:top;}
 .ps-table tr:hover{background:rgba(255,215,64,.03)}
 .ps-table .rq-num{font-family:'Share Tech Mono',monospace;color:#d9ff88;font-weight:600;text-align:center}
 .ps-table .method-cell{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:rgb(255, 255, 255)}
@@ -133,41 +133,41 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
       <table class="research-table">
         <thead>
           <tr>
-            <th style="width:5%">No</th>
-            <th style="width:30%">Research Question(s)</th>
-            <th style="width:30%">Research Objective(s)</th>
-            <th style="width:15%">Method(s)</th>
-            <th style="width:20%">Expected Outcome</th>
+            <th style="width:5%; text-align: center;">No</th>
+            <th style="width:30%; text-align: center;">Research Question(s)</th>
+            <th style="width:30%; text-align: center;">Research Objective(s)</th>
+            <th style="width:11%; text-align: center;">Method(s)</th>
+            <th style="width:20%; text-align: center;">Expected Outcome</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="rq-num">1</td>
-            <td style="text-align: justify;">How can automation be applied to improve the scalability and consistency of hands-on cybersecurity learning in university lab environments?</td>
-            <td style="text-align: justify;">To design and develop an automated cyber attack scenario execution platform that enables scalable and repeatable practical exercises in university lab environments.</td>
+            <td>How can automation be applied to improve the scalability and consistency of hands-on cybersecurity learning in university lab environments?</td>
+            <td>To design and develop an automated cyber attack scenario execution platform that enables scalable and repeatable practical exercises in university lab environments.</td>
             <td class="method-cell">
               <div style="margin-bottom: 10px;">- Literature Review</div>
               <div>- Feasibility Study</div>
             </td>
-            <td style="text-align: justify;">A functional platform that allows multiple students to perform consistent and repeatable Red Team exercises simultaneously</td>
+            <td>A functional platform that allows multiple students to perform consistent and repeatable Red Team exercises simultaneously</td>
           </tr>
           <tr>
             <td class="rq-num">2</td>
-            <td style="text-align: justify;">To what extent can automation reduce the time and complexity involved in setting up cybersecurity lab environments for learning?</td>
-            <td style="text-align: justify;">To implement automation mechanisms for environment setup, tool configuration, and attack execution in order to reduce manual overhead and improve learning efficiency.</td>
+            <td>To what extent can automation reduce the time and complexity involved in setting up cybersecurity lab environments for learning?</td>
+            <td>To implement automation mechanisms for environment setup, tool configuration, and attack execution in order to reduce manual overhead and improve learning efficiency.</td>
             <td class="method-cell">
               <div>- Survey</div>
             </td>
-            <td style="text-align: justify;">Reduced setup time and complexity, enabling faster lab preparation and more efficient learning sessions</td>
+            <td>Reduced setup time and complexity, enabling faster lab preparation and more efficient learning sessions</td>
           </tr>
           <tr>
             <td class="rq-num">3</td>
-            <td style="text-align: justify;">How can attack scenarios be effectively orchestrated and aligned with industry frameworks such as the MITRE ATT&CK to ensure realistic and practical training?</td>
-            <td style="text-align: justify;">To integrate and orchestrate multiple cybersecurity tools and map attack scenarios to the MITRE ATT&CK framework for realistic and standardized training.</td>
+            <td>How can attack scenarios be effectively orchestrated and aligned with industry frameworks such as the MITRE ATT&CK to ensure realistic and practical training?</td>
+            <td>To integrate and orchestrate multiple cybersecurity tools and map attack scenarios to the MITRE ATT&CK framework for realistic and standardized training.</td>
             <td class="method-cell">
               <div>- Literature Review</div>
             </td>
-            <td style="text-align: justify;">Standardized and realistic attack simulations aligned with industry practices, improving students’ understanding of real-world adversary behaviory</td>
+            <td>Standardized and realistic attack simulations aligned with industry practices, improving students’ understanding of real-world adversary behaviory</td>
           </tr>
         </tbody>
       </table>
@@ -274,7 +274,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     <div class="info-block" style="padding:0; margin-top:1.25rem;border-left:3px solid var(--c2b)">
       <div class="block-label" style="padding:1.25rem 1.25rem 0 1.25rem">CONCEPTUAL DIAGRAM</div>
       <div class="diagram-container">
-        <img src="assets/fyp1c_conceptual_diagram.png" alt="Conceptual Architecture Diagram">
+        <img src="assets/fyp2b_conceptual_diagram.png" alt="Conceptual Architecture Diagram" style="max-width: 500px; width: 100%; height: auto;">
       </div>
     </div>
   </div>
