@@ -52,12 +52,16 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .scope-list li:last-child{border-bottom:none}
 .scope-list li .num{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);padding-top:.15rem;flex-shrink:0}
 .deliverable-grid{display:grid;grid-template-columns:1fr;gap:.4rem}
-.deliverable-item{display:flex;align-items:center;gap:.6rem;font-size:.8rem;padding:.4rem .5rem;border:1px solid var(--border);border-radius:3px;background:var(--bg)}
+.deliverable-item{display:flex;flex-direction:column;gap:.4rem;font-size:.8rem;padding:.6rem .75rem;border:1px solid var(--border);border-radius:3px;background:var(--bg)}
+.deliverable-item-header{display:flex;align-items:center;gap:.6rem}
 .deliverable-item .check{width:14px;height:14px;border-radius:2px;border:1px solid var(--border);flex-shrink:0}
-.status-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.15rem .4rem;border-radius:2px;border:1px solid;margin-left:auto;cursor:pointer}
+.deliverable-item-title{flex:1}
+.deliverable-item-detail{font-size:.7rem;color:var(--muted);font-style:italic;padding-left:1.4rem;line-height:1.4}
+.status-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.15rem .4rem;border-radius:2px;border:1px solid;cursor:pointer;margin-left:auto}
 .status-badge.planned{color:var(--muted);border-color:var(--muted)}
 .status-badge.wip{color:var(--c1c);border-color:var(--c1c)}
 .status-badge.done{color:var(--c2a);border-color:var(--c2a)}
+.status-badge.tentative{color:var(--c3a);border-color:var(--c3a)}
 .research-q-list{list-style:none;counter-reset:rq}
 .research-q-list li{counter-increment:rq;display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.85rem;line-height:1.5}
 .research-q-list li:last-child{border-bottom:none}
@@ -303,11 +307,23 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
   <div class="info-block">
     <div class="block-label">DELIVERABLES &amp; STATUS</div>
     <div class="deliverable-grid">
-      <div class="deliverable-item"><div class="check"></div>Hardened VM templates (documented configurations)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Blue Team exercise manuals (5 exercises)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Incident response playbook<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Integration documentation (Blue Team → SIEM workflow)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Performance metrics report (detection rates, false positives)<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item">
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Hardened VM templates (documented configurations)</div><span class="status-badge wip">WIP</span></div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Blue Team exercise manuals (5 exercises)</div><span class="status-badge wip">WIP</span></div>
+        <div class="deliverable-item-detail">Fulfilling 1 exercise, malware containment</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Incident response playbook</div><span class="status-badge wip">WIP</span></div>
+        <div class="deliverable-item-detail">Integrating theHIVE for the response</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Integration documentation (Blue Team → SIEM workflow)</div><span class="status-badge wip">WIP</span></div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Performance metrics report (detection rates, false positives)</div><span class="status-badge tentative">TENTATIVE</span></div>
+      </div>
     </div>
   </div>
 
