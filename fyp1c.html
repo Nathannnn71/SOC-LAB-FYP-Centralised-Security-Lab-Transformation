@@ -13,6 +13,51 @@
   --c2a:#69f0ae; --c2b:#ff5252; --c2c:#448aff;
   --c3a:#ffd740; --c3b:#f06292; --c3c:#b2ff59;
 }
+[data-theme="light"] {
+  --bg:#f0f4f8; --surface:#e8eef5; --panel:#dde5ef; --border:#b8cce0;
+  --text:#2d3a4a; --muted:#607080; --bright:#0d1b2a;
+  /* darken accent colours so they remain readable on light backgrounds */
+  --c1a:#0097a7; --c1b:#6a1b9a; --c1c:#e65100;
+  --c2a:#00695c; --c2b:#c62828; --c2c:#1565c0;
+  --c3a:#b45000; --c3b:#c2185b; --c3c:#558b2f;
+}
+[data-theme="light"] body{background:var(--bg);color:var(--text)}
+[data-theme="light"] header{background:rgba(240,244,248,.95)!important}
+[data-theme="light"] body::before{opacity:.1}
+/* hardcoded white text overrides */
+[data-theme="light"] .info-block .block-label{color:var(--bright)}
+[data-theme="light"] .research-table td:nth-child(2){color:var(--bright)}
+/* nav */
+[data-theme="light"] .nav-tab{color:var(--muted)}
+[data-theme="light"] .nav-tab:hover,[data-theme="light"] .nav-tab.active{color:var(--bright)}
+/* candidate page */
+[data-theme="light"] .candidate-meta h2{color:var(--bright)}
+[data-theme="light"] .candidate-name-block{background:var(--panel);color:var(--muted)}
+[data-theme="light"] .candidate-name-block strong{color:var(--bright)}
+/* problem list */
+[data-theme="light"] .problem-list li{color:var(--text)}
+[data-theme="light"] .problem-list li strong{color:var(--bright)}
+[data-theme="light"] .problem-card{background:linear-gradient(135deg,rgba(220,232,245,.8) 0%,rgba(240,244,248,1) 100%)!important;color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+[data-theme="light"] .problem-card:nth-child(1){background:linear-gradient(135deg,rgba(255,167,38,.15) 0%,rgba(220,232,245,.8) 100%)!important}
+[data-theme="light"] .problem-card:nth-child(2){background:linear-gradient(135deg,rgba(179,136,255,.15) 0%,rgba(220,232,245,.8) 100%)!important}
+[data-theme="light"] .problem-card:nth-child(3){background:linear-gradient(135deg,rgba(0,229,255,.15) 0%,rgba(220,232,245,.8) 100%)!important}
+[data-theme="light"] .problem-card:nth-child(4){background:linear-gradient(135deg,rgba(255,82,82,.15) 0%,rgba(220,232,245,.8) 100%)!important}
+[data-theme="light"] .problem-card:nth-child(5){background:linear-gradient(135deg,rgba(105,240,174,.15) 0%,rgba(220,232,245,.8) 100%)!important}
+[data-theme="light"] .problem-card:nth-child(6){background:linear-gradient(135deg,rgba(68,138,255,.15) 0%,rgba(220,232,245,.8) 100%)!important}
+/* research/objective list */
+[data-theme="light"] .research-q-list li{color:var(--text)}
+[data-theme="light"] .research-q-list li::before{color:var(--muted);border-color:var(--border)}
+/* tables */
+[data-theme="light"] .scope-table th,[data-theme="light"] .research-table th{background:linear-gradient(90deg,rgba(200,220,240,.9) 0%,rgba(220,232,245,.95) 100%)}
+[data-theme="light"] .scope-table td,[data-theme="light"] .research-table td{color:var(--text)}
+[data-theme="light"] .scope-table tbody tr:nth-child(odd) td,[data-theme="light"] .research-table tbody tr:nth-child(odd) td{background:rgba(220,232,245,.55)}
+[data-theme="light"] .scope-table tbody tr:nth-child(even) td,[data-theme="light"] .research-table tbody tr:nth-child(even) td{background:rgba(240,244,248,.55)}
+[data-theme="light"] .scope-table tbody tr:hover td,[data-theme="light"] .research-table tbody tr:hover td{background:rgba(255,167,38,.12)!important}
+/* misc */
+[data-theme="light"] .edit-hint{color:var(--muted)}
+[data-theme="light"] #lightbox{background:rgba(180,200,225,.92)}
+#theme-toggle{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.08em;padding:.3rem .65rem;border-radius:3px;cursor:pointer;white-space:nowrap;background:none;transition:color .2s,border-color .2s;flex-shrink:0}
+html{font-size:112%}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
@@ -28,7 +73,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .candidate-badge{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;border:2px solid;border-radius:6px;padding:.5rem 1rem;white-space:nowrap;line-height:1;flex-shrink:0}
 .candidate-meta{flex:1}
 .candidate-meta .phase-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.15em;margin-bottom:.4rem}
-.candidate-meta h2{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;line-height:1.1;color:var(--bright);margin-bottom:.5rem}
+.candidate-meta h2{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:700;line-height:1.1;color:var(--bright);margin-bottom:.5rem}
 .candidate-meta .course-tags{display:flex;gap:.4rem;flex-wrap:wrap}
 .course-tag{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:2px;color:var(--muted)}
 .candidate-name-block{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--muted)}
@@ -37,12 +82,31 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .section-grid.full{grid-template-columns:1fr}
 .section-grid.three{grid-template-columns:1fr 1fr 1fr}
 .info-block{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.25rem;position:relative}
-.info-block .block-label{font-family:'Share Tech Mono',monospace;font-size:.85rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.info-block .block-label{font-family:'Share Tech Mono',monospace;font-size:1rem;letter-spacing:.15em;color:#ffffff;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
 .info-block .block-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .info-block .editable{font-size:.85rem;line-height:1.65;color:var(--text);min-height:60px;outline:none;border:1px dashed transparent;border-radius:3px;padding:.25rem;transition:border-color .2s}
 .info-block .editable:focus{border-color:var(--border)}
 .info-block .editable:empty::before{content:attr(data-placeholder);color:var(--muted);font-style:italic;pointer-events:none}
 .scope-list{list-style:none;font-size:.85rem;line-height:1.7}
+.problem-list{list-style:none;font-size:.85rem;line-height:1.8}
+.problem-list li{display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--border);color:var(--text)}
+.problem-list li:last-child{border-bottom:none}
+.problem-list li::before{content:'▸';color:var(--c1c);font-size:1.2rem;font-weight:bold;flex-shrink:0;margin-top:-.1rem}
+.problem-list li strong{color:var(--bright);font-weight:600}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem}
+.problem-card{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1rem;font-size:.8rem;line-height:1.6;color:var(--text);transition:all .2s}
+.problem-card:hover{border-color:var(--c1c);background:rgba(255,167,38,.05)}
+.problem-card{background:linear-gradient(135deg, rgba(20,28,46,0.8) 0%, rgba(16,22,34,1) 100%);border-left:3px solid transparent;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+.problem-card:nth-child(1){border-left-color:var(--c1c);background:linear-gradient(135deg, rgba(255,167,38,0.1) 0%, rgba(20,28,46,0.8) 100%)}
+.problem-card:nth-child(2){border-left-color:var(--c1b);background:linear-gradient(135deg, rgba(179,136,255,0.1) 0%, rgba(20,28,46,0.8) 100%)}
+.problem-card:nth-child(3){border-left-color:var(--c1a);background:linear-gradient(135deg, rgba(0,229,255,0.1) 0%, rgba(20,28,46,0.8) 100%)}
+.problem-card:nth-child(4){border-left-color:var(--c2b);background:linear-gradient(135deg, rgba(255,82,82,0.1) 0%, rgba(20,28,46,0.8) 100%)}
+.problem-card:nth-child(5){border-left-color:var(--c2a);background:linear-gradient(135deg, rgba(105,240,174,0.1) 0%, rgba(20,28,46,0.8) 100%)}
+.problem-card:nth-child(6){border-left-color:var(--c2c);background:linear-gradient(135deg, rgba(68,138,255,0.1) 0%, rgba(20,28,46,0.8) 100%)}
+.problem-card:hover{border-left-width:4px;transform:translateY(-2px);box-shadow:0 4px 12px rgba(255,167,38,0.2)}
+.problem-grid-wrapper{list-style:none !important;border:none !important;padding:0 !important;margin:0 !important}
+@media(max-width:1024px){.problem-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.problem-grid{grid-template-columns:1fr}}
 .scope-list li{display:flex;align-items:flex-start;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)}
 .scope-list li:last-child{border-bottom:none}
 .scope-list li .num{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);padding-top:.15rem;flex-shrink:0}
@@ -61,16 +125,24 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .method-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid}
 .edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
 .edit-hint span{color:var(--c2a)}
-.scope-table{width:100%;border-collapse:collapse;font-size:.85rem}
-.scope-table th{background:var(--surface);border:1px solid var(--border);padding:.75rem;text-align:left;font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
-.scope-table td{border:1px solid var(--border);padding:.75rem;color:var(--text);line-height:1.6}
-.scope-table td:first-child{background:var(--surface);font-weight:600;color:var(--bright)}
-.research-table{width:100%;border-collapse:collapse;font-size:.8rem}
-.research-table th{background:var(--surface);border:1px solid var(--border);padding:.75rem;text-align:left;font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-weight:600}
-.research-table td{border:1px solid var(--border);padding:.75rem;color:var(--text);line-height:1.6}
+.scope-table{width:calc(100% - 2.5rem);border-collapse:collapse;font-size:.85rem;margin:0 1.25rem 1.25rem 1.25rem}
+.scope-table th{background:linear-gradient(90deg, rgba(20,28,46,0.9) 0%, rgba(16,22,34,0.95) 100%);border:1px solid var(--border);padding:1rem .75rem;text-align:left;font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:.12em;color:var(--c3a);text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--c3a)}
+.scope-table td{border:1px solid var(--border);padding:1rem .75rem;color:var(--text);line-height:1.6}
+.scope-table td:first-child{background:rgba(255,215,0,.08);font-weight:600;color:var(--c3a);font-family:'Share Tech Mono',monospace;text-align:center;width:80px}
+.scope-table tbody tr:nth-child(odd) td{background:rgba(20,28,46,.5)}
+.scope-table tbody tr:nth-child(even) td{background:rgba(16,22,34,.5)}
+.scope-table tbody tr:hover td{background:rgba(255,167,38,.08) !important}
+.research-table{width:calc(100% - 2.5rem);border-collapse:collapse;font-size:.8rem;margin:0 1.25rem 1.25rem 1.25rem}
+.research-table th{background:linear-gradient(90deg, rgba(20,28,46,0.9) 0%, rgba(16,22,34,0.95) 100%);border:1px solid var(--border);padding:1rem .75rem;text-align:left;font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:.12em;color:var(--c3a);text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--c3a)}
+.research-table td{border:1px solid var(--border);padding:1rem .75rem;color:var(--text);line-height:1.6}
+.research-table td:nth-child(2){color:#ffffff;font-weight:400}
+.research-table td:nth-child(3){color:var(--c2a);font-family:'Share Tech Mono',monospace;font-weight:500}
+.research-table tbody tr:nth-child(odd) td{background:rgba(20,28,46,.5)}
+.research-table tbody tr:nth-child(even) td{background:rgba(16,22,34,.5)}
+.research-table tbody tr:hover td{background:rgba(255,167,38,.08) !important}
 .diagram-container{display:flex;justify-content:center;align-items:center;padding:1.25rem;background:var(--bg);border-radius:6px;overflow:auto}
 .diagram-container img,.diagram-container svg{max-width:100%;height:auto;display:block}
-@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.scope-table{font-size:.75rem}.scope-table th,.scope-table td{padding:.5rem}.research-table{font-size:.7rem}.research-table th,.research-table td{padding:.5rem}.diagram-container{padding:.75rem}}
+@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.scope-table{font-size:.75rem}.scope-table th,.scope-table td{padding:.5rem}.research-table{font-size:.7rem}.research-table th,.research-table td{padding:.5rem}.diagram-container{padding:.75rem}.scope-table th{font-size:.65rem}.research-table th{font-size:.65rem}}
 
 </style>
 </head>
@@ -92,6 +164,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     <a class="nav-tab" href="fyp3b.html" style="color:var(--c3b)">3B</a>
     <a class="nav-tab" href="fyp3c.html" style="color:var(--c3c)">3C</a>
   </nav>
+  <button id="theme-toggle" onclick="toggleTheme()"></button>
 </header>
 
 <div class="candidate-page">
@@ -117,7 +190,20 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-      <div class="editable" contenteditable="true">There is a problem in cybersecurity education at UOW Malaysia where students struggle to gain effective cybersecurity experience due to the lack of an automated laboratory environment. Despite lecturers introducing virtualization tools and hands-on exercises, students are required to manually configure the virtual machines on their own computer which result in inconsistent configurations and setup failures (Al-Zubaidie et al., 2024). Similar limitations have been identified in traditional on-premises laboratory environments such as high maintenance costs, limited accessibility, and hardware constraints (Khan & Mohamed, 2025). Although container-based cyber range platforms have been proposed, their deployment still involves infrastructure complexity and administrative overhead (Chouliaras et al., 2023). Platforms such as EDURange improve accessibility by offering browser-based exercises, but they lack external device integration and remain dependent on external infrastructure (Lundqvist et al., 2025). This problem has negatively affected beginner-level cybersecurity students, because they spend substantial time resolving technical setup issues instead of developing practical skills. A possible cause of this problem is the absence of a centralized and automated laboratory infrastructure. Perhaps a study which investigates the design and implementation of an automated cybersecurity laboratory environment using virtualization and infrastructure-as-code technologies could help resolve the situation. </div>
+      <ul class="problem-list">
+        <li class="problem-grid-wrapper">
+          <div class="problem-grid">
+            <div class="problem-card">Lack of an automated laboratory environment in cybersecurity education at UOW Malaysia</div>
+            <div class="problem-card">Students must manually configure virtual machines which result in inconsistent configurations and setup failures (Al-Zubaidie et al., 2024)</div>
+            <div class="problem-card">Traditional on-premises labs face high maintenance costs, limited accessibility, and hardware constraints (Khan & Mohamed, 2025)</div>
+            <div class="problem-card">Container-based cyber range platforms still require infrastructure complexity and administrative overhead (Chouliaras et al., 2023)</div>
+            <div class="problem-card">EDURange provides browser-based exercises but lacks external device integration and remains dependent on external infrastructure (Lundqvist et al., 2025)</div>
+            <div class="problem-card">Students spend excessive time troubleshooting technical setup issues instead of developing practical cybersecurity skills</div>
+          </div>
+        </li>
+        <li><strong>Root cause:</strong> absence of a centralized and automated laboratory infrastructure</li>
+        <li><strong>Solution required:</strong> leverage automation and Infrastructure-as-Code (IaC) to enable automated cybersecurity lab infrastructure</li>
+      </ul>
     </div>
   </div>
 
@@ -146,7 +232,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
       <table class="scope-table">
         <thead>
           <tr>
-            <th>Level</th>
+            <th style="width:80px">Level</th>
             <th>Function</th>
             <th>Description</th>
           </tr>
@@ -249,28 +335,155 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     </div>
   </div>
 
-  <div class="info-block">
-    <div class="block-label">DELIVERABLES &amp; STATUS</div>
-    <div class="deliverable-grid">
-      <div class="deliverable-item"><div class="check"></div>Ansible playbook repository (Git)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Playbook documentation<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Web dashboard (HTML/JS + Flask backend)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Lecturer user guide<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Video tutorial (end-to-end deployment)<span class="status-badge planned">PLANNED</span></div>
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">PROTOTYPE INTERFACE</div>
+      <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:.5rem">
+        <div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c1c);letter-spacing:.1em;margin-bottom:.5rem">UC001 — Automated VM Deployment</div>
+          <div class="diagram-container zoomable-wrap" style="border:1px solid var(--border);border-radius:4px;cursor:zoom-in">
+            <img src="assets/UC001_FYP1c.png" alt="UC001 — Automated VM Deployment" class="zoomable-img">
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c1c);letter-spacing:.1em;margin-bottom:.5rem">UC002 — Automated Lab Configuration</div>
+          <div class="diagram-container zoomable-wrap" style="border:1px solid var(--border);border-radius:4px;cursor:zoom-in">
+            <img src="assets/UC002_FYP1c.png" alt="UC002 — Automated Lab Configuration" class="zoomable-img">
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c1c);letter-spacing:.1em;margin-bottom:.5rem">UC003 — Lab Environment Access</div>
+          <div class="diagram-container zoomable-wrap" style="border:1px solid var(--border);border-radius:4px;cursor:zoom-in">
+            <img src="assets/UC003_FYP1c.png" alt="UC003 — Lab Environment Access" class="zoomable-img">
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c1c);letter-spacing:.1em;margin-bottom:.5rem">UC004 — Lab Environment Reset</div>
+          <div class="diagram-container zoomable-wrap" style="border:1px solid var(--border);border-radius:4px;cursor:zoom-in">
+            <img src="assets/UC004_FYP1c.png" alt="UC004 — Lab Environment Reset" class="zoomable-img">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="info-block" style="margin-top:1.25rem;border-left:3px solid var(--c1c)">
-    <div class="block-label">HOW MY WORK ENABLES OTHERS</div>
-    <div class="editable" contenteditable="true">My automation framework is the operational glue between FYP-1A's images and the physical Acers. Without my playbooks, every Phase 2 and Phase 3 scenario would still require manual setup. FYP-3C (Portal) will later wrap my Ansible API into a polished UI — I provide the backend they call.</div>
-  </div>
 </div>
+<!-- Lightbox Modal -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.88);align-items:center;justify-content:center;flex-direction:column">
+  <div style="position:absolute;top:1rem;right:1.25rem;display:flex;gap:.5rem;align-items:center">
+    <button id="lb-zoom-in"  title="Zoom In"  style="background:var(--panel);border:1px solid var(--border);color:var(--bright);font-size:1.2rem;width:36px;height:36px;border-radius:4px;cursor:pointer;line-height:1">+</button>
+    <button id="lb-zoom-out" title="Zoom Out" style="background:var(--panel);border:1px solid var(--border);color:var(--bright);font-size:1.2rem;width:36px;height:36px;border-radius:4px;cursor:pointer;line-height:1">−</button>
+    <button id="lb-reset"    title="Reset"    style="background:var(--panel);border:1px solid var(--border);color:var(--muted);font-family:'Share Tech Mono',monospace;font-size:.65rem;padding:0 .6rem;height:36px;border-radius:4px;cursor:pointer">RESET</button>
+    <button id="lb-close"    title="Close"    style="background:var(--panel);border:1px solid var(--c2b);color:var(--c2b);font-size:1.1rem;width:36px;height:36px;border-radius:4px;cursor:pointer;line-height:1">✕</button>
+  </div>
+  <div id="lb-caption" style="font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c1c);letter-spacing:.1em;margin-bottom:.75rem"></div>
+  <div id="lb-viewport" style="overflow:hidden;display:flex;align-items:center;justify-content:center;width:90vw;height:82vh;cursor:grab">
+    <img id="lb-img" src="" alt="" style="max-width:100%;max-height:100%;object-fit:contain;transform-origin:center;transition:transform .15s ease;user-select:none;pointer-events:none">
+  </div>
+  <div style="margin-top:.6rem;font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--muted)">scroll to zoom · drag to pan · click outside to close</div>
+</div>
+
 <div class="edit-hint">
   <span>✏ EDITABLE</span><br>
   Click any grey text block or name field to edit directly in the browser.<br><br>
   Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
 </div>
 <script>
+// Lightbox with pan + zoom
+(function(){
+  const lb       = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lb-img');
+  const lbVp     = document.getElementById('lb-viewport');
+  const lbCap    = document.getElementById('lb-caption');
+  let scale = 1, tx = 0, ty = 0;
+  let dragging = false, startX = 0, startY = 0, startTx = 0, startTy = 0;
+  let didDrag = false;
+
+  function applyTransform(animated){
+    lbImg.style.transition = animated ? 'transform .15s ease' : 'none';
+    lbImg.style.transform = `translate(${tx}px,${ty}px) scale(${scale})`;
+  }
+
+  function setScale(s, animated){
+    scale = Math.min(Math.max(s, 0.2), 5);
+    applyTransform(animated !== false);
+  }
+
+  function reset(){
+    scale = 1; tx = 0; ty = 0;
+    applyTransform(true);
+  }
+
+  function open(img){
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCap.textContent = img.alt;
+    reset();
+    lb.style.display = 'flex';
+  }
+
+  document.querySelectorAll('.zoomable-wrap').forEach(function(wrap){
+    wrap.addEventListener('click', function(){
+      open(wrap.querySelector('.zoomable-img'));
+    });
+  });
+
+  // Drag to pan
+  lbVp.addEventListener('mousedown', function(e){
+    if(e.button !== 0) return;
+    dragging = true; didDrag = false;
+    startX = e.clientX; startY = e.clientY;
+    startTx = tx; startTy = ty;
+    lbVp.style.cursor = 'grabbing';
+    lbImg.style.transition = 'none';
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', function(e){
+    if(!dragging) return;
+    const dx = e.clientX - startX, dy = e.clientY - startY;
+    if(Math.abs(dx) > 2 || Math.abs(dy) > 2) didDrag = true;
+    tx = startTx + dx; ty = startTy + dy;
+    applyTransform(false);
+  });
+  document.addEventListener('mouseup', function(e){
+    if(!dragging) return;
+    dragging = false;
+    lbVp.style.cursor = scale > 1 ? 'grab' : 'default';
+  });
+
+  // Scroll to zoom
+  lbVp.addEventListener('wheel', function(e){
+    e.preventDefault();
+    setScale(scale + (e.deltaY < 0 ? 0.15 : -0.15), false);
+    lbVp.style.cursor = scale > 1 ? 'grab' : 'default';
+  }, { passive: false });
+
+  // Buttons
+  document.getElementById('lb-close').addEventListener('click', function(){ lb.style.display='none'; });
+  document.getElementById('lb-zoom-in').addEventListener('click', function(){
+    setScale(scale + 0.25); lbVp.style.cursor = scale > 1 ? 'grab' : 'default';
+  });
+  document.getElementById('lb-zoom-out').addEventListener('click', function(){
+    setScale(scale - 0.25); lbVp.style.cursor = scale > 1 ? 'grab' : 'default';
+  });
+  document.getElementById('lb-reset').addEventListener('click', function(){
+    reset(); lbVp.style.cursor = 'default';
+  });
+
+  // Click backdrop to close (only if not dragging)
+  lb.addEventListener('click', function(e){
+    if(e.target === lb && !didDrag) lb.style.display = 'none';
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', function(e){
+    if(lb.style.display !== 'flex') return;
+    if(e.key === 'Escape') lb.style.display = 'none';
+    if(e.key === '+' || e.key === '=') setScale(scale + 0.25);
+    if(e.key === '-') setScale(scale - 0.25);
+    if(e.key === '0') reset();
+  });
+})();
+
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('status-badge')) {
     const cycle = ['planned', 'wip', 'done'];
@@ -285,6 +498,34 @@ document.addEventListener('click', function(e) {
     }
   }
 });
+</script>
+<script>
+// Theme toggle
+function applyTheme(theme) {
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+  const btn = document.getElementById('theme-toggle');
+  if (theme === 'light') {
+    btn.textContent = '☀ LIGHT';
+    btn.style.color = '#f59e0b';
+    btn.style.border = '1px solid #f59e0b';
+  } else {
+    btn.textContent = '☽ DARK';
+    btn.style.color = '#b388ff';
+    btn.style.border = '1px solid #b388ff';
+  }
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = current === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('soc-theme', next);
+  applyTheme(next);
+}
+// Apply saved theme on load
+applyTheme(localStorage.getItem('soc-theme') || 'dark');
 </script>
 </body>
 </html>
