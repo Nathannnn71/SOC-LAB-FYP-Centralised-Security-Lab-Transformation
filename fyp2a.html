@@ -6,6 +6,19 @@
 <title>FYP-2A Monitoring — SOC Lab FYP</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 <style>
+
+/* ── TABLES ── */
+table{width:100%;border-collapse:collapse;font-size:.78rem;margin-bottom:.75rem}
+th{background:rgba(0,229,255,.07);color:var(--c1a);font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-align:left;padding:.45rem .65rem;border-bottom:1px solid var(--border)}
+td{padding:.42rem .65rem;border-bottom:1px solid rgba(30,45,74,.55);color:var(--text);vertical-align:top;line-height:1.5;font-size:.78rem}
+tr:hover td{background:rgba(255,255,255,.02)}
+
+.info-block p {
+  font-size: .83rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
 :root {
   --bg:#0a0e17; --surface:#101622; --panel:#141c2e; --border:#1e2d4a;
   --text:#c8d8f0; --muted:#4a6080; --bright:#e8f4ff;
@@ -20,6 +33,14 @@ header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;to
 .logo-badge{font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
 header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
 .nav-tabs{display:flex;gap:.25rem}
+.req-id{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--c1a);white-space:nowrap}
+.priority{font-family:'Share Tech Mono',monospace;font-size:.58rem;padding:.15rem .38rem;border-radius:2px;white-space:nowrap}
+.p-c{background:rgba(255,82,82,.1);color:var(--c2b);border:1px solid var(--c2b)}
+.p-h{background:rgba(255,167,38,.1);color:var(--c1c);border:1px solid var(--c1c)}
+.p-m{background:rgba(105,240,174,.1);color:var(--c2a);border:1px solid var(--c2a)}
+.figma-btn{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--c1a);text-decoration:none;border:1px solid var(--c1a);padding:.38rem 1rem;border-radius:3px;display:inline-block;margin-top:.85rem;cursor:pointer;background:none}
+.figma-btn:hover{background:rgba(0,229,255,.06)}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem}
 .nav-tab{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
 .nav-tab:hover{color:var(--bright);border-color:var(--border)}
 .nav-tab.active{color:var(--bright);background:var(--panel);border-color:var(--border)}
@@ -53,6 +74,28 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .status-badge.planned{color:var(--muted);border-color:var(--muted)}
 .status-badge.wip{color:var(--c1c);border-color:var(--c1c)}
 .status-badge.done{color:var(--c2a);border-color:var(--c2a)}
+.research-o-list{list-style:none;counter-reset:ro}
+.research-o-list li{counter-increment:ro;display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.85rem;line-height:1.5}
+.research-o-list li:last-child{border-bottom:none}
+.research-o-list li::before{content:'RO' counter(ro);font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.2rem .4rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);flex-shrink:0;margin-top:.1rem}
+.diagram-container{display:flex;justify-content:center;align-items:center;padding:1.25rem;background:var(--bg);border-radius:6px;overflow:auto}
+.diagram-container img,.diagram-container svg{max-width:100%;height:auto;display:block}
+.scope-row{display:flex;align-items:flex-start;gap:.75rem;padding:.55rem .65rem;border:1px solid var(--border);border-radius:4px;margin-bottom:.38rem;background:var(--panel)}
+.scope-num{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);padding-top:.12rem;flex-shrink:0;width:1.6rem}
+.scope-level{font-family:'Share Tech Mono',monospace;font-size:.56rem;padding:.15rem .38rem;border-radius:2px;flex-shrink:0;margin-top:.08rem;white-space:nowrap}
+.sl-b{background:rgba(105,240,174,.1);color:var(--c2a);border:1px solid var(--c2a)}
+.sl-i{background:rgba(255,167,38,.1);color:var(--c1c);border:1px solid var(--c1c)}
+.sl-a{background:rgba(255,82,82,.1);color:var(--c2b);border:1px solid var(--c2b)}
+.scope-text{font-size:.79rem;line-height:1.55;color:var(--text)}
+.arch-layer{margin-bottom:.4rem}
+.arch-layer-label{font-family:'Share Tech Mono',monospace;font-size:.55rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.28rem}
+.arch-row{display:flex;gap:.38rem;flex-wrap:wrap}
+.arch-node{background:var(--panel);border:1px solid var(--border);border-radius:3px;padding:.3rem .55rem;font-size:.7rem;flex:1;text-align:center;min-width:90px;line-height:1.4}
+.arch-node.c{border-color:var(--c1a);color:var(--c1a)}
+.arch-node.g{border-color:var(--c2a);color:var(--c2a)}
+.arch-node.o{border-color:var(--c1c);color:var(--c1c)}
+.arch-node.p{border-color:var(--c1b);color:var(--c1b)}
+.arch-arrow{text-align:center;color:var(--muted);font-size:.8rem;padding:.15rem 0}
 .research-q-list{list-style:none;counter-reset:rq}
 .research-q-list li{counter-increment:rq;display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.85rem;line-height:1.5}
 .research-q-list li:last-child{border-bottom:none}
@@ -61,6 +104,21 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .method-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid}
 .edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
 .edit-hint span{color:var(--c2a)}
+
+.tag{font-family:'Share Tech Mono',monospace;font-size:.58rem;padding:.18rem .48rem;border-radius:2px;border:1px solid;display:inline-block;margin:.15rem}
+.tag.c{color:var(--c1a);border-color:var(--c1a)}
+.tag.g{color:var(--c2a);border-color:var(--c2a)}
+.tag.o{color:var(--c1c);border-color:var(--c1c)}
+.tag.p{color:var(--c1b);border-color:var(--c1b)}
+.tag.r{color:var(--c2b);border-color:var(--c2b)}
+
+
+/* ── HIGHLIGHT COLOURS ── */
+.hl-c{color:var(--c1a)}
+.hl-g{color:var(--c2a)}
+.hl-o{color:var(--c1c)}
+.hl-p{color:var(--c1b)}
+.hl-r{color:var(--c2b)}
 @media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
 
 </style>
@@ -90,7 +148,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     <div class="candidate-badge" style="color:var(--c2a);border-color:var(--c2a)">FYP-2A</div>
     <div class="candidate-meta">
       <div class="phase-tag" style="color:var(--c2a)">PHASE 2 · INTERMEDIATE · SEMESTER 2</div>
-      <h2>Security Monitoring Stack (SIEM / XDR)</h2>
+      <h2>Lab Security Monitoring Dashboard with Centralised Logging</h2>
       <div class="course-tags">
         <span class="course-tag">System Security</span>
         <span class="course-tag">Cybersecurity</span>
@@ -99,89 +157,250 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     </div>
     <div class="candidate-name-block">
       CANDIDATE<br>
-      <strong contenteditable="true">[ Student Name ]</strong><br>
-      <span style="font-size:.65rem">Supervisor: [ Supervisor Name ]</span>
+      <strong contenteditable="true">[  Loo Hong En ]</strong><br>
+      <span style="font-size:.65rem">Supervisor: [ Ts. Dr Khoo Li Jing ]</span>
     </div>
   </div>
 
   <div class="section-grid">
     <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-      <div class="editable" contenteditable="true">There is currently no centralised log collection in the lab. When a Red Team attack occurs, there is no visibility into which machines were hit, what payloads were used, or whether any lateral movement occurred. Without a SIEM, Blue Team students have no data to analyse and the lab cannot function as a real SOC training environment.</div>
+      <div class="editable" contenteditable="true">
+        The problem within the university's educational laboratory environment is the <span class="hl-r"> lack of unified and real-time structure visibility. </span> Enterprise-grade monitoring platform are often overkill, configure-complex and resources-heavy for educational settings. Traditional way of monitoring through separated tools and scattered logs weakened incident response time (Khan et al., 2023). Besides, absence of historical trend data limit proactive monitoring and unable to improve fault diagnosis (Simões et al., 1999).
+      </div> 
     </div>
+
+    <div class="info-block">
+    <div class="block-label">PROBLEM SOLUTION</div>
+      <div class="editable" contenteditable="true">
+        Custom built <span class="hl-g">web-based Lab Security Monitoring Dashboard </span>integrated with centralzied log. System retreives live metrics from Proxmox VE API (node status, VM status, resource utilisation) and logs retreived from Wazuh Centralised Log. Both are presented through an unified intreactive real-time dashbaord built with Python Flask-SocketIO and JavaScript and handling historical data through local database.
+      </div> 
+    </div>
+    
     <div class="info-block">
       <div class="block-label">RESEARCH QUESTIONS</div>
       <ol class="research-q-list">
-        <li contenteditable="true">Which open-source SIEM/XDR platform (Wazuh, ELK, Graylog) provides the best balance of capability and resource efficiency for a single-server deployment?</li>
-        <li contenteditable="true">How can log collection be configured to cover all layers: firewall, hypervisors, guest VMs, and Lenovo attacker stations?</li>
-        <li contenteditable="true">What alert thresholds minimise false positives while reliably detecting the Red Team attack patterns defined in FYP-2B?</li>
+        <li contenteditable="true">What are the existing centralized logging systems, security monitoring tools, and 
+        dashboard visualization techniques that can collect and aggregate log data from 
+        infrastructures within an educational laboratory environment? 
+        </li>
+        <li contenteditable="true">
+            How to design and develop a Lab Security Monitoring Dashboard that integrate a 
+        centralized logging stack integrated with Proxmox hypervisor infrastructure to provide 
+        real-time visibility into system resource utilization, network activity, and security 
+        events across the laboratory environment? 
+        </li>
+        <li contenteditable="true">Can the Lab Security Monitoring Dashboard effectively address the issue of 
+        fragmented log management and improve infrastructure monitoring efficiency within a 
+        university laboratory environment? 
+        </li>
       </ol>
     </div>
+
+    <div class="info-block">
+      <div class="block-label">RESEARCH OBJECTIVES</div>
+      <ol class="research-o-list">
+        <li contenteditable="true">To investigate the existing centralized logging systems, security monitoring tools, and 
+        dashboard visualization techniques that can collect and aggregate log data from 
+        infrastructures within an educational laboratory environment. 
+        </li>
+        <li contenteditable="true">
+        To design and develop a Lab Security Monitoring Dashboard by deploying a 
+        centralized logging stack integrated with Proxmox hypervisor infrastructure, capable 
+        of collecting and aggregating logs from multiple infrastructure sources and providing 
+        real-time visibility into system resource utilization, network activity, and security 
+        events across the laboratory environment. 
+        </li>
+        <li contenteditable="true">
+            To validate the effectiveness of the Lab Security Monitoring Dashboard in improving 
+            infrastructure visibility and log management efficiency through user acceptance 
+            testing with system administrators. 
+        </li>
+      </ol>
+    </div>
+
   </div>
 
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">SCOPE &amp; TASKS</div>
-      <ol class="scope-list">
-        <li><span class="num">01</span><span contenteditable="true">Evaluate and deploy chosen SIEM/XDR (recommended: Wazuh XDR) on Dell R440.</span></li>
-        <li><span class="num">02</span><span contenteditable="true">Configure log agents on: OPNsense firewall, all 20 Acer Proxmox hosts, student VMs (golden images must include Wazuh agent — coordinate with FYP-1A).</span></li>
-        <li><span class="num">03</span><span contenteditable="true">Build monitoring dashboards: Red vs Blue traffic heatmap, failed login attempts, network anomaly timeline, Acer resource utilisation.</span></li>
-        <li><span class="num">04</span><span contenteditable="true">Integrate alerting (email/Slack webhook) for critical events.</span></li>
-        <li><span class="num">05</span><span contenteditable="true">Document alert tuning process and produce IR playbook (what to do when each alert fires).</span></li>
-      </ol>
+      <div class="scope-row"><span class="scope-num">01</span><span class="scope-level sl-b">BASIC</span><span class="scope-text">Retrieve and display <strong>real-time infrastructure metrics</strong> from Proxmox VE API</span></div>
+        <div class="scope-row"><span class="scope-num">02</span><span class="scope-level sl-b">BASIC</span><span class="scope-text">Provide a <strong>real-time dashboard without manual page refreshing</strong> </span></div>
+        <div class="scope-row"><span class="scope-num">03</span><span class="scope-level sl-b">BASIC</span><span class="scope-text">Display <strong>virtual machine status visibility</strong></span></div>
+        <div class="scope-row"><span class="scope-num">04</span><span class="scope-level sl-b">BASIC</span><span class="scope-text">Provide <strong>colour-coded infrastructure health indicators</strong> to distinguish states at-a-glance</span></div>
+        <div class="scope-row"><span class="scope-num">05</span><span class="scope-level sl-i">INTERMEDIATE</span><span class="scope-text">Integrate the centralised logging platform <strong>Wazuh</strong> to retrieve and display security logs</span></div>
+        <div class="scope-row"><span class="scope-num">06</span><span class="scope-level sl-i">INTERMEDIATE</span><span class="scope-text">Provide a <strong>centralised log view</strong> to browse and search normalised log entries </span></div>
+        <div class="scope-row"><span class="scope-num">07</span><span class="scope-level sl-i">INTERMEDIATE</span><span class="scope-text"> <strong>Store infrastructure metrics in a local database</strong> (SQLite / InfluxDB) to support historical trend display</span></div>
+        <div class="scope-row"><span class="scope-num">08</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Provide <strong>historical trend visualisation for resource utilisation</strong> over selected time ranges</span></div>
+        <div class="scope-row"><span class="scope-num">09</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Provide <strong>historical trend visualisation for security events</strong> over selected periods</span></div>
     </div>
   </div>
 
-  <div class="section-grid three">
+    <div class="section-grid full">
+    <div class="divider"></div>
     <div class="info-block">
-      <div class="block-label">METHODOLOGY</div>
-      <div class="method-tags">
-        <span class="method-tag" style="color:var(--c2a);border-color:var(--c2a)">Comparative Evaluation</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Empirical Testing</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Iterative Tuning</span>
+        <div class="block-label">LITERATURE REVIEW</div>
+        <table style="margin-bottom:1rem">
+            <thead>
+            <tr><th>Tool / System</th><th>Category</th><th>Key Features</th><th>Limitation for Lab Use</th><th>Selected?</th></tr>
+            </thead>
+            <tbody>
+            <tr><td><strong>Grafana</strong></td><td><span class="tag c">Monitoring</span></td><td>Customisable dashboards, supports Prometheus, InfluxDB, Elasticsearch data sources</td><td>No native SIEM or log management — requires separate tools for centralised logging</td><td>—</td></tr>
+            <tr><td><strong>Zabbix</strong></td><td><span class="tag c">Monitoring</span></td><td>Enterprise-level, agent &amp; agentless support, built-in alert thresholds</td><td>Limited log analysis; requires significant configuration expertise</td><td>—</td></tr>
+            <tr><td><strong>ELK Stack</strong></td><td><span class="tag g">Log Mgmt</span></td><td>Scalable centralised log aggregation (Logstash), fast querying, Kibana visualisation</td><td>Complex initial deployment; high resource consumption — unsuitable for lightweight environments</td><td>—</td></tr>
+            <tr><td><strong>Graylog Open</strong></td><td><span class="tag g">Log Mgmt</span></td><td>Real-time log centralisation, SIEM capability, scalable, filtering &amp; operational intelligence</td><td>Advanced features restricted in free open-source version</td><td>—</td></tr>
+            <tr><td><strong>Wazuh</strong></td><td><span class="tag o">SIEM / XDR</span></td><td>Unified open-source SIEM + XDR, agent-based threat detection, centralised alert management via Wazuh Indexer</td><td>Complex configuration; high resource requirements for larger environments</td><td><span class="tag g">✓ SELECTED</span></td></tr>
+            </tbody>
+        </table>
+
+        <div class="g3">
+        <div class="info-block" style="border-left:3px solid var(--c1a)">
+        <div class="block-label">Monitoring Approach Adopted</div>
+        <p><span class="hl-c">Agentless + Active</span> monitoring via Proxmox VE REST API. Easy deployment, no resource overhead on monitored nodes. Recommended for its low maintenance cost (Pandey &amp; Mittal, 2020).</p>
+        </div>
+        <div class="info-block" style="border-left:3px solid var(--c2a)">
+        <div class="block-label">Log Management Adopted</div>
+        <p><span class="hl-g">Centralised + Agent-based</span> via Wazuh. Normalised log storage, audit-ready, search-ready. Real-time push to dashboard via WebSocket using Observer pattern.</p>
+        </div>
+        <div class="info-block" style="border-left:3px solid var(--c1c)">
+        <div class="block-label">Impact Evidence from Literature</div>
+        <p>Integrated monitoring: <span class="hl-o">63% MTTD improvement</span> and <span class="hl-o">56% MTTR reduction</span>. Centralised logging saves avg. <span class="hl-o">20 minutes</span> per incident in error diagnosis (Jangam &amp; Karri, 2023; Strilețchi et al., 2025).</p>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="section-grid full">
+    <div class="divider"></div>
+    <div class="info-block">
+        <div class="block-label">FUNCTIONAL REQUIREMENTS</div>
+        <table>
+    <thead>
+      <tr><th>Req. ID</th><th>Description</th><th>Feature</th><th>Priority</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="req-id">RQ_F001</td><td>System shall authenticate administrators and lecturers via username and password before granting dashboard access</td><td>F001 Admin Login</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F002</td><td>System shall retrieve node status information from the virtualised infrastructure through Proxmox VE API</td><td>F003 View Node Status</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F003</td><td>System shall display the operational status (online / offline) of each Proxmox node using colour-coded status badges</td><td>F003 View Node Status</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F004</td><td>System shall display the number of virtual machines and their status (running / stopped) on each node</td><td>F004 View VM Status</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F005</td><td>System shall collect and normalise system logs and sensor logs from Wazuh agents and send to centralised logging platform</td><td>F011 Centralised Log Storing</td><td><span class="priority p-h">HIGH</span></td></tr>
+      <tr><td class="req-id">RQ_F006</td><td>System shall store collected logs within the centralised logging system (Wazuh Indexer) for monitoring and forensic investigation</td><td>F011 Centralised Log Storing</td><td><span class="priority p-h">HIGH</span></td></tr>
+      <tr><td class="req-id">RQ_F007</td><td>System shall display centralised logs through the monitoring dashboard in a clear, structured, chronological view</td><td>F006 View Centralised Logs</td><td><span class="priority p-h">HIGH</span></td></tr>
+      <tr><td class="req-id">RQ_F008</td><td>System shall update all monitoring data in real time via WebSocket to reflect current infrastructure health status</td><td>F010 Real-Time Data Update</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F009</td><td>System shall display resource utilisation metrics (CPU and memory usage) for each node within the laboratory network</td><td>F005 View Resource Utilisation</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F010</td><td>System shall visualise infrastructure metrics using numbers, charts, and graphical indicators on the dashboard</td><td>F002 View Monitoring Dashboard</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F011</td><td>System shall display alerts when nodes become unavailable or when monitoring data cannot be retrieved</td><td>F008 View System Alerts</td><td><span class="priority p-h">HIGH</span></td></tr>
+      <tr><td class="req-id">RQ_F012</td><td>System shall allow search and filtering of logs by time range, node, log type, or keyword</td><td>F007 Search &amp; Filter Logs</td><td><span class="priority p-h">HIGH</span></td></tr>
+      <tr><td class="req-id">RQ_F013</td><td>System shall allow administrators and lecturers to view historical trend charts of resource utilisation and security event frequency over selected time ranges</td><td>F009 View Historical Metrics</td><td><span class="priority p-m">MEDIUM</span></td></tr>
+    </tbody>
+    </table>
+        </div>
+        </div>
+
+    <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">CONCEPTUAL DIAGRAM</div>
+      <div class="diagram-container">
+        <img src="assets/fyp1_conceptual_diagram_2a.png" alt="Conceptual Architecture Diagram">
       </div>
     </div>
+    </div>
+
+    <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">USE CASE DIAGRAM</div>
+      <div class="diagram-container">
+        <img src="assets/fyp1_use_case_diagram_2a.png" alt="Use Case Diagram">
+      </div>
+    </div>
+
     <div class="info-block">
       <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
       <div class="method-tags">
-        <span class="method-tag" style="color:var(--c2a);border-color:var(--c2a)">Wazuh XDR</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Kibana</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Filebeat</span>
+        <span class="method-tag" style="color:var(--c2a);border-color:var(--c2a)">Wazuh</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Flask and FlaskSocketIO</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">SQLite / InfluxDB</span>
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Python</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Syslog</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">JavaScript</span>
       </div>
     </div>
+
     <div class="info-block">
-      <div class="block-label">COURSE ALIGNMENT</div>
-      <ul style="list-style:none;font-size:.8rem">
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">System Security — IDS, audit, intrusion detection (Week 7)</li>
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Cybersecurity — Active Sensors (Week 9)</li>
-        <li style="padding:.25rem 0">Computer Security — Intrusion Detection (Week 5)</li>
-      </ul>
+      <div class="block-label">SYSTEM ARCHITECTURE</div>
+      <div class="arch-layer">
+    <div class="arch-layer-label">LAYER 1 — PRESENTATION (Browser Client)</div>
+    <div class="arch-row">
+      <div class="arch-node c">Dashboard UI<br><span style="font-size:.62rem;color:var(--muted)">HTML + Tailwind CSS</span></div>
+      <div class="arch-node c">WebSocket Client<br><span style="font-size:.62rem;color:var(--muted)">Socket.IO JS</span></div>
+      <div class="arch-node c">Chart Renderer<br><span style="font-size:.62rem;color:var(--muted)">Chart.js</span></div>
+      <div class="arch-node c">Log Viewer<br><span style="font-size:.62rem;color:var(--muted)">Search + Filter UI</span></div>
+      <div class="arch-node c">Alert Display<br><span style="font-size:.62rem;color:var(--muted)">Toast Notifications</span></div>
     </div>
   </div>
+  <div class="arch-arrow">↕ WebSocket (bidirectional, real-time) + HTTP REST (authenticated)</div>
+
+  <div class="arch-layer">
+    <div class="arch-layer-label">LAYER 2 — APPLICATION (Python / Flask Backend)</div>
+    <div class="arch-row">
+      <div class="arch-node p">Flask HTTP Server<br><span style="font-size:.62rem;color:var(--muted)">Routes + Auth (JWT)</span></div>
+      <div class="arch-node p">Flask-SocketIO<br><span style="font-size:.62rem;color:var(--muted)">WebSocket Layer</span></div>
+      <div class="arch-node p">Monitoring Facade<br><span style="font-size:.62rem;color:var(--muted)">Orchestration Layer</span></div>
+      <div class="arch-node p">Background Scheduler<br><span style="font-size:.62rem;color:var(--muted)">Periodic API Polling</span></div>
+      <div class="arch-node p">Dashboard Builder<br><span style="font-size:.62rem;color:var(--muted)">JSON Payload Assembly</span></div>
+    </div>
+  </div>
+  <div class="arch-arrow">↕ HTTPS REST API calls with token-based authentication</div>
+
+  <div class="arch-layer">
+    <div class="arch-layer-label">LAYER 3 — INTEGRATION (API Adapters &amp; Business Logic)</div>
+    <div class="arch-row">
+      <div class="arch-node o">Proxmox VE API<br><span style="font-size:.62rem;color:var(--muted)">ProxmoxAPIAdapter</span></div>
+      <div class="arch-node g">Wazuh REST API<br><span style="font-size:.62rem;color:var(--muted)">WazuhAPIAdapter</span></div>
+      <div class="arch-node o">CachingProxy<br><span style="font-size:.62rem;color:var(--muted)">Fault Tolerance</span></div>
+      <div class="arch-node g">Alert Strategies<br><span style="font-size:.62rem;color:var(--muted)">Strategy Pattern</span></div>
+      <div class="arch-node o">MetricsCollectorFactory<br><span style="font-size:.62rem;color:var(--muted)">Factory Method</span></div>
+    </div>
+  </div>
+  <div class="arch-arrow">↕ Read / Write operations</div>
+
+  <div class="arch-layer">
+    <div class="arch-layer-label">LAYER 4 — DATA (Storage)</div>
+    <div class="arch-row">
+      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">SQLite<br><span style="font-size:.62rem">Relational metrics</span></div>
+      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">InfluxDB<br><span style="font-size:.62rem">Time-series data</span></div>
+      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">Wazuh Indexer<br><span style="font-size:.62rem">Security log store</span></div>
+    </div>
+  </div>
+  <div class="arch-arrow">↕ Physical infrastructure in laboratory environment</div>
+
+  <div class="arch-layer">
+    <div class="arch-layer-label">LAYER 5 — INFRASTRUCTURE (Physical Lab)</div>
+    <div class="arch-row">
+      <div class="arch-node" style="border-color:#334;color:#667">Proxmox Nodes<br><span style="font-size:.62rem">Server cluster</span></div>
+      <div class="arch-node" style="border-color:#334;color:#667">Virtual Machines<br><span style="font-size:.62rem">Student / lab VMs</span></div>
+      <div class="arch-node" style="border-color:#334;color:#667">Wazuh Agents<br><span style="font-size:.62rem">Endpoint sensors</span></div>
+      <div class="arch-node" style="border-color:#334;color:#667">Network Devices<br><span style="font-size:.62rem">Firewall / switches</span></div>
+      <div class="arch-node" style="border-color:#334;color:#667">NGINX + Gunicorn<br><span style="font-size:.62rem">Reverse proxy / WSGI</span></div>
+    </div>
+  </div>
+    </div>
+    </div>
 
   <div class="info-block">
     <div class="block-label">DELIVERABLES &amp; STATUS</div>
     <div class="deliverable-grid">
-      <div class="deliverable-item"><div class="check"></div>Deployed SIEM/XDR system on Dell R440<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Pre-configured dashboards (JSON exports)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Alert rules documentation<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Integration guide (how to add new log sources)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Incident response playbook<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Main Dashboard<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Infrastructure Monitoring (VMs, Nodes, Resources)<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Centralized Log Search and Filtering<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Historical Trend Data<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Abnormality Alert<span class="status-badge planned">PLANNED</span></div>
     </div>
+    <div style="height: 20px;"></div>
+    <div class="info-block">
+    <div class="block-label">INTERACTIVE PROTOTYPE</div>
+        <a class="figma-btn" href="https://www.figma.com/proto/ntclOqSa14XaTP8o4EBmMo/SELF?page-id=469%3A6451&node-id=786-11639&viewport=918%2C-594%2C0.25&t=HixjBcCb84achn0N-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=786%3A11639">&#128279; OPEN FIGMA PROTOTYPE</a>
   </div>
-
-  <div class="info-block" style="margin-top:1.25rem;border-left:3px solid var(--c2a)">
-    <div class="block-label">HOW MY WORK ENABLES OTHERS</div>
-    <div class="editable" contenteditable="true">FYP-2C (Blue Team) uses my SIEM dashboards as their primary detection tool. FYP-3A (Honeypot) feeds attack data into my SIEM for correlation. FYP-3B (IDS/IPS) forwards Suricata alerts into my SIEM. FYP-3C (Portal) can surface my dashboard widgets inside the student portal. Without my monitoring stack, no one can see what is happening in the lab.</div>
   </div>
-</div>
-<div class="edit-hint">
-  <span>✏ EDITABLE</span><br>
-  Click any grey text block or name field to edit directly in the browser.<br><br>
-  Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
-</div>
 <script>
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('status-badge')) {
