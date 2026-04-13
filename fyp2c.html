@@ -80,7 +80,12 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .method-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.2rem .4rem;border:1px solid var(--c1c);border-radius:2px;color:var(--c1c);background:var(--bg)}
 .compact-list{margin:0;padding-left:1rem}
 .compact-list li{margin-bottom:.25rem}
-@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.research-table th,.research-table td{padding:.5rem .25rem;font-size:.75rem}}
+.project-scope-table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:.5rem}
+.project-scope-table th{background:var(--surface);color:var(--bright);font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:.75rem .5rem;border-bottom:1px solid var(--border);text-align:left}
+.project-scope-table td{padding:.75rem .5rem;border-bottom:1px solid var(--border);color:var(--text);font-size:.8rem;line-height:1.5;vertical-align:top}
+.project-scope-table tbody tr:nth-child(even){background:rgba(20,28,46,.5)}
+.project-scope-table tbody tr:hover{background:rgba(30,45,74,.6)}
+@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.research-table th,.research-table td{padding:.5rem .25rem;font-size:.75rem}.project-scope-table th,.project-scope-table td{padding:.5rem .25rem;font-size:.7rem}}
 
 </style>
 </head>
@@ -291,14 +296,56 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
   </div>
   <div class="section-grid full">
     <div class="info-block">
-      <div class="block-label">SCOPE &amp; TASKS</div>
-      <ol class="scope-list">
-        <li><span class="num">01</span><span contenteditable="true">Create hardened VM templates: disable unnecessary services, configure host-based firewall (iptables/Windows Defender), deploy Wazuh agent, enable full audit logging.</span></li>
-        <li><span class="num">02</span><span contenteditable="true">Develop 5 defensive exercises: log analysis &amp; threat hunting, malware containment, digital forensics (memory/disk), IR workflow walkthrough, security configuration audit.</span></li>
-        <li><span class="num">03</span><span contenteditable="true">Write incident response playbook: Detection → Analysis → Containment → Eradication → Recovery, mapped to FYP-2B attack scenarios.</span></li>
-        <li><span class="num">04</span><span contenteditable="true">Integrate exercise scoring with FYP-2A SIEM: measure how many Red Team attacks each Blue Team group detected.</span></li>
-        <li><span class="num">05</span><span contenteditable="true">Produce performance metrics report: detection rate, mean time to detect, false positive rate per scenario.</span></li>
-      </ol>
+      <div class="block-label">PROJECT SCOPE</div>
+      <table class="project-scope-table">
+        <thead>
+          <tr>
+            <th style="width: 15%">Level</th>
+            <th style="width: 25%">Function</th>
+            <th style="width: 60%">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- BASIC LEVEL -->
+          <tr>
+            <td rowspan="3" style="text-align:center;vertical-align:middle;font-weight:600;color:var(--c1a)">Basic</td>
+            <td>System shall provide hardened VM templates</td>
+            <td>VMs in lab will be installed with VM images that has been hardened based on CIS benchmarks</td>
+          </tr>
+          <tr>
+            <td>System will provide tools needed to carry out SOC lab operations</td>
+            <td>The system will be equipped with Wazuh, theHIVE and clamAV</td>
+          </tr>
+          <tr>
+            <td>System will provide a victim node and a management node</td>
+            <td>The system will deploy a lab environment to simulate an SOC lab setup, without students intervention for setup</td>
+          </tr>
+          <!-- INTERMEDIATE LEVEL -->
+          <tr>
+            <td rowspan="3" style="text-align:center;vertical-align:middle;font-weight:600;color:var(--c1c)">Intermediate</td>
+            <td>System shall ensure connectivity between tools and can monitor edge devices on the management node</td>
+            <td>The system will forward logs from victim nodes to the management node to observe endpoint activities and detect threats through the centralized control</td>
+          </tr>
+          <tr>
+            <td>System will allow students to respond to incidents based on red teams attack</td>
+            <td>Students can take action when threats are detected such as executing response measures based on alerts generated during a simulated attack from the red team</td>
+          </tr>
+          <tr>
+            <td>Students can open and create cases within case management platform</td>
+            <td>Students can formally manage incidents by creating cases in theHIVE where they can document findings, track investigation progress and organize their response</td>
+          </tr>
+          <!-- ADVANCED LEVEL -->
+          <tr>
+            <td rowspan="2" style="text-align:center;vertical-align:middle;font-weight:600;color:var(--c2c)">Advanced</td>
+            <td>System shall support full incident response workflow</td>
+            <td>Enables students to follow a complete and structured incident response process, starting from threat detection in Wazuh, progressing to case creation and investigation in TheHive, and ending with appropriate response and recovery actions, that reflects real-world SOC practices</td>
+          </tr>
+          <tr>
+            <td>System shall be able to evaluate performance through metrics</td>
+            <td>The system will collect and analyze logs, alerts, and case data to measure performance metrics</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
