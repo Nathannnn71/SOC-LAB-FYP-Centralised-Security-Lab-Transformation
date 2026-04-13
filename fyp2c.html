@@ -42,6 +42,11 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .info-block .editable{font-size:.85rem;line-height:1.65;color:var(--text);min-height:60px;outline:none;border:1px dashed transparent;border-radius:3px;padding:.25rem;transition:border-color .2s}
 .info-block .editable:focus{border-color:var(--border)}
 .info-block .editable:empty::before{content:attr(data-placeholder);color:var(--muted);font-style:italic;pointer-events:none}
+.info-block .editable b,.info-block .editable strong{color:var(--bright);font-weight:600;text-transform:uppercase;font-size:.75rem;letter-spacing:.05em;display:block;margin-top:.5rem;margin-bottom:.25rem}
+.info-block .editable b:first-child,.info-block .editable strong:first-child{margin-top:0}
+.info-block .editable ul{list-style:none;padding:0;margin:.25rem 0 0 0}
+.info-block .editable li{margin-bottom:.25rem;padding-left:1rem;position:relative}
+.info-block .editable li::before{content:'•';color:var(--c2c);font-weight:bold;position:absolute;left:0}
 .scope-list{list-style:none;font-size:.85rem;line-height:1.7}
 .scope-list li{display:flex;align-items:flex-start;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)}
 .scope-list li:last-child{border-bottom:none}
@@ -61,7 +66,17 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .method-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid}
 .edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
 .edit-hint span{color:var(--c2a)}
-@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
+.research-table-wrapper{margin-bottom:1.25rem}
+.research-table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.research-table th{background:var(--surface);color:var(--bright);font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:.75rem .5rem;border-bottom:1px solid var(--border);text-align:left}
+.research-table td{padding:.75rem .5rem;border-bottom:1px solid var(--border);color:var(--text);font-size:.85rem;line-height:1.5;vertical-align:top}
+.research-table tbody tr:nth-child(even){background:rgba(20,28,46,.5)}
+.research-table tbody tr:hover{background:rgba(30,45,74,.6)}
+.rq-number{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--c2c);border:1px solid var(--c2c);border-radius:2px;padding:.2rem .4rem;display:inline-block;margin-bottom:.25rem}
+.method-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.2rem .4rem;border:1px solid var(--c1c);border-radius:2px;color:var(--c1c);background:var(--bg)}
+.compact-list{margin:0;padding-left:1rem}
+.compact-list li{margin-bottom:.25rem}
+@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.research-table th,.research-table td{padding:.5rem .25rem;font-size:.75rem}}
 
 </style>
 </head>
@@ -138,26 +153,138 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
    <div class="section-grid full">
      <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-      <div class="editable" contenteditable="true"> PROBLEM <br> 
-													- Students have limited practical exposure to defensive cybersecurity operations even though there are courses dedicated for it <br> 
-													- There is a lack of an SOC lab that supports blue team operations <br>
-													- They waste time manually configuring environment and troubleshoot compatibility issues before starting exercises within those classes <br>
-													<br>IMPACT <br>
-													-  reduces the time available for meaningful practice -> leading to suboptimal learning outcomes  <br>
-													- studies show that scenario-based labs improve skill acquisition <br>
-													<br>ROOT CAUSE <br>
-													- lack of an environment that teaches clear defensive workflow and toolchain practicaly <br>
-													<br>GAP <br>
-													- Such lab can fosters engagement, by allowing students to focus on the workflow rather than the setup, supporting deeper understanding of how detection, response, and case management are connected in a real defense environment <br>
-													<br>PROPOSED SOLUTION <br>
-													- a pre-configures Blue Team SOC lab environemnt with ready to use setup has integrated tools, and strctured defensive workflows <br>
-													<br>EXPECTED OUTCOME <br>
-													- enables student to have real-life, hands-on defensive activities <br>
-													- improve understanding of SOC workflow, engagement and learning effectiveness <br>
-												 </div>
+      <div class="editable" contenteditable="true"><b>PROBLEM</b>
+<ul>
+<li>Students have limited practical exposure to defensive cybersecurity operations even though there are courses dedicated for it</li>
+<li>There is a lack of an SOC lab that supports blue team operations</li>
+<li>They waste time manually configuring environment and troubleshoot compatibility issues before starting exercises within those classes</li>
+</ul>
+<b>IMPACT</b>
+<ul>
+<li>Reduces the time available for meaningful practice -> leading to suboptimal learning outcomes</li>
+<li>Studies show that scenario-based labs improve skill acquisition</li>
+</ul>
+<b>ROOT CAUSE</b>
+<ul>
+<li>Lack of an environment that teaches clear defensive workflow and toolchain practically</li>
+</ul>
+<b>GAP</b>
+<ul>
+<li>Such lab can fosters engagement, by allowing students to focus on the workflow rather than the setup, supporting deeper understanding of how detection, response, and case management are connected in a real defense environment</li>
+</ul>
+<b>PROPOSED SOLUTION</b>
+<ul>
+<li>A pre-configured Blue Team SOC lab environment with ready to use setup has integrated tools, and structured defensive workflows</li>
+</ul>
+<b>EXPECTED OUTCOME</b>
+<ul>
+<li>Enables student to have real-life, hands-on defensive activities</li>
+<li>Improve understanding of SOC workflow, engagement and learning effectiveness</li>
+</ul>
     </div>
   </div>
-  
+  <div class="research-table-wrapper">
+    <table class="research-table">
+        <thead>
+            <tr>
+                <th style="width: 8%">No</th>
+                <th style="width: 27%">Research Questions(s)</th>
+                <th style="width: 27%">Research Objectives(s)</th>
+                <th style="width: 18%">Methods</th>
+                <th style="width: 20%">Expected Outcome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ROW 1: First research question -->
+            <tr>
+                <td style="text-align: center; vertical-align: middle;">
+                    <span class="rq-number">1</span>
+                </td>
+                <td>
+                    What are the standard architectures, tools, and configurations required to design and build a blue team defense lab within a SOC lab with minimal resources using open source tools such as Wazuh, ClamAV, and TheHive?
+                </td>
+                <td>
+                    <ul class="compact-list" style="margin:0; padding-left:1rem;">
+                        <li>To identify the tools and justify the selection of blue team tools (e.g., Wazuh agent/manager, ClamAV, TheHive) and their roles within a SOC architecture.</li>
+                        <li>To develop a design for constructing a blue team defense lab.</li>
+                        <li>To define the configurations, integrations, and communication flow between components (endpoint → SIEM → response platform).</li>
+                    </ul>
+                </td>
+                <td>
+                    <span class="method-badge">Literature review</span>
+                </td>
+                <td>
+                    Have a validated blueprint that outlines:
+                    <ol style="margin-top: 0.4rem; padding-left: 1.2rem;">
+                        <li>Role of tools and interactions (Wazuh + ClamAV + TheHive).</li>
+                        <li>A practical and deployable configuration suitable for low-resource environments.</li>
+                        <li>Flow of data between components.</li>
+                    </ol>
+                </td>
+            </tr>
+
+            <!-- ROW 2: Second research question -->
+            <tr>
+                <td style="text-align: center; vertical-align: middle;">
+                    <span class="rq-number">2</span>
+                </td>
+                <td>
+                    How are the workflow and operational procedure carried out in real-world SOC environments for blue team activities particularly in relation to detection, incident analysis, and response coordination?
+                </td>
+                <td>
+                    <ul class="compact-list" style="margin:0; padding-left:1rem;">
+                        <li>To understand real-world blue team workflow including alert triage, incident escalation, and response procedures.</li>
+                        <li>Understand procedures followed by SOC analyst in the blue team and how they interact with SIEM and incident response platforms during malware-related incidents.</li>
+                        <li>Incorporate the workflow and procedure from insights taken from interviews into the lab design, ensuring alignment with realistic blue team operations.</li>
+                    </ul>
+                </td>
+                <td>
+                    <span class="method-badge">Interview</span>
+                </td>
+                <td>
+                    <ul style="margin:0; padding-left:1.2rem;">
+                        <li>Validation of whether the proposed system reflects real SOC practices.</li>
+                        <li>Insights into improving lab realism, including handling multiple users, event correlation, and operational coordination.</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <!-- ROW 3: Third research question -->
+            <tr>
+                <td style="text-align: center; vertical-align: middle;">
+                    <span class="rq-number">3</span>
+                </td>
+                <td>
+                    How effective is the developed lab in terms of workflow and system integration with the existing infrastructure?
+                </td>
+                <td>
+                    <ul class="compact-list" style="margin:0; padding-left:1rem;">
+                        <li>To test whether all the components (Wazuh, ClamAV, TheHive) set up function as intended cohesively across detection, analysis, and response stages.</li>
+                        <li>Assess the efficiency and accuracy of the workflow, including alert generation, investigation, and containment actions.</li>
+                        <li>Measure the lab’s effectiveness using performance metrics such as detection accuracy and response time.</li>
+                    </ul>
+                </td>
+                <td>
+                    <span class="method-badge">Experiment</span>
+                </td>
+                <td>
+                    <ul style="margin:0; padding-left:1.2rem;">
+                        <li>Address all inconsistencies, errors. The feedback will be used to fix and output a working system.</li>
+                        <li>A fully functional and optimized blue team lab environment.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">PROPOSED DESIGN</div>
+      <div class="design-image">
+        <img src="fyp2c_Proposed_design.png" alt="Proposed Design for FYP-2C Blue Team Lab" style="max-width:100%;height:auto;border-radius:4px;">
+      </div>
+    </div>
+  </div>
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">SCOPE &amp; TASKS</div>
