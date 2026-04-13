@@ -61,8 +61,16 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .method-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid}
 .edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
 .edit-hint span{color:var(--c2a)}
-@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
 
+/* Research Design Table Styles */
+.research-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.75rem}
+.research-table th{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--c3a);border:1px solid var(--border);padding:.6rem .5rem;background:var(--bg);text-align:left;font-weight:600}
+.research-table td{border:1px solid var(--border);padding:.6rem .5rem;line-height:1.5;vertical-align:top;color:var(--text)}
+.research-table tr:hover{background:rgba(255,215,64,.03)}
+.research-table .rq-num{font-family:'Share Tech Mono',monospace;color:var(--c3a);font-weight:600;text-align:center}
+.research-table .method-cell{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c2a)}
+
+@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.research-table{font-size:.7rem}.research-table th,.research-table td{padding:.4rem .3rem}}
 </style>
 </head>
 <body>
@@ -90,44 +98,77 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     <div class="candidate-badge" style="color:var(--c3a);border-color:var(--c3a)">FYP-3A</div>
     <div class="candidate-meta">
       <div class="phase-tag" style="color:var(--c3a)">PHASE 3 · ADVANCED · SEMESTER 3</div>
-      <h2>Honeypot Deployment &amp; Threat Intelligence</h2>
+      <h2>Educational Honeypot System with Attack Pattern Explanation Interface</h2>
       <div class="course-tags">
-        <span class="course-tag">Cybersecurity</span>
-        <span class="course-tag">System Security</span>
-        <span class="course-tag">Threat Intelligence</span>
+        <span class="course-tag">Cybersecurity Education</span>
+        <span class="course-tag">Honeypot Technology</span>
+        <span class="course-tag">Attack Pattern Analysis</span>
       </div>
     </div>
     <div class="candidate-name-block">
       CANDIDATE<br>
-      <strong contenteditable="true">[ Student Name ]</strong><br>
-      <span style="font-size:.65rem">Supervisor: [ Supervisor Name ]</span>
-    </div>
-  </div>
-
-  <div class="section-grid">
-    <div class="info-block">
-      <div class="block-label">PROBLEM STATEMENT</div>
-      <div class="editable" contenteditable="true">The lab currently has no deception technology. All attack detection is reactive — alerts fire after damage. There is no mechanism to collect intelligence about attacker behaviour, preferred tools, or entry techniques. Without honeypots, the lab cannot teach proactive threat intelligence or give students experience with realistic external attack data.</div>
-    </div>
-    <div class="info-block">
-      <div class="block-label">RESEARCH QUESTIONS</div>
-      <ol class="research-q-list">
-        <li contenteditable="true">Which honeypot platform (T-Pot, Cowrie, Dionaea) provides the richest attack telemetry with the lowest maintenance overhead for a university lab?</li>
-        <li contenteditable="true">How can honeypot data be correlated with SIEM events (FYP-2A) to produce actionable threat intelligence reports?</li>
-        <li contenteditable="true">What attack patterns emerge from lab Red Team exercises vs simulated external attacks over a full semester?</li>
-      </ol>
+      <strong>Lam Zhan Hong (0137596)</strong><br>
+      <span style="font-size:.65rem">Supervisor: [ Ts. Dr Khoo Li Jing ]</span>
     </div>
   </div>
 
   <div class="section-grid full">
     <div class="info-block">
-      <div class="block-label">SCOPE &amp; TASKS</div>
+      <div class="block-label">PROBLEM STATEMENT</div>
+      <div class="editable">Cybersecurity students lack hands-on understanding of honeypot concepts, practical experience configuring honeypot systems, and struggle to analyze attack patterns due to complex security dashboards designed for expert analysts rather than learners. This negatively affects students' readiness for SOC analyst roles, as they graduate without practical proficiency in threat detection and attack analysis. The absence of an educational honeypot infrastructure with an attack pattern explanation interface prevents students from bridging theoretical knowledge with practical deployment experience and guided analysis of attack patterns tailored for learning.</div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">RESEARCH DESIGN</div>
+      <table class="research-table">
+        <thead>
+          <tr>
+            <th style="width:5%">RQ</th>
+            <th style="width:30%">Research Questions</th>
+            <th style="width:30%">Research Objectives</th>
+            <th style="width:15%">Method</th>
+            <th style="width:20%">Expected Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rq-num">1</td>
+            <td>How can educational requirements for teaching honeypot concepts, configuration practices, and attack pattern analysis be identified, and how feasible is developing an attack pattern explanation interface integrated with T-Pot?</td>
+            <td>To investigate the educational requirements for teaching honeypot concepts, configuration practices, and attack pattern analysis, and determine the technical feasibility of developing a simplified attack pattern explanation interface integrated with T-Pot honeypot platform.</td>
+            <td class="method-cell">Literature Review<br>Feasibility Study</td>
+            <td>Educational requirements specification and technical feasibility assessment for attack pattern explanation interface.</td>
+          </tr>
+          <tr>
+            <td class="rq-num">2</td>
+            <td>How can a honeypot system with a custom attack pattern explanation interface be designed and implemented to support student learning of honeypot concepts, configuration, and attack pattern analysis?</td>
+            <td>To design and implement an educational honeypot system consisting of T-Pot platform and a custom attack pattern explanation interface that teaches students honeypot concepts, provides hands-on configuration experience, and simplifies attack pattern analysis through guided learning modules.</td>
+            <td class="method-cell">Design Science Research Methodology (DSRM)</td>
+            <td>Fully functional educational T-Pot system with custom attack pattern explanation interface.</td>
+          </tr>
+          <tr>
+            <td class="rq-num">3</td>
+            <td>How effective is the proposed system and attack pattern explanation interface at improving students' understanding and usability compared to traditional dashboard-based learning approaches?</td>
+            <td>To validate the effectiveness of the educational honeypot system and attack pattern explanation interface through student usability testing, learning outcome assessment, and comparison with traditional complex dashboard-based learning.</td>
+            <td class="method-cell">Quantitative Survey<br>Qualitative Survey<br>Pre/Post Testing</td>
+            <td>Evidence that the attack pattern explanation interface improves students' understanding of attack patterns compared to traditional Kibana dashboards.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">SCOPE &amp; DELIVERABLES</div>
       <ol class="scope-list">
-        <li><span class="num">01</span><span contenteditable="true">Select and deploy honeypot framework in VLAN 50 (isolated); configure Cowrie (SSH), Dionaea (malware), Honeytrap or T-Pot.</span></li>
-        <li><span class="num">02</span><span contenteditable="true">Collect and structure attack data: attacker IPs, tools used, payloads, brute-force attempts, malware samples captured.</span></li>
-        <li><span class="num">03</span><span contenteditable="true">Integrate honeypot event stream with FYP-2A SIEM for cross-source correlation.</span></li>
-        <li><span class="num">04</span><span contenteditable="true">Build threat intelligence dashboard: most common attack vectors, trending techniques (MITRE ATT&amp;CK mapping), geographic sources.</span></li>
-        <li><span class="num">05</span><span contenteditable="true">Produce end-of-semester threat analysis report; recommend defensive posture improvements based on findings.</span></li>
+        <li><span class="num">01</span><span>Deploy T-Pot honeypot platform with multiple honeypot types (Cowrie, Dionaea, Conpot) on Proxmox virtual environment.</span></li>
+        <li><span class="num">02</span><span>Implement the IDS to analyse captured attack payload and provide hand-on experience on creating detection rule (e.g. Snort rule).</span></li>
+        <li><span class="num">03</span><span>Design and implement Attack Pattern Explanation Interface with simplified attack viewer, learning modules, and interactive exercises.</span></li>
+        <li><span class="num">04</span><span>Implement the SIEM dashboard too analyse honeypot log and match them with the MITRE attack framework and transform raw JSON files into structured and readable format.</span></li>
+        <li><span class="num">05</span><span>Integrate red team lab connectivity for attack correlation and lab session organization.</span></li>
+        <li><span class="num">06</span><span>Conduct usability testing with students and learning outcome assessment comparing educational interface vs traditional Kibana.</span></li>
       </ol>
     </div>
   </div>
@@ -136,27 +177,30 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     <div class="info-block">
       <div class="block-label">METHODOLOGY</div>
       <div class="method-tags">
-        <span class="method-tag" style="color:var(--c3a);border-color:var(--c3a)">Observational (passive)</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Data Analysis</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Threat Modelling</span>
+        <span class="method-tag" style="color:var(--c3a);border-color:var(--c3a)">Design Science Research</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Agile Development</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Usability Testing</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Pre/Post Assessment</span>
       </div>
     </div>
     <div class="info-block">
       <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
       <div class="method-tags">
-        <span class="method-tag" style="color:var(--c3a);border-color:var(--c3a)">T-Pot / Cowrie</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Dionaea</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">MITRE ATT&amp;CK</span>
+        <span class="method-tag" style="color:var(--c3a);border-color:var(--c3a)">T-Pot Platform</span>
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Elasticsearch</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Wazuh</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Kibana</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">HTML/CSS/JS</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Flask/React</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Proxmox VE</span>
       </div>
     </div>
     <div class="info-block">
-      <div class="block-label">COURSE ALIGNMENT</div>
+      <div class="block-label">INNOVATION FOCUS</div>
       <ul style="list-style:none;font-size:.8rem">
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Cybersecurity — Threat Intel &amp; Investigation (Wk 10)</li>
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">System Security — IDS, Malware (Wks 6,7)</li>
-        <li style="padding:.25rem 0">Computer Security — Intrusion Detection (Wk 5)</li>
+        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">⭐ Attack Pattern Explanation Interface</li>
+        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Simplified educational visualizations</li>
+        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Guided learning modules</li>
+        <li style="padding:.25rem 0">Interactive pattern recognition exercises</li>
       </ul>
     </div>
   </div>
@@ -164,24 +208,27 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
   <div class="info-block">
     <div class="block-label">DELIVERABLES &amp; STATUS</div>
     <div class="deliverable-grid">
-      <div class="deliverable-item"><div class="check"></div>Deployed honeypot infrastructure (VLAN 50)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>SIEM integration (event forwarding + correlation rules)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Threat intelligence dashboard<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Semester analysis report (attack patterns)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Defensive posture recommendations<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>T-Pot honeypot infrastructure deployed and operational<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Educational documentation (honeypot concepts + configuration tutorial)<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Attack Pattern Explanation Interface (web application)<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Red team integration and lab session correlation<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Student and lecturer user guides<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>Usability testing and learning outcome validation report<span class="status-badge planned">PLANNED</span></div>    
     </div>
   </div>
 
   <div class="info-block" style="margin-top:1.25rem;border-left:3px solid var(--c3a)">
-    <div class="block-label">HOW MY WORK ENABLES OTHERS</div>
-    <div class="editable" contenteditable="true">My honeypot data enriches FYP-3B's IDS/IPS rule set — real attack signatures captured from honeypots become Suricata rules. My threat intelligence dashboard extends FYP-2A's monitoring capability into proactive threat hunting. My MITRE ATT&amp;CK mappings give FYP-2C Blue Team students a framework to understand what they are defending against.</div>
+    <div class="block-label">PROJECT CONTRIBUTION</div>
+    <div class="editable">This project addresses a critical gap in cybersecurity education by developing an Attack Pattern Explanation Interface that transforms complex honeypot attack data into effective learning experiences. Unlike existing honeypot deployments that use expert-oriented dashboards, this educational system provides simplified visualizations, plain-language explanations, guided analysis workflows, and interactive exercises specifically designed for student learning. The system enables students to develop practical SOC analyst skills through hands-on experience with real attack data, bridging the theory-practice gap in cybersecurity education.</div>
   </div>
 </div>
+
 <div class="edit-hint">
   <span>✏ EDITABLE</span><br>
-  Click any grey text block or name field to edit directly in the browser.<br><br>
+  Click any grey text block to edit directly in the browser.<br><br>
   Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
 </div>
+
 <script>
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('status-badge')) {
