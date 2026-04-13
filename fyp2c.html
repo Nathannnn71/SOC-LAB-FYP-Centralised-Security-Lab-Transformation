@@ -90,7 +90,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     <div class="candidate-badge" style="color:var(--c2c);border-color:var(--c2c)">FYP-2C</div>
     <div class="candidate-meta">
       <div class="phase-tag" style="color:var(--c2c)">PHASE 2 · INTERMEDIATE · SEMESTER 2</div>
-      <h2>Blue Team Defence Lab</h2>
+      <h2>Blue Team Defence Lab </h2> <br> <h3>Creating a Blue team training environment within an SOC lab <h2>
       <div class="course-tags">
         <span class="course-tag">Cybersecurity</span>
         <span class="course-tag">Computer Security</span>
@@ -99,26 +99,43 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     </div>
     <div class="candidate-name-block">
       CANDIDATE<br>
-      <strong contenteditable="true">[ Student Name ]</strong><br>
-      <span style="font-size:.65rem">Supervisor: [ Supervisor Name ]</span>
+      <strong contenteditable="true">[YEE SHUN QI 0135347 ]</strong><br>
+      <span style="font-size:.65rem">Supervisor: [Ts. Dr. Khoo Li Jing]</span>
     </div>
   </div>
 
   <div class="section-grid">
     <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-      <div class="editable" contenteditable="true">Students have no structured exposure to defensive security operations. There is no hardened VM baseline, no deployed security agent in the lab, and no incident response workflow for students to practise. Without a Blue Team framework, students cannot experience the defender's perspective in a realistic SOC training scenario.</div>
+      <div class="editable" contenteditable="true"> PROBLEM <br> 
+													- Students have limited practical exposure to defensive cybersecurity operations even though there are courses dedicated for it <br> 
+													- There is a lack of an SOC lab that supports blue team operations <br>
+													- They waste time manually configuring environment and troubleshoot compatibility issues before starting exercises within those classes <br>
+													<br>IMPACT <br>
+													-  reduces the time available for meaningful practice -> leading to suboptimal learning outcomes  <br>
+													- studies show that scenario-based labs improve skill acquisition <br>
+													<br>ROOT CAUSE <br>
+													- lack of an environment that teaches clear defensive workflow and toolchain practicaly <br>
+													<br>GAP <br>
+													- Such lab can fosters engagement, by allowing students to focus on the workflow rather than the setup, supporting deeper understanding of how detection, response, and case management are connected in a real defense environment <br>
+													<br>PROPOSED SOLUTION <br>
+													- a pre-configures Blue Team SOC lab environemnt with ready to use setup has integrated tools, and strctured defensive workflows <br>
+													<br>EXPECTED OUTCOME <br>
+													- enables student to have real-life, hands-on defensive activities <br>
+													- improve understanding of SOC workflow, engagement and learning effectiveness <br>
+												 </div>
     </div>
     <div class="info-block">
       <div class="block-label">RESEARCH QUESTIONS</div>
       <ol class="research-q-list">
-        <li contenteditable="true">What is the minimum hardening baseline (services disabled, firewall rules, audit logging) that makes a VM a credible Blue Team target without breaking its lab function?</li>
-        <li contenteditable="true">What percentage of Red Team attacks (from FYP-2B scenarios) can Blue Team students detect within a 1-hour lab session using only SIEM dashboards?</li>
-        <li contenteditable="true">How should an incident response playbook be structured to be usable by second-year students with limited IR experience?</li>
+        <li contenteditable="true">What are the standard architectures, tools, and configurations required to design and build a blue team defense lab within a SOC lab with minimal resources using open source tools such as Wazuh , ClamAV, and theHIVE?</li>
+        <li contenteditable="true">How are the workflow and operational procedure carried out in real-world SOC environments for blue team activities particularly in relation to detection, incident analysis, and response coordination?</li>
+        <li contenteditable="true">How effective is the developed lab in terms of workflow and system integration with the existing infrastructure?</li>
       </ol>
     </div>
   </div>
 
+  
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">SCOPE &amp; TASKS</div>
@@ -132,34 +149,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     </div>
   </div>
 
-  <div class="section-grid three">
-    <div class="info-block">
-      <div class="block-label">METHODOLOGY</div>
-      <div class="method-tags">
-        <span class="method-tag" style="color:var(--c2c);border-color:var(--c2c)">Empirical Measurement</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Exercise Design</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Playbook Development</span>
-      </div>
-    </div>
-    <div class="info-block">
-      <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
-      <div class="method-tags">
-        <span class="method-tag" style="color:var(--c2c);border-color:var(--c2c)">Wazuh / OSSEC</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Volatility</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Autopsy / Encase</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">iptables</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">auditd</span>
-      </div>
-    </div>
-    <div class="info-block">
-      <div class="block-label">COURSE ALIGNMENT</div>
-      <ul style="list-style:none;font-size:.8rem">
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Cybersecurity — Incident Response (Wk 2), Forensics (Wk 7)</li>
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Computer Security — IDS, Audit, Disaster Recovery</li>
-        <li style="padding:.25rem 0">System Security — Access Control, Malware, IPS (Wks 3,6,8)</li>
-      </ul>
-    </div>
-  </div>
+ 
 
   <div class="info-block">
     <div class="block-label">DELIVERABLES &amp; STATUS</div>
@@ -177,11 +167,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     <div class="editable" contenteditable="true">My hardened VM templates become the default target VMs that FYP-3A honeypots are modelled on. My IR playbook is a reference for FYP-3B's Suricata rule responses. My detection metrics (what % of FYP-2B attacks we catch) are the primary KPIs the entire lab's effectiveness is measured against.</div>
   </div>
 </div>
-<div class="edit-hint">
-  <span>✏ EDITABLE</span><br>
-  Click any grey text block or name field to edit directly in the browser.<br><br>
-  Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
-</div>
+
 <script>
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('status-badge')) {
