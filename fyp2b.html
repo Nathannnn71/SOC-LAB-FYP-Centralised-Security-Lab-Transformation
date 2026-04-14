@@ -37,7 +37,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .section-grid.full{grid-template-columns:1fr}
 .section-grid.three{grid-template-columns:1fr 1fr 1fr}
 .info-block{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.25rem;position:relative}
-.info-block .block-label{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.15em;color:#c18686;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.info-block .block-label{font-family:'Share Tech Mono',monospace;font-size:18px;letter-spacing:.15em;color:#ffffff;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
 .info-block .block-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .info-block .editable{font-size:.85rem;line-height:1.65;color:var(--text);min-height:60px;outline:none;border:1px dashed transparent;border-radius:3px;padding:.25rem;transition:border-color .2s}
 .info-block .editable:focus{border-color:var(--border)}
@@ -62,6 +62,18 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
 .edit-hint span{color:var(--c2a)}
 @media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
+.mockup-gallery {  display: grid;  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));  gap: 1rem;  margin-top: 1rem;}
+.mockup-card {  border: 1px solid var(--border);  border-radius: 8px;  overflow: hidden;  background: var(--bg);  transition: border-color 0.25s, transform 0.25s;  cursor: pointer;}
+.mockup-card:hover {  border-color: var(--c2b);  transform: translateY(-3px);}
+.mockup-img-wrap {  width: 100%;  aspect-ratio: 16 / 10;  overflow: hidden;  background: #0b0f16;}
+.mockup-img-wrap img { width: 100%;  height: 100%;  object-fit: contain;  display: block;  transition: transform 0.3s ease;}
+.mockup-card:hover .mockup-img-wrap img {  transform: scale(1.04);}
+.mockup-caption {  font-family: 'Share Tech Mono', monospace;  font-size: 0.7rem;  letter-spacing: 0.07em;  color: var(--muted);  padding: 0.55rem 0.85rem;  border-top: 1px solid var(--border);  text-align: center;}
+.lightbox {  display: none;  position: fixed;  inset: 0;  background: rgba(0, 0, 0, 0.92);  z-index: 10000;  align-items: center;  justify-content: center;  backdrop-filter: blur(6px);}
+.lightbox.open {  display: flex;}
+.lightbox img {  max-width: 92vw;  max-height: 88vh;  border-radius: 8px;  border: 1px solid var(--border);  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);}
+.lightbox-close {  position: absolute;  top: 1.25rem;  right: 1.5rem;  font-family: 'Share Tech Mono', monospace;  font-size: 0.9rem;  color: var(--muted);  cursor: pointer;  background: var(--panel);  border: 1px solid var(--border);  padding: 0.3rem 0.7rem;  border-radius: 4px;  transition: 0.2s;}
+.lightbox-close:hover {  color: var(--bright);  border-color: var(--c2b);}
 
 /* Research Design Table Styles */
 .research-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.75rem}
@@ -78,6 +90,13 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .ps-table tr:hover{background:rgba(255,215,64,.03)}
 .ps-table .rq-num{font-family:'Share Tech Mono',monospace;color:#d9ff88;font-weight:600;text-align:center}
 .ps-table .method-cell{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:rgb(255, 255, 255)}
+
+/* OUTER BOX (like Research Design) */
+.problem-grid {  display: grid;  grid-template-columns: 1fr;  gap: 1rem;  margin-top: .75rem;}
+.problem-card {  background: var(--bg);  border: 1px solid var(--border);  border-left: 4px solid var(--c2b);  border-radius: 6px;  padding: 1rem;  transition: all 0.25s ease;}
+.problem-card:hover {  border-color: var(--c2b);  box-shadow: 0 0 10px rgba(255, 82, 82, 0.15);  transform: translateY(-2px);}
+.problem-title {  font-family: 'Share Tech Mono', monospace;  font-size: .75rem;  letter-spacing: .08em;  color: var(--c2b);  margin-bottom: .5rem;}
+.problem-text {  font-size: .85rem;  line-height: 1.6;  color: var(--text);  text-align: justify;}
 
 </style>
 </head>
@@ -124,8 +143,34 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-      <div style="text-align: justify;" class="editable" contenteditable="true">Despite the growing demand for cybersecurity professionals, universities struggle to provide scalable hands-on training environments. Traditional lab-based approaches rely heavily on manual setup and instructor involvement, making it difficult to deliver consistent and practical Red Team experience to large numbers of students. This limits the ability of universities to train large cohorts of students effectively. Besides, current lab-based environments require a significant amount of manual set-up and teacher intervention, leading to scalability problems and inconsistency of student learning. Even if there are such lab environment, it may be missing the ability to automate attack scenario execution through an integrated solution. Commercial solutions are typically very expensive and are not geared toward education, creating the need for a low cost platform capable of automating attack orchestration and execution. Thus, there is a need for an platform capable of reducing startup time, improving scalability and providing consistent, repeatable, hands-on cybersecurity practical activities that aligns with industry frameworks, such as the MITRE ATT&CK framework.</div>
-    </div>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-title">01 · Lack of Scalable Hands-On Training</div>
+          <div class="problem-text">
+            Universities struggle to provide scalable hands-on cybersecurity training. 
+            Traditional lab environments rely heavily on manual setup and instructor involvement, 
+            making it difficult to deliver consistent Red Team experience to large numbers of students.
+          </div>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-title">02 · Lack of Automated & Integrated Platforms</div>
+          <div class="problem-text">
+            Existing cyber ranges lack automated adversary emulation. Commercial solutions are costly 
+            and not designed for education, creating a gap for a cost-effective platform that supports 
+            automated attack orchestration and MITRE ATT&CK alignment.
+          </div>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-title">03 · Manual Environment Setup Overhead</div>
+          <div class="problem-text">
+            Students and lecturers spend significant time configuring environments, installing tools, 
+            and troubleshooting issues, reducing time available for actual hands-on learning.
+          </div>
+        </div>
+      </div>
   </div>
 <div class="section-grid full">
     <div class="info-block">
@@ -271,15 +316,64 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
   </div>
 
     <div class="section-grid full">
-    <div class="info-block" style="padding:0; margin-top:1.25rem;border-left:3px solid var(--c2b)">
-      <div class="block-label" style="padding:1.25rem 1.25rem 0 1.25rem">CONCEPTUAL DIAGRAM</div>
-      <div class="diagram-container">
-        <img src="assets/fyp2b_conceptual_diagram.png" alt="Conceptual Architecture Diagram" style="max-width: 1000px; width: 100%; height: auto;">
+      <div class="info-block" style="padding:0; margin-top:1.25rem;border-left:3px solid var(--c2b)">
+        <div class="block-label" style="padding:1.25rem 1.25rem 0 1.25rem">CONCEPTUAL DIAGRAM</div>
+        <div class="diagram-container">
+          <img src="C:\Users\hp\Downloads\fyp2b_conceptual_diagram.png" alt="Conceptual Architecture Diagram" style="max-width: 1000px; width: 100%; height: auto;">
+        </div>
       </div>
+  </div>
+ <div class="section-grid full">
+  <div class="info-block" style="border-left: 3px solid var(--c2b);">
+    <div class="block-label">MOCKUP</div>
+    <div class="mockup-gallery">
+      <div class="mockup-card">
+        <div class="mockup-img-wrap">
+          <img src="assets/help_command.jpeg" alt="Help command interface">
+        </div>
+        <div class="mockup-caption">Type help to view available command</div>
+      </div>
+      
+      <div class="mockup-card">
+        <div class="mockup-img-wrap">
+          <img src="assets/Scenario_library.jpeg" alt="Attack scenario library">
+        </div>
+        <div class="mockup-caption">Attack scenario library</div>
+      </div>
+      
+      <div class="mockup-card">
+        <div class="mockup-img-wrap">
+          <img src="assets/execute_attack_scenario.jpeg" alt="Execute attack scenario">
+        </div>
+        <div class="mockup-caption">Execute attack scenario</div>
+      </div>
+      
+      <div class="mockup-card">
+        <div class="mockup-img-wrap">
+          <img src="assets/Parsed_results.jpeg" alt="Parsed results">
+        </div>
+        <div class="mockup-caption">Parsed results</div>
+      </div>
+      
+      <div class="mockup-card">
+        <div class="mockup-img-wrap">
+          <img src="assets/Scenario_Result_Report.jpeg" alt="Scenario result report">
+        </div>
+        <div class="mockup-caption">Scenario result report</div>
+      </div>
+      
+    </div>
+    <div style="font-family:'Share Tech Mono',monospace; font-size:0.65rem; color:var(--muted); margin-top:0.75rem; text-align:center; letter-spacing:0.08em">
+      ⚡ Click image to enlarge
     </div>
   </div>
+</div>
 <div class="edit-hint">
   Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
+</div>
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lbClose">✕ CLOSE</span>
+  <img id="lbImg" src="" alt="Enlarged view">
 </div>
 <script>
 document.addEventListener('click', function(e) {
@@ -295,6 +389,29 @@ document.addEventListener('click', function(e) {
       }
     }
   }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const closeBtn = document.getElementById('lbClose');
+  const galleryImages = document.querySelectorAll('.mockup-img-wrap img');
+  galleryImages.forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+  const closeLightbox = () => lightbox.classList.remove('open');
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
 });
 </script>
 </body>
