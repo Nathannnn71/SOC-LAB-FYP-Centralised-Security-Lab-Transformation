@@ -76,8 +76,12 @@
 <div class="arch-section">
   <div class="section-label">ARCHITECTURE DIAGRAM</div>
   <div style="display:flex;justify-content:center;align-items:center;padding:.5rem 0 1rem">
-    <img src="assets/architecture_diagram.jpeg" alt="Architecture Diagram" style="max-width:100%;height:auto;border-radius:6px;border:1px solid var(--border)">
+    <img src="assets/architecture_diagram.png" alt="Architecture Diagram" style="max-width:100%;height:auto;border-radius:6px;border:1px solid var(--border)">
   </div>
+  <p style="font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);text-align:center;margin-top:.5rem;">
+    ⚠ Diagram reflects initial design proposal. Current implementation uses OPNsense + Wazuh. 
+    Palo Alto XDR under evaluation — diagram will be updated when decision is finalised.
+  </p>
 </div>
 
 <div class="arch-section">
@@ -91,7 +95,7 @@
         <li>Proxmox Hypervisor</li>
         <li>VM Golden Image Store</li>
         <li>Ansible Control Node</li>
-        <li>SIEM / XDR Hub</li>
+        <li>Wazuh XDR Hub (interim SIEM)</li>
         <li>Encase Licence Server</li>
       </ul>
       <div style="margin-top:.75rem;font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--c1a);border:1px solid var(--c1a);padding:.3rem .5rem;border-radius:3px;text-align:center;">FYP-1A · 1C · 2A</div>
@@ -113,7 +117,7 @@
 
     <div class="arch-node" style="grid-column:3;grid-row:1;border-color:var(--c3b)">
       <div class="arch-node-tag c3b">PERIMETER</div>
-      <h4>OPNsense / Lab-D Firewall</h4>
+      <h4>OPNsense Firewall</h4>
       <ul>
         <li>Internet egress control</li>
         <li>Suricata IDS/IPS inline</li>
@@ -129,7 +133,7 @@
       <ul>
         <li>Each Acer = 1 IP on VLAN 40</li>
         <li>Hosts vulnerable VMs (Web, DB, AD, DVWA)</li>
-        <li>Palo Alto / Wazuh agents installed</li>
+        <li>Wazuh agents installed (log → Dell)</li>
         <li>Images pushed from Dell on demand</li>
       </ul>
       <div style="margin-top:.75rem;font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--c1a);border:1px solid var(--c1a);padding:.3rem .5rem;border-radius:3px;text-align:center;">FYP-1A images · 1C deploys · 2C defends</div>
