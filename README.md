@@ -31,7 +31,7 @@ Browse the live project site: https://nathannnn71.github.io/SOC-LAB-FYP-Centrali
 - **Hypervisor:** Proxmox VE (Dell R440 + 20× Acer nodes)
 - **Firewall / Routing:** OPNsense (pfSense migration in progress)
 - **Monitoring / XDR:** Wazuh (interim); Palo Alto XDR under evaluation
-- **Automation:** Ansible + Python (Flask dashboard)
+- **Automation:** Terraform + Ansible + GitHub CI/CD + Python (Flask dashboard)
 - **Attack Platform:** Kali Linux via VirtualBox on Lenovo stations
 - **DFIR:** Encase (licensed via Dell server)
 
