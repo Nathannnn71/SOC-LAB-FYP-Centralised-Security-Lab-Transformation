@@ -3,6 +3,9 @@
 A multi-phase Final Year Project initiative to transform a physical university computer lab into a centralised, 
 virtualised Security Operations Centre (SOC) training environment.
 
+## Navigation
+Browse the live project site: https://nathannnn71.github.io/SOC-LAB-FYP-Centralised-Security-Lab-Transformation/index.html 
+
 ## Lab Hardware
 | Node | Spec | Role |
 |------|------|------|
@@ -36,5 +39,3 @@ virtualised Security Operations Centre (SOC) training environment.
 > **FYP-1A must be completed before any Phase 2 or Phase 3 work begins.**  
 > All VM images originate from FYP-1A's golden image repository on the Dell R440.
 
-## Navigation
-Browse the live project site: https://nathannnn71.github.io/SOC-LAB-FYP-Centralised-Security-Lab-Transformation/index.html 
