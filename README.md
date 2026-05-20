@@ -37,4 +37,4 @@ virtualised Security Operations Centre (SOC) training environment.
 > All VM images originate from FYP-1A's golden image repository on the Dell R440.
 
 ## Navigation
-Browse the live project site: [`index.html`](index.html) → [`architecture.html`](architecture.html) → [`phases.html`](phases.html)
+Browse the live project site: https://nathannnn71.github.io/SOC-LAB-FYP-Centralised-Security-Lab-Transformation/index.html 
