@@ -58,6 +58,34 @@
   .dot.c1a{background:var(--c1a)}.dot.c1b{background:var(--c1b)}.dot.c1c{background:var(--c1c)}
   .dot.c2a{background:var(--c2a)}.dot.c2b{background:var(--c2b)}.dot.c2c{background:var(--c2c)}
   .dot.c3a{background:var(--c3a)}.dot.c3b{background:var(--c3b)}.dot.c3c{background:var(--c3c)}
+  .fyp-card.deferred {
+    opacity: 0.45;
+    filter: grayscale(60%);
+    pointer-events: auto;
+    position: relative;
+  }
+  .fyp-card.deferred::after {
+    content: '⏸ PENDING STUDENT INTAKE';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: .3rem .6rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    z-index: 2;
+  }
+  .fyp-card.deferred h4,
+  .fyp-card.deferred p,
+  .fyp-card.deferred .team-badge {
+    opacity: 0.5;
+  }
   @media(max-width:768px){.phase-row{grid-template-columns:1fr}.phase-label{border-right:none;border-bottom:1px solid var(--border);padding-bottom:.5rem}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
 </style>
 </head>
@@ -148,13 +176,13 @@
       <p>T-Pot or Cowrie/Dionaea in isolated VLAN; attacker profiling; SIEM integration; semester threat report.</p>
       <div class="team-badge"><span class="dot c3a"></span>2–3 students · Cybersecurity / System Security</div>
     </a>
-    <a class="fyp-card c3b" href="fyp3b.html">
+    <a class="fyp-card c3b deferred" href="fyp3b.html">
       <div class="fyp-id">FYP-3B</div>
       <h4>IDS/IPS Integration &amp; Tuning</h4>
       <p>Suricata inline in OPNsense; custom rules for lab attack signatures; SIEM forwarding; false-positive tuning.</p>
       <div class="team-badge"><span class="dot c3b"></span>2–3 students · Network Security / System Security</div>
     </a>
-    <a class="fyp-card c3c" href="fyp3c.html">
+    <a class="fyp-card c3c deferred" href="fyp3c.html">
       <div class="fyp-id">FYP-3C</div>
       <h4>Lab Orchestration Portal (Advanced)</h4>
       <p>Full-stack web portal: student self-service booking, browser VM console, lecturer 1-click deploy, admin fleet view.</p>
