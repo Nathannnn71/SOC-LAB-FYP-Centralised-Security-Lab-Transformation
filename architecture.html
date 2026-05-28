@@ -261,7 +261,7 @@
         marker-end="url(#a-rd)"/>
 
       <!-- 4. Lenovo logs → Dell via monitoring VLAN (green dashed, bottom arc) -->
-      <path d="M 1000 540 C 800 630, 300 630, 60 540"
+      <path d="M 900 555 C 780 660, 300 660, 60 540"
         fill="none" stroke="#69f0ae" stroke-width="1"
         stroke-dasharray="3,4" marker-end="url(#a-gn)" opacity="0.45"/>
 
@@ -272,7 +272,7 @@
       <text x="510" y="207" text-anchor="start" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#69f0ae" opacity="0.6">Wazuh logs (V60 Monitor)</text>
 
       <!-- ═══════════════ DELL R440 ═══════════════ -->
-      <rect x="10" y="322" width="244" height="210" rx="5" fill="#141c2e" stroke="#00e5ff" stroke-width="1.5"/>
+      <rect x="10" y="322" width="244" height="230" rx="5" fill="#141c2e" stroke="#00e5ff" stroke-width="1.5"/>
       <rect x="10" y="322" width="244" height="4" rx="4" fill="#00e5ff"/>
       <!-- glow on top bar -->
       <rect x="10" y="322" width="244" height="4" rx="4" fill="#00e5ff" filter="url(#gw-c)" opacity="0.4"/>
@@ -295,12 +295,12 @@
       <rect x="19" y="473" width="78" height="16" rx="2" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.22)" stroke-width="1"/>
       <text x="58" y="485" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#00e5ff">FYP-1A · 1C · 2A</text>
       <!-- Wazuh note chip -->
-      <rect x="19" y="496" width="234" height="26" rx="3" fill="rgba(105,240,174,.05)" stroke="rgba(105,240,174,.2)" stroke-width="1"/>
-      <text x="136" y="508" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#69f0ae">Wazuh XDR (interim)  ·  pending Palo Alto eval</text>
-      <text x="136" y="518" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#4a6080">upgrade path preserved in config</text>
+      <rect x="19" y="496" width="234" height="36" rx="3" fill="rgba(105,240,174,.05)" stroke="rgba(105,240,174,.2)" stroke-width="1"/>
+      <text x="136" y="510" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#69f0ae">Wazuh XDR (interim)  ·  pending Palo Alto eval</text>
+      <text x="136" y="524" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#4a6080">upgrade path preserved in config</text>
 
       <!-- ═══════════════ 10x ACER PREDATOR ═══════════════ -->
-      <rect x="360" y="322" width="240" height="210" rx="5" fill="#141c2e" stroke="#b388ff" stroke-width="1.5"/>
+      <rect x="360" y="322" width="240" height="290" rx="5" fill="#141c2e" stroke="#b388ff" stroke-width="1.5"/>
       <rect x="360" y="322" width="240" height="4" rx="4" fill="#b388ff"/>
       <rect x="360" y="322" width="240" height="4" rx="4" fill="#b388ff" filter="url(#gw-p)" opacity="0.35"/>
       <!-- badge -->
@@ -315,21 +315,27 @@
         <text x="373" y="422"><tspan fill="#69f0ae">›</tspan>  Wazuh Agent (logs → Dell)</text>
         <text x="373" y="440"><tspan fill="#00e5ff">›</tspan>  Images pushed from Dell</text>
       </g>
-      <!-- VM types mini-box -->
-      <rect x="369" y="452" width="213" height="38" rx="3" fill="rgba(10,14,23,.8)" stroke="#1e2d4a" stroke-width="1"/>
+      <!-- VM types mini-box (taller for all text) -->
+      <rect x="369" y="452" width="213" height="130" rx="3" fill="rgba(10,14,23,.8)" stroke="#1e2d4a" stroke-width="1"/>
       <text x="375" y="465" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#4a6080" letter-spacing="1">VM IMAGES</text>
-      <text x="375" y="481" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">Web  ·  Database  ·  Active Directory  ·  DVWA</text>
+      <text x="375" y="480" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">Ubuntu Server 22.04</text>
+      <text x="375" y="495" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">Windows Server 2022 with Active Directory</text>
+      <text x="375" y="510" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">DVWA</text>
+      <text x="375" y="525" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">Kali Linux</text>
+      <text x="375" y="540" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">OPNsense router VM</text>
+      <text x="375" y="555" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">Docker host</text>
+      <text x="375" y="570" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">Windows 10 workstation</text>
       <!-- divider -->
-      <line x1="369" y1="498" x2="581" y2="498" stroke="#1e2d4a" stroke-width="1"/>
+      <line x1="369" y1="588" x2="581" y2="588" stroke="#1e2d4a" stroke-width="1"/>
       <!-- FYP badge -->
-      <rect x="369" y="505" width="90" height="16" rx="2" fill="rgba(179,136,255,.07)" stroke="rgba(179,136,255,.22)" stroke-width="1"/>
-      <text x="414" y="517" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#b388ff">FYP-1A · 2C · 3A</text>
+      <rect x="369" y="592" width="90" height="16" rx="2" fill="rgba(179,136,255,.07)" stroke="rgba(179,136,255,.22)" stroke-width="1"/>
+      <text x="414" y="604" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#b388ff">FYP-1A · 2C · 3A</text>
       <!-- target badge -->
-      <rect x="468" y="505" width="54" height="16" rx="2" fill="rgba(255,82,82,.08)" stroke="rgba(255,82,82,.22)" stroke-width="1"/>
-      <text x="495" y="517" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#ff5252">TARGET</text>
+      <rect x="468" y="592" width="54" height="16" rx="2" fill="rgba(255,82,82,.08)" stroke="rgba(255,82,82,.22)" stroke-width="1"/>
+      <text x="495" y="604" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#ff5252">TARGET</text>
 
       <!-- ═══════════════ 30x LENOVO DESKTOP ═══════════════ -->
-      <rect x="730" y="322" width="268" height="210" rx="5" fill="#141c2e" stroke="#ff5252" stroke-width="1.5"/>
+      <rect x="730" y="322" width="268" height="230" rx="5" fill="#141c2e" stroke="#ff5252" stroke-width="1.5"/>
       <rect x="730" y="322" width="268" height="4" rx="4" fill="#ff5252"/>
       <rect x="730" y="322" width="268" height="4" rx="4" fill="#ff5252" filter="url(#gw-p)" opacity="0.3"/>
       <!-- badge -->
@@ -357,7 +363,7 @@
       <rect x="739" y="496" width="86" height="16" rx="2" fill="rgba(255,82,82,.07)" stroke="rgba(255,82,82,.22)" stroke-width="1"/>
       <text x="782" y="508" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#ff5252">FYP-2B · 2C · 3A</text>
       <!-- note -->
-      <text x="834" y="507" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#4a6080">role set per class config</text>
+      <text x="834" y="520" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#4a6080">role set per class config</text>
 
       <!-- ═══════════════ OUTER LABEL: page title ═══════════════ -->
       <text x="480" y="14" text-anchor="middle"
