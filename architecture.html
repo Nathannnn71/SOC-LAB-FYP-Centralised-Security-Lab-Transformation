@@ -50,6 +50,60 @@
   .dep-cell.dep{background:rgba(105,240,174,.15);color:var(--c2a)}
   .dep-cell.feeds{background:rgba(0,229,255,.1);color:var(--c1a)}
   .dep-cell.empty{background:var(--bg)}
+
+  /* ── Diagram wrapper ── */
+  .wrap { width: 100%; max-width: 980px; margin: 0 auto; }
+
+  .diag-header {
+    display: flex; align-items: center; gap: .75rem;
+    margin-bottom: .75rem;
+  }
+  .diag-header .badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .65rem; letter-spacing: .15em;
+    color: var(--c2a); border: 1px solid var(--c2a);
+    padding: .2rem .55rem; border-radius: 3px;
+  }
+  .diag-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    letter-spacing: .06em; color: var(--bright); flex: 1;
+  }
+  .diag-header .rev {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .6rem; color: var(--muted);
+  }
+
+  .svg-wrap {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  svg { width: 100%; height: auto; display: block; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 1rem 1.75rem;
+    margin-top: .85rem; padding-left: .25rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .62rem; letter-spacing: .07em; color: var(--muted);
+  }
+  .li { display: flex; align-items: center; gap: .45rem; }
+  .ll { width: 26px; height: 2px; border-radius: 1px; flex-shrink: 0; }
+  .ll.dash { background: none; border-top: 2px dashed; }
+
+  .status {
+    margin-top: .85rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .63rem; letter-spacing: .09em;
+    color: var(--c3a);
+    border: 1px solid rgba(255,215,64,.22);
+    border-radius: 4px;
+    padding: .55rem .85rem;
+    background: rgba(255,215,64,.04);
+    line-height: 1.6;
+  }
+  .status strong { color: #ffe082; }   
   @media(max-width:768px){.arch-grid{grid-template-columns:1fr}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
 </style>
 </head>
@@ -74,9 +128,282 @@
 </header>
 
 <div class="arch-section">
-  <div class="section-label">ARCHITECTURE DIAGRAM</div>
-  <div style="display:flex;justify-content:center;align-items:center;padding:.5rem 0 1rem">
-    <img src="assets/architecture_diagram.png" alt="Architecture Diagram" style="max-width:100%;height:auto;border-radius:6px;border:1px solid var(--border)">
+  <div class="section-label">ARCHITECTURE DIAGRAM</div> 
+  <div class="wrap">
+
+    <div class="diag-header">
+      <span class="badge">ARCHITECTURE</span>
+      <h2>SOC Lab — Physical Infrastructure &amp; Data Flow</h2>
+      <span class="rev">Rev 2 · OPNsense/Wazuh interim stack</span>
+    </div>
+
+    <div class="svg-wrap">
+    <svg viewBox="0 0 960 555" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Arrow markers -->
+        <marker id="a-cy" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#00e5ff"/></marker>
+        <marker id="a-gn" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#69f0ae"/></marker>
+        <marker id="a-rd" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#ff5252"/></marker>
+        <marker id="a-mt" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#4a6080"/></marker>
+        <marker id="a-mt2" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"><polygon points="7 0,0 2.5,7 5" fill="#4a6080"/></marker>
+        <marker id="a-yw" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#ffd740"/></marker>
+        <!-- Glow filters -->
+        <filter id="gw-c" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="gw-p" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <!-- Grid pattern -->
+        <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+          <path d="M28 0L0 0 0 28" fill="none" stroke="#1e2d4a" stroke-width="0.35" opacity="0.5"/>
+        </pattern>
+      </defs>
+
+      <!-- Background -->
+      <rect width="960" height="555" fill="#0a0e17"/>
+      <rect width="960" height="555" fill="url(#grid)"/>
+
+      <!-- ═══════════════ INTERNET CLOUD ═══════════════ -->
+      <g transform="translate(396,12)">
+        <!-- cloud blobs -->
+        <ellipse cx="84" cy="44" rx="58" ry="30" fill="#0c1220" stroke="#243654" stroke-width="1.2"/>
+        <ellipse cx="48" cy="56" rx="32" ry="20" fill="#0c1220" stroke="#243654" stroke-width="1.2"/>
+        <ellipse cx="120" cy="56" rx="30" ry="20" fill="#0c1220" stroke="#243654" stroke-width="1.2"/>
+        <ellipse cx="84" cy="62" rx="50" ry="17" fill="#0c1220" stroke="#243654" stroke-width="1.2"/>
+        <!-- fill seams -->
+        <ellipse cx="84" cy="44" rx="56" ry="28" fill="#0c1220"/>
+        <ellipse cx="48" cy="56" rx="30" ry="18" fill="#0c1220"/>
+        <ellipse cx="120" cy="56" rx="28" ry="18" fill="#0c1220"/>
+        <rect x="18" y="44" width="132" height="26" fill="#0c1220"/>
+        <!-- glowing dot -->
+        <circle cx="84" cy="28" r="3" fill="#448aff" opacity="0.6" filter="url(#gw-p)"/>
+        <!-- labels -->
+        <text x="84" y="47" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="14" fill="#c8d8f0">INTERNET</text>
+        <text x="84" y="62" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#4a6080">PUBLIC NETWORK</text>
+      </g>
+
+      <!-- Internet ↔ Firewall lines -->
+      <line x1="480" y1="90" x2="480" y2="112" stroke="#4a6080" stroke-width="1.5" marker-end="url(#a-mt)"/>
+      <line x1="472" y1="112" x2="472" y2="92" stroke="#4a6080" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#a-mt2)" opacity="0.5"/>
+
+      <!-- ═══════════════ LAB D OPNSENSE FIREWALL ═══════════════ -->
+      <rect x="330" y="112" width="300" height="76" rx="5" fill="#141c2e" stroke="#f06292" stroke-width="1.5"/>
+      <rect x="330" y="112" width="300" height="4" rx="4" fill="#f06292" opacity="0.9"/>
+      <!-- inner accent line -->
+      <rect x="330" y="116" width="300" height="1" fill="#f06292" opacity="0.15"/>
+      <!-- badges -->
+      <rect x="339" y="122" width="64" height="16" rx="2" fill="rgba(240,98,146,.1)" stroke="rgba(240,98,146,.35)" stroke-width="1"/>
+      <text x="371" y="134" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#f06292">PERIMETER</text>
+      <rect x="557" y="122" width="64" height="16" rx="2" fill="rgba(240,98,146,.1)" stroke="rgba(240,98,146,.35)" stroke-width="1"/>
+      <text x="589" y="134" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#f06292">FYP-1B · 3B</text>
+      <!-- title -->
+      <text x="480" y="152" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="17" fill="#e8f4ff">Lab D — OPNsense Firewall</text>
+      <text x="480" y="168" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#4a6080">Internet ingress/egress control  ·  Suricata IDS/IPS  ·  Inter-VLAN routing  ·  VPN gateway</text>
+
+      <!-- Firewall → Switch line -->
+      <line x1="480" y1="188" x2="480" y2="212" stroke="#4a6080" stroke-width="1.5" marker-end="url(#a-mt)"/>
+
+      <!-- ═══════════════ INTERNAL SWITCH ═══════════════ -->
+      <rect x="248" y="212" width="464" height="64" rx="4" fill="#141c2e" stroke="#1e2d4a" stroke-width="1.5"/>
+      <rect x="248" y="212" width="464" height="3" rx="3" fill="#4a6080" opacity="0.5"/>
+      <text x="390" y="230" font-family="'Share Tech Mono',monospace" font-size="8" fill="#4a6080" letter-spacing="3">INTERNAL SWITCH</text>
+
+      <!-- VLAN pills row -->
+      <g font-family="'Share Tech Mono',monospace" font-size="8.5">
+        <rect x="256" y="236" width="54" height="15" rx="2" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.28)" stroke-width="1"/>
+        <text x="283" y="248" text-anchor="middle" fill="#00e5ff">V10 Mgmt</text>
+
+        <rect x="317" y="236" width="62" height="15" rx="2" fill="rgba(179,136,255,.07)" stroke="rgba(179,136,255,.28)" stroke-width="1"/>
+        <text x="348" y="248" text-anchor="middle" fill="#b388ff">V20 Students</text>
+
+        <rect x="386" y="236" width="60" height="15" rx="2" fill="rgba(255,82,82,.07)" stroke="rgba(255,82,82,.28)" stroke-width="1"/>
+        <text x="416" y="248" text-anchor="middle" fill="#ff5252">V30 Red Team</text>
+
+        <rect x="453" y="236" width="64" height="15" rx="2" fill="rgba(68,138,255,.07)" stroke="rgba(68,138,255,.28)" stroke-width="1"/>
+        <text x="485" y="248" text-anchor="middle" fill="#448aff">V40 Blue Team</text>
+
+        <rect x="524" y="236" width="58" height="15" rx="2" fill="rgba(255,215,64,.07)" stroke="rgba(255,215,64,.28)" stroke-width="1"/>
+        <text x="553" y="248" text-anchor="middle" fill="#ffd740">V50 Isolated</text>
+
+        <rect x="589" y="236" width="64" height="15" rx="2" fill="rgba(105,240,174,.07)" stroke="rgba(105,240,174,.28)" stroke-width="1"/>
+        <text x="621" y="248" text-anchor="middle" fill="#69f0ae">V60 Monitor</text>
+
+        <rect x="660" y="236" width="44" height="15" rx="2" fill="rgba(255,167,38,.07)" stroke="rgba(255,167,38,.28)" stroke-width="1"/>
+        <text x="682" y="248" text-anchor="middle" fill="#ffa726">VPN GW</text>
+      </g>
+
+      <!-- ═══════════════ SWITCH → NODE TRUNK LINES ═══════════════ -->
+      <!-- To Dell -->
+      <line x1="312" y1="276" x2="175" y2="322" stroke="#1e2d4a" stroke-width="2.5"/>
+      <!-- To Acer -->
+      <line x1="450" y1="276" x2="450" y2="322" stroke="#1e2d4a" stroke-width="2.5"/>
+      <!-- To Lenovo -->
+      <line x1="636" y1="276" x2="770" y2="322" stroke="#1e2d4a" stroke-width="2.5"/>
+
+      <!-- ═══════════════ DATA FLOW ARROWS ═══════════════ -->
+
+      <!-- 1. Dell pushes VM images → Acer (cyan dashed) -->
+      <path d="M 270 395 C 310 378, 360 378, 370 395"
+            fill="none" stroke="#00e5ff" stroke-width="1.6"
+            stroke-dasharray="7,3" marker-end="url(#a-cy)"/>
+
+      <!-- 2. Acer Wazuh logs → Dell (green dashed) -->
+      <path d="M 370 415 C 350 432, 290 432, 270 415"
+            fill="none" stroke="#69f0ae" stroke-width="1.4"
+            stroke-dasharray="4,3" marker-end="url(#a-gn)"/>
+
+      <!-- 3. Lenovo attacks Acer (red solid) -->
+      <path d="M 680 400 C 650 388, 610 388, 570 400"
+            fill="none" stroke="#ff5252" stroke-width="2"
+            marker-end="url(#a-rd)"/>
+
+      <!-- 4. Lenovo logs → Dell via monitoring VLAN (green dashed, overhead arc) -->
+      <path d="M 750 322 C 680 210, 340 210, 250 345"
+            fill="none" stroke="#69f0ae" stroke-width="1"
+            stroke-dasharray="3,4" marker-end="url(#a-gn)" opacity="0.45"/>
+
+      <!-- Flow labels -->
+      <text x="318" y="374" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#00e5ff">push images</text>
+      <text x="318" y="442" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#69f0ae">Wazuh logs</text>
+      <text x="624" y="378" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#ff5252">attack / interact</text>
+      <text x="490" y="207" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#69f0ae" opacity="0.6">Wazuh logs (V60 Monitor)</text>
+
+      <!-- ═══════════════ DELL R440 ═══════════════ -->
+      <rect x="42" y="322" width="244" height="210" rx="5" fill="#141c2e" stroke="#00e5ff" stroke-width="1.5"/>
+      <rect x="42" y="322" width="244" height="4" rx="4" fill="#00e5ff"/>
+      <!-- glow on top bar -->
+      <rect x="42" y="322" width="244" height="4" rx="4" fill="#00e5ff" filter="url(#gw-c)" opacity="0.4"/>
+      <!-- badge -->
+      <rect x="51" y="332" width="74" height="16" rx="2" fill="rgba(0,229,255,.1)" stroke="rgba(0,229,255,.35)" stroke-width="1"/>
+      <text x="88" y="344" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#00e5ff">MASTER NODE</text>
+      <!-- title -->
+      <text x="164" y="368" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="17" fill="#e8f4ff">Dell R440</text>
+      <text x="164" y="384" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#4a6080">64 GB RAM  ·  3 TB HDD  ·  Proxmox VE</text>
+      <!-- specs -->
+      <g font-family="'Barlow',sans-serif" font-size="11.5" fill="#c8d8f0">
+        <text x="55" y="404"><tspan fill="#00e5ff">›</tspan>  VM Golden Image Repository</text>
+        <text x="55" y="422"><tspan fill="#00e5ff">›</tspan>  Ansible Control Node</text>
+        <text x="55" y="440"><tspan fill="#69f0ae">›</tspan>  Wazuh XDR — SIEM Hub</text>
+        <text x="55" y="458"><tspan fill="#ffa726">›</tspan>  Encase Licence Server</text>
+      </g>
+      <!-- divider -->
+      <line x1="51" y1="466" x2="277" y2="466" stroke="#1e2d4a" stroke-width="1"/>
+      <!-- FYP badges row -->
+      <rect x="51" y="473" width="78" height="16" rx="2" fill="rgba(0,229,255,.07)" stroke="rgba(0,229,255,.22)" stroke-width="1"/>
+      <text x="90" y="485" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#00e5ff">FYP-1A · 1C · 2A</text>
+      <!-- Wazuh note chip -->
+      <rect x="51" y="496" width="234" height="26" rx="3" fill="rgba(105,240,174,.05)" stroke="rgba(105,240,174,.2)" stroke-width="1"/>
+      <text x="168" y="508" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#69f0ae">Wazuh XDR (interim)  ·  pending Palo Alto eval</text>
+      <text x="168" y="518" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#4a6080">upgrade path preserved in config</text>
+
+      <!-- ═══════════════ 10x ACER PREDATOR ═══════════════ -->
+      <rect x="330" y="322" width="240" height="210" rx="5" fill="#141c2e" stroke="#b388ff" stroke-width="1.5"/>
+      <rect x="330" y="322" width="240" height="4" rx="4" fill="#b388ff"/>
+      <rect x="330" y="322" width="240" height="4" rx="4" fill="#b388ff" filter="url(#gw-p)" opacity="0.35"/>
+      <!-- badge -->
+      <rect x="339" y="332" width="102" height="16" rx="2" fill="rgba(179,136,255,.1)" stroke="rgba(179,136,255,.35)" stroke-width="1"/>
+      <text x="390" y="344" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#b388ff">EDGE HYPERVISORS</text>
+      <!-- title -->
+      <text x="450" y="368" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="17" fill="#e8f4ff">10× Acer Predator</text>
+      <text x="450" y="384" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#4a6080">Proxmox VE  ·  1 IP per node  ·  VLAN 40</text>
+      <!-- specs -->
+      <g font-family="'Barlow',sans-serif" font-size="11.5" fill="#c8d8f0">
+        <text x="343" y="404"><tspan fill="#b388ff">›</tspan>  Host Vulnerable VMs</text>
+        <text x="343" y="422"><tspan fill="#69f0ae">›</tspan>  Wazuh Agent (logs → Dell)</text>
+        <text x="343" y="440"><tspan fill="#00e5ff">›</tspan>  Images pushed from Dell</text>
+      </g>
+      <!-- VM types mini-box -->
+      <rect x="339" y="452" width="213" height="38" rx="3" fill="rgba(10,14,23,.8)" stroke="#1e2d4a" stroke-width="1"/>
+      <text x="345" y="465" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#4a6080" letter-spacing="1">VM IMAGES</text>
+      <text x="345" y="481" font-family="'Share Tech Mono',monospace" font-size="9" fill="#b388ff">Web  ·  Database  ·  Active Directory  ·  DVWA</text>
+      <!-- divider -->
+      <line x1="339" y1="498" x2="561" y2="498" stroke="#1e2d4a" stroke-width="1"/>
+      <!-- FYP badge -->
+      <rect x="339" y="505" width="90" height="16" rx="2" fill="rgba(179,136,255,.07)" stroke="rgba(179,136,255,.22)" stroke-width="1"/>
+      <text x="384" y="517" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#b388ff">FYP-1A · 2C · 3A</text>
+      <!-- target badge -->
+      <rect x="438" y="505" width="54" height="16" rx="2" fill="rgba(255,82,82,.08)" stroke="rgba(255,82,82,.22)" stroke-width="1"/>
+      <text x="465" y="517" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#ff5252">TARGET</text>
+
+      <!-- ═══════════════ 30x LENOVO DESKTOP ═══════════════ -->
+      <rect x="618" y="322" width="268" height="210" rx="5" fill="#141c2e" stroke="#ff5252" stroke-width="1.5"/>
+      <rect x="618" y="322" width="268" height="4" rx="4" fill="#ff5252"/>
+      <rect x="618" y="322" width="268" height="4" rx="4" fill="#ff5252" filter="url(#gw-p)" opacity="0.3"/>
+      <!-- badge -->
+      <rect x="627" y="332" width="112" height="16" rx="2" fill="rgba(255,82,82,.1)" stroke="rgba(255,82,82,.35)" stroke-width="1"/>
+      <text x="683" y="344" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#ff5252">ATTACKER / DFIR STN</text>
+      <!-- title -->
+      <text x="752" y="368" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="17" fill="#e8f4ff">30× Lenovo Desktop</text>
+      <text x="752" y="384" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#4a6080">Windows 11  ·  VLAN 30  ·  Class-configurable role</text>
+      <!-- specs -->
+      <g font-family="'Barlow',sans-serif" font-size="11.5" fill="#c8d8f0">
+        <text x="631" y="404"><tspan fill="#ff5252">›</tspan>  VirtualBox + Kali Linux</text>
+        <text x="631" y="422"><tspan fill="#ffa726">›</tspan>  Encase (DFIR / forensics)</text>
+        <text x="631" y="440"><tspan fill="#448aff">›</tspan>  Pentest tools (Metasploit, Nmap…)</text>
+      </g>
+      <!-- role toggle chips -->
+      <rect x="631" y="453" width="74" height="26" rx="3" fill="rgba(255,82,82,.1)" stroke="rgba(255,82,82,.3)" stroke-width="1"/>
+      <text x="668" y="464" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#ff5252" letter-spacing="1">RED TEAM</text>
+      <text x="668" y="474" text-anchor="middle" font-family="'Barlow',sans-serif" font-size="9.5" fill="#c8d8f0">Attacker role</text>
+      <rect x="713" y="453" width="78" height="26" rx="3" fill="rgba(68,138,255,.1)" stroke="rgba(68,138,255,.3)" stroke-width="1"/>
+      <text x="752" y="464" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#448aff" letter-spacing="1">BLUE TEAM</text>
+      <text x="752" y="474" text-anchor="middle" font-family="'Barlow',sans-serif" font-size="9.5" fill="#c8d8f0">Defender role</text>
+      <!-- divider -->
+      <line x1="627" y1="488" x2="877" y2="488" stroke="#1e2d4a" stroke-width="1"/>
+      <!-- FYP badge -->
+      <rect x="627" y="496" width="86" height="16" rx="2" fill="rgba(255,82,82,.07)" stroke="rgba(255,82,82,.22)" stroke-width="1"/>
+      <text x="670" y="508" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8.5" fill="#ff5252">FYP-2B · 2C · 3A</text>
+      <!-- note -->
+      <text x="722" y="507" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#4a6080">role set per class config</text>
+
+      <!-- ═══════════════ OUTER LABEL: page title ═══════════════ -->
+      <text x="480" y="14" text-anchor="middle"
+            font-family="'Share Tech Mono',monospace" font-size="8.5"
+            fill="#2d4a7a" letter-spacing="4">
+        CENTRALISED SOC LAB — PHYSICAL &amp; LOGICAL TOPOLOGY
+      </text>
+
+      <!-- ═══════════════ CORNER TIMESTAMPS / VERSION ═══════════════ -->
+      <text x="16" y="545" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#243654">REV 2  ·  OPNsense + Wazuh interim  ·  Palo Alto XDR under evaluation</text>
+      <text x="944" y="545" text-anchor="end" font-family="'Share Tech Mono',monospace" font-size="7.5" fill="#243654">FYP-1B owns firewall layer  ·  FYP-2A owns monitoring layer</text>
+    </svg>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="li">
+        <div class="ll" style="background:#00e5ff"></div>
+        <span>VM image push (Dell → Acers)</span>
+      </div>
+      <div class="li">
+        <div class="ll dash" style="border-color:#69f0ae"></div>
+        <span>Wazuh log shipping (agents → SIEM hub)</span>
+      </div>
+      <div class="li">
+        <div class="ll" style="background:#ff5252"></div>
+        <span>Red Team attack / interact traffic</span>
+      </div>
+      <div class="li">
+        <div class="ll" style="background:#4a6080"></div>
+        <span>Network trunk (managed switch path)</span>
+      </div>
+      <div class="li">
+        <div class="ll" style="background:#f06292"></div>
+        <span>Perimeter — OPNsense firewall boundary</span>
+      </div>
+    </div>
+
+    <!-- Status note -->
+    <div class="status">
+      ⚠&nbsp; <strong>MONITORING STACK STATUS:</strong>&nbsp;
+      Current deployment uses <strong>OPNsense + Wazuh XDR</strong> (open-source interim stack, fully operational).
+      Palo Alto XDR cloud integration is <strong>under license negotiation</strong> — config is designed with upgrade path preserved.
+      This diagram will be updated upon final platform decision.
+    </div>
+
   </div>
   <p style="font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);text-align:center;margin-top:.5rem;">
     ⚠ Diagram reflects initial design proposal. Current implementation uses OPNsense + Wazuh. 
