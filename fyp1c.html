@@ -402,7 +402,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
     <div class="info-block">
       <div class="block-label">CURRENT IMPLEMENTATION &amp; ACHIEVEMENTS</div>
       <p class="implementation-intro">
-        The current prototype implements the complete student virtual-machine lifecycle, from template selection and deployment to configuration, browser-based access, and controlled destruction. The implementation combines a student dashboard with a Flask API, SQLite deployment tracking, GitLab CI/CD orchestration, Terraform linked cloning, Ansible configuration, a Proxmox VE cluster, and a noVNC console proxy. All seven dashboard templates have been verified end-to-end; the Ubuntu Server workflow below is one representative example.
+        The current prototype implements the complete student virtual-machine lifecycle, from template selection and deployment to configuration, browser-based access, and controlled destruction. The implementation combines a student dashboard with a Flask API, SQLite deployment tracking, GitLab CI/CD orchestration, Terraform linked cloning, Ansible configuration, a Proxmox VE cluster, and a noVNC console proxy. All seven dashboard templates have been verified end-to-end and the Ubuntu Server workflow below is one representative example.
       </p>
 
       <div class="implementation-subtitle">Implemented automation pipeline</div>
@@ -456,7 +456,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
         </div>
         <div class="achievement-card">
           <strong>Reliable deployment tracking</strong>
-          <p>Each request is keyed by a unique deployment ID. A background reconciler updates SQLite from GitLab and Proxmox so the dashboard can rebuild the correct VM state after refresh.</p>
+          <p>Each request is linked by a unique deployment ID. A background reconciler updates SQLite from GitLab and Proxmox so the dashboard can rebuild the correct VM state after refresh.</p>
         </div>
         <div class="achievement-card">
           <strong>Controlled multi-user lifecycle</strong>
