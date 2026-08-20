@@ -142,7 +142,38 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .research-table tbody tr:hover td{background:rgba(255,167,38,.08) !important}
 .diagram-container{display:flex;justify-content:center;align-items:center;padding:1.25rem;background:var(--bg);border-radius:6px;overflow:auto}
 .diagram-container img,.diagram-container svg{max-width:100%;height:auto;display:block}
-@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.scope-table{font-size:.75rem}.scope-table th,.scope-table td{padding:.5rem}.research-table{font-size:.7rem}.research-table th,.research-table td{padding:.5rem}.diagram-container{padding:.75rem}.scope-table th{font-size:.65rem}.research-table th{font-size:.65rem}}
+.implementation-intro{font-size:.88rem;line-height:1.7;color:var(--text);margin-bottom:1.25rem}
+.implementation-subtitle{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:var(--c1c);text-transform:uppercase;margin:1.3rem 0 .7rem}
+.pipeline-flow{display:grid;grid-template-columns:repeat(7,1fr);gap:.55rem}
+.pipeline-step{background:var(--bg);border:1px solid var(--border);border-top:2px solid var(--c1c);border-radius:4px;padding:.7rem .55rem;min-height:105px}
+.pipeline-step .pipeline-num{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--c1c);margin-bottom:.35rem}
+.pipeline-step strong{display:block;color:var(--bright);font-size:.74rem;line-height:1.25;margin-bottom:.3rem}
+.pipeline-step span{display:block;color:var(--muted);font-size:.64rem;line-height:1.35}
+.achievement-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.achievement-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--c2a);border-radius:4px;padding:.85rem}
+.achievement-card strong{display:block;color:var(--bright);font-size:.82rem;margin-bottom:.35rem}
+.achievement-card p{font-size:.74rem;line-height:1.55;color:var(--text)}
+.implementation-details{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.implementation-detail{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.85rem}
+.implementation-detail strong{display:block;color:var(--c3a);font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.06em;margin-bottom:.4rem}
+.implementation-detail p{font-size:.74rem;line-height:1.55;color:var(--text)}
+.implementation-detail code{font-family:'Share Tech Mono',monospace;color:var(--c1a);font-size:.68rem}
+.workflow-gallery{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.workflow-card{background:var(--bg);border:1px solid var(--border);border-radius:5px;overflow:hidden}
+.workflow-image{padding:.55rem;border-bottom:1px solid var(--border);cursor:zoom-in;overflow:hidden}
+.workflow-image img{width:100%;height:auto;display:block;border-radius:3px}
+.workflow-caption{padding:.8rem}
+.workflow-caption .workflow-step{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--c1c);margin-bottom:.35rem}
+.workflow-caption strong{display:block;color:var(--bright);font-size:.82rem;margin-bottom:.3rem}
+.workflow-caption p{font-size:.74rem;line-height:1.55;color:var(--text)}
+.future-enhancement-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.future-enhancement-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--c2c);border-radius:5px;padding:1rem}
+.future-enhancement-card h3{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;color:var(--bright);margin-bottom:.6rem}
+.future-points{padding-left:1.2rem}
+.future-points li{font-size:.78rem;line-height:1.6;color:var(--text);padding:.4rem 0}
+.future-points li::marker{color:var(--c2c);font-weight:700}
+@media(max-width:900px){.pipeline-flow{grid-template-columns:repeat(2,1fr)}.pipeline-step:last-child{grid-column:1 / -1}}
+@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.scope-table{font-size:.75rem}.scope-table th,.scope-table td{padding:.5rem}.research-table{font-size:.7rem}.research-table th,.research-table td{padding:.5rem}.diagram-container{padding:.75rem}.scope-table th{font-size:.65rem}.research-table th{font-size:.65rem}.achievement-grid,.implementation-details,.workflow-gallery,.future-enhancement-list{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -363,6 +394,202 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
             <img src="assets/UC004_FYP1c.png" alt="UC004 — Lab Environment Reset" class="zoomable-img">
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">CURRENT IMPLEMENTATION &amp; ACHIEVEMENTS</div>
+      <p class="implementation-intro">
+        The current prototype implements the complete student virtual-machine lifecycle, from template selection and deployment to configuration, browser-based access, and controlled destruction. The implementation combines a student dashboard with a Flask API, SQLite deployment tracking, GitLab CI/CD orchestration, Terraform linked cloning, Ansible configuration, a Proxmox VE cluster, and a noVNC console proxy. All seven dashboard templates have been verified end-to-end; the Ubuntu Server workflow below is one representative example.
+      </p>
+
+      <div class="implementation-subtitle">Implemented automation pipeline</div>
+      <div class="pipeline-flow">
+        <div class="pipeline-step">
+          <div class="pipeline-num">01</div>
+          <strong>Student Dashboard</strong>
+          <span>Selects a template, confirms the assigned workstation, and submits the request.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">02</div>
+          <strong>Flask API</strong>
+          <span>Authenticates the request, validates quota, and creates a deployment.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">03</div>
+          <strong>SQLite State</strong>
+          <span>Reserves the VM ID and stores status, ownership, node, and template data.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">04</div>
+          <strong>GitLab CI/CD</strong>
+          <span>Starts a deployment-specific pipeline and maintains isolated Terraform state.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">05</div>
+          <strong>Terraform + Proxmox</strong>
+          <span>Creates a linked clone from the selected node-local golden template.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">06</div>
+          <strong>Ansible</strong>
+          <span>Applies the template-specific playbook and verifies service readiness.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">07</div>
+          <strong>Access &amp; Lifecycle</strong>
+          <span>Returns access data, opens noVNC, tracks status, and destroys on request.</span>
+        </div>
+      </div>
+
+      <div class="implementation-subtitle">Implemented capabilities</div>
+      <div class="achievement-grid">
+        <div class="achievement-card">
+          <strong>Seven verified VM templates</strong>
+          <p>Ubuntu Server, Kali Linux, Windows 10, OPNsense, Ubuntu with Docker, Kali with DVWA, and Windows Server can each be deployed, configured, accessed, and destroyed through the same workflow.</p>
+        </div>
+        <div class="achievement-card">
+          <strong>Repeatable automated provisioning</strong>
+          <p>Node-local golden templates and Terraform linked clones reduce repeated setup work while Ansible applies a consistent configuration for each lab type.</p>
+        </div>
+        <div class="achievement-card">
+          <strong>Reliable deployment tracking</strong>
+          <p>Each request is keyed by a unique deployment ID. A background reconciler updates SQLite from GitLab and Proxmox so the dashboard can rebuild the correct VM state after refresh.</p>
+        </div>
+        <div class="achievement-card">
+          <strong>Controlled multi-user lifecycle</strong>
+          <p>Backend quota checks, transactional VM-ID reservation, per-deployment state, ownership filtering, status reconciliation, console access, and controlled destruction support safe concurrent student use.</p>
+        </div>
+      </div>
+
+      <div class="implementation-subtitle">Infrastructure and security handling</div>
+      <div class="implementation-details">
+        <div class="implementation-detail">
+          <strong>SERVER AND WORKSTATION ADDRESSES</strong>
+          <p>Each student workstation has a fixed network identity such as <code>ws2</code>. A workstation-side script reports its address so the backend can map the logged-in student session to the correct workstation and deployment target. Management addresses remain separate from student access data.</p>
+        </div>
+        <div class="implementation-detail">
+          <strong>ISOLATED STUDENT NETWORK</strong>
+          <p>Deployed lab VMs use VLAN <code>900</code> on the isolated <code>172.29.0.0/24</code> network. This separates vulnerable lab workloads from the management network while allowing the automation server to configure VMs and proxy console traffic.</p>
+        </div>
+        <div class="implementation-detail">
+          <strong>VM-ID ALLOCATION AND STATE</strong>
+          <p>The Flask API requests the next available cluster VM ID from Proxmox and reserves it in SQLite within the same transaction as the quota check. This prevents concurrent requests from receiving the same VM ID.</p>
+        </div>
+        <div class="implementation-detail">
+          <strong>AUTHENTICATED API AND CREDENTIALS</strong>
+          <p>The dashboard uses authenticated endpoints for catalogue, deployment, quota, status, access, console, and destruction operations. API tokens, Proxmox credentials, passwords, and private keys remain in protected server-side configuration or environment variables and are not embedded in this page.</p>
+        </div>
+        <div class="implementation-detail">
+          <strong>THREE-VM STUDENT QUOTA</strong>
+          <p>One Acer Predator Proxmox node currently serves two student workstations and its SSD supports approximately six concurrent student VMs. The backend therefore limits each student to three active deployments, dividing the available node capacity fairly and reducing storage exhaustion.</p>
+        </div>
+        <div class="implementation-detail">
+          <strong>BROWSER-BASED CONSOLE</strong>
+          <p>When a VM reaches the running state, the API returns a deployment-specific console URL. The noVNC proxy gives the student graphical access through the dashboard without exposing Proxmox management credentials.</p>
+        </div>
+      </div>
+
+      <div class="implementation-subtitle">Demonstrated workflow - Ubuntu Server on ws2</div>
+      <div class="workflow-gallery">
+        <div class="workflow-card">
+          <div class="workflow-image zoomable-wrap">
+            <img src="assets/implementation-01-template-catalog.png" alt="Step 1 - Student dashboard VM template catalogue" class="zoomable-img">
+          </div>
+          <div class="workflow-caption">
+            <div class="workflow-step">STEP 01</div>
+            <strong>Select a verified template</strong>
+            <p>The dashboard loads the backend catalogue and displays the seven available templates. The student session is associated with workstation <code>ws2</code> before a template is selected.</p>
+          </div>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-image zoomable-wrap">
+            <img src="assets/implementation-02-deployment-confirmation.png" alt="Step 2 - Ubuntu Server deployment confirmation for ws2" class="zoomable-img">
+          </div>
+          <div class="workflow-caption">
+            <div class="workflow-step">STEP 02</div>
+            <strong>Confirm the deployment request</strong>
+            <p>The selected Ubuntu Server template, assigned workstation, and deployment quantity are shown for verification before any infrastructure change begins.</p>
+          </div>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-image zoomable-wrap">
+            <img src="assets/implementation-03-deployment-triggered.png" alt="Step 3 - Deployment request triggered for ws2" class="zoomable-img">
+          </div>
+          <div class="workflow-caption">
+            <div class="workflow-step">STEP 03</div>
+            <strong>Trigger the automated pipeline</strong>
+            <p>After confirmation, Flask records the deployment and triggers GitLab CI/CD. The dashboard immediately identifies <code>ws2</code> as the workstation receiving the VM.</p>
+          </div>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-image zoomable-wrap">
+            <img src="assets/implementation-04-vm-deploying.png" alt="Step 4 - New VM shown in deploying status" class="zoomable-img">
+          </div>
+          <div class="workflow-caption">
+            <div class="workflow-step">STEP 04</div>
+            <strong>Track provisioning and configuration</strong>
+            <p>A VM card appears with the current deployment status. Terraform creates the linked clone, Ansible configures it, and reconciliation keeps the SQLite record and dashboard state aligned.</p>
+          </div>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-image zoomable-wrap">
+            <img src="assets/implementation-05-vm-running.png" alt="Step 5 - VM running with console and destroy controls" class="zoomable-img">
+          </div>
+          <div class="workflow-caption">
+            <div class="workflow-step">STEP 05</div>
+            <strong>Use the running VM</strong>
+            <p>Once provisioning, configuration, and readiness checks succeed, the status changes to Running and the console and destruction controls become available.</p>
+          </div>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-image zoomable-wrap">
+            <img src="assets/implementation-06-novnc-console.png" alt="Step 6 - Ubuntu Server accessed through the noVNC console" class="zoomable-img">
+          </div>
+          <div class="workflow-caption">
+            <div class="workflow-step">STEP 06</div>
+            <strong>Access the isolated VM console</strong>
+            <p>The Open Console action retrieves the correct VM console URL and connects through the noVNC proxy, allowing the student to interact with the cloned VM without direct access to the Proxmox management interface.</p>
+          </div>
+        </div>
+        <div class="workflow-card">
+          <div class="workflow-image zoomable-wrap">
+            <img src="assets/implementation-07-vm-destroying.png" alt="Step 7 - VM environment in destroying status" class="zoomable-img">
+          </div>
+          <div class="workflow-caption">
+            <div class="workflow-step">STEP 07</div>
+            <strong>Destroy the environment safely</strong>
+            <p>The dashboard sends the exact deployment ID to the Flask API and prevents duplicate destruction requests while Terraform removes the VM using the same deployment state. The card is removed after destruction completes.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">FUTURE ENHANCEMENT</div>
+      <div class="future-enhancement-list">
+        <article class="future-enhancement-card">
+          <h3>1. Snapshot-Based Lab Destroy</h3>
+          <ul class="future-points">
+            <li>Create a verified clean snapshot after the VM has been successfully deployed, configured, and tested.</li>
+            <li>Roll back and restart the existing VM when a student requests a clean environment, avoiding the full clone-and-configure process.</li>
+            <li>Apply snapshot cleanup rules and keep Proxmox, SQLite, and Terraform state synchronized across Linux and Windows VMs.</li>
+          </ul>
+        </article>
+
+        <article class="future-enhancement-card">
+          <h3>2. Resource-Aware Node Scheduling</h3>
+          <ul class="future-points">
+            <li>Check live CPU, RAM, storage, node availability, and active deployments before starting a deployment pipeline.</li>
+            <li>Select an eligible node with sufficient resources and the required golden template based on each VM template's requirements.</li>
+            <li>Distribute VMs more evenly, reject unavailable nodes clearly, and increase capacity through additional storage or Proxmox nodes.</li>
+          </ul>
+        </article>
       </div>
     </div>
   </div>
