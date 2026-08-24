@@ -1,189 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FYP-1B Networking — SOC Lab FYP</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0a0e17; --surface:#101622; --panel:#161e30; --border:#253650;
+  --text:#ddeeff; --muted:#6a85a8; --bright:#f0f8ff;
+  --c1a:#00e5ff; --c1b:#b388ff; --c1c:#ffa726;
+  --c2a:#69f0ae; --c2b:#ff5252; --c2c:#448aff;
+  --c3a:#ffd740; --c3b:#f06292; --c3c:#b2ff59;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:16px}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
 
-[167 lines collapsed]
+/* HEADER */
+header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:rgba(10,14,23,.92);backdrop-filter:blur(12px);display:flex;align-items:center;gap:1.5rem;height:60px}
+.logo-badge{font-family:'Share Tech Mono',monospace;font-size:.78rem;letter-spacing:.15em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
+header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
+.nav-tabs{display:flex;gap:.25rem}
+.nav-tab{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
+.nav-tab:hover{color:var(--bright);border-color:var(--border)}
+.nav-tab.active{color:var(--bright);background:var(--panel);border-color:var(--border)}
 
-  <div class="info-block">
-    <div class="block-label">PROBLEM STATEMENT</div>
-    <ol class="scope-list">
-      <li><span class="num">01</span><span contenteditable="true">Lab D lacks a dedicated, production-grade cybersecurity and networking laboratory.</span></li>
-      <li><span class="num">02</span><span contenteditable="true">Existing solutions are too costly or hard to maintain at university scale.</span></li>
-      <li><span class="num">03</span><span contenteditable="true">Persistent gap between the practical skills demanded by the cybersecurity and networking industry and the hands-on competencies that graduates are able to demonstrate upon entering the workforce.</span></li>
-      <li><span class="num">04</span><span contenteditable="true">The university's existing hardware remains underutilised.</span></li>
-      <li><span class="num">01</span><span>Computer science students at the University of Wollongong Malaysia lack access to a dedicated, production-grade cybersecurity and networking laboratory. Existing solutions are too costly to license at university scale, too limited in realism, or unavailable for safe, isolated practice of adversarial security scenarios.</span></li>
-      <li><span class="num">02</span><span>There is a persistent gap between the practical skills demanded by industry and the hands-on competencies graduates can demonstrate. Without a structured lab, students cannot develop proficiency in topologies, firewall policy, routing protocols, or responding to security events in a controlled environment.</span></li>
-      <li><span class="num">03</span><span>Lab D hardware remains underutilised. Repurposing it through open-source virtualisation would maximise existing assets, eliminate recurring licensing costs, and keep a self-hosted platform under institutional control.</span></li>
-    </ol>
-  </div>
-  <!-- RESEARCH OBJECTIVES -->
-  <div class="info-block">
-    <div class="block-label">RESEARCH OBJECTIVES</div>
-    <ol class="scope-list">
-      <li><span class="num">RO1</span><span>To design and deploy a Proxmox VE-based virtualisation cluster using the existing hardware in Lab D, capable of hosting multiple concurrent student virtual machine sessions.</span></li>
-      <li><span class="num">RO2</span><span>To provide realistic student networking workloads, using OPNsense and VyOS, from classroom PCs without granting hypervisor administrator rights.</span></li>
-      <li><span class="num">RO3</span><span>To provide lecturer-facing observability of laboratory traffic and security events using ntopng, d3.js (Cluster Mesh), and Wazuh.</span></li>
-      <li><span class="num">RO4</span><span>To develop a set of structured, guided lab exercises covering core networking topics at Basic, Intermediate, and Advanced difficulty levels.</span></li>
-      <li><span class="num">RO5</span><span>To evaluate the usability and educational difference of the platform through user acceptance testing with student participants and structured feedback collection.</span></li>
-      <li><span class="num">RO6</span><span>To produce comprehensive technical documentation, including setup guides, lab manuals, physical and logical network topology diagrams, and a final project report.</span></li>
-    </ol>
-  </div>
-  <!-- RESEARCH QUESTIONS -->
-  <div class="info-block">
-    <div class="block-label">RESEARCH QUESTIONS</div>
-    <ol class="scope-list">
-      <li><span class="num">RQ1</span><span>How can the existing hardware assets in Lab D at UOWM be repurposed into a scalable, multi-node virtualised cybersecurity and networking education platform using open-source tools?</span></li>
-      <li><span class="num">RQ2</span><span>To what extent does a virtualised lab environment using production-grade tools such as OPNsense and VyOS provide a more realistic and effective learning experience compared to simulation-based alternatives such as Cisco Packet Tracer or hardware?</span></li>
-      <li><span class="num">RQ3</span><span>Can lecturers observe live traffic and security events on ntopng, d3.js (Cluster Mesh), and Wazuh during a class, without placing those dashboards on the student path?</span></li>
-      <li><span class="num">RQ4</span><span>What structured lab exercises and guided scenarios are most effective in developing students' practical competencies in networking at progressively higher skill levels?</span></li>
-      <li><span class="num">RQ5</span><span>How usable and accessible is the platform for students with varying levels of prior technical experience, as assessed through user acceptance testing?</span></li>
-    </ol>
-  </div>
+/* PAGE */
+.candidate-page{max-width:1000px;margin:0 auto;padding:2.5rem}
 
-[13 lines collapsed]
+/* CANDIDATE HEADER */
+.candidate-header{display:flex;align-items:flex-start;gap:1.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
+.candidate-badge{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;border:2px solid;border-radius:6px;padding:.5rem 1rem;white-space:nowrap;line-height:1;flex-shrink:0;text-align:center}
+.candidate-meta{flex:1}
+.candidate-meta h2{font-family:'Barlow Condensed',sans-serif;font-size:2.1rem;font-weight:900;line-height:1.1;color:var(--bright);margin-bottom:.5rem}
+.candidate-meta .course-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem}
+.course-tag{font-family:'Share Tech Mono',monospace;font-size:.7rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:2px;color:var(--muted)}
+.candidate-name-block{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:.85rem 1.1rem;font-family:'Share Tech Mono',monospace;font-size:.76rem;color:var(--muted);white-space:nowrap}
+.candidate-name-block strong{color:var(--bright);font-size:.9rem;display:block;margin:.25rem 0}
 
-      <tbody>
-        <tr>
-          <td>RQ1</td>
-          <td>How can the existing Lab D hardware at UOWM be repurposed into a scalable, multi-node virtualised cybersecurity and networking education platform using open-source tools?</td>
-          <td>To design and deploy a Proxmox VE-based virtualisation cluster using existing Lab D hardware, capable of hosting multiple concurrent student VM sessions.</td>
-          <td><span class="method-pill">Literature Review</span><span class="method-pill">Study Existing Systems</span></td>
-          <td>A deployed and operational Proxmox VE cluster on Lab D hardware with documented physical and logical topology.</td>
-          <td>How can the existing hardware assets in Lab D at UOWM be repurposed into a scalable, multi-node virtualised cybersecurity and networking education platform using open-source tools?</td>
-          <td>RO1. To design and deploy a Proxmox VE-based virtualisation cluster using the existing hardware in Lab D, capable of hosting multiple concurrent student virtual machine sessions.</td>
-          <td><span class="method-pill">Literature Review</span><span class="method-pill">Study Existing Systems</span><span class="method-pill">Deploy on Lab D</span></td>
-          <td>An operational Proxmox VE cluster on the Acer and Dell nodes, able to host concurrent student guests, with documented physical and logical topology.</td>
-        </tr>
-        <tr>
-          <td>RQ2</td>
-          <td>How can a realistic virtual network environment be configured to provide students with hands-on experience in networking and cybersecurity tasks?</td>
-          <td>To configure a production-grade virtual network infrastructure using open-source tools, providing a realistic environment for networking and cybersecurity lab exercises.</td>
-          <td><span class="method-pill">Observation</span></td>
-          <td>A fully functional prototype of the system to simulate the learning environment.</td>
-          <td>To what extent does a virtualised lab using OPNsense and VyOS provide a more realistic and effective learning experience compared with Cisco Packet Tracer or hardware?</td>
-          <td>RO2. To provide realistic student networking workloads, using OPNsense and VyOS, from classroom PCs without granting hypervisor administrator rights.</td>
-          <td><span class="method-pill">Observation</span><span class="method-pill">Student questionnaire</span></td>
-          <td>Students configure a LabEye four-guest overlay (OPNsense, VyOS, Ubuntu, Windows) from Lenovo PCs. Realism is compared with prior Packet Tracer or hardware experience.</td>
-        </tr>
-        <tr>
-          <td>RQ3</td>
-          <td>Can the platform effectively support student learning in networking and cybersecurity, as assessed through user acceptance testing?</td>
-          <td>To evaluate the usability and educational effectiveness of the platform through user acceptance testing with student participants.</td>
-          <td>Can lecturers observe live traffic and security events on ntopng, d3.js (Cluster Mesh), and Wazuh during a class, without placing those dashboards on the student path?</td>
-          <td>RO3. To provide lecturer-facing observability of laboratory traffic and security events using ntopng, d3.js (Cluster Mesh), and Wazuh.</td>
-          <td><span class="method-pill">Lecturer functional cases</span></td>
-          <td>Staff can open ntopng, d3.js (Cluster Mesh), and Wazuh on VLAN 900. Students on the Networking sitting do not.</td>
-        </tr>
-        <tr>
-          <td>RQ4</td>
-          <td>What structured lab exercises and guided scenarios are most effective in developing students' practical competencies in networking at progressively higher skill levels?</td>
-          <td>RO4. To develop a set of structured, guided lab exercises covering core networking topics at Basic, Intermediate, and Advanced difficulty levels.</td>
-          <td><span class="method-pill">Guided lab sheets</span><span class="method-pill">Networking sitting</span></td>
-          <td>A guided Networking exercise at Basic and Intermediate scope. Advanced packs remain future work. One sitting cannot rank three levels.</td>
-        </tr>
-        <tr>
-          <td>RQ5</td>
-          <td>How usable and accessible is the platform for students with varying levels of prior technical experience, as assessed through user acceptance testing?</td>
-          <td>RO5. To evaluate the usability and educational difference of the platform through user acceptance testing with student participants and structured feedback collection.</td>
-          <td><span class="method-pill">Questionnaire / Survey</span><span class="method-pill">User Acceptance Testing</span></td>
-          <td>Validated platform with UAT results demonstrating acceptable usability scores and the success of deploying cybersecurity and networking labs.</td>
-          <td>UAT data and structured comments from consented students after the Networking exercise.</td>
-        </tr>
-        <tr>
-          <td>—</td>
-          <td>Documentation is an objective without a numbered question.</td>
-          <td>RO6. To produce comprehensive technical documentation, including setup guides, lab manuals, physical and logical network topology diagrams, and a final project report.</td>
-          <td><span class="method-pill">Report</span><span class="method-pill">Topology diagrams</span></td>
-          <td>Final project report with physical and logical topology diagrams. A standing student handbook remains a product gap.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- PROJECT SCOPE — NEW FORMAT -->
-  <!-- PROJECT SCOPE -->
-  <div class="table-wrapper">
-    <div class="section-label">Project Scope</div>
-    <div class="section-label">Project Scope — Table 1</div>
-    <table class="scope-table">
-      <thead>
-        <tr>
-          <th style="width:100px">Level</th>
-          <th>Scope</th>
-          <th>Description</th>
-          <th>Feature</th>
-          <th>Basic</th>
-          <th>Intermediate</th>
-          <th>Advanced</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="level-cell level-basic">Basic</td>
-          <td>
-            <ol>
-              <li>The system shall allow the communication between end user device like Dell to the Acer desktop</li>
-              <li>The system shall have monitoring capabilities</li>
-              <li>The system shall provide a network learning environment to students with instructions</li>
-            </ol>
-          </td>
-          <td>
-            <ol>
-              <li>The hardware is connected together with network switches to allow connection between them</li>
-              <li>The system is configured with a monitoring tool to monitor resource usage with Grafana or teammates' dashboard as display</li>
-              <li>The system provides VMs for students to configure networking</li>
-            </ol>
-          </td>
-          <td class="level-cell level-basic">Networking</td>
-          <td>OPNsense: DHCP, DNS, NAT basics</td>
-          <td>VyOS static routing, VLANs, VPN tunnels</td>
-          <td>Policy-based routing, multisite topology</td>
-        </tr>
-        <tr>
-          <td class="level-cell level-inter">Security</td>
-          <td>Basic firewall rules, port scanning intro</td>
-          <td>Full pen-test lab, red/blue team scenarios, SOC simulator</td>
-          <td>IDS/IPS setup, VPN config, firewall tuning</td>
-        </tr>
-        <tr>
-          <td class="level-cell">Monitoring</td>
-          <td>Staff can open ntopng and see live traffic</td>
-          <td>SPAN plus NetFlow into ntopng; d3.js (Cluster Mesh) overlay; Wazuh collection and alert</td>
-          <td>Student-facing observability exercise</td>
-        </tr>
-        <tr>
-          <td class="level-cell level-inter">Intermediate</td>
-          <td>
-            <ol>
-              <li>The system has security features designed into the networking framework of the platform</li>
-            </ol>
-          </td>
-          <td>
-            <ol>
-              <li>VLAN segmentation and other network security features will be implemented for the Proxmox nodes and VMs</li>
-            </ol>
-          </td>
-          <td class="level-cell">Topology</td>
-          <td>Simple flat virtual network diagram</td>
-          <td>Multi-VLAN segmented network topology</td>
-          <td>Enterprise-grade layered topology with DMZ and WAN</td>
-        </tr>
-        <tr>
-          <td class="level-cell level-advance">Advanced</td>
-          <td>
-            <ol>
-              <li>The system will trigger alerts for critical events</li>
-              <li>The system allows future addition of more labs with a manual on how to do so</li>
-            </ol>
-          </td>
-          <td>
-            <ol>
-              <li>Alert events are based on data from the monitoring tools to detect and give off alerts</li>
-              <li>The system is designed in a way that it is easy to configure new labs</li>
-            </ol>
-          </td>
-          <td class="level-cell">Documentation</td>
-          <td>Basic setup guide</td>
-          <td>Lab manuals with troubleshooting notes</td>
-          <td>Full technical report + topology diagrams + video walkthroughs</td>
-        </tr>
-      </tbody>
-    </table>
+/* INFO BLOCK */
+.info-block{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.6rem;margin-bottom:1.4rem;position:relative}
+.info-block .block-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.info-block .block-label::after{content:'';flex:1;height:1px;background:var(--border)}
 
-[111 lines collapsed]
+/* PROBLEM STATEMENT */
+.scope-list{list-style:none;font-size:1rem;line-height:1.75}
+.scope-list li{display:flex;align-items:flex-start;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--border)}
+.scope-list li:last-child{border-bottom:none}
