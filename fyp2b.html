@@ -96,12 +96,6 @@ table.rdt-table td:first-child{font-family:'Space Grotesk',sans-serif;font-size:
 .placeholder-frame span{font-size:.75rem;color:var(--muted);max-width:520px;line-height:1.5}
 .diagram-container{display:flex;justify-content:center;align-items:center;padding:.5rem;background:var(--bg);border-radius:6px;cursor:pointer}
 .diagram-container img{max-width:100%;height:auto;display:block;border-radius:4px}
-.mockup-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem;margin-top:.15rem}
-.mockup-card{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--bg);cursor:pointer;transition:border-color .25s,transform .25s}
-.mockup-card:hover{border-color:var(--c2b);transform:translateY(-2px)}
-.mockup-img-wrap{width:100%;aspect-ratio:16/10;overflow:hidden;background:#0d1524;display:flex;align-items:center;justify-content:center}
-.mockup-img-wrap img{width:100%;height:100%;object-fit:contain;display:block}
-.mockup-caption{font-family:'Space Grotesk',sans-serif;font-size:.62rem;letter-spacing:.06em;color:var(--muted);padding:.5rem .7rem;border-top:1px solid var(--border);text-align:center}
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:10000;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
 .lightbox.open{display:flex}
 .lightbox img{max-width:92vw;max-height:88vh;border-radius:6px;border:1px solid var(--border)}
@@ -216,10 +210,10 @@ code.k{font-family:'Space Grotesk',sans-serif;font-size:.68rem;color:var(--c2a);
     <div class="info-block">
       <div class="block-label">CONCEPTUAL FRAMEWORK</div>
       <div class="diagram-container" id="cfWrap">
-        <img id="cfImg" src="assets/conceptual_diagram_white.svg" alt="Conceptual framework of the lecturer-focused lab orchestration platform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <img id="cfImg" src="assets/fyp2b_conceptual_diagram.png" alt="Conceptual framework of the lecturer-focused lab orchestration platform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="placeholder-frame" style="display:none;width:100%">
           <strong>IMAGE PLACEHOLDER · CH. 1.9</strong>
-          <span>Drop the conceptual framework figure here as <code style="color:var(--c2b)">assets/conceptual_diagram_white.svg</code>. Click the frame after the image is added to enlarge it.</span>
+          <span>Drop the conceptual framework figure here as <code style="color:var(--c2b)">assets/fyp2b_conceptual_diagram.png</code>. Click the frame after the image is added to enlarge it.</span>
         </div>
       </div>
       <p class="note">Context (static, instructor-heavy labs) leads to the artefact: a lecturer catalogue of service/vulnerability/scenario recipes, an orchestrator with dependency resolution and verification, and delivery support on Proxmox. Seat identity (workstation IP) plus opaque console tokens keep students on their own VMs. Click the diagram to enlarge once the image is in place.</p>
@@ -599,45 +593,6 @@ code.k{font-family:'Space Grotesk',sans-serif;font-size:.68rem;color:var(--c2a);
     </div>
   </div>
 
-  <div class="section-grid full">
-    <div class="info-block">
-      <div class="block-label">MOCKUP</div>
-      <div class="mockup-gallery">
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/help_command.jpeg" alt="Help command interface">
-          </div>
-          <div class="mockup-caption">Type help to view available command</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/Scenario_library.jpeg" alt="Attack scenario library">
-          </div>
-          <div class="mockup-caption">Attack scenario library</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/execute_attack_scenario.jpeg" alt="Execute attack scenario">
-          </div>
-          <div class="mockup-caption">Execute attack scenario</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/Parsed_results.jpeg" alt="Parsed results">
-          </div>
-          <div class="mockup-caption">Parsed results</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/Scenario_Result_Report.jpeg" alt="Scenario result report">
-          </div>
-          <div class="mockup-caption">Scenario result report</div>
-        </div>
-      </div>
-      <p class="note" style="text-align:center">Click an image to enlarge.</p>
-    </div>
-  </div>
-
   <div class="info-block" style="margin-bottom:1.25rem">
     <div class="block-label">FUTURE ENHANCEMENT</div>
     <ol class="scope-list">
@@ -652,7 +607,7 @@ code.k{font-family:'Space Grotesk',sans-serif;font-size:.68rem;color:var(--c2a);
 </div>
 
 <div class="edit-hint">
-  Click <span>diagrams or mockups</span> to enlarge. Status badges cycle locally.
+  Click <span>diagrams</span> to enlarge. Status badges cycle locally.
 </div>
 
 <div class="lightbox" id="lightbox">
@@ -690,9 +645,6 @@ if (cfWrap && cfImg) {
     if (cfImg.style.display !== 'none' && cfImg.getAttribute('src')) openLb(cfImg.src, cfImg.alt);
   });
 }
-document.querySelectorAll('.mockup-card img').forEach(img => {
-  img.addEventListener('click', () => openLb(img.src, img.alt));
-});
 document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
 lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
