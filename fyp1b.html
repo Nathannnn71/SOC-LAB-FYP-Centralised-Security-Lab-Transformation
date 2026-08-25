@@ -100,8 +100,8 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
 .mockup-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem;margin-top:.75rem}
 .mockup-card{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--bg);cursor:pointer;transition:border-color .25s,transform .25s}
 .mockup-card:hover{border-color:var(--c1b);transform:translateY(-2px)}
-.mockup-img-wrap{width:100%;aspect-ratio:16/10;overflow:hidden;background:#000}
-.mockup-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.mockup-img-wrap{width:100%;aspect-ratio:16/10;overflow:hidden;background:#0d1524;display:flex;align-items:center;justify-content:center}
+.mockup-img-wrap img{width:100%;height:100%;object-fit:contain;display:block}
 .mockup-caption{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--muted);padding:.5rem .7rem;border-top:1px solid var(--border)}
 .diagram-container{display:flex;justify-content:center;align-items:center;padding:.5rem;background:var(--bg);border-radius:6px;cursor:pointer}
 .diagram-container img{max-width:100%;height:auto;display:block;border-radius:4px;background:#fff}
@@ -204,6 +204,32 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
         <li>Evaluate usability and educational difference through user acceptance testing with student participants.</li>
         <li>Produce technical documentation: setup notes, lab manuals, physical and logical topology diagrams, and the final report.</li>
       </ol>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">CONCEPTUAL FRAMEWORK</div>
+      <div class="diagram-container" id="cfWrap">
+        <img id="cfImg" src="assets/fyp1b/conceptual-framework.png" alt="Conceptual framework of the Lab D teaching laboratory">
+      </div>
+      <p class="note">Context (unused Lab D hardware) leads to the artefact: Proxmox cluster, then Opnsense-main. Students open LabEye and configure the four-guest overlay without hypervisor admin. Lecturers open ntopng, d3.js (Cluster Mesh), Wazuh, and Proxmox. LabEye is the teammate portal; Cluster Mesh is this author’s visualisation. Grafana, Netdata, and pfSense sit outside the framework. Click the diagram to enlarge.</p>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">PROTOTYPE / SYSTEM IN ACTION</div>
+      <div class="mockup-gallery">
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/proxmox-cluster.png" alt="Proxmox VE lab-d-cluster"></div><div class="mockup-caption">Proxmox VE — lab-d-cluster</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/opnsense.jpg" alt="OPNsense laboratory firewall"></div><div class="mockup-caption">OPNsense — Opnsense-main</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/vyos.jpg" alt="VyOS student router"></div><div class="mockup-caption">VyOS — student router</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/windows.png" alt="Windows student guest — Command Prompt"></div><div class="mockup-caption">Windows — student guest</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/labeye.png" alt="LabEye teammate class portal"></div><div class="mockup-caption">LabEye — teammate portal</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ntopng.png" alt="ntopng live traffic"></div><div class="mockup-caption">ntopng — staff traffic view</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/cluster-mesh.png" alt="d3.js Cluster Mesh"></div><div class="mockup-caption">d3.js (Cluster Mesh)</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/wazuh.png" alt="Wazuh agents"></div><div class="mockup-caption">Wazuh — infrastructure SIEM</div></div>
+      </div>
     </div>
   </div>
 
@@ -372,16 +398,6 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
 
   <div class="section-grid full">
     <div class="info-block">
-      <div class="block-label">CONCEPTUAL FRAMEWORK</div>
-      <div class="diagram-container" id="cfWrap">
-        <img id="cfImg" src="assets/fyp1b/conceptual-framework.png" alt="Conceptual framework of the Lab D teaching laboratory">
-      </div>
-      <p class="note">Context (unused Lab D hardware) leads to the artefact: Proxmox cluster, then Opnsense-main. Students open LabEye and configure the four-guest overlay without hypervisor admin. Lecturers open ntopng, d3.js (Cluster Mesh), Wazuh, and Proxmox. LabEye is the teammate portal; Cluster Mesh is this author’s visualisation. Grafana, Netdata, and pfSense sit outside the framework. Click the diagram to enlarge.</p>
-    </div>
-  </div>
-
-  <div class="section-grid full">
-    <div class="info-block">
       <div class="block-label">SYSTEM ARCHITECTURE</div>
       <div class="arch-layer">
         <div class="arch-layer-label">LAYER 1 — PHYSICAL</div>
@@ -471,21 +487,6 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
         </table>
       </div>
       <p class="note">Versus Packet Tracer: usually more realistic, not easier. Versus hardware: only two testers had used hardware, so that comparison is too small to conclude. The remaining gap is a handbook and a staffed first sitting, not another dashboard.</p>
-    </div>
-  </div>
-
-  <div class="section-grid full">
-    <div class="info-block">
-      <div class="block-label">PROTOTYPE / SYSTEM IN ACTION</div>
-      <div class="mockup-gallery">
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/proxmox-cluster.png" alt="Proxmox VE lab-d-cluster"></div><div class="mockup-caption">Proxmox VE — lab-d-cluster</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/opnsense.jpg" alt="OPNsense laboratory firewall"></div><div class="mockup-caption">OPNsense — Opnsense-main</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/windows.png" alt="Windows student guest — Command Prompt"></div><div class="mockup-caption">Windows — student guest</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/labeye.png" alt="LabEye teammate class portal"></div><div class="mockup-caption">LabEye — teammate portal</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ntopng.png" alt="ntopng live traffic"></div><div class="mockup-caption">ntopng — staff traffic view</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/cluster-mesh.png" alt="d3.js Cluster Mesh"></div><div class="mockup-caption">d3.js (Cluster Mesh)</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/wazuh.png" alt="Wazuh agents"></div><div class="mockup-caption">Wazuh — infrastructure SIEM</div></div>
-      </div>
     </div>
   </div>
 
