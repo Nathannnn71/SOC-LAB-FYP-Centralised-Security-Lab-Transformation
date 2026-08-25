@@ -126,6 +126,19 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 .concept-closed{border-color:var(--c3c);padding:.75rem 1.4rem;min-width:180px}
 .concept-closed .kicker{font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.08em;color:var(--c3c);text-transform:uppercase;margin-bottom:.2rem}
 .concept-closed strong{font-family:'Space Grotesk',sans-serif;color:var(--bright);font-size:.9rem}
+.workflow-section{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.workflow-heading{font-family:'Space Grotesk',sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c2c);margin-bottom:1rem}
+.workflow-list{display:flex;flex-direction:column;gap:.75rem}
+.workflow-step{display:grid;grid-template-columns:42px minmax(0,1fr);gap:.9rem;align-items:start;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.9rem}
+.workflow-number{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--c2c);border-radius:50%;font-family:'Space Grotesk',sans-serif;font-size:.75rem;font-weight:700;color:var(--c2c)}
+.workflow-step h3{font-family:'Space Grotesk',sans-serif;font-size:.9rem;color:var(--bright);line-height:1.35;margin-bottom:.3rem}
+.workflow-step p{font-size:.8rem;line-height:1.55;color:var(--text);margin-bottom:.75rem}
+.workflow-step p:last-child{margin-bottom:0}
+.workflow-images{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.75rem}
+.workflow-image{margin:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--surface)}
+.workflow-image img{display:block;width:100%;height:auto}
+.workflow-image figcaption{padding:.45rem .6rem;font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.04em;color:var(--muted);border-top:1px solid var(--border)}
+.workflow-step--single .workflow-images{grid-template-columns:minmax(0,760px)}
 .feedback-split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.45fr);gap:1rem;align-items:stretch}
 .feedback-col{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1.1rem}
 .feedback-col-label{font-family:'Space Grotesk',sans-serif;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--c2c);margin-bottom:.7rem}
@@ -165,7 +178,7 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 .path-step .path-kicker{font-family:'Space Grotesk',sans-serif;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
 .path-step strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:var(--bright);line-height:1.35}
 .path-arrow{display:flex;align-items:center;color:var(--c2c);font-size:1.1rem;flex-shrink:0}
-@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.research-table th,.research-table td{padding:.5rem .25rem;font-size:.75rem}.project-scope-table th,.project-scope-table td{padding:.5rem .25rem;font-size:.7rem}.concept-items{grid-template-columns:1fr}.concept-attack{align-self:stretch}.feedback-split{grid-template-columns:1fr}.outcome-metrics,.outcome-findings,.improve-grid{grid-template-columns:1fr}.progress-path{flex-direction:column}.path-arrow{transform:rotate(90deg);justify-content:center}}
+@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.research-table th,.research-table td{padding:.5rem .25rem;font-size:.75rem}.project-scope-table th,.project-scope-table td{padding:.5rem .25rem;font-size:.7rem}.concept-items{grid-template-columns:1fr}.concept-attack{align-self:stretch}.workflow-step{grid-template-columns:34px minmax(0,1fr);gap:.65rem;padding:.75rem}.workflow-images{grid-template-columns:1fr}.feedback-split{grid-template-columns:1fr}.outcome-metrics,.outcome-findings,.improve-grid{grid-template-columns:1fr}.progress-path{flex-direction:column}.path-arrow{transform:rotate(90deg);justify-content:center}}
 
 </style>
 </head>
@@ -540,6 +553,121 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
             </div>
           </div>
         </div>
+        <div class="workflow-section">
+          <div class="workflow-heading">Step-by-Step Lab Workflow</div>
+          <div class="workflow-list">
+            <article class="workflow-step workflow-step--single">
+              <div class="workflow-number">01</div>
+              <div>
+                <h3>Step 1: Access Blank SIEM Dashboard</h3>
+                <p>Student is greeted with a blank Wazuh SIEM dashboard before any security events are generated.</p>
+                <div class="workflow-images">
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_01_blank_wazuh.png" alt="Blank Wazuh SIEM dashboard">
+                    <figcaption>Initial Wazuh dashboard</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+            <article class="workflow-step">
+              <div class="workflow-number">02</div>
+              <div>
+                <h3>Step 2: Simulate Attack</h3>
+                <p>A simulated SQL injection attack is performed against the connected vulnerable asset.</p>
+              </div>
+            </article>
+            <article class="workflow-step workflow-step--single">
+              <div class="workflow-number">03</div>
+              <div>
+                <h3>Step 3: Detect Generated Alerts</h3>
+                <p>The attack generates security events, which appear as alerts on the Wazuh dashboard.</p>
+                <div class="workflow-images">
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_03_wazuh_alerts.png" alt="Generated security alerts in Wazuh">
+                    <figcaption>Generated Wazuh alerts</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+            <article class="workflow-step workflow-step--single">
+              <div class="workflow-number">04</div>
+              <div>
+                <h3>Step 4: Forward Alert to TheHive</h3>
+                <p>The critical Wazuh alert is forwarded to TheHive for further investigation and case creation.</p>
+                <div class="workflow-images">
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_04_hive_alert.png" alt="Critical alert forwarded to TheHive">
+                    <figcaption>Alert received in TheHive</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+            <article class="workflow-step">
+              <div class="workflow-number">05</div>
+              <div>
+                <h3>Step 5: Create Incident Case</h3>
+                <p>Student creates a new case using the Lab2_SQLi template, which contains the investigation playbook.</p>
+                <div class="workflow-images">
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_05a_new_case.png" alt="New incident case form in TheHive">
+                    <figcaption>New case creation</figcaption>
+                  </figure>
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_05b_template.png" alt="Lab2 SQL injection case template">
+                    <figcaption>Lab2_SQLi template</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+            <article class="workflow-step workflow-step--single">
+              <div class="workflow-number">06</div>
+              <div>
+                <h3>Step 6: Investigate the Incident</h3>
+                <p>Student changes the case to In Progress and follows the playbook tasks covering Detection, Analysis, Containment, Eradication, Recovery, and Post-Incident Activity.</p>
+                <div class="workflow-images">
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_06_investigate.png" alt="Incident investigation tasks in TheHive">
+                    <figcaption>Investigation playbook tasks</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+            <article class="workflow-step">
+              <div class="workflow-number">07</div>
+              <div>
+                <h3>Step 7: Refer to Knowledge Base</h3>
+                <p>Student uses the Knowledge Base for guidance on log retrieval, attack identification, remediation, and modifying vulnerable files.</p>
+                <div class="workflow-images">
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_07a_knowledge_base.png" alt="Knowledge Base guidance for the investigation">
+                    <figcaption>Knowledge Base guidance</figcaption>
+                  </figure>
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_07b_task_log.png" alt="Investigation task log">
+                    <figcaption>Task log and evidence</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+            <article class="workflow-step workflow-step--single">
+              <div class="workflow-number">08</div>
+              <div>
+                <h3>Step 8: Complete and Close Case</h3>
+                <p>After completing all required tasks, the student documents the findings, completes the case details, and marks the case as Solved/Closed.</p>
+                <div class="workflow-images">
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_08a_task_record.png" alt="Completed task record in TheHive">
+                    <figcaption>Completed task record</figcaption>
+                  </figure>
+                  <figure class="workflow-image">
+                    <img src="assets/fyp2c/flow_08b_case_completed.png" alt="Solved and closed incident case">
+                    <figcaption>Case solved and closed</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -709,10 +837,6 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     </div>
   </div>
 
-  <div class="info-block" style="margin-top:1.25rem;border-left:3px solid var(--c2c)">
-    <div class="block-label">HOW MY WORK ENABLES OTHERS</div>
-    <div class="editable" contenteditable="true">My hardened VM templates become the default target VMs that FYP-3A honeypots are modelled on. My IR playbook is a reference for FYP-3B's Suricata rule responses. My detection metrics (what % of FYP-2B attacks we catch) are the primary KPIs the entire lab's effectiveness is measured against.</div>
-  </div>
 </div>
 
 <script>
