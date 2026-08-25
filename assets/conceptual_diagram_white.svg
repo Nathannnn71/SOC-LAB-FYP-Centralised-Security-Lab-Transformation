@@ -1,0 +1,115 @@
+<svg viewBox="0 0 1536 1024" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1536" height="1024" fill="white"/>
+
+  <text x="768" y="45" text-anchor="middle" font-size="26" font-weight="bold" letter-spacing="2" fill="black">CONCEPTUAL DIAGRAM</text>
+
+  <!-- Lab Infrastructure -->
+  <rect x="135" y="105" width="305" height="92" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="287" y="138" text-anchor="middle" font-size="15" font-weight="bold" fill="black">Lab Infrastructure</text>
+  <text x="287" y="162" text-anchor="middle" font-size="13" fill="black">Network, VMs, SOC, Proxmox cluster</text>
+
+  <line x1="287" y1="197" x2="287" y2="246" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- System Development -->
+  <rect x="135" y="250" width="305" height="47" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="287" y="279" text-anchor="middle" font-size="15" font-weight="bold" fill="black">System Development</text>
+
+  <line x1="287" y1="297" x2="287" y2="374" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Process outer box -->
+  <rect x="28" y="333" width="1480" height="622" rx="10" fill="white" stroke="black" stroke-width="2"/>
+  <text x="45" y="360" font-size="15" font-weight="bold" fill="black">Process</text>
+
+  <!-- Input Layer -->
+  <rect x="133" y="380" width="280" height="213" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="153" y="408" font-size="15" font-weight="bold" fill="black">Input Layer</text>
+  <rect x="148" y="422" width="250" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="273" y="446" text-anchor="middle" font-size="13" fill="black">VM templates</text>
+  <rect x="148" y="474" width="250" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="273" y="498" text-anchor="middle" font-size="13" fill="black">Modular recipes</text>
+  <rect x="148" y="526" width="250" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="273" y="550" text-anchor="middle" font-size="13" fill="black">Predefined lab scenarios</text>
+
+  <line x1="273" y1="593" x2="273" y2="636" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Processing Layer -->
+  <rect x="797" y="380" width="300" height="200" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="817" y="408" font-size="15" font-weight="bold" fill="black">Processing Layer</text>
+  <rect x="812" y="422" width="270" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="947" y="446" text-anchor="middle" font-size="13" fill="black">Deployment verification</text>
+  <rect x="812" y="474" width="270" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="947" y="498" text-anchor="middle" font-size="13" fill="black">MITRE ATT&amp;CK mapping</text>
+  <rect x="812" y="522" width="270" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="947" y="546" text-anchor="middle" font-size="13" fill="black">Status reporting</text>
+
+  <line x1="947" y1="580" x2="947" y2="636" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Automation Engine -->
+  <rect x="133" y="640" width="280" height="215" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="153" y="668" font-size="15" font-weight="bold" fill="black">Automation Engine</text>
+  <rect x="148" y="682" width="250" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="273" y="706" text-anchor="middle" font-size="13" fill="black">Composes lab activities</text>
+  <rect x="148" y="734" width="250" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="273" y="758" text-anchor="middle" font-size="13" fill="black">Manages environment lifecycle</text>
+  <rect x="148" y="786" width="250" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="273" y="810" text-anchor="middle" font-size="13" fill="black">Resolves recipe dependencies</text>
+
+  <line x1="413" y1="747" x2="489" y2="747" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Execution Layer -->
+  <rect x="493" y="640" width="240" height="215" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="513" y="668" font-size="15" font-weight="bold" fill="black">Execution Layer</text>
+  <rect x="508" y="682" width="210" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="613" y="706" text-anchor="middle" font-size="13" fill="black">Template clone and power-on</text>
+  <rect x="508" y="734" width="210" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="613" y="758" text-anchor="middle" font-size="13" fill="black">Ansible recipe application</text>
+  <rect x="508" y="786" width="210" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="613" y="810" text-anchor="middle" font-size="13" fill="black">VLAN and guest configuration</text>
+
+  <!-- Elbow arrow Execution -> Processing -->
+  <polyline points="613,640 613,460 793,460" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Storage Layer -->
+  <rect x="797" y="640" width="300" height="215" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="817" y="668" font-size="15" font-weight="bold" fill="black">Storage Layer</text>
+  <rect x="812" y="682" width="270" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="947" y="706" text-anchor="middle" font-size="13" fill="black">Version Control (Git)</text>
+  <rect x="812" y="734" width="270" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="947" y="758" text-anchor="middle" font-size="13" fill="black">Logging system</text>
+  <rect x="812" y="786" width="270" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="947" y="810" text-anchor="middle" font-size="13" fill="black">Lab access store</text>
+
+  <line x1="1097" y1="747" x2="1179" y2="747" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Output variables -->
+  <rect x="1183" y="600" width="270" height="265" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="1203" y="628" font-size="15" font-weight="bold" fill="black">Output variables</text>
+  <rect x="1198" y="642" width="240" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="1318" y="666" text-anchor="middle" font-size="13" fill="black">Assembled lab environments</text>
+  <rect x="1198" y="694" width="240" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="1318" y="718" text-anchor="middle" font-size="13" fill="black">Console access (VNC)</text>
+  <rect x="1198" y="746" width="240" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="1318" y="770" text-anchor="middle" font-size="13" fill="black">Logs and status</text>
+  <rect x="1198" y="798" width="240" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="1318" y="822" text-anchor="middle" font-size="13" fill="black">Configured lab activities</text>
+
+  <!-- Arrow Output variables -> Outcome (exits Process box upward) -->
+  <line x1="1318" y1="600" x2="1318" y2="302" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Outcome -->
+  <rect x="1148" y="68" width="333" height="230" rx="8" fill="white" stroke="black" stroke-width="2"/>
+  <text x="1168" y="96" font-size="15" font-weight="bold" fill="black">Outcome</text>
+  <rect x="1163" y="110" width="303" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="1314" y="134" text-anchor="middle" font-size="13" fill="black">Hands-on learning</text>
+  <rect x="1163" y="162" width="303" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="1314" y="186" text-anchor="middle" font-size="13" fill="black">Reduced lab-prep time</text>
+  <rect x="1163" y="214" width="303" height="38" rx="6" fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="1314" y="238" text-anchor="middle" font-size="13" fill="black">Reusable scalable labs</text>
+
+</svg>
