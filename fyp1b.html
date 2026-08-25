@@ -212,43 +212,6 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
 
   <div class="section-grid full">
     <div class="info-block">
-      <div class="block-label">CONCEPTUAL FRAMEWORK</div>
-      <div class="diagram-container" id="cfWrap">
-        <img id="cfImg" src="assets/fyp1b/conceptual-framework.png" alt="Conceptual framework of the Lab D teaching laboratory">
-      </div>
-      <p class="note">Context (unused Lab D hardware) leads to the artefact: Proxmox cluster, then Opnsense-main. Students open LabEye and configure the four-guest overlay without hypervisor admin. Lecturers open ntopng, d3.js (Cluster Mesh), Wazuh, and Proxmox. LabEye is the teammate portal; Cluster Mesh is this author’s visualisation. Grafana, Netdata, and pfSense sit outside the framework. Click the diagram to enlarge.</p>
-    </div>
-  </div>
-
-  <div class="section-grid full">
-    <div class="info-block">
-      <div class="block-label">NETWORK LABS — FOUR-GUEST OVERLAY</div>
-      <p class="mockup-note">What students configure from a Lenovo through LabEye: student OPNsense, VyOS, Ubuntu Server, and Windows.</p>
-      <div class="mockup-gallery">
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/opnsense.jpg" alt="Student OPNsense — teaching firewall"></div><div class="mockup-caption">OPNsense — student firewall</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/vyos.jpg" alt="VyOS student router"></div><div class="mockup-caption">VyOS — student router</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ubuntu-server.jpg" alt="Ubuntu Server student guest"></div><div class="mockup-caption">Ubuntu Server — student guest</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/windows.png" alt="Windows student guest — Command Prompt"></div><div class="mockup-caption">Windows — student guest</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-grid full">
-    <div class="info-block">
-      <div class="block-label">INFRASTRUCTURE — CLUSTER AND STAFF PATH</div>
-      <p class="mockup-note">What staff run: Proxmox cluster, LabEye portal, ntopng, d3.js (Cluster Mesh), and Wazuh. Students on the Networking sitting do not open ntopng, Cluster Mesh, or Wazuh.</p>
-      <div class="mockup-gallery">
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/proxmox-cluster.png" alt="Proxmox VE lab-d-cluster"></div><div class="mockup-caption">Proxmox VE — lab-d-cluster</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/labeye.png" alt="LabEye teammate class portal"></div><div class="mockup-caption">LabEye — teammate portal</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ntopng.png" alt="ntopng live traffic"></div><div class="mockup-caption">ntopng — staff traffic view</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/cluster-mesh.png" alt="d3.js Cluster Mesh"></div><div class="mockup-caption">d3.js (Cluster Mesh)</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/wazuh.png" alt="Wazuh agents"></div><div class="mockup-caption">Wazuh — infrastructure SIEM</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-grid full">
-    <div class="info-block">
       <div class="block-label">PROJECT SCOPE — TABLE 1</div>
       <p class="note" style="margin:0 0 .75rem">Intermediate is the implemented laboratory. Advanced is future work and is not claimed as a result of this sitting.</p>
       <div class="table-wrap">
@@ -356,60 +319,6 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
     </div>
   </div>
 
-  <div class="section-grid three">
-    <div class="info-block">
-      <div class="block-label">METHODOLOGY</div>
-      <div class="method-tags">
-        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">DSRM</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Hybrid Agile</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">UAT</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Lecturer cases</span>
-      </div>
-      <p style="margin-top:.75rem;font-size:.8rem">Design Science Research Methodology (identify, design, implement, evaluate). Hybrid Agile-prototyping inside that loop: infrastructure, then isolation, then observability, then the LabEye overlay, then evaluation.</p>
-    </div>
-    <div class="info-block">
-      <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
-      <div class="method-tags">
-        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Proxmox VE</span>
-        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">OPNsense</span>
-        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">VyOS</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Kea DHCPv4</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">LabEye</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">ntopng</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">d3.js Cluster Mesh</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Wazuh</span>
-      </div>
-    </div>
-    <div class="info-block">
-      <div class="block-label">COURSE ALIGNMENT</div>
-      <ul style="list-style:none;font-size:.8rem">
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Network Security — VLANs, firewall, isolation</li>
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Data Communication &amp; Networking — routing, NAT, addressing</li>
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">System Security — least privilege, SIEM</li>
-        <li style="padding:.25rem 0">Cybersecurity — realistic lab vs simulator</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section-grid full">
-    <div class="info-block">
-      <div class="block-label">LITERATURE / EXISTING SYSTEMS</div>
-      <div class="table-wrap">
-        <table class="lit-table">
-          <thead>
-            <tr><th>Platform</th><th>Type</th><th>Limitation for this lab</th><th>Selected?</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Cisco Packet Tracer</strong></td><td>Simulator</td><td>Cisco-only; no real OS firewalls; limited realism for enterprise/security scenarios</td><td>—</td></tr>
-            <tr><td><strong>GNS3 / EVE-NG</strong></td><td>Emulator</td><td>Complex setup; images or licences; high hardware demand</td><td>—</td></tr>
-            <tr><td><strong>TryHackMe / HackTheBox</strong></td><td>Cloud lab</td><td>No infrastructure ownership; weak networking-engineering focus</td><td>—</td></tr>
-            <tr><td><strong>Lab D (this project)</strong></td><td>On-prem cluster</td><td>Needs a handbook and a staffed first sitting; Advanced packs not run</td><td><span class="tag g">✓ SELECTED</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">CURRENT IMPLEMENTATION &amp; ACHIEVEMENTS</div>
@@ -450,6 +359,43 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
       <li><span class="num">03</span><span>VLAN 931 honeypot as a class overlay; extra RAM on the Dell node.</span></li>
       <li><span class="num">04</span><span>Larger student sample; hardware comparison only with testers who have used a rack.</span></li>
     </ol>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">CONCEPTUAL FRAMEWORK</div>
+      <div class="diagram-container" id="cfWrap">
+        <img id="cfImg" src="assets/fyp1b/conceptual-framework.png" alt="Conceptual framework of the Lab D teaching laboratory">
+      </div>
+      <p class="note">Context (unused Lab D hardware) leads to the artefact: Proxmox cluster, then Opnsense-main. Students open LabEye and configure the four-guest overlay without hypervisor admin. Lecturers open ntopng, d3.js (Cluster Mesh), Wazuh, and Proxmox. LabEye is the teammate portal; Cluster Mesh is this author’s visualisation. Grafana, Netdata, and pfSense sit outside the framework. Click the diagram to enlarge.</p>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">NETWORK LABS — FOUR-GUEST OVERLAY</div>
+      <p class="mockup-note">What students configure from a Lenovo through LabEye: student OPNsense, VyOS, Ubuntu Server, and Windows.</p>
+      <div class="mockup-gallery">
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/opnsense.jpg" alt="Student OPNsense — teaching firewall"></div><div class="mockup-caption">OPNsense — student firewall</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/vyos.jpg" alt="VyOS student router"></div><div class="mockup-caption">VyOS — student router</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ubuntu-server.jpg" alt="Ubuntu Server student guest"></div><div class="mockup-caption">Ubuntu Server — student guest</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/windows.png" alt="Windows student guest — Command Prompt"></div><div class="mockup-caption">Windows — student guest</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">INFRASTRUCTURE — CLUSTER AND STAFF PATH</div>
+      <p class="mockup-note">What staff run: Proxmox cluster, LabEye portal, ntopng, d3.js (Cluster Mesh), and Wazuh. Students on the Networking sitting do not open ntopng, Cluster Mesh, or Wazuh.</p>
+      <div class="mockup-gallery">
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/proxmox-cluster.png" alt="Proxmox VE lab-d-cluster"></div><div class="mockup-caption">Proxmox VE — lab-d-cluster</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/labeye.png" alt="LabEye teammate class portal"></div><div class="mockup-caption">LabEye — teammate portal</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ntopng.png" alt="ntopng live traffic"></div><div class="mockup-caption">ntopng — staff traffic view</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/cluster-mesh.png" alt="d3.js Cluster Mesh"></div><div class="mockup-caption">d3.js (Cluster Mesh)</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/wazuh.png" alt="Wazuh agents"></div><div class="mockup-caption">Wazuh — infrastructure SIEM</div></div>
+      </div>
+    </div>
   </div>
 
 </div>
