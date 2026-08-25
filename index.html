@@ -37,7 +37,23 @@
   .legend{display:flex;flex-wrap:wrap;gap:.75rem;padding:1.5rem 2.5rem;border-top:1px solid var(--border)}
   .legend-item{display:flex;align-items:center;gap:.4rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted)}
   .legend-swatch{width:12px;height:12px;border-radius:2px}
-  @media(max-width:768px){.overview-hero{grid-template-columns:1fr}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
+  .flow-section{padding:2rem 2.5rem 1.5rem;border-bottom:1px solid var(--border)}
+  .flow-label{font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:var(--muted);letter-spacing:.06em;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
+  .flow-label::after{content:'';flex:1;height:1px;background:var(--border)}
+  .flow-hint{font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);margin-top:.85rem}
+  .flow-wrap{width:100%;overflow-x:auto}
+  .flow-svg{width:100%;min-width:920px;height:auto;display:block}
+  .flow-svg .flow-node{cursor:pointer;outline:none}
+  .flow-svg .flow-node rect{fill:var(--panel);stroke-width:1.5;transition:opacity .2s,filter .2s}
+  .flow-svg .flow-node text{font-family:'Space Grotesk',sans-serif;pointer-events:none}
+  .flow-svg .flow-title{fill:var(--bright);font-size:12px;font-weight:700}
+  .flow-svg .flow-id{font-size:10px}
+  .flow-svg .flow-edge{fill:none;stroke:var(--border);stroke-width:1.6;transition:opacity .2s}
+  .flow-svg.is-hovering .flow-node.is-dim,
+  .flow-svg.is-hovering .flow-edge.is-dim{opacity:.18}
+  .flow-svg.is-hovering .flow-node.is-lit rect{filter:drop-shadow(0 0 10px rgba(169,199,255,.35))}
+  .flow-svg .flow-node:focus-visible rect{stroke-width:2.5}
+  @media(max-width:768px){.overview-hero{grid-template-columns:1fr}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.flow-section{padding:1.25rem 1rem}}
 </style>
 </head>
 <body>
@@ -82,6 +98,88 @@
   </div>
 </div>
 
+<div class="flow-section">
+  <div class="flow-label">SYSTEM FLOW — hover a box to highlight that FYP · click to open its page</div>
+  <div class="flow-wrap">
+    <svg class="flow-svg" id="fyp-flow" viewBox="0 0 1120 500" role="img" aria-label="SOC Lab system flow map">
+      <defs>
+        <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0,7 3.5,0 7" fill="#414755"/>
+        </marker>
+      </defs>
+
+      <path class="flow-edge" data-fyps="1a 1b" d="M208 226 H248" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="1b 2a" d="M436 226 H476" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="1b 3b" d="M342 200 V92" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="1b 3a" d="M342 252 V360" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="1b" d="M436 226 H456 V406 H932" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="2a 1c" d="M664 200 C664 106,704 106,704 106" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="2a 2b" d="M664 252 C664 332,704 332,704 332" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="1c" d="M892 106 H932" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="2b" d="M892 306 H932 V246" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="2b 2c" d="M892 332 H932 V326" marker-end="url(#arr)"/>
+      <path class="flow-edge" data-fyps="2b 1b" d="M798 358 V406 H932" marker-end="url(#arr)"/>
+
+      <g class="flow-node" data-fyp="1a" data-href="fyp1a.html" tabindex="0" role="link" aria-label="FYP-1A Virtualisation">
+        <rect x="20" y="200" width="188" height="52" rx="6" stroke="var(--c1a)"/>
+        <text class="flow-title" x="114" y="222" text-anchor="middle">Virtualisation</text>
+        <text class="flow-id" x="114" y="240" text-anchor="middle" fill="var(--c1a)">FYP-1A</text>
+      </g>
+      <g class="flow-node" data-fyp="1b" data-href="fyp1b.html" tabindex="0" role="link" aria-label="FYP-1B Infrastructure">
+        <rect x="248" y="200" width="188" height="52" rx="6" stroke="var(--c1b)"/>
+        <text class="flow-title" x="342" y="222" text-anchor="middle">Infrastructure</text>
+        <text class="flow-id" x="342" y="240" text-anchor="middle" fill="var(--c1b)">FYP-1B</text>
+      </g>
+      <g class="flow-node" data-fyp="3b" data-href="fyp3b.html" tabindex="0" role="link" aria-label="FYP-3B IDS and IPS">
+        <rect x="248" y="40" width="188" height="52" rx="6" stroke="var(--c3b)"/>
+        <text class="flow-title" x="342" y="62" text-anchor="middle">IDS / IPS</text>
+        <text class="flow-id" x="342" y="80" text-anchor="middle" fill="var(--c3b)">FYP-3B</text>
+      </g>
+      <g class="flow-node" data-fyp="3a" data-href="fyp3a.html" tabindex="0" role="link" aria-label="FYP-3A Honeypot">
+        <rect x="248" y="360" width="188" height="52" rx="6" stroke="var(--c3a)"/>
+        <text class="flow-title" x="342" y="382" text-anchor="middle">Honeypot</text>
+        <text class="flow-id" x="342" y="400" text-anchor="middle" fill="var(--c3a)">FYP-3A</text>
+      </g>
+      <g class="flow-node" data-fyp="2a" data-href="fyp2a.html" tabindex="0" role="link" aria-label="FYP-2A Dashboard">
+        <rect x="476" y="200" width="188" height="52" rx="6" stroke="var(--c2a)"/>
+        <text class="flow-title" x="570" y="222" text-anchor="middle">Dashboard</text>
+        <text class="flow-id" x="570" y="240" text-anchor="middle" fill="var(--c2a)">FYP-2A</text>
+      </g>
+      <g class="flow-node" data-fyp="1c" data-href="fyp1c.html" tabindex="0" role="link" aria-label="FYP-1C Normal deployment">
+        <rect x="704" y="80" width="188" height="52" rx="6" stroke="var(--c1c)"/>
+        <text class="flow-title" x="798" y="102" text-anchor="middle">Normal deploy</text>
+        <text class="flow-id" x="798" y="120" text-anchor="middle" fill="var(--c1c)">FYP-1C</text>
+      </g>
+      <g class="flow-node" data-fyp="1c" data-href="fyp1c.html" tabindex="0" role="link" aria-label="FYP-1C Normal labs">
+        <rect x="932" y="80" width="168" height="52" rx="6" stroke="var(--c1c)"/>
+        <text class="flow-title" x="1016" y="102" text-anchor="middle">Normal labs</text>
+        <text class="flow-id" x="1016" y="120" text-anchor="middle" fill="var(--c1c)">FYP-1C</text>
+      </g>
+      <g class="flow-node" data-fyp="2b" data-href="fyp2b.html" tabindex="0" role="link" aria-label="FYP-2B Provisioned deployment">
+        <rect x="704" y="306" width="188" height="52" rx="6" stroke="var(--c2b)"/>
+        <text class="flow-title" x="798" y="328" text-anchor="middle">Provisioned deploy</text>
+        <text class="flow-id" x="798" y="346" text-anchor="middle" fill="var(--c2b)">FYP-2B</text>
+      </g>
+      <g class="flow-node" data-fyp="2b" data-href="fyp2b.html" tabindex="0" role="link" aria-label="FYP-2B Red lab">
+        <rect x="932" y="220" width="168" height="52" rx="6" stroke="var(--c2b)"/>
+        <text class="flow-title" x="1016" y="242" text-anchor="middle">Red lab</text>
+        <text class="flow-id" x="1016" y="260" text-anchor="middle" fill="var(--c2b)">FYP-2B</text>
+      </g>
+      <g class="flow-node" data-fyp="2c" data-href="fyp2c.html" tabindex="0" role="link" aria-label="FYP-2C Blue lab">
+        <rect x="932" y="300" width="168" height="52" rx="6" stroke="var(--c2c)"/>
+        <text class="flow-title" x="1016" y="322" text-anchor="middle">Blue lab</text>
+        <text class="flow-id" x="1016" y="340" text-anchor="middle" fill="var(--c2c)">FYP-2C</text>
+      </g>
+      <g class="flow-node" data-fyp="1b" data-href="fyp1b.html" tabindex="0" role="link" aria-label="FYP-1B Network lab">
+        <rect x="932" y="380" width="168" height="52" rx="6" stroke="var(--c1b)"/>
+        <text class="flow-title" x="1016" y="402" text-anchor="middle">Network lab</text>
+        <text class="flow-id" x="1016" y="420" text-anchor="middle" fill="var(--c1b)">FYP-1B</text>
+      </g>
+    </svg>
+  </div>
+  <p class="flow-hint">Same-colour boxes belong to one FYP and light together. 3C Orchestration is not on this map.</p>
+</div>
+
 <div class="legend">
   <div style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);margin-right:.5rem;">CANDIDATE COLOUR MAP ›</div>
   <div class="legend-item"><div class="legend-swatch" style="background:var(--c1a)"></div>FYP-1A Virtualisation</div>
@@ -94,5 +192,50 @@
   <div class="legend-item"><div class="legend-swatch" style="background:var(--c3b)"></div>FYP-3B IDS/IPS</div>
   <div class="legend-item"><div class="legend-swatch" style="background:var(--c3c)"></div>FYP-3C Orchestration</div>
 </div>
+<script>
+(function () {
+  var svg = document.getElementById('fyp-flow');
+  if (!svg) return;
+  var nodes = svg.querySelectorAll('.flow-node');
+  var edges = svg.querySelectorAll('.flow-edge');
+  var pages = { '1a':'fyp1a.html','1b':'fyp1b.html','1c':'fyp1c.html','2a':'fyp2a.html','2b':'fyp2b.html','2c':'fyp2c.html','3a':'fyp3a.html','3b':'fyp3b.html' };
+
+  function setHover(fyp) {
+    svg.classList.add('is-hovering');
+    nodes.forEach(function (n) {
+      var on = n.getAttribute('data-fyp') === fyp;
+      n.classList.toggle('is-lit', on);
+      n.classList.toggle('is-dim', !on);
+    });
+    edges.forEach(function (e) {
+      var fyps = (e.getAttribute('data-fyps') || '').split(/\s+/);
+      e.classList.toggle('is-dim', fyps.indexOf(fyp) === -1);
+    });
+  }
+  function clearHover() {
+    svg.classList.remove('is-hovering');
+    nodes.forEach(function (n) { n.classList.remove('is-lit','is-dim'); });
+    edges.forEach(function (e) { e.classList.remove('is-dim'); });
+  }
+  function go(fyp) {
+    var href = pages[fyp];
+    if (href) window.location.href = href;
+  }
+
+  nodes.forEach(function (n) {
+    n.addEventListener('mouseenter', function () { setHover(n.getAttribute('data-fyp')); });
+    n.addEventListener('mouseleave', clearHover);
+    n.addEventListener('focus', function () { setHover(n.getAttribute('data-fyp')); });
+    n.addEventListener('blur', clearHover);
+    n.addEventListener('click', function () { go(n.getAttribute('data-fyp')); });
+    n.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') {
+        ev.preventDefault();
+        go(n.getAttribute('data-fyp'));
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
