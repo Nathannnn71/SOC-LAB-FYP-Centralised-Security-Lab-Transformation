@@ -24,8 +24,8 @@ header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;to
 header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
 .nav-tabs{display:flex;gap:.25rem}
 .nav-tab{font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
-.nav-tab:hover{color:var(--c2a);border-color:var(--border)}
-.nav-tab.active{color:var(--c2a);background:var(--panel);border-color:var(--border)}
+.nav-tab:hover{color:var(--c2b);border-color:var(--border)}
+.nav-tab.active{color:var(--c2b);background:var(--panel);border-color:var(--border)}
 .candidate-page{max-width:960px;margin:0 auto;padding:2.5rem}
 .candidate-header{display:flex;align-items:flex-start;gap:1.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
 .candidate-badge{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:900;border:2px solid;border-radius:6px;padding:.5rem 1rem;white-space:nowrap;line-height:1;flex-shrink:0}
@@ -35,20 +35,18 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 .candidate-meta .course-tags{display:flex;gap:.4rem;flex-wrap:wrap}
 .course-tag{font-family:'Space Grotesk',sans-serif;font-size:.6rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:2px;color:var(--muted)}
 .candidate-name-block{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:var(--muted)}
-.candidate-name-block strong{color:var(--bright);font-size:.8rem}
+.candidate-name-block strong{color:var(--bright);font-size:.8rem;display:block;margin:.25rem 0}
 .section-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
 .section-grid.full{grid-template-columns:1fr}
 .section-grid.three{grid-template-columns:1fr 1fr 1fr}
-.info-block{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.25rem;position:relative}
-.info-block .block-label{font-family:'Space Grotesk',sans-serif;font-size:18px;letter-spacing:.06em;color:#DFE2EF;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.info-block{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.25rem;position:relative;margin-bottom:0}
+.info-block .block-label{font-family:'Space Grotesk',sans-serif;font-size:.6rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
 .info-block .block-label::after{content:'';flex:1;height:1px;background:var(--border)}
-.info-block .editable{font-size:.85rem;line-height:1.65;color:var(--text);min-height:60px;outline:none;border:1px dashed transparent;border-radius:3px;padding:.25rem;transition:border-color .2s}
-.info-block .editable:focus{border-color:var(--border)}
-.info-block .editable:empty::before{content:attr(data-placeholder);color:var(--muted);font-style:italic;pointer-events:none}
+.info-block p{font-size:.85rem;line-height:1.65;color:var(--text)}
 .scope-list{list-style:none;font-size:.85rem;line-height:1.7}
 .scope-list li{display:flex;align-items:flex-start;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)}
 .scope-list li:last-child{border-bottom:none}
-.scope-list li .num{font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);padding-top:.15rem;flex-shrink:0}
+.scope-list li .num{font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--c2b);padding-top:.15rem;flex-shrink:0}
 .deliverable-grid{display:grid;grid-template-columns:1fr;gap:.4rem}
 .deliverable-item{display:flex;align-items:center;gap:.6rem;font-size:.8rem;padding:.4rem .5rem;border:1px solid var(--border);border-radius:3px;background:var(--bg)}
 .deliverable-item .check{width:14px;height:14px;border-radius:2px;border:1px solid var(--border);flex-shrink:0}
@@ -56,51 +54,80 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 .status-badge.planned{color:var(--muted);border-color:var(--muted)}
 .status-badge.wip{color:var(--c1c);border-color:var(--c1c)}
 .status-badge.done{color:var(--c2a);border-color:var(--c2a)}
-.research-q-list{list-style:none;counter-reset:rq}
-.research-q-list li{counter-increment:rq;display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.85rem;line-height:1.5}
-.research-q-list li:last-child{border-bottom:none}
-.research-q-list li::before{content:'RQ' counter(rq);font-family:'Space Grotesk',sans-serif;font-size:.6rem;padding:.2rem .4rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);flex-shrink:0;margin-top:.1rem}
+.research-q-list,.research-o-list{list-style:none;counter-reset:rq}
+.research-o-list{counter-reset:ro}
+.research-q-list li,.research-o-list li{display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.85rem;line-height:1.5}
+.research-q-list li{counter-increment:rq}
+.research-o-list li{counter-increment:ro}
+.research-q-list li:last-child,.research-o-list li:last-child{border-bottom:none}
+.research-q-list li::before,.research-o-list li::before{font-family:'Space Grotesk',sans-serif;font-size:.6rem;padding:.2rem .4rem;border:1px solid var(--border);border-radius:2px;color:var(--c2b);flex-shrink:0;margin-top:.1rem}
+.research-q-list li::before{content:'RQ' counter(rq)}
+.research-o-list li::before{content:'RO' counter(ro)}
 .method-tags{display:flex;flex-wrap:wrap;gap:.4rem}
 .method-tag{font-family:'Space Grotesk',sans-serif;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid}
+.method-pill{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:.6rem;padding:.18rem .45rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);margin:.12rem .12rem .12rem 0}
 .edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
-.edit-hint span{color:var(--c2a)}
-@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
-.mockup-gallery {  display: grid;  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));  gap: 1rem;  margin-top: 1rem;}
-.mockup-card {  border: 1px solid var(--border);  border-radius: 8px;  overflow: hidden;  background: var(--bg);  transition: border-color 0.25s, transform 0.25s;  cursor: pointer;}
-.mockup-card:hover {  border-color: var(--c2b);  transform: translateY(-3px);}
-.mockup-img-wrap {  width: 100%;  aspect-ratio: 16 / 10;  overflow: hidden;  background: #0f131c;}
-.mockup-img-wrap img { width: 100%;  height: 100%;  object-fit: contain;  display: block;  transition: transform 0.3s ease;}
-.mockup-card:hover .mockup-img-wrap img {  transform: scale(1.04);}
-.mockup-caption {  font-family: 'Space Grotesk', sans-serif;  font-size: 15px;  letter-spacing: 0.07em;  color: var(--muted);  padding: 0.55rem 0.85rem;  border-top: 1px solid var(--border);  text-align: center;}
-.lightbox {  display: none;  position: fixed;  inset: 0;  background: rgba(0, 0, 0, 0.92);  z-index: 10000;  align-items: center;  justify-content: center;  backdrop-filter: blur(6px);}
-.lightbox.open {  display: flex;}
-.lightbox img {  max-width: 92vw;  max-height: 88vh;  border-radius: 8px;  border: 1px solid var(--border);  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);}
-.lightbox-close {  position: absolute;  top: 1.25rem;  right: 1.5rem;  font-family: 'Space Grotesk', sans-serif;  font-size: 0.9rem;  color: var(--muted);  cursor: pointer;  background: var(--panel);  border: 1px solid var(--border);  padding: 0.3rem 0.7rem;  border-radius: 4px;  transition: 0.2s;}
-.lightbox-close:hover {  color: var(--bright);  border-color: var(--c2b);}
-
-/* Research Design Table Styles */
-.research-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.75rem}
-.research-table th{font-family:'Space Grotesk',sans-serif;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#A9C7FF;border:1px solid var(--border);padding:.6rem .5rem;background:var(--bg);text-align:left;font-weight:600}
-.research-table td{font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:#DFE2EF;border:1px solid var(--border);padding:.6rem .5rem;line-height:1.5;vertical-align:top;}
-.research-table tr:hover{background:rgba(253,186,116,.03)}
-.research-table .rq-num{font-family:'Space Grotesk',sans-serif;color:#A9C7FF;font-weight:600;text-align:center}
-.research-table .method-cell{font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:#A9C7FF}
-
-/* Project Scope Table Styles */
-.ps-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:.75rem}
-.ps-table th{font-family:'Space Grotesk',sans-serif;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#A9C7FF;border:1px solid var(--border);padding:.6rem .5rem;background:var(--bg);text-align:left;font-weight:600}
-.ps-table td{font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:#DFE2EF;border:1px solid var(--border);padding:.6rem .5rem;line-height:1.5;vertical-align:top;}
-.ps-table tr:hover{background:rgba(253,186,116,.03)}
-.ps-table .rq-num{font-family:'Space Grotesk',sans-serif;color:#A9C7FF;font-weight:600;text-align:center}
-.ps-table .method-cell{font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:#DFE2EF}
-
-/* OUTER BOX (like Research Design) */
-.problem-grid {  display: grid;  grid-template-columns: 1fr;  gap: 1rem;  margin-top: .75rem;}
-.problem-card {  background: var(--bg);  border: 1px solid var(--border);  border-left: 4px solid var(--c2b);  border-radius: 6px;  padding: 1rem;  transition: all 0.25s ease;}
-.problem-card:hover {  border-color: var(--c2b);  box-shadow: 0 0 10px rgba(255, 82, 82, 0.15);  transform: translateY(-2px);}
-.problem-title {  font-family: 'Space Grotesk', sans-serif;  font-size: .75rem;  letter-spacing: .08em;  color: var(--c2b);  margin-bottom: .5rem;}
-.problem-text {  font-size: .85rem;  line-height: 1.6;  color: var(--text);  text-align: justify;}
-
+.edit-hint span{color:var(--c2b)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+.problem-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--c2b);border-radius:4px;padding:.85rem;font-size:.8rem;line-height:1.55}
+.problem-card strong{display:block;color:var(--bright);font-size:.78rem;margin-bottom:.35rem;font-family:'Space Grotesk',sans-serif;letter-spacing:.06em}
+.note{font-size:.78rem;color:var(--muted);line-height:1.55;margin-top:.65rem}
+.hl{color:var(--c2b)}
+.tag{font-family:'Space Grotesk',sans-serif;font-size:.58rem;padding:.15rem .4rem;border-radius:2px;border:1px solid;display:inline-block}
+.tag.g{color:var(--c2a);border-color:var(--c2a)}
+.tag.o{color:var(--c1c);border-color:var(--c1c)}
+.tag.r{color:var(--c2b);border-color:var(--c2b)}
+.level-basic{color:var(--c2a);font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700}
+.level-inter{color:var(--c1c);font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700}
+.level-adv{color:var(--c2b);font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700}
+.table-wrap{overflow-x:auto}
+table.rdt-table,table.scope-table,table.lit-table{width:100%;border-collapse:collapse;font-size:.78rem}
+table.rdt-table th,table.scope-table th,table.lit-table th{font-family:'Space Grotesk',sans-serif;font-size:.62rem;letter-spacing:.1em;color:var(--c2b);text-transform:uppercase;text-align:left;padding:.55rem .65rem;border-bottom:2px solid var(--border);background:rgba(252,88,68,.06)}
+table.rdt-table td,table.scope-table td,table.lit-table td{padding:.65rem .65rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+table.rdt-table tbody tr:nth-child(even) td,table.scope-table tbody tr:nth-child(even) td,table.lit-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+table.rdt-table td:first-child{font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:var(--c2b);white-space:nowrap;font-weight:700}
+.risk-low{color:var(--c2a);font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700}
+.risk-med{color:var(--c1c);font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700}
+.risk-high{color:var(--c2b);font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700}
+.desc-list{margin:.2rem 0 0 1.1rem;font-size:.78rem;line-height:1.55;color:var(--text)}
+.desc-list li{margin:.2rem 0}
+.placeholder-frame{min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;background:var(--bg);border:1px dashed var(--border);border-radius:6px;padding:1.5rem;text-align:center;cursor:pointer}
+.placeholder-frame strong{font-family:'Space Grotesk',sans-serif;color:var(--bright);letter-spacing:.06em;font-size:.8rem}
+.placeholder-frame span{font-size:.75rem;color:var(--muted);max-width:520px;line-height:1.5}
+.diagram-container{display:flex;justify-content:center;align-items:center;padding:.5rem;background:var(--bg);border-radius:6px;cursor:pointer}
+.diagram-container img{max-width:100%;height:auto;display:block;border-radius:4px}
+.mockup-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem;margin-top:.15rem}
+.mockup-card{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--bg);cursor:pointer;transition:border-color .25s,transform .25s}
+.mockup-card:hover{border-color:var(--c2b);transform:translateY(-2px)}
+.mockup-img-wrap{width:100%;aspect-ratio:16/10;overflow:hidden;background:#0d1524;display:flex;align-items:center;justify-content:center}
+.mockup-img-wrap img{width:100%;height:100%;object-fit:contain;display:block}
+.mockup-caption{font-family:'Space Grotesk',sans-serif;font-size:.62rem;letter-spacing:.06em;color:var(--muted);padding:.5rem .7rem;border-top:1px solid var(--border);text-align:center}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:10000;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:6px;border:1px solid var(--border)}
+.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;font-family:'Space Grotesk',sans-serif;font-size:.85rem;color:var(--muted);cursor:pointer;background:var(--panel);border:1px solid var(--border);padding:.3rem .7rem;border-radius:3px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin-top:.85rem}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.85rem}
+.pipeline-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:.55rem;margin-top:.5rem}
+.pipeline-step{background:var(--bg);border:1px solid var(--border);border-top:2px solid var(--c2b);border-radius:4px;padding:.7rem .55rem;min-height:118px}
+.pipeline-step.support{border-top-color:var(--muted);opacity:.9}
+.pipeline-step .pipeline-num{font-family:'Space Grotesk',sans-serif;font-size:.58rem;color:var(--c2b);margin-bottom:.35rem}
+.pipeline-step.support .pipeline-num{color:var(--muted)}
+.pipeline-step strong{display:block;color:var(--bright);font-size:.74rem;line-height:1.25;margin-bottom:.3rem}
+.pipeline-step span{display:block;color:var(--muted);font-size:.64rem;line-height:1.35}
+.logic-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--c2b);border-radius:4px;padding:.9rem}
+.logic-card h3{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.08em;color:var(--c2b);margin-bottom:.45rem}
+.logic-card p,.logic-card li{font-size:.78rem;line-height:1.55;color:var(--text)}
+.logic-card ul{margin:.35rem 0 0 1.05rem}
+.logic-card li{margin:.18rem 0}
+code.k{font-family:'Space Grotesk',sans-serif;font-size:.68rem;color:var(--c2a);background:rgba(169,199,255,.08);padding:.05rem .28rem;border-radius:2px}
+@media(max-width:900px){.problem-grid,.g3,.g2,.pipeline-flow{grid-template-columns:1fr}}
+@media(max-width:768px){
+  header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}
+  .nav-tabs{flex-wrap:wrap}
+  .section-grid,.section-grid.three{grid-template-columns:1fr}
+  .candidate-header{flex-direction:column}
+}
 </style>
 </head>
 <body>
@@ -124,175 +151,369 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 </header>
 
 <div class="candidate-page">
+
   <div class="candidate-header">
     <div class="candidate-badge" style="color:var(--c2b);border-color:var(--c2b)">FYP-2B</div>
     <div class="candidate-meta">
-      <div class="phase-tag" style="color:var(--c2b)">PHASE 2 · INTERMEDIATE</div>
-      <h2>Automated Cyber Attack Scenario Execution Platform</h2>
+      <div class="phase-tag" style="color:var(--c2b)">PHASE 2 · INTERMEDIATE · RED TEAM</div>
+      <h2>Custom Provisioning VM Pipeline for Red Team</h2>
       <div class="course-tags">
         <span class="course-tag">Penetration Testing</span>
         <span class="course-tag">Cybersecurity</span>
-        <span class="course-tag">Metasploit · Nmap · DVWA · OWASP Juice Shop</span>
-        <span class="course-tag">Red Team</span>
+        <span class="course-tag">Proxmox · Ansible · YAML recipes</span>
+        <span class="course-tag">Flask · noVNC</span>
+        <span class="course-tag">MITRE ATT&amp;CK</span>
       </div>
     </div>
     <div class="candidate-name-block">
       CANDIDATE<br>
-      <strong contenteditable="true">[ Ng Khai Zhe ]</strong><br>
-      <span style="font-size:.65rem">Supervisor: [ Ts. Dr. Khoo Li Jing ]</span>
+      <strong>Ng Khai Zhe 0139318</strong>
+      <span style="font-size:.65rem">Supervisor: Ts. Dr. Khoo Li Jing</span>
     </div>
   </div>
 
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-
       <div class="problem-grid">
-        <div class="problem-card">
-          <div class="problem-title">01 · Lack of Scalable Hands-On Training</div>
-          <div class="problem-text">
-            Universities struggle to provide scalable hands-on cybersecurity training. 
-            Traditional lab environments rely heavily on manual setup and instructor involvement, 
-            making it difficult to deliver consistent Red Team experience to large numbers of students.
-          </div>
-        </div>
-
-        <div class="problem-card">
-          <div class="problem-title">02 · Lack of Automated & Integrated Platforms</div>
-          <div class="problem-text">
-            Existing cyber ranges lack automated adversary emulation. Commercial solutions are costly 
-            and not designed for education, creating a gap for a cost-effective platform that supports 
-            automated attack orchestration and MITRE ATT&CK alignment.
-          </div>
-        </div>
-
-        <div class="problem-card">
-          <div class="problem-title">03 · Manual Environment Setup Overhead</div>
-          <div class="problem-text">
-            Students and lecturers spend significant time configuring environments, installing tools, 
-            and troubleshooting issues, reducing time available for actual hands-on learning.
-          </div>
-        </div>
+        <div class="problem-card"><strong>01 · LACK OF SCALABLE HANDS-ON TRAINING</strong>Universities struggle to provide scalable hands-on cybersecurity training. Traditional labs rely on manual setup and instructor involvement, so consistent Red Team experience cannot be delivered to large student cohorts.</div>
+        <div class="problem-card"><strong>02 · NO EDUCATION-FIT AUTOMATION LAYER</strong>Cyber ranges supply infrastructure but not a lecturer-facing control layer. Commercial platforms (e.g. Cyberbit) are costly; adversary-emulation tools (e.g. CALDERA) assume the lab already exists.</div>
+        <div class="problem-card"><strong>03 · MANUAL ENVIRONMENT SETUP OVERHEAD</strong>Lecturers still clone VMs, configure networks, install vulnerable services, verify connectivity, issue access, and repeat this across workstations. Misconfiguration causes lab failure; reset is slow for a full class.</div>
       </div>
-  </div>
-<div class="section-grid full">
-    <div class="info-block">
-      <div class="block-label">RESEARCH DESIGN</div>
-      <table class="research-table">
-        <thead>
-          <tr>
-            <th style="width:5%; text-align: center;">No</th>
-            <th style="width:30%; text-align: center;">Research Question(s)</th>
-            <th style="width:30%; text-align: center;">Research Objective(s)</th>
-            <th style="width:11%; text-align: center;">Method(s)</th>
-            <th style="width:20%; text-align: center;">Expected Outcome</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="rq-num">1</td>
-            <td>How can automation be applied to improve the scalability and consistency of hands-on cybersecurity learning in university lab environments?</td>
-            <td>To design and develop an automated cyber attack scenario execution platform that enables scalable and repeatable practical exercises in university lab environments.</td>
-            <td class="method-cell">
-              <div style="margin-bottom: 10px;">- Literature Review</div>
-              <div>- Feasibility Study</div>
-            </td>
-            <td>A functional platform that allows multiple students to perform consistent and repeatable Red Team exercises simultaneously</td>
-          </tr>
-          <tr>
-            <td class="rq-num">2</td>
-            <td>To what extent can automation reduce the time and complexity involved in setting up cybersecurity lab environments for learning?</td>
-            <td>To implement automation mechanisms for environment setup, tool configuration, and attack execution in order to reduce manual overhead and improve learning efficiency.</td>
-            <td class="method-cell">
-              <div>- Survey</div>
-            </td>
-            <td>Reduced setup time and complexity, enabling faster lab preparation and more efficient learning sessions</td>
-          </tr>
-          <tr>
-            <td class="rq-num">3</td>
-            <td>How can attack scenarios be effectively orchestrated and aligned with industry frameworks such as the MITRE ATT&CK to ensure realistic and practical training?</td>
-            <td>To integrate and orchestrate multiple cybersecurity tools and map attack scenarios to the MITRE ATT&CK framework for realistic and standardized training.</td>
-            <td class="method-cell">
-              <div>- Literature Review</div>
-            </td>
-            <td>Standardized and realistic attack simulations aligned with industry practices, improving students’ understanding of real-world adversary behaviory</td>
-          </tr>
-        </tbody>
-      </table>
+      <p class="note">Refined problem: a lecturer-focused orchestration platform that automates provisioning, configuration, multi-seat deployment, access, and teardown — without the lecturer managing every VM or hypervisor task.</p>
     </div>
   </div>
+
+  <div class="section-grid">
+    <div class="info-block">
+      <div class="block-label">PROBLEM SOLUTION</div>
+      <p>Build a <span class="hl">lecturer-facing orchestration platform</span> whose core is the <span class="hl">recipe / scenario engine</span>, not the hypervisor clone. The lecturer picks service recipes, vulnerability recipes, and scenario modules. The orchestrator resolves dependencies, generates Ansible/cloud-init artefacts, tracks status, and verifies that the teaching service actually came up.</p>
+      <p style="margin-top:.7rem">Cloning and linked-clone rollout are <strong>delivery support</strong> on Proxmox. Students never log into the hypervisor. They open an <span class="hl">opaque console URL</span> bound to their seat. Each Lenovo runs <span class="hl">update_workstation_ip.ps1</span> so the backend knows which IP is which workstation. A console token issued for ws1 cannot be reused on ws2.</p>
+      <p style="margin-top:.7rem">MITRE ATT&amp;CK IDs live as recipe metadata. The platform does <strong>not</strong> auto-execute attacks — it composes, verifies, and delivers the lab.</p>
+    </div>
+    <div class="info-block">
+      <div class="block-label">RESEARCH QUESTIONS</div>
+      <ol class="research-q-list">
+        <li>How can a lecturer-focused orchestration platform be designed to configure and deploy customisable cybersecurity lab scenarios using reusable VM templates and modular recipes within a controlled and isolated university environment?</li>
+        <li>To what extent can an automated orchestration workflow reduce the time and complexity involved in cloning base templates, applying scenario-specific configurations, and provisioning lab VMs in a repeatable manner?</li>
+        <li>How can the configured lab scenarios be structured using selected cybersecurity tools and mapped to the MITRE ATT&amp;CK framework so that the resulting exercises are realistic, pedagogically organised, and aligned with a recognised model of adversary behaviour?</li>
+      </ol>
+    </div>
+  </div>
+
   <div class="section-grid full">
     <div class="info-block">
-      <div class="block-label">Project Scope</div>
-      <table class="ps-table">
-        <thead>
-          <tr>
-            <th style="width:1%; text-align: center;">Level</th>
-            <th style="width:15%; text-align: center">Scope</th>
-            <th style="width:30%; text-align: center">Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="rq-num">BASIC</td>
-            <td style="text-align: justify;">Core Automation Prototype</td>
-            <td class="method-cell">
-              <div style="margin-bottom: 10px;">The platform shall be able to:</div>
-              <div style="margin-bottom: 10px;">1. Deploy a predefined vulnerable lab environment using virtualization or containerization.</div>
-              <div style="margin-bottom: 10px;">2. Execute at least five basic attack modules (e.g., reconnaissance and scanning).</div>
-              <div style="margin-bottom: 10px;">3. Perform manual environment reset to restore initial configuration.</div>
-            </td>          </tr>
-          <tr>
-            <td class="rq-num">INTERMEDIATE</td>
-            <td style="text-align: justify;">Modular attackwork flow automation</td>
-            <td class="method-cell">
-              <div style="margin-bottom: 10px;">The platform shall be able to:</div>
-              <div style="margin-bottom: 10px;">1. Automate a structured attack workflow.</div>
-              <div style="margin-bottom: 10px;">2. Perform automated environment reset and ensure reproducibility.</div>
-              <div style="margin-bottom: 10px;">3. Integrate with the underlying SOC infrastructure.</div>
-              <div style="margin-bottom: 10px;">3. Collect, store, and display raw attack results.</div>
-            </td>          </tr>
-          <tr>
-            <td class="rq-num">ADVANCED</td>
-            <td style="text-align: justify;">Full red team orchestration platform</td>
-            <td class="method-cell">
-              <div style="margin-bottom: 10px;">The platform shall be able to:</div>
-              <div style="margin-bottom: 10px;">1. Dynamically select attack workflows based on target configuration.</div>
-              <div style="margin-bottom: 10px;">2. Support concurrent execution on multiple targets or environments.</div>
-              <div style="margin-bottom: 10px;">3. Map attack activities to MITRE ATT&CK techniques and generate structured reports.</div>
-              <div style="margin-bottom: 10px;">3. Integrate logging, performance benchmarking, and automated evaluation metrics.</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="block-label">PROJECT OBJECTIVES</div>
+      <ol class="research-o-list">
+        <li>Design and develop a lecturer-focused platform for configuring and deploying customisable cybersecurity lab scenarios using reusable VM templates and modular recipes within a controlled and isolated university environment.</li>
+        <li>Implement an automated orchestration workflow that clones base templates, applies scenario-specific configurations, and provisions attacker and victim VMs through infrastructure automation tools, in order to reduce manual setup effort and improve repeatability.</li>
+        <li>Integrate scenario components with selected cybersecurity tools and map the configured attack scenarios to the MITRE ATT&amp;CK framework so that the resulting lab exercises are structured, realistic, and aligned with a recognised standard for adversary behaviour.</li>
+      </ol>
     </div>
   </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">CONCEPTUAL FRAMEWORK</div>
+      <div class="diagram-container" id="cfWrap">
+        <img id="cfImg" src="assets/fyp2b_conceptual_diagram.png" alt="Conceptual framework of the lecturer-focused lab orchestration platform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-frame" style="display:none;width:100%">
+          <strong>IMAGE PLACEHOLDER · CH. 1.9</strong>
+          <span>Drop the conceptual framework figure here as <code style="color:var(--c2b)">assets/fyp2b_conceptual_diagram.png</code>. Click the frame after the image is added to enlarge it.</span>
+        </div>
+      </div>
+      <p class="note">Context (static, instructor-heavy labs) leads to the artefact: a lecturer catalogue of service/vulnerability/scenario recipes, an orchestrator with dependency resolution and verification, and delivery support on Proxmox. Seat identity (workstation IP) plus opaque console tokens keep students on their own VMs. Click the diagram to enlarge once the image is in place.</p>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">SYSTEM LOGIC — ORCHESTRATOR IS THE CORE</div>
+      <p class="note" style="margin:0 0 .75rem">Cloning VMs is supporting infrastructure. The distinctive logic is: compose a lab from YAML recipes, run it through the orchestrator, verify the teaching service, then bind opaque console access to a workstation IP.</p>
+
+      <div class="pipeline-flow">
+        <div class="pipeline-step">
+          <div class="pipeline-num">01 · CORE</div>
+          <strong>Catalogue &amp; compose</strong>
+          <span>Load YAML service, vulnerability, and scenario recipes. Resolve dependencies (e.g. SQLi pulls web + DB). Reject unknown recipes / OS mismatch before anything is cloned.</span>
+        </div>
+        <div class="pipeline-step support">
+          <div class="pipeline-num">02 · SUPPORT</div>
+          <strong>Place &amp; clone</strong>
+          <span>Not the product core. Proxmox linked-clone of golden templates, VLAN tags, cloud-init SSH key. Memory gate skips overloaded Acer nodes.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">03 · CORE</div>
+          <strong>Configure</strong>
+          <span>Wait for guest IP then real SSH. Recipe engine generates Ansible. Runner executes the playbook with lock/timeout handling.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">04 · CORE</div>
+          <strong>Verify</strong>
+          <span>Ansible exit 0 is not “ready”. DeploymentVerifier HTTP-checks the recipe. Fail = lecturer sees verification failed, not a false ready seat.</span>
+        </div>
+        <div class="pipeline-step">
+          <div class="pipeline-num">05 · CORE</div>
+          <strong>Bind &amp; grant</strong>
+          <span>Register seat → VM. Mint opaque /console/&lt;token&gt;. Client IP must match the workstation heartbeat. Teardown revokes tokens.</span>
+        </div>
+      </div>
+
+      <div class="g2" style="margin-top:1rem">
+        <div class="logic-card">
+          <h3>RECIPES / SCENARIOS — RECIPE ENGINE</h3>
+          <p>Three YAML layers, kept as data so new labs do not rewrite Python:</p>
+          <ul>
+            <li><strong>Service recipes</strong> — supporting stack (web server, database, etc.).</li>
+            <li><strong>Vulnerability recipes</strong> — the teaching flaw, with ATT&amp;CK IDs and HTTP verify checks.</li>
+            <li><strong>Scenario modules</strong> — a class activity: which packages, which VM roles (attacker / victim / C2), which template.</li>
+          </ul>
+          <p style="margin-top:.5rem"><code class="k">recipe_engine.py</code> loads the catalogue, resolves dependencies, and generates cloud-init + Ansible artefacts at deploy time. <code class="k">orchestrator.py</code> (single lab) and <code class="k">scenario_orchestrator.py</code> (multi-role, multi-seat) register status, wait for IP/SSH, run the generated playbook, then call the verifier. Lecturers design the activity; they do not reconstruct the stack by hand.</p>
+        </div>
+        <div class="logic-card">
+          <h3>ORCHESTRATOR STATUS PATH</h3>
+          <p>Long deploys run in a background thread. The dashboard polls status — it does not block on a 4-minute first configure. Stages are tracked separately because “clone accepted” is not “lab ready”:</p>
+          <ul>
+            <li>Registered in the status registry</li>
+            <li>Power-on waited (not fire-and-forget)</li>
+            <li>Guest-agent IP wait, then SSH wait (up to 180s, real <code class="k">ssh</code> probe)</li>
+            <li>Ansible playbook from the recipe</li>
+            <li>HTTP verify against recipe checks</li>
+            <li>Mark <strong>ready</strong> or <strong>failed</strong> — seats that fail do not get console URLs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">VERIFICATION &amp; VALIDATION</div>
+      <p class="note" style="margin:0 0 .75rem"><code class="k">deployment_verifier.py</code> exists because a successful Ansible run is not enough. The teaching site must actually answer.</p>
+      <div class="g3" style="margin-top:0">
+        <div class="logic-card">
+          <h3>PRE-DEPLOY VALIDATION</h3>
+          <ul>
+            <li>Parse scenario YAML; reject unknown recipes and unknown <code class="k">template_vmid</code> values.</li>
+            <li>OS match (Linux-only recipe cannot land on a non-Linux template).</li>
+            <li>Node memory gate (default 70%) — skip an Acer that would go over after this seat.</li>
+            <li>Golden template VMIDs treated as production assets (wrong VMID clones the wrong lab).</li>
+          </ul>
+        </div>
+        <div class="logic-card">
+          <h3>DURING PROVISIONING</h3>
+          <ul>
+            <li>Status JSON polled by LabEye: provisioning → IP wait → SSH wait → Ansible → verify.</li>
+            <li>VLAN applied before power-on; cloud-init injects the controller SSH key.</li>
+            <li>Playbook timeout + dpkg-lock handling so a hung package install does not fake success.</li>
+            <li>Lecturer sees a failed seat instead of a silent skip.</li>
+          </ul>
+        </div>
+        <div class="logic-card">
+          <h3>POST-DEPLOY VERIFY</h3>
+          <ul>
+            <li>Rewrites recipe URLs (<code class="k">localhost</code> → guest IP) and issues HTTP checks with retries.</li>
+            <li>Soft-matches expected response strings; skips interactive payloads (e.g. reverse shells).</li>
+            <li>Produces a <code class="k">VerificationReport</code> per check.</li>
+            <li>Pipeline distinguishes <em>Ansible failed</em> from <em>Ansible OK, HTTP verification failed</em> so a down PHP/Apache lab is never marked ready.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid">
+    <div class="info-block">
+      <div class="block-label">OPAQUE CONSOLE URLS</div>
+      <p>Students never receive a Proxmox login, VMID, or VNC endpoint. LabEye asks the lab API for a console URL; the student opens <code class="k">/console/&lt;48-hex-token&gt;</code> on the Node.js noVNC proxy (<code class="k">vnc-proxy-server.js</code> / fyp_proxy).</p>
+      <p style="margin-top:.65rem">The token is not guessable and is not a VMID. It is stored in SQLite as <strong>token → deployment → VMID → workstation_id</strong>, with TTL (default 1 hour) and a revoked flag. Numeric URLs such as <code class="k">/console/301</code> are rejected so a student cannot change a number and land on someone else’s VM.</p>
+      <p style="margin-top:.65rem">On open, the proxy POSTs the token plus the <strong>client IP</strong> to the lab API. Access is allowed only if the token is valid, the deployment is active, the VMID matches, and the client IP belongs to that workstation. Otherwise the student gets a generic 404 — no grant enumeration. Sessions are one-shot WebSocket upgrades; max two VNC sessions per VM; tickets stay on the server. Power actions use the same opaque token, never a raw VMID.</p>
+    </div>
+    <div class="info-block">
+      <div class="block-label">WHY OPAQUE + SEAT BINDING</div>
+      <ul class="scope-list">
+        <li><span class="num">01</span><span>Hide the hypervisor. Browser talks only to the proxy; Proxmox credentials never leave the controller.</span></li>
+        <li><span class="num">02</span><span>Stop URL tampering. Opaque hex token; VMID is not in the page or in session JSON.</span></li>
+        <li><span class="num">03</span><span>Stop seat hopping. A token minted for ws1 fails from ws2’s IP even if the URL is copied.</span></li>
+        <li><span class="num">04</span><span>Default deny + template lockout. Golden/infra VMIDs are never grantable to students.</span></li>
+        <li><span class="num">05</span><span>Revoke on teardown / TTL / remint so leftover links die with the lab session.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">WORKSTATION IDENTITY — update_workstation_ip.ps1</div>
+      <p>Each student Lenovo runs <code class="k">update_workstation_ip.ps1</code> (installed under ProgramData, scheduled at logon and every 30 minutes). The script is edited per seat: <code class="k">WorkstationId</code> must match <code class="k">workstations.json</code> (e.g. ws1). It picks the lab LAN IPv4 (preferred prefix <code class="k">192.168.0.</code>, skipping loopback/Docker/WSL) and POSTs identity to the VNC proxy on the student VLAN:</p>
+      <p style="margin-top:.55rem"><code class="k">POST http://&lt;proxy&gt;:8080/api/lab/access/workstation-ip</code> &nbsp;→&nbsp; <code class="k">{ workstation_id, ip, replace_ips: true }</code></p>
+      <p style="margin-top:.55rem">The proxy forwards that into the lab API, which writes the IP onto the seat record. A local <code class="k">ip_heartbeat.log</code> is also shipped to <code class="k">/api/lab/access/workstation-log</code> for troubleshooting. Without this heartbeat, DHCP or a cable move would leave the backend thinking ws1 is still the old address — and console IP checks would deny the real student or, worse, bind the wrong seat.</p>
+
+      <p class="note" style="margin:1rem 0 .5rem">Who needs that IP, and for what</p>
+      <div class="table-wrap">
+        <table class="scope-table">
+          <thead>
+            <tr>
+              <th>Service / part</th>
+              <th>Needs the IP for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>update_workstation_ip.ps1</strong><br><span style="color:var(--muted);font-size:.72rem">each Lenovo seat</span></td>
+              <td>Detects the current lab IP and reports <code class="k">wsN → 192.168.0.x</code> so the seat’s identity stays current after DHCP or a move.</td>
+            </tr>
+            <tr>
+              <td><strong>fyp_proxy / vnc-proxy-server.js</strong><br><span style="color:var(--muted);font-size:.72rem">:8080 on student VLAN</span></td>
+              <td>Ingests the heartbeat. On console open, sends the <em>browser’s</em> client IP with the opaque token so the lab API can authorise the seat.</td>
+            </tr>
+            <tr>
+              <td><strong>lab_api + lab_access.py</strong><br><span style="color:var(--muted);font-size:.72rem">SQLite access_tokens + workstations.json</span></td>
+              <td>Stores <code class="k">ips[]</code> on the seat. Console grant requires: valid token + active deployment + matching VMID + <strong>client IP ∈ that workstation’s IPs</strong>. Same IP cannot sit on two seats.</td>
+            </tr>
+            <tr>
+              <td><strong>Identify / register</strong><br><span style="color:var(--muted);font-size:.72rem">POST /api/lab/access/register</span></td>
+              <td>Maps a dashboard-captured client IP to <code class="k">workstation_id</code> before a deployment is bound, so ws17’s VMs are not registered to ws1.</td>
+            </tr>
+            <tr>
+              <td><strong>LabEye (FYP-2A) F013</strong><br><span style="color:var(--muted);font-size:.72rem">seat locking / Live VMs</span></td>
+              <td>Uses the same IP→seat map so deploy and Live bind to the physical PC the student is sitting at. Staff may select multiple seats; students only see their own.</td>
+            </tr>
+            <tr>
+              <td><strong>noVNC console grant</strong><br><span style="color:var(--muted);font-size:.72rem">GET /api/lab/console-url/</span></td>
+              <td>Mints the opaque URL only after the seat is ready. Opening it from another workstation’s IP is denied — that is the mechanism that stops students accessing others’ labs.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">PROJECT SCOPE — TABLE 1.7</div>
+      <div class="table-wrap">
+        <table class="scope-table">
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>Scope</th>
+              <th>Description</th>
+              <th>Risk</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="level-basic">BASIC</td>
+              <td>Lab activity selection and package assembly</td>
+              <td>
+                The platform shall be able to:
+                <ol class="desc-list">
+                  <li>Provide a lecturer-facing catalogue of reusable lab packages (services and vulnerabilities) and predefined lab scenarios.</li>
+                  <li>Allow the lecturer to select one or more packages for a class activity.</li>
+                  <li>Combine selected packages into a complete lab activity by resolving supporting services and dependencies, then instantiate it in the isolated university cyber range.</li>
+                </ol>
+              </td>
+              <td class="risk-low">LOW</td>
+            </tr>
+            <tr>
+              <td class="level-inter">INTERMEDIATE</td>
+              <td>Custom lab activity design and recipe authoring</td>
+              <td>
+                The platform shall be able to:
+                <ol class="desc-list">
+                  <li>Let the lecturer design a custom lab activity (name, difficulty, objectives, required tools) and define how selected packages form one exercise.</li>
+                  <li>Create and register new recipe content so the catalogue can grow as techniques evolve.</li>
+                  <li>Validate combinations (dependency, compatibility, completeness).</li>
+                  <li>Save the designed activity as a reusable scenario.</li>
+                  <li>Redeploy or reset the same activity so students receive a consistent lab.</li>
+                </ol>
+              </td>
+              <td class="risk-med">MEDIUM</td>
+            </tr>
+            <tr>
+              <td class="level-adv">ADVANCED</td>
+              <td>Multi-component scenario authoring and curriculum alignment</td>
+              <td>
+                The platform shall be able to:
+                <ol class="desc-list">
+                  <li>Support richer design: several victim roles, chained vulnerabilities, and supporting services — not only a single-package exercise.</li>
+                  <li>Map the designed activity to MITRE ATT&amp;CK so the lecturer can see which tactics and techniques the lab covers.</li>
+                  <li>Reuse newly authored recipes across multiple scenarios without rewriting the same content.</li>
+                  <li>Present the assembled activity as a structured lab brief (objectives, tools, covered techniques) before it is given to students.</li>
+                </ol>
+              </td>
+              <td class="risk-high">HIGH</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">RESEARCH DESIGN TABLE</div>
+      <p class="note" style="margin:0 0 .75rem">Table 1.3 from the FYP2 report (Ch. 3.2.2). Methods map each project question to an objective and expected outcome.</p>
+      <div class="table-wrap">
+        <table class="rdt-table">
+          <thead>
+            <tr><th>No.</th><th>Research question</th><th>Objective</th><th>Methods</th><th>Expected outcome</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RQ1</td>
+              <td>How can a lecturer-focused platform assemble customisable lab activities from reusable packages, modular recipes, and predefined scenarios?</td>
+              <td>RO1 — Lecturer-facing platform with VM templates and modular recipes</td>
+              <td><span class="method-pill">Literature</span><span class="method-pill">Existing systems</span></td>
+              <td>A functional catalogue of lab packages and scenarios; lecturers can select and assemble a complete class activity.</td>
+            </tr>
+            <tr>
+              <td>RQ2</td>
+              <td>To what extent can package selection, recipe authoring, and automated composition reduce time and complexity of preparing repeatable class labs?</td>
+              <td>RO2 — Automated composition and consistent instantiation</td>
+              <td><span class="method-pill">Survey</span><span class="method-pill">UAT</span></td>
+              <td>Reduced lecturer effort when designing, assembling, and reusing labs; more consistent student environments.</td>
+            </tr>
+            <tr>
+              <td>RQ3</td>
+              <td>How can assembled labs be structured with selected tools and mapped to MITRE ATT&amp;CK?</td>
+              <td>RO3 — Tool integration and ATT&amp;CK mapping as recipe metadata</td>
+              <td><span class="method-pill">Literature</span></td>
+              <td>Structured lab activities that show tools and ATT&amp;CK techniques covered, so lecturers can design realistic, comparable exercises.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div class="section-grid three">
     <div class="info-block">
       <div class="block-label">METHODOLOGY</div>
       <div class="method-tags">
-        <span class="method-tag" style="color:var(--c2b);border-color:var(--c2b)">Controlled Lab Testing</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Script/playbook automation development</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Scenario Design</span>
+        <span class="method-tag" style="color:var(--c2b);border-color:var(--c2b)">DSRM</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Hybrid Agile (Scrum)</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">DevOps / IaC</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Survey</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">UAT</span>
       </div>
+      <p style="margin-top:.75rem;font-size:.8rem">Design Science Research Methodology structures the work (identify, define, design, demonstrate, evaluate, communicate). Hybrid Agile-DevOps inside that loop: sprints for the lecturer catalogue and API, Ansible/Git as infrastructure-as-code for repeatable deploy.</p>
     </div>
     <div class="info-block">
       <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
       <div class="method-tags">
-        <span class="method-tag" style="color:var(--c2b);border-color:var(--c2b)">Metasploit</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Nmap</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Hydra</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Ansible</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Kali Linux</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">DVWA</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">John the Ripper</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">OWASP Juice Shop</span>
+        <span class="method-tag" style="color:var(--c2b);border-color:var(--c2b)">Proxmox VE API</span>
+        <span class="method-tag" style="color:var(--c2b);border-color:var(--c2b)">Ansible</span>
+        <span class="method-tag" style="color:var(--c2b);border-color:var(--c2b)">Flask REST API</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">YAML recipes</span>
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Docker</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Ghidra</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Greenbone</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Mimikatz</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Maltego</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">BurpSuite</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">noVNC / Node.js proxy</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">PowerShell heartbeat</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">SQLite</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Kali Linux</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">DVWA · Juice Shop</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Nmap · Metasploit</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Git</span>
       </div>
     </div>
     <div class="info-block">
@@ -305,79 +526,140 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     </div>
   </div>
 
-  <div class="info-block">
-    <div class="block-label">DELIVERABLES &amp; STATUS</div>
-    <div class="deliverable-grid">
-      <div class="deliverable-item"><div class="check"></div>Attack scenario library (scripts + documentation)<span class="status-badge wip">WIP</span></div>
-      <div class="deliverable-item"><div class="check"></div>Student lab manuals — PDF, 1 per scenario<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Ansible playbook for automated attack execution<span class="status-badge wip">WIP</span></div>
-      <div class="deliverable-item"><div class="check"></div>Results Capture and Parsing <span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Platform control interface <span class="status-badge wip">WIP</span></div>
-      <div class="deliverable-item"><div class="check"></div>Reset automation (snapshot rollback all target VMs)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Deployment guide<span class="status-badge planned">PLANNED</span></div>
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">LITERATURE / EXISTING SYSTEMS</div>
+      <div class="table-wrap">
+        <table class="lit-table">
+          <thead>
+            <tr><th>Platform</th><th>Type</th><th>Limitation for this lab</th><th>Selected?</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>MITRE CALDERA</strong></td>
+              <td>Open-source adversary emulation</td>
+              <td>Strong ATT&amp;CK-driven attack automation, but infrastructure must already exist. Not classroom-oriented; students would still have no seat-based lab delivery.</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Cyberbit</strong></td>
+              <td>Commercial cyber range</td>
+              <td>Enterprise polish and a large scenario library, but proprietary, expensive, and not designed for local customisation on a faculty cluster.</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>TryHackMe / Hack The Box</strong></td>
+              <td>Cloud lab / CTF</td>
+              <td>No ownership of the university range; weak fit for lecturer-authored packages, VLANs, or per-workstation attacker/victim VMs.</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>BAS / SOAR</strong></td>
+              <td>Attack simulation / IR playbooks</td>
+              <td>Useful contrast for automation, but they execute attacks or incident-response playbooks. This project assembles educational labs, not live adversary runs.</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>This project (2B)</strong></td>
+              <td>Lecturer-focused orchestration</td>
+              <td>Needs richer catalogue content, documentation, and full-class load testing. Advanced multi-component authoring remains stretch.</td>
+              <td><span class="tag g">✓ SELECTED</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="g3">
+        <div class="info-block" style="border-left:3px solid var(--c2b);margin:0">
+          <div class="block-label">What is automated</div>
+          <p>CALDERA automates attack techniques. Cyberbit automates vendor scenario delivery. <span class="hl">This project</span> automates VM clone, VLAN tagging, recipe application, post-deploy checks, console grant, and teardown/TTL.</p>
+        </div>
+        <div class="info-block" style="border-left:3px solid var(--c1c);margin:0">
+          <div class="block-label">Lab environment setup</div>
+          <p>Not the core of CALDERA. Vendor-operated in Cyberbit. <span class="hl">Core product here:</span> recipe/scenario orchestrator, dependency resolution, and post-deploy verification. Cloning is delivery support.</p>
+        </div>
+        <div class="info-block" style="border-left:3px solid var(--c2a);margin:0">
+          <div class="block-label">Cost &amp; access</div>
+          <p>Runs on the existing faculty Proxmox cluster with no commercial range licence. Students use a browser console; they never receive hypervisor credentials.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-    <div class="section-grid full">
-      <div class="info-block" style="padding:0; margin-top:1.25rem;border-left:3px solid var(--c2b)">
-        <div class="block-label" style="padding:1.25rem 1.25rem 0 1.25rem">CONCEPTUAL DIAGRAM</div>
-        <div class="diagram-container">
-          <img src="assets/fyp2b_conceptual_diagram.png" alt="Conceptual Architecture Diagram" style="max-width: 1000px; width: 100%; height: auto;">
-        </div>
-      </div>
-  </div>
- <div class="section-grid full">
-  <div class="info-block" style="border-left: 3px solid var(--c2b);">
-    <div class="block-label">MOCKUP</div>
-    <div class="mockup-gallery">
-      <div class="mockup-card">
-        <div class="mockup-img-wrap">
-          <img src="assets/help_command.jpeg" alt="Help command interface">
-        </div>
-        <div class="mockup-caption">Type help to view available command</div>
-      </div>
-      
-      <div class="mockup-card">
-        <div class="mockup-img-wrap">
-          <img src="assets/Scenario_library.jpeg" alt="Attack scenario library">
-        </div>
-        <div class="mockup-caption">Attack scenario library</div>
-      </div>
-      
-      <div class="mockup-card">
-        <div class="mockup-img-wrap">
-          <img src="assets/execute_attack_scenario.jpeg" alt="Execute attack scenario">
-        </div>
-        <div class="mockup-caption">Execute attack scenario</div>
-      </div>
-      
-      <div class="mockup-card">
-        <div class="mockup-img-wrap">
-          <img src="assets/Parsed_results.jpeg" alt="Parsed results">
-        </div>
-        <div class="mockup-caption">Parsed results</div>
-      </div>
-      
-      <div class="mockup-card">
-        <div class="mockup-img-wrap">
-          <img src="assets/Scenario_Result_Report.jpeg" alt="Scenario result report">
-        </div>
-        <div class="mockup-caption">Scenario result report</div>
-      </div>
-      
-    </div>
-    <div style="font-family:'Space Grotesk',sans-serif; font-size:0.65rem; color:var(--muted); margin-top:0.75rem; text-align:center; letter-spacing:0.08em">
-     ** Notes: Click image to enlarge
+  <div class="info-block" style="margin-bottom:1.25rem">
+    <div class="block-label">DELIVERABLES &amp; STATUS</div>
+    <div class="deliverable-grid">
+      <div class="deliverable-item"><div class="check"></div>Recipe engine + orchestrator (compose, dependencies, status)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Deployment verifier (HTTP checks; Ansible ≠ ready)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Opaque console tokens + noVNC proxy (no hypervisor login)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>update_workstation_ip.ps1 heartbeat + seat IP map<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Proxmox linked-clone rollout (delivery support, not core)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>YAML service / vulnerability / scenario catalogue<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Detailed lecturer + technical user guide<span class="status-badge done">DONE</span></div>
     </div>
   </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">MOCKUP</div>
+      <div class="mockup-gallery">
+        <div class="mockup-card">
+          <div class="mockup-img-wrap">
+            <img src="assets/help_command.jpeg" alt="Help command interface">
+          </div>
+          <div class="mockup-caption">Type help to view available command</div>
+        </div>
+        <div class="mockup-card">
+          <div class="mockup-img-wrap">
+            <img src="assets/Scenario_library.jpeg" alt="Attack scenario library">
+          </div>
+          <div class="mockup-caption">Attack scenario library</div>
+        </div>
+        <div class="mockup-card">
+          <div class="mockup-img-wrap">
+            <img src="assets/execute_attack_scenario.jpeg" alt="Execute attack scenario">
+          </div>
+          <div class="mockup-caption">Execute attack scenario</div>
+        </div>
+        <div class="mockup-card">
+          <div class="mockup-img-wrap">
+            <img src="assets/Parsed_results.jpeg" alt="Parsed results">
+          </div>
+          <div class="mockup-caption">Parsed results</div>
+        </div>
+        <div class="mockup-card">
+          <div class="mockup-img-wrap">
+            <img src="assets/Scenario_Result_Report.jpeg" alt="Scenario result report">
+          </div>
+          <div class="mockup-caption">Scenario result report</div>
+        </div>
+      </div>
+      <p class="note" style="text-align:center">Click an image to enlarge.</p>
+    </div>
+  </div>
+
+  <div class="info-block" style="margin-bottom:1.25rem">
+    <div class="block-label">FUTURE ENHANCEMENT</div>
+    <ol class="scope-list">
+      <li><span class="num">01</span><span>Optimise the pipeline for classroom load: faster deploy, more reliable package combination, cleaner failed/expired-lab cleanup so unused VMs do not keep consuming compute.</span></li>
+      <li><span class="num">02</span><span>Restructure the codebase so recipe handling, scenario composition, deployment support, and access control are clearly separated; consistent APIs, logging, and developer comments for handover.</span></li>
+      <li><span class="num">03</span><span>Expand the living catalogue: more service/vulnerability recipes, chained multi-component scenarios, and clearer MITRE ATT&amp;CK mappings — without changing the core engine.</span></li>
+      <li><span class="num">04</span><span>Smarter lecturer control: lightweight bots / mobile access to review the catalogue, assemble an activity, trigger class prep, and receive deploy status. Backend stays the system of record.</span></li>
+      <li><span class="num">05</span><span>UAT gap — detailed user guide for technical and non-technical lecturers (dashboard flow, recipe authoring, templates, VLANs, deploy, troubleshooting). Q11 was the weakest score (3.50/5).</span></li>
+    </ol>
+  </div>
+
 </div>
+
 <div class="edit-hint">
-  Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
+  Click <span>diagrams or mockups</span> to enlarge. Status badges cycle locally.
 </div>
+
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close" id="lbClose">✕ CLOSE</span>
-  <img id="lbImg" src="" alt="Enlarged view">
+  <img id="lbImg" src="" alt="">
 </div>
+
 <script>
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('status-badge')) {
@@ -393,29 +675,27 @@ document.addEventListener('click', function(e) {
     }
   }
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const closeBtn = document.getElementById('lbClose');
-  const galleryImages = document.querySelectorAll('.mockup-img-wrap img');
-  galleryImages.forEach(img => {
-    img.addEventListener('click', (e) => {
-      e.stopPropagation();
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
-      lightbox.classList.add('open');
-    });
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+function openLb(src, alt) {
+  if (!src) return;
+  lbImg.src = src;
+  lbImg.alt = alt || '';
+  lb.classList.add('open');
+}
+const cfWrap = document.getElementById('cfWrap');
+const cfImg = document.getElementById('cfImg');
+if (cfWrap && cfImg) {
+  cfWrap.addEventListener('click', () => {
+    if (cfImg.style.display !== 'none' && cfImg.getAttribute('src')) openLb(cfImg.src, cfImg.alt);
   });
-  const closeLightbox = () => lightbox.classList.remove('open');
-  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
-  });
+}
+document.querySelectorAll('.mockup-card img').forEach(img => {
+  img.addEventListener('click', () => openLb(img.src, img.alt));
 });
+document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
+lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
 </script>
 </body>
 </html>
