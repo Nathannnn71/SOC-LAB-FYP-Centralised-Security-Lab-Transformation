@@ -97,7 +97,10 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
 .pipeline-step .pipeline-num{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--c1b);margin-bottom:.35rem}
 .pipeline-step strong{display:block;color:var(--bright);font-size:.74rem;line-height:1.25;margin-bottom:.3rem}
 .pipeline-step span{display:block;color:var(--muted);font-size:.64rem;line-height:1.35}
-.mockup-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem;margin-top:.75rem}
+.mockup-sublabel{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:var(--c1b);text-transform:uppercase;margin:1rem 0 .45rem}
+.mockup-sublabel:first-of-type{margin-top:.15rem}
+.mockup-note{font-size:.74rem;color:var(--muted);line-height:1.5;margin:.15rem 0 .55rem}
+.mockup-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem;margin-top:.15rem}
 .mockup-card{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--bg);cursor:pointer;transition:border-color .25s,transform .25s}
 .mockup-card:hover{border-color:var(--c1b);transform:translateY(-2px)}
 .mockup-img-wrap{width:100%;aspect-ratio:16/10;overflow:hidden;background:#0d1524;display:flex;align-items:center;justify-content:center}
@@ -220,11 +223,18 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">PROTOTYPE / SYSTEM IN ACTION</div>
+      <div class="mockup-sublabel">Network labs — four-guest overlay</div>
+      <p class="mockup-note">What students configure from a Lenovo through LabEye: student OPNsense, VyOS, Ubuntu Server, and Windows.</p>
+      <div class="mockup-gallery">
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/opnsense.jpg" alt="Student OPNsense — teaching firewall"></div><div class="mockup-caption">OPNsense — student firewall</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/vyos.jpg" alt="VyOS student router"></div><div class="mockup-caption">VyOS — student router</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ubuntu-server.jpg" alt="Ubuntu Server student guest"></div><div class="mockup-caption">Ubuntu Server — student guest</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/windows.png" alt="Windows student guest — Command Prompt"></div><div class="mockup-caption">Windows — student guest</div></div>
+      </div>
+      <div class="mockup-sublabel">Infrastructure — cluster and staff path</div>
+      <p class="mockup-note">What staff run: Proxmox cluster, LabEye portal, ntopng, d3.js (Cluster Mesh), and Wazuh. Students on the Networking sitting do not open the last three.</p>
       <div class="mockup-gallery">
         <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/proxmox-cluster.png" alt="Proxmox VE lab-d-cluster"></div><div class="mockup-caption">Proxmox VE — lab-d-cluster</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/opnsense.jpg" alt="OPNsense laboratory firewall"></div><div class="mockup-caption">OPNsense — Opnsense-main</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/vyos.jpg" alt="VyOS student router"></div><div class="mockup-caption">VyOS — student router</div></div>
-        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/windows.png" alt="Windows student guest — Command Prompt"></div><div class="mockup-caption">Windows — student guest</div></div>
         <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/labeye.png" alt="LabEye teammate class portal"></div><div class="mockup-caption">LabEye — teammate portal</div></div>
         <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ntopng.png" alt="ntopng live traffic"></div><div class="mockup-caption">ntopng — staff traffic view</div></div>
         <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/cluster-mesh.png" alt="d3.js Cluster Mesh"></div><div class="mockup-caption">d3.js (Cluster Mesh)</div></div>
