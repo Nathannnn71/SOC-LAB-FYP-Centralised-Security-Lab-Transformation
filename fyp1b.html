@@ -214,48 +214,41 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">PROJECT SCOPE — TABLE 1</div>
-      <p class="note" style="margin:0 0 .75rem">Intermediate is the implemented laboratory. Advanced is future work and is not claimed as a result of this sitting.</p>
       <div class="table-wrap">
         <table class="scope-table">
           <thead>
-            <tr><th>Feature</th><th>Basic</th><th>Intermediate (this project)</th><th>Advanced (future)</th></tr>
+            <tr><th>Feature</th><th>Basic</th><th>Intermediate</th><th>Advanced</th></tr>
           </thead>
           <tbody>
             <tr>
               <td class="level-basic">Networking</td>
-              <td>Student OPNsense: DHCP, DNS, and NAT; ping between hosts</td>
-              <td>LabEye four-guest overlay: student OPNsense, VyOS static routing, Ubuntu Server, and Windows</td>
-              <td>Policy-based routing, VPN tunnels, multisite topology</td>
+              <td>OPNsense: DHCP, DNS, NAT basics, sufficient networking speed</td>
+              <td>Static routing, VLANs, allow Lenovo workstations to connect to the server. SPAN plus NetFlow into ntopng</td>
+              <td>Policy-based routing, multisite topology</td>
             </tr>
             <tr>
               <td class="level-inter">Security</td>
-              <td>Isolated student overlay; default deny between exercise VLANs</td>
-              <td>IEEE 802.1Q VLANs 90, 900, 901, 911, and 921. Documented teaching paths only. University LAN blocked from staff dashboards.</td>
-              <td>VLAN 931 honeypot class; standing red/blue sitting</td>
+              <td>Basic firewall rules to segregate the VLANs</td>
+              <td>Basic SIEM and XDR tools used to detect vulnerabilities and collect security logs</td>
+              <td>IDS/IPS setup, VPN config, firewall tuning</td>
             </tr>
             <tr>
               <td class="level-cell">Monitoring</td>
-              <td>Staff open ntopng and see live traffic</td>
-              <td>SPAN on switch port 18 plus NetFlow into ntopng; d3.js (Cluster Mesh); Wazuh on the infrastructure plane. Students do not open these pages.</td>
-              <td>Student-facing observability exercise</td>
+              <td>Basic network monitoring tool ntopng used to get network traffic logs and monitoring</td>
+              <td>d3.js (Cluster Mesh) network traffic visualisation overlay; Wazuh collection and alert</td>
+              <td>Student pinging observability: can see student activity like hacking or scanning</td>
             </tr>
             <tr>
-              <td class="level-basic">Network labs</td>
-              <td>Guided ping and NAT on the four-guest combination</td>
-              <td>One Networking exercise from Lenovo PCs through LabEye. Students configure OPNsense and VyOS without hypervisor administrator rights.</td>
-              <td>Extra lab packs: pen-test, IDS/IPS, SOC-style sittings</td>
-            </tr>
-            <tr>
-              <td class="level-inter">Firewall</td>
-              <td>Student OPNsense rules on the overlay</td>
-              <td>Opnsense-main as the laboratory firewall and Kea DHCPv4 server; a disposable student OPNsense in each LabEye combination</td>
-              <td>IDS/IPS tuning; extra VPN gateway</td>
+              <td class="level-basic">Topology</td>
+              <td>Simple flat virtual network diagram</td>
+              <td>Multi-VLAN segmented network topology with LAN and WAN</td>
+              <td>Enterprise-grade layered topology with DMZ</td>
             </tr>
             <tr>
               <td class="level-cell">Documentation</td>
-              <td>Author setup notes</td>
-              <td>Report plus physical and logical topology diagrams. A standing student handbook is not yet an operating product.</td>
-              <td>Standing lab manuals and video walkthroughs</td>
+              <td>Basic setup guide</td>
+              <td>Lab manuals with troubleshooting notes</td>
+              <td>Full technical report + topology diagrams + video walkthroughs</td>
             </tr>
           </tbody>
         </table>
@@ -323,11 +316,11 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">VLAN ALLOCATION</div>
-      <p class="note" style="margin:0 0 .75rem">IEEE 802.1Q on the TL-SG1024DE. Opnsense-main is the <code style="color:var(--c1b)">.1</code> gateway on each laboratory prefix. VLAN 931 is on the switch; it is not yet an Opnsense-main interface.</p>
+      <p class="note" style="margin:0 0 .75rem">IEEE 802.1Q on the TL-SG1024DE. Opnsense-main is the <code style="color:var(--c1b)">.1</code> gateway on each laboratory prefix. Hosts in the same VLAN switch at Layer 2. Inter-VLAN traffic is default-deny except the pairs below.</p>
       <div class="table-wrap">
         <table class="vlan-table">
           <thead>
-            <tr><th>VLAN</th><th>Name</th><th>IPv4 network</th><th>Gateway</th><th>Role</th></tr>
+            <tr><th>VLAN</th><th>Name</th><th>IPv4 network</th><th>Gateway</th><th>Role</th><th>May reach</th><th>Must not reach</th></tr>
           </thead>
           <tbody>
             <tr>
@@ -336,6 +329,8 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
               <td>192.168.0.0/24</td>
               <td>192.168.0.1 · OPNsense WAN 192.168.0.35</td>
               <td>North–south path; switch management 192.168.0.254</td>
+              <td>Internet through Opnsense-main NAT, for VLANs that are allowed out</td>
+              <td>Wazuh, d3.js (Cluster Mesh), ntopng, and the OPNsense WAN address from campus hosts. Staff enter those services on VLAN 900.</td>
             </tr>
             <tr>
               <td>90</td>
@@ -343,6 +338,8 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
               <td>192.168.90.0/24</td>
               <td>192.168.90.1</td>
               <td>Hypervisor cluster. Students do not use this VLAN.</td>
+              <td>900, 901, 911, 921, and the Internet</td>
+              <td>—</td>
             </tr>
             <tr>
               <td>900</td>
@@ -350,6 +347,8 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
               <td>172.29.0.0/24</td>
               <td>172.29.0.1</td>
               <td>Wazuh, ntopng, LabEye, d3.js (Cluster Mesh). Lenovo static-route target.</td>
+              <td>901, 911, 921, the Internet, and other hosts on 192.168.90.0/24</td>
+              <td>Opnsense-main LAN at 192.168.90.1</td>
             </tr>
             <tr>
               <td>901</td>
@@ -357,6 +356,8 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
               <td>172.29.1.0/24</td>
               <td>172.29.1.1</td>
               <td>Defensive workloads</td>
+              <td>911 (victims) and the Internet</td>
+              <td>90, 900, and 921 (red). Blue does not talk to red on the wire.</td>
             </tr>
             <tr>
               <td>911</td>
@@ -364,6 +365,8 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
               <td>172.29.11.0/24</td>
               <td>172.29.11.1</td>
               <td>Exposed or vulnerable targets</td>
+              <td>901 (blue) and the Internet</td>
+              <td>90, 900, and 921 (red)</td>
             </tr>
             <tr>
               <td>921</td>
@@ -371,13 +374,8 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
               <td>172.29.21.0/24</td>
               <td>172.29.21.1</td>
               <td>Offensive workloads</td>
-            </tr>
-            <tr>
-              <td>931</td>
-              <td>honeypot</td>
-              <td>planned 172.29.31.0/24</td>
-              <td>—</td>
-              <td>Switch VLAN for a future honeypot class. Not claimed as a result of this sitting.</td>
+              <td>911 (victims) and the Internet</td>
+              <td>90, 900, and 901 (blue). Red meets blue only on the victim segment.</td>
             </tr>
           </tbody>
         </table>
@@ -389,12 +387,12 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
     <div class="info-block">
       <div class="block-label">CURRENT IMPLEMENTATION &amp; ACHIEVEMENTS</div>
       <div class="achievement-grid">
-        <div class="achievement-card"><strong>RO1 · Cluster — achieved</strong><p>lab-d-cluster on Acer nodes and the Dell node. Class clones on Acer. Shared services on Dell. Twenty Lenovo seats.</p></div>
-        <div class="achievement-card partial"><strong>RO2 · Student overlay — partial</strong><p>Four-guest LabEye combination exists. 7/10 routed Ubuntu and Windows to OPNsense. 9/10 still needed help. VyOS was the hard step.</p></div>
-        <div class="achievement-card"><strong>RO3 · Staff observability — achieved</strong><p>Lecturers opened ntopng, Cluster Mesh, and Wazuh (3/3 Pass). Students did not open those pages in UAT.</p></div>
-        <div class="achievement-card partial"><strong>RO4 · Guided labs — partial</strong><p>One Networking sitting at Basic/Intermediate. Advanced packs were not a Chapter 7 class.</p></div>
-        <div class="achievement-card"><strong>RO5 · Student UAT — run</strong><p>n = 10 consented. Strongest Likert: prefer this lab to a textbook (8/10). Weakest: fix mistakes without help.</p></div>
-        <div class="achievement-card partial"><strong>RO6 · Documentation — partial</strong><p>Report and topology diagrams exist. A standing student handbook is still a product gap.</p></div>
+        <div class="achievement-card"><strong>RO1 · Cluster</strong><p>lab-d-cluster on Acer nodes and the Dell node. Class clones on Acer. Shared services on Dell. Twenty Lenovo seats for students to use.</p></div>
+        <div class="achievement-card"><strong>RO2 · Student overlay</strong><p>Students access virtual machines or network labs through LabEye with limited access compared to administrator or lecturer.</p></div>
+        <div class="achievement-card"><strong>RO3 · Staff observability</strong><p>Lecturers opened ntopng, Cluster Mesh, and Wazuh to view monitoring logs, security logs and network visualisation.</p></div>
+        <div class="achievement-card"><strong>RO4 · Guided labs</strong><p>One Networking sitting at Basic/Intermediate was created for students to get familiarity of the environment.</p></div>
+        <div class="achievement-card"><strong>RO5 · Student UAT</strong><p>10 students consented to take part; usability and the difference of the network lab environment was gotten.</p></div>
+        <div class="achievement-card"><strong>RO6 · Documentation</strong><p>Report and topology diagrams exist. A standing student handbook is still a product gap.</p></div>
       </div>
     </div>
   </div>
@@ -408,22 +406,23 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
             <tr><th>Group</th><th>n</th><th>What was tested</th><th>Outcome</th></tr>
           </thead>
           <tbody>
-            <tr><td>Lecturers</td><td>3</td><td>Isolation, ntopng, Cluster Mesh, Wazuh, Proxmox / Ceph</td><td>All functional cases Pass (3/3)</td></tr>
-            <tr><td>Students</td><td>10 consented</td><td>LabEye Networking sitting + UAT form</td><td>7/10 hit the routing goal; 9/10 needed a person in the room</td></tr>
+            <tr><td>Lecturers</td><td>3</td><td>Isolation, ntopng, Cluster Mesh, Wazuh, Proxmox / Ceph</td><td>Lecturers confirmed that VLAN isolation holds, that ntopng and Cluster Mesh show live traffic, that Wazuh records events, and that Proxmox and Ceph can provision, snapshot, and restore guests on the live cluster.</td></tr>
+            <tr><td>Students</td><td>10 consented</td><td>LabEye Networking sitting + UAT form</td><td>Students used LabEye to reach the virtual networking lab. Most found the virtual environment closer to real devices than Cisco Packet Tracer, with real interfaces and commands, though Packet Tracer stayed easier to start and better for drawing any topology. Compared with physical hardware, they said the virtual lab is more standardised, cheaper to run, and avoids hardware-failure problems, while a real rack still wins for physical ports and specialised components.</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note">Versus Packet Tracer: usually more realistic, not easier. Versus hardware: only two testers had used hardware, so that comparison is too small to conclude. The remaining gap is a handbook and a staffed first sitting, not another dashboard.</p>
+      <p class="note">Versus Cisco Packet Tracer, students described Lab D as more realistic and better for learning how data actually moves, not as easier. Versus hardware, they valued standardisation and less setup hassle, but still wanted physical ports for some troubleshooting. Packet Tracer remains useful for sketching a topology; the virtual lab is where they configure real firewall and router interfaces.</p>
     </div>
   </div>
 
   <div class="info-block" style="margin-bottom:1.25rem">
     <div class="block-label">FUTURE ENHANCEMENT</div>
     <ol class="scope-list">
-      <li><span class="num">01</span><span>Standing student handbook: VyOS interface map, command intent, guided sitting before an unguided one.</span></li>
-      <li><span class="num">02</span><span>Student-facing observability exercise on ntopng / Cluster Mesh / Wazuh without giving students VLAN 90.</span></li>
-      <li><span class="num">03</span><span>VLAN 931 honeypot as a class overlay; extra RAM on the Dell node.</span></li>
-      <li><span class="num">04</span><span>Larger student sample; hardware comparison only with testers who have used a rack.</span></li>
+      <li><span class="num">01</span><span>More standardised guidebook for lecturer and student, and more network labs.</span></li>
+      <li><span class="num">02</span><span>More RAM and CPU for the Dell node.</span></li>
+      <li><span class="num">03</span><span>Allow students to upgrade the system.</span></li>
+      <li><span class="num">04</span><span>Allow other students to add on to the infrastructure for their final year project.</span></li>
+      <li><span class="num">05</span><span>Improve security.</span></li>
     </ol>
   </div>
 
@@ -443,7 +442,7 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
       <div class="diagram-container">
         <img src="assets/fyp1b/network-topology.png" alt="Physical topology of the Lab D platform: TP-Link TL-SG1024DE, Acer Proxmox nodes, Dell rack, and VLAN plan">
       </div>
-      <p class="note">Physical fabric of Lab D: TL-SG1024DE core, ten Acer Proxmox nodes for class clones, Dell node for Opnsense-main and shared services, and twenty Lenovo seats routed to 172.29.0.0/24. SPAN into ntopng uses switch port 18. VLAN 931 remains the planned honeypot path. Click the diagram to enlarge.</p>
+      <p class="note">Physical fabric of Lab D: TL-SG1024DE core, ten Acer Proxmox nodes for class clones, Dell node for Opnsense-main and shared services, and twenty Lenovo seats routed to 172.29.0.0/24. SPAN into ntopng uses switch port 18. Click the diagram to enlarge.</p>
     </div>
   </div>
 
