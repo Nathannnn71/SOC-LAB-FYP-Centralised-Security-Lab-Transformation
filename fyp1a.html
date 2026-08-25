@@ -7,16 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0a0e17; --surface:#101622; --panel:#141c2e; --border:#1e2d4a;
-  --text:#c8d8f0; --muted:#4a6080; --bright:#e8f4ff;
-  --c1a:#00e5ff; --c1b:#b388ff; --c1c:#ffa726;
-  --c2a:#69f0ae; --c2b:#ff5252; --c2c:#448aff;
-  --c3a:#ffd740; --c3b:#f06292; --c3c:#b2ff59;
+  --bg:#0f131c; --surface:#1C1F29; --panel:#1C1F29; --border:#414755;
+  --text:#C1C6D7; --muted:#8B90A1; --bright:#DFE2EF;
+  --c1a:#3C90FF; --c1b:#B166FF; --c1c:#FE651E;
+  --c2a:#A9C7FF; --c2b:#FC5844; --c2c:#60A5FA;
+  --c3a:#FDBA74; --c3b:#FFB598; --c3c:#4ADE80;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
-header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:rgba(10,14,23,.92);backdrop-filter:blur(12px);display:flex;align-items:center;gap:1.5rem;height:60px}
+header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:rgba(15,19,28,.92);backdrop-filter:blur(12px);display:flex;align-items:center;gap:1.5rem;height:60px}
 .logo-badge{font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
 header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
 .nav-tabs{display:flex;gap:.25rem}

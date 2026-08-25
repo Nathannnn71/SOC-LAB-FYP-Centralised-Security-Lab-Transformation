@@ -9,8 +9,8 @@
 
 /* ── TABLES ── */
 table{width:100%;border-collapse:collapse;font-size:.78rem;margin-bottom:.75rem}
-th{background:rgba(0,229,255,.07);color:var(--c1a);font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-align:left;padding:.45rem .65rem;border-bottom:1px solid var(--border)}
-td{padding:.42rem .65rem;border-bottom:1px solid rgba(30,45,74,.55);color:var(--text);vertical-align:top;line-height:1.5;font-size:.78rem}
+th{background:rgba(60,144,255,.07);color:var(--c1a);font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-align:left;padding:.45rem .65rem;border-bottom:1px solid var(--border)}
+td{padding:.42rem .65rem;border-bottom:1px solid rgba(65,71,85,.55);color:var(--text);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:hover td{background:rgba(255,255,255,.02)}
 
 .info-block p {
@@ -20,26 +20,26 @@ tr:hover td{background:rgba(255,255,255,.02)}
 }
 
 :root {
-  --bg:#0a0e17; --surface:#101622; --panel:#141c2e; --border:#1e2d4a;
-  --text:#c8d8f0; --muted:#4a6080; --bright:#e8f4ff;
-  --c1a:#00e5ff; --c1b:#b388ff; --c1c:#ffa726;
-  --c2a:#69f0ae; --c2b:#ff5252; --c2c:#448aff;
-  --c3a:#ffd740; --c3b:#f06292; --c3c:#b2ff59;
+  --bg:#0f131c; --surface:#1C1F29; --panel:#1C1F29; --border:#414755;
+  --text:#C1C6D7; --muted:#8B90A1; --bright:#DFE2EF;
+  --c1a:#3C90FF; --c1b:#B166FF; --c1c:#FE651E;
+  --c2a:#A9C7FF; --c2b:#FC5844; --c2c:#60A5FA;
+  --c3a:#FDBA74; --c3b:#FFB598; --c3c:#4ADE80;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
-header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:rgba(10,14,23,.92);backdrop-filter:blur(12px);display:flex;align-items:center;gap:1.5rem;height:60px}
+header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:rgba(15,19,28,.92);backdrop-filter:blur(12px);display:flex;align-items:center;gap:1.5rem;height:60px}
 .logo-badge{font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
 header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
 .nav-tabs{display:flex;gap:.25rem}
 .req-id{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--c1a);white-space:nowrap}
 .priority{font-family:'Share Tech Mono',monospace;font-size:.58rem;padding:.15rem .38rem;border-radius:2px;white-space:nowrap}
-.p-c{background:rgba(255,82,82,.1);color:var(--c2b);border:1px solid var(--c2b)}
-.p-h{background:rgba(255,167,38,.1);color:var(--c1c);border:1px solid var(--c1c)}
-.p-m{background:rgba(105,240,174,.1);color:var(--c2a);border:1px solid var(--c2a)}
+.p-c{background:rgba(252,88,68,.1);color:var(--c2b);border:1px solid var(--c2b)}
+.p-h{background:rgba(254,101,30,.1);color:var(--c1c);border:1px solid var(--c1c)}
+.p-m{background:rgba(169,199,255,.1);color:var(--c2a);border:1px solid var(--c2a)}
 .figma-btn{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--c1a);text-decoration:none;border:1px solid var(--c1a);padding:.38rem 1rem;border-radius:3px;display:inline-block;margin-top:.85rem;cursor:pointer;background:none}
-.figma-btn:hover{background:rgba(0,229,255,.06)}
+.figma-btn:hover{background:rgba(60,144,255,.06)}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem}
 .nav-tab{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
 .nav-tab:hover{color:var(--bright);border-color:var(--border)}
@@ -83,9 +83,9 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .scope-row{display:flex;align-items:flex-start;gap:.75rem;padding:.55rem .65rem;border:1px solid var(--border);border-radius:4px;margin-bottom:.38rem;background:var(--panel)}
 .scope-num{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);padding-top:.12rem;flex-shrink:0;width:1.6rem}
 .scope-level{font-family:'Share Tech Mono',monospace;font-size:.56rem;padding:.15rem .38rem;border-radius:2px;flex-shrink:0;margin-top:.08rem;white-space:nowrap}
-.sl-b{background:rgba(105,240,174,.1);color:var(--c2a);border:1px solid var(--c2a)}
-.sl-i{background:rgba(255,167,38,.1);color:var(--c1c);border:1px solid var(--c1c)}
-.sl-a{background:rgba(255,82,82,.1);color:var(--c2b);border:1px solid var(--c2b)}
+.sl-b{background:rgba(169,199,255,.1);color:var(--c2a);border:1px solid var(--c2a)}
+.sl-i{background:rgba(254,101,30,.1);color:var(--c1c);border:1px solid var(--c1c)}
+.sl-a{background:rgba(252,88,68,.1);color:var(--c2b);border:1px solid var(--c2b)}
 .scope-text{font-size:.79rem;line-height:1.55;color:var(--text)}
 .arch-layer{margin-bottom:.4rem}
 .arch-layer-label{font-family:'Share Tech Mono',monospace;font-size:.55rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.28rem}
@@ -376,11 +376,11 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
   <div class="arch-layer">
     <div class="arch-layer-label">LAYER 5 — INFRASTRUCTURE (Physical Lab)</div>
     <div class="arch-row">
-      <div class="arch-node" style="border-color:#334;color:#667">Proxmox Nodes<br><span style="font-size:.62rem">Server cluster</span></div>
-      <div class="arch-node" style="border-color:#334;color:#667">Virtual Machines<br><span style="font-size:.62rem">Student / lab VMs</span></div>
-      <div class="arch-node" style="border-color:#334;color:#667">Wazuh Agents<br><span style="font-size:.62rem">Endpoint sensors</span></div>
-      <div class="arch-node" style="border-color:#334;color:#667">Network Devices<br><span style="font-size:.62rem">Firewall / switches</span></div>
-      <div class="arch-node" style="border-color:#334;color:#667">NGINX + Gunicorn<br><span style="font-size:.62rem">Reverse proxy / WSGI</span></div>
+      <div class="arch-node" style="border-color:#414755;color:#8B90A1">Proxmox Nodes<br><span style="font-size:.62rem">Server cluster</span></div>
+      <div class="arch-node" style="border-color:#414755;color:#8B90A1">Virtual Machines<br><span style="font-size:.62rem">Student / lab VMs</span></div>
+      <div class="arch-node" style="border-color:#414755;color:#8B90A1">Wazuh Agents<br><span style="font-size:.62rem">Endpoint sensors</span></div>
+      <div class="arch-node" style="border-color:#414755;color:#8B90A1">Network Devices<br><span style="font-size:.62rem">Firewall / switches</span></div>
+      <div class="arch-node" style="border-color:#414755;color:#8B90A1">NGINX + Gunicorn<br><span style="font-size:.62rem">Reverse proxy / WSGI</span></div>
     </div>
   </div>
     </div>
