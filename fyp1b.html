@@ -68,10 +68,11 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weigh
 .problem-card strong{display:block;color:var(--bright);font-size:.78rem;margin-bottom:.35rem;font-family:'Share Tech Mono',monospace;letter-spacing:.06em}
 .note{font-size:.78rem;color:var(--muted);line-height:1.55;margin-top:.65rem}
 .table-wrap{overflow-x:auto}
-table.rdt-table,table.scope-table,table.lit-table,table.result-table{width:100%;border-collapse:collapse;font-size:.78rem}
-table.rdt-table th,table.scope-table th,table.lit-table th,table.result-table th{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--c1b);text-transform:uppercase;text-align:left;padding:.55rem .65rem;border-bottom:2px solid var(--border);background:rgba(179,136,255,.06)}
-table.rdt-table td,table.scope-table td,table.lit-table td,table.result-table td{padding:.65rem .65rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
-table.rdt-table tbody tr:nth-child(even) td,table.scope-table tbody tr:nth-child(even) td,table.lit-table tbody tr:nth-child(even) td,table.result-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+table.rdt-table,table.scope-table,table.lit-table,table.result-table,table.vlan-table{width:100%;border-collapse:collapse;font-size:.78rem}
+table.rdt-table th,table.scope-table th,table.lit-table th,table.result-table th,table.vlan-table th{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--c1b);text-transform:uppercase;text-align:left;padding:.55rem .65rem;border-bottom:2px solid var(--border);background:rgba(179,136,255,.06)}
+table.rdt-table td,table.scope-table td,table.lit-table td,table.result-table td,table.vlan-table td{padding:.65rem .65rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+table.rdt-table tbody tr:nth-child(even) td,table.scope-table tbody tr:nth-child(even) td,table.lit-table tbody tr:nth-child(even) td,table.result-table tbody tr:nth-child(even) td,table.vlan-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+table.vlan-table td:first-child{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c1b);white-space:nowrap;font-weight:700}
 table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c1b);white-space:nowrap;font-weight:700}
 .level-basic{color:var(--c2a);font-family:'Share Tech Mono',monospace;font-size:.72rem;font-weight:700}
 .level-inter{color:var(--c1c);font-family:'Share Tech Mono',monospace;font-size:.72rem;font-weight:700}
@@ -321,6 +322,71 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
 
   <div class="section-grid full">
     <div class="info-block">
+      <div class="block-label">VLAN ALLOCATION</div>
+      <p class="note" style="margin:0 0 .75rem">IEEE 802.1Q on the TL-SG1024DE. Opnsense-main is the <code style="color:var(--c1b)">.1</code> gateway on each laboratory prefix. VLAN 931 is on the switch; it is not yet an Opnsense-main interface.</p>
+      <div class="table-wrap">
+        <table class="vlan-table">
+          <thead>
+            <tr><th>VLAN</th><th>Name</th><th>IPv4 network</th><th>Gateway</th><th>Role</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10 / WAN</td>
+              <td>University LAN</td>
+              <td>192.168.0.0/24</td>
+              <td>192.168.0.1 · OPNsense WAN 192.168.0.35</td>
+              <td>North–south path; switch management 192.168.0.254</td>
+            </tr>
+            <tr>
+              <td>90</td>
+              <td>proxmox</td>
+              <td>192.168.90.0/24</td>
+              <td>192.168.90.1</td>
+              <td>Hypervisor cluster. Students do not use this VLAN.</td>
+            </tr>
+            <tr>
+              <td>900</td>
+              <td>SecMon</td>
+              <td>172.29.0.0/24</td>
+              <td>172.29.0.1</td>
+              <td>Wazuh, ntopng, LabEye, d3.js (Cluster Mesh). Lenovo static-route target.</td>
+            </tr>
+            <tr>
+              <td>901</td>
+              <td>Blue_team</td>
+              <td>172.29.1.0/24</td>
+              <td>172.29.1.1</td>
+              <td>Defensive workloads</td>
+            </tr>
+            <tr>
+              <td>911</td>
+              <td>victims</td>
+              <td>172.29.11.0/24</td>
+              <td>172.29.11.1</td>
+              <td>Exposed or vulnerable targets</td>
+            </tr>
+            <tr>
+              <td>921</td>
+              <td>red_team</td>
+              <td>172.29.21.0/24</td>
+              <td>172.29.21.1</td>
+              <td>Offensive workloads</td>
+            </tr>
+            <tr>
+              <td>931</td>
+              <td>honeypot</td>
+              <td>planned 172.29.31.0/24</td>
+              <td>—</td>
+              <td>Switch VLAN for a future honeypot class. Not claimed as a result of this sitting.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
       <div class="block-label">CURRENT IMPLEMENTATION &amp; ACHIEVEMENTS</div>
       <div class="achievement-grid">
         <div class="achievement-card"><strong>RO1 · Cluster — achieved</strong><p>lab-d-cluster on Acer nodes and the Dell node. Class clones on Acer. Shared services on Dell. Twenty Lenovo seats.</p></div>
@@ -368,6 +434,16 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
         <img id="cfImg" src="assets/fyp1b/conceptual-framework.png" alt="Conceptual framework of the Lab D teaching laboratory">
       </div>
       <p class="note">Context (unused Lab D hardware) leads to the artefact: Proxmox cluster, then Opnsense-main. Students open LabEye and configure the four-guest overlay without hypervisor admin. Lecturers open ntopng, d3.js (Cluster Mesh), Wazuh, and Proxmox. LabEye is the teammate portal; Cluster Mesh is this author’s visualisation. Grafana, Netdata, and pfSense sit outside the framework. Click the diagram to enlarge.</p>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">NETWORK TOPOLOGY</div>
+      <div class="diagram-container">
+        <img src="assets/fyp1b/network-topology.png" alt="Physical topology of the Lab D platform: TP-Link TL-SG1024DE, Acer Proxmox nodes, Dell rack, and VLAN plan">
+      </div>
+      <p class="note">Physical fabric of Lab D: TL-SG1024DE core, ten Acer Proxmox nodes for class clones, Dell node for Opnsense-main and shared services, and twenty Lenovo seats routed to 172.29.0.0/24. SPAN into ntopng uses switch port 18. VLAN 931 remains the planned honeypot path. Click the diagram to enlarge.</p>
     </div>
   </div>
 
@@ -431,11 +507,9 @@ function openLb(src, alt) {
   lbImg.alt = alt || '';
   lb.classList.add('open');
 }
-const cfWrap = document.getElementById('cfWrap');
-const cfImg = document.getElementById('cfImg');
-if (cfWrap && cfImg) {
-  cfWrap.addEventListener('click', () => openLb(cfImg.src, cfImg.alt));
-}
+document.querySelectorAll('.diagram-container img').forEach(img => {
+  img.closest('.diagram-container').addEventListener('click', () => openLb(img.src, img.alt));
+});
 document.querySelectorAll('.mockup-card img').forEach(img => {
   img.addEventListener('click', () => openLb(img.src, img.alt));
 });
