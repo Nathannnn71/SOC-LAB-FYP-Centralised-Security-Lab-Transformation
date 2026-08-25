@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Overview — SOC Lab FYP</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg:#0f131c; --surface:#1C1F29; --panel:#1C1F29; --border:#414755;
@@ -14,25 +14,28 @@
     --c3a:#FDBA74; --c3b:#FFB598; --c3c:#4ADE80;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
-  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
-  header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:rgba(15,19,28,.92);backdrop-filter:blur(12px);display:flex;align-items:center;gap:1.5rem;height:60px}
-  .logo-badge{font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
-  header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+  html{scrollbar-width:thin;scrollbar-color:#262A34 transparent}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-thumb{background:#262A34;border-radius:20px}
+::-webkit-scrollbar-track{background:transparent}
+  header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:var(--bg);display:flex;align-items:center;gap:1.5rem;height:60px}
+  .logo-badge{font-family:'Space Grotesk',sans-serif;font-size:.75rem;letter-spacing:.06em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
+  header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
   .nav-tabs{display:flex;gap:.25rem}
-  .nav-tab{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
-  .nav-tab:hover{color:var(--bright);border-color:var(--border)}
-  .nav-tab.active{color:var(--bright);background:var(--panel);border-color:var(--border)}
+  .nav-tab{font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
+  .nav-tab:hover{color:var(--c2a);border-color:var(--border)}
+  .nav-tab.active{color:var(--c2a);background:var(--panel);border-color:var(--border)}
   .overview-hero{padding:3rem 2.5rem 2rem;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-  .hero-tag{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c2a);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem}
-  .hero-title{font-family:'Barlow Condensed',sans-serif;font-size:3.2rem;font-weight:900;line-height:1;color:var(--bright);margin-bottom:1rem}
+  .hero-tag{font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:var(--c2a);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem}
+  .hero-title{font-family:'Space Grotesk',sans-serif;font-size:3.2rem;font-weight:900;line-height:1;color:var(--bright);margin-bottom:1rem}
   .hero-title span{color:var(--c1a)}
   .hero-desc{font-size:.95rem;line-height:1.7;color:var(--text)}
   .problem-box{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--c2b);padding:1.25rem 1.5rem;border-radius:4px}
-  .problem-box h3{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c2b);letter-spacing:.15em;margin-bottom:.75rem}
+  .problem-box h3{font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:var(--c2b);letter-spacing:.06em;margin-bottom:.75rem}
   .problem-box p{font-size:.9rem;line-height:1.65}
   .legend{display:flex;flex-wrap:wrap;gap:.75rem;padding:1.5rem 2.5rem;border-top:1px solid var(--border)}
-  .legend-item{display:flex;align-items:center;gap:.4rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted)}
+  .legend-item{display:flex;align-items:center;gap:.4rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted)}
   .legend-swatch{width:12px;height:12px;border-radius:2px}
   @media(max-width:768px){.overview-hero{grid-template-columns:1fr}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
 </style>
@@ -80,7 +83,7 @@
 </div>
 
 <div class="legend">
-  <div style="font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);margin-right:.5rem;">CANDIDATE COLOUR MAP ›</div>
+  <div style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);margin-right:.5rem;">CANDIDATE COLOUR MAP ›</div>
   <div class="legend-item"><div class="legend-swatch" style="background:var(--c1a)"></div>FYP-1A Virtualisation</div>
   <div class="legend-item"><div class="legend-swatch" style="background:var(--c1b)"></div>FYP-1B Networking</div>
   <div class="legend-item"><div class="legend-swatch" style="background:var(--c1c)"></div>FYP-1C Automation</div>

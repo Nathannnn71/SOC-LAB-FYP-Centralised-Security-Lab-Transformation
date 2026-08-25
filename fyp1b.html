@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FYP-1B Networking — SOC Lab FYP</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:#0f131c; --surface:#1C1F29; --panel:#1C1F29; --border:#414755;
@@ -14,44 +14,47 @@
   --c3a:#FDBA74; --c3b:#FFB598; --c3c:#4ADE80;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:16px}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:16px}
+html{scrollbar-width:thin;scrollbar-color:#262A34 transparent}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-thumb{background:#262A34;border-radius:20px}
+::-webkit-scrollbar-track{background:transparent}
 
 /* HEADER */
-header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:rgba(15,19,28,.92);backdrop-filter:blur(12px);display:flex;align-items:center;gap:1.5rem;height:60px}
-.logo-badge{font-family:'Share Tech Mono',monospace;font-size:.78rem;letter-spacing:.15em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
-header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
+header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:var(--bg);display:flex;align-items:center;gap:1.5rem;height:60px}
+.logo-badge{font-family:'Space Grotesk',sans-serif;font-size:.78rem;letter-spacing:.06em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
+header h1{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
 .nav-tabs{display:flex;gap:.25rem}
-.nav-tab{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
-.nav-tab:hover{color:var(--bright);border-color:var(--border)}
-.nav-tab.active{color:var(--bright);background:var(--panel);border-color:var(--border)}
+.nav-tab{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
+.nav-tab:hover{color:var(--c2a);border-color:var(--border)}
+.nav-tab.active{color:var(--c2a);background:var(--panel);border-color:var(--border)}
 
 /* PAGE */
 .candidate-page{max-width:1000px;margin:0 auto;padding:2.5rem}
 
 /* CANDIDATE HEADER */
 .candidate-header{display:flex;align-items:flex-start;gap:1.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
-.candidate-badge{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;border:2px solid;border-radius:6px;padding:.5rem 1rem;white-space:nowrap;line-height:1;flex-shrink:0;text-align:center}
+.candidate-badge{font-family:'Space Grotesk',sans-serif;font-size:2.4rem;font-weight:900;border:2px solid;border-radius:6px;padding:.5rem 1rem;white-space:nowrap;line-height:1;flex-shrink:0;text-align:center}
 .candidate-meta{flex:1}
-.candidate-meta h2{font-family:'Barlow Condensed',sans-serif;font-size:2.1rem;font-weight:900;line-height:1.1;color:var(--bright);margin-bottom:.5rem}
+.candidate-meta h2{font-family:'Space Grotesk',sans-serif;font-size:2.1rem;font-weight:900;line-height:1.1;color:var(--bright);margin-bottom:.5rem}
 .candidate-meta .course-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem}
-.course-tag{font-family:'Share Tech Mono',monospace;font-size:.7rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:2px;color:var(--muted)}
-.candidate-name-block{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:.85rem 1.1rem;font-family:'Share Tech Mono',monospace;font-size:.76rem;color:var(--muted);white-space:nowrap}
+.course-tag{font-family:'Space Grotesk',sans-serif;font-size:.7rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:2px;color:var(--muted)}
+.candidate-name-block{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:.85rem 1.1rem;font-family:'Space Grotesk',sans-serif;font-size:.76rem;color:var(--muted);white-space:nowrap}
 .candidate-name-block strong{color:var(--bright);font-size:.9rem;display:block;margin:.25rem 0}
 
 /* INFO BLOCK */
 .info-block{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.6rem;margin-bottom:1.4rem;position:relative}
-.info-block .block-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.info-block .block-label{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
 .info-block .block-label::after{content:'';flex:1;height:1px;background:var(--border)}
 
 /* PROBLEM STATEMENT */
 .scope-list{list-style:none;font-size:1rem;line-height:1.75}
 .scope-list li{display:flex;align-items:flex-start;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--border)}
 .scope-list li:last-child{border-bottom:none}
-.scope-list li .num{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--muted);padding-top:.2rem;flex-shrink:0}
+.scope-list li .num{font-family:'Space Grotesk',sans-serif;font-size:.72rem;color:var(--muted);padding-top:.2rem;flex-shrink:0}
 
 /* SECTION LABEL */
-.section-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.section-label{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border)}
 
 /* TABLE WRAPPER */
@@ -59,23 +62,23 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight
 
 /* RDT TABLE */
 .rdt-table{width:100%;border-collapse:collapse;font-size:1rem}
-.rdt-table th{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;text-align:left;padding:.65rem 1rem;border-bottom:2px solid var(--border);white-space:nowrap;background:rgba(255,255,255,.03)}
+.rdt-table th{font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;text-align:left;padding:.65rem 1rem;border-bottom:2px solid var(--border);white-space:nowrap;background:rgba(255,255,255,.03)}
 .rdt-table td{padding:.9rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.75;font-size:1rem}
 .rdt-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
 .rdt-table tr:last-child td{border-bottom:none}
 .rdt-table tr:hover td{background:rgba(177,102,255,.05)}
-.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c1b);white-space:nowrap;padding-top:1rem;font-weight:700}
-.method-pill{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.68rem;padding:.22rem .55rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);margin:.2rem .2rem .2rem 0;line-height:1.4}
+.rdt-table td:first-child{font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:var(--c1b);white-space:nowrap;padding-top:1rem;font-weight:700}
+.method-pill{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:.68rem;padding:.22rem .55rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);margin:.2rem .2rem .2rem 0;line-height:1.4}
 
 /* PROJECT SCOPE TABLE — new format with level/scope/description */
 .scope-table{width:100%;border-collapse:collapse;font-size:1rem}
-.scope-table th{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;text-align:left;padding:.65rem 1rem;border-bottom:2px solid var(--border);background:rgba(255,255,255,.03)}
+.scope-table th{font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;text-align:left;padding:.65rem 1rem;border-bottom:2px solid var(--border);background:rgba(255,255,255,.03)}
 .scope-table td{padding:.9rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.75;font-size:1rem}
 .scope-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
 .scope-table tr:last-child td{border-bottom:none}
 .scope-table tr:hover td{background:rgba(255,255,255,.03)}
 /* Level badge column */
-.scope-table td.level-cell{white-space:nowrap;font-family:'Share Tech Mono',monospace;font-size:.82rem;font-weight:700;padding-top:1rem;letter-spacing:.05em}
+.scope-table td.level-cell{white-space:nowrap;font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:700;padding-top:1rem;letter-spacing:.05em}
 .level-basic  {color:var(--c2a)}
 .level-inter  {color:var(--c1c)}
 .level-advance{color:var(--c2b)}
@@ -85,7 +88,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight
 
 /* TOOLS */
 .method-tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.method-tag{font-family:'Share Tech Mono',monospace;font-size:.72rem;padding:.32rem .72rem;border-radius:3px;border:1px solid}
+.method-tag{font-family:'Space Grotesk',sans-serif;font-size:.72rem;padding:.32rem .72rem;border-radius:3px;border:1px solid}
 
 /* EDITABLE */
 .editable{font-size:1rem;line-height:1.8;color:var(--text);min-height:60px;outline:none;border:1px dashed transparent;border-radius:3px;padding:.25rem;transition:border-color .2s}
@@ -99,17 +102,17 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight
 .mockup-img-wrap{width:100%;aspect-ratio:16/10;overflow:hidden;background:#000}
 .mockup-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
 .mockup-card:hover .mockup-img-wrap img{transform:scale(1.04)}
-.mockup-caption{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.07em;color:var(--muted);padding:.55rem .85rem;border-top:1px solid var(--border)}
+.mockup-caption{font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.07em;color:var(--muted);padding:.55rem .85rem;border-top:1px solid var(--border)}
 
 /* LIGHTBOX */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:10000;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
 .lightbox.open{display:flex}
 .lightbox img{max-width:92vw;max-height:88vh;border-radius:6px;border:1px solid var(--border);box-shadow:0 0 60px rgba(0,0,0,.8)}
-.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;font-family:'Share Tech Mono',monospace;font-size:.9rem;color:var(--muted);cursor:pointer;background:var(--panel);border:1px solid var(--border);padding:.3rem .7rem;border-radius:3px}
+.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;font-family:'Space Grotesk',sans-serif;font-size:.9rem;color:var(--muted);cursor:pointer;background:var(--panel);border:1px solid var(--border);padding:.3rem .7rem;border-radius:3px}
 .lightbox-close:hover{color:var(--bright)}
 
 /* EDIT HINT */
-.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.6;z-index:200}
+.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.6;z-index:200}
 .edit-hint span{color:var(--c2a)}
 
 @media(max-width:768px){
@@ -337,7 +340,7 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight
            src="assets/fyp1b/conceptual-framework.jpg"
            alt="User Interaction Flow — Conceptual Framework"
            style="max-width:520px;width:100%;border-radius:6px;border:1px solid var(--border);transition:transform .3s">
-      <div style="font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);margin-top:.5rem;letter-spacing:.08em">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;color:var(--muted);margin-top:.5rem;letter-spacing:.08em">
         CLICK TO ENLARGE
       </div>
     </div>
