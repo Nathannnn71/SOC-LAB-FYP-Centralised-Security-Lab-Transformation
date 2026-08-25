@@ -88,7 +88,84 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 .project-scope-table td{padding:.75rem .5rem;border-bottom:1px solid var(--border);color:var(--text);font-size:.8rem;line-height:1.5;vertical-align:top}
 .project-scope-table tbody tr:nth-child(even){background:rgba(28,31,41,.5)}
 .project-scope-table tbody tr:hover{background:rgba(65,71,85,.6)}
-@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.research-table th,.research-table td{padding:.5rem .25rem;font-size:.75rem}.project-scope-table th,.project-scope-table td{padding:.5rem .25rem;font-size:.7rem}}
+.problem-grid{display:grid;grid-template-columns:1fr;gap:.75rem}
+.problem-box{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem 1.1rem;display:flex;align-items:flex-start;gap:.9rem}
+.problem-num{font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:var(--c2c);border:1px solid var(--c2c);border-radius:3px;padding:.25rem .5rem;flex-shrink:0;line-height:1}
+.problem-box h3{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:700;color:var(--bright);letter-spacing:.02em;margin-bottom:.4rem;line-height:1.3}
+.problem-box p{font-size:.85rem;line-height:1.6;color:var(--text)}
+.problem-box p strong{color:var(--bright);font-weight:600}
+.concept-diagram{display:flex;flex-direction:column;align-items:center;gap:0}
+.concept-node{border:1px solid var(--border);border-radius:6px;background:var(--bg);text-align:center}
+.concept-actor{border-color:var(--c2c);padding:.85rem 1.5rem;min-width:220px}
+.concept-actor .kicker,.concept-lab-title,.concept-node h4{font-family:'Space Grotesk',sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.concept-actor .kicker{font-size:.6rem;color:var(--c2c);margin-bottom:.25rem}
+.concept-actor strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:.95rem;color:var(--bright);font-weight:700}
+.concept-flow{display:flex;flex-direction:column;align-items:center;gap:.2rem;padding:.55rem 0;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:.65rem;letter-spacing:.04em;text-align:center}
+.concept-flow::after{content:'▼';color:var(--c2c);font-size:.7rem;line-height:1}
+.concept-lab{width:100%;border:1px solid var(--c2c);border-radius:8px;padding:1.1rem 1.1rem 1.25rem;background:rgba(96,165,250,.05);display:flex;flex-direction:column;align-items:center}
+.concept-lab-title{font-size:.7rem;color:var(--c2c);margin-bottom:1rem;letter-spacing:.1em}
+.concept-stack{width:100%;max-width:640px;display:flex;flex-direction:column;align-items:center}
+.concept-attack{align-self:flex-start;border-color:var(--c1c);padding:.8rem 1rem;min-width:210px;text-align:left}
+.concept-attack h4{font-size:.7rem;color:var(--c1c);margin-bottom:.2rem}
+.concept-attack p{font-size:.72rem;color:var(--muted)}
+.concept-block{width:100%;padding:1rem 1.1rem;text-align:left}
+.concept-block h4{font-size:.72rem;margin-bottom:.65rem}
+.concept-logs{border-color:var(--c3a)}
+.concept-logs h4{color:var(--c3a)}
+.concept-wazuh{border-color:var(--c1a)}
+.concept-wazuh h4{color:var(--c1a)}
+.concept-hive{border-color:var(--c2c)}
+.concept-hive h4{color:var(--c2c)}
+.concept-kb{border-color:var(--c2a)}
+.concept-kb h4{color:var(--c2a)}
+.concept-chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.concept-chips span{font-family:'Space Grotesk',sans-serif;font-size:.62rem;padding:.25rem .5rem;border:1px solid var(--border);border-radius:3px;color:var(--text);background:var(--surface)}
+.concept-items{display:grid;grid-template-columns:1fr 1fr;gap:.35rem .75rem;list-style:none;margin:0;padding:0}
+.concept-items li{font-size:.78rem;line-height:1.4;padding-left:.85rem;position:relative;color:var(--text)}
+.concept-items li::before{content:'•';position:absolute;left:0;color:var(--c2c)}
+.concept-closed{border-color:var(--c3c);padding:.75rem 1.4rem;min-width:180px}
+.concept-closed .kicker{font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.08em;color:var(--c3c);text-transform:uppercase;margin-bottom:.2rem}
+.concept-closed strong{font-family:'Space Grotesk',sans-serif;color:var(--bright);font-size:.9rem}
+.feedback-split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.45fr);gap:1rem;align-items:stretch}
+.feedback-col{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1.1rem}
+.feedback-col-label{font-family:'Space Grotesk',sans-serif;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--c2c);margin-bottom:.7rem}
+.feedback-col p{font-size:.85rem;line-height:1.65;color:var(--text);margin-bottom:.85rem}
+.feedback-col p:last-child{margin-bottom:0}
+.feedback-table{width:100%;border-collapse:collapse}
+.feedback-table th{font-family:'Space Grotesk',sans-serif;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--bright);text-align:left;padding:.55rem .4rem;border-bottom:1px solid var(--border)}
+.feedback-table td{padding:.65rem .4rem;border-bottom:1px solid var(--border);font-size:.8rem;line-height:1.5;color:var(--text);vertical-align:top}
+.feedback-table tr:last-child td{border-bottom:none}
+.feedback-table td:first-child{color:var(--bright);font-weight:600;width:32%;font-size:.78rem}
+.outcome-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.15rem}
+.metric-card{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem}
+.metric-name{font-family:'Space Grotesk',sans-serif;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;line-height:1.35}
+.metric-score{display:flex;align-items:baseline;gap:.4rem;margin-bottom:.65rem}
+.metric-score strong{font-family:'Space Grotesk',sans-serif;font-size:1.55rem;font-weight:700;color:var(--bright);line-height:1}
+.metric-score span{font-size:.75rem;color:var(--muted)}
+.metric-bar{height:6px;background:#262A34;border-radius:4px;overflow:hidden;margin-bottom:.7rem}
+.metric-bar i{display:block;height:100%;border-radius:4px}
+.metric-dots{display:grid;grid-template-columns:repeat(9,12px);gap:4px}
+.metric-dot{width:12px;height:12px;border-radius:50%;background:#262A34;border:1px solid var(--border)}
+.metric-dot.on-high{background:var(--c3c);border-color:var(--c3c)}
+.metric-dot.on-mid{background:var(--c3a);border-color:var(--c3a)}
+.metric-dot.on-low{background:var(--c2b);border-color:var(--c2b)}
+.metric-card.qual .metric-score strong{font-size:1.05rem;color:var(--c3a)}
+.outcome-findings{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+.finding-box{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem 1.05rem}
+.finding-kicker{font-family:'Space Grotesk',sans-serif;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--c2c);margin-bottom:.45rem}
+.finding-box h3{font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:700;color:var(--bright);line-height:1.3;margin-bottom:.5rem}
+.finding-box p{font-size:.8rem;line-height:1.6;color:var(--text)}
+.improve-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+.improve-card{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem 1.05rem;display:flex;gap:.75rem;align-items:flex-start}
+.improve-num{font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:var(--c2c);border:1px solid var(--c2c);border-radius:3px;padding:.25rem .45rem;flex-shrink:0;line-height:1}
+.improve-card h3{font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:700;color:var(--bright);line-height:1.3;margin-bottom:.35rem}
+.improve-card p{font-size:.8rem;line-height:1.55;color:var(--text)}
+.progress-path{display:flex;align-items:stretch;gap:.45rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.85rem}
+.path-step{flex:1;text-align:center;padding:.7rem .5rem;border:1px solid var(--border);border-radius:4px}
+.path-step .path-kicker{font-family:'Space Grotesk',sans-serif;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.path-step strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:var(--bright);line-height:1.35}
+.path-arrow{display:flex;align-items:center;color:var(--c2c);font-size:1.1rem;flex-shrink:0}
+@media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}.research-table th,.research-table td{padding:.5rem .25rem;font-size:.75rem}.project-scope-table th,.project-scope-table td{padding:.5rem .25rem;font-size:.7rem}.concept-items{grid-template-columns:1fr}.concept-attack{align-self:stretch}.feedback-split{grid-template-columns:1fr}.outcome-metrics,.outcome-findings,.improve-grid{grid-template-columns:1fr}.progress-path{flex-direction:column}.path-arrow{transform:rotate(90deg);justify-content:center}}
 
 </style>
 </head>
@@ -165,34 +242,43 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
    <div class="section-grid full">
      <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-      <div class="editable" contenteditable="true"><b>PROBLEM</b>
-<ul>
-<li>Students have limited practical exposure to defensive cybersecurity operations even though there are courses dedicated for it</li>
-<li>There is a lack of an SOC lab that supports blue team operations</li>
-<li>They waste time manually configuring environment and troubleshoot compatibility issues before starting exercises within those classes</li>
-</ul>
-<b>IMPACT</b>
-<ul>
-<li>Reduces the time available for meaningful practice -> leading to suboptimal learning outcomes</li>
-<li>Studies show that scenario-based labs improve skill acquisition</li>
-</ul>
-<b>ROOT CAUSE</b>
-<ul>
-<li>Lack of an environment that teaches clear defensive workflow and toolchain practically</li>
-</ul>
-<b>GAP</b>
-<ul>
-<li>Such lab can fosters engagement, by allowing students to focus on the workflow rather than the setup, supporting deeper understanding of how detection, response, and case management are connected in a real defense environment</li>
-</ul>
-<b>PROPOSED SOLUTION</b>
-<ul>
-<li>A pre-configured Blue Team SOC lab environment with ready to use setup has integrated tools, and structured defensive workflows</li>
-</ul>
-<b>EXPECTED OUTCOME</b>
-<ul>
-<li>Enables student to have real-life, hands-on defensive activities</li>
-<li>Improve understanding of SOC workflow, engagement and learning effectiveness</li>
-</ul>
+      <div class="problem-grid">
+        <div class="problem-box">
+          <span class="problem-num">1</span>
+          <div>
+            <h3>Limited Practical Exposure to Blue Team Operations</h3>
+            <p>Students may learn defensive cybersecurity concepts theoretically but have limited opportunities to perform <strong>hands-on activities</strong> such as alert detection, log analysis, incident investigation, and response.</p>
+          </div>
+        </div>
+        <div class="problem-box">
+          <span class="problem-num">2</span>
+          <div>
+            <h3>Lack of an Integrated SOC Lab for Blue Team Training</h3>
+            <p>There is a lack of a dedicated environment where students can practice the <strong>complete blue team workflow</strong>, including detection, analysis, incident response, and case management using integrated SOC tools.</p>
+          </div>
+        </div>
+        <div class="problem-box">
+          <span class="problem-num">3</span>
+          <div>
+            <h3>Excessive Time Spent on Environment Setup and Troubleshooting</h3>
+            <p>Students may spend a significant portion of practical sessions installing, configuring, integrating, and troubleshooting tools and compatibility issues instead of performing cybersecurity exercises.</p>
+          </div>
+        </div>
+        <div class="problem-box">
+          <span class="problem-num">4</span>
+          <div>
+            <h3>Lack of Structured and Realistic Defensive Workflows</h3>
+            <p>Without a structured workflow connecting tools such as the <strong>SIEM, endpoint security tools, and incident response platform</strong>, students may struggle to understand how individual defensive activities are connected within a real SOC environment.</p>
+          </div>
+        </div>
+        <div class="problem-box">
+          <span class="problem-num">5</span>
+          <div>
+            <h3>Reduced Learning Effectiveness and Engagement</h3>
+            <p>The combination of limited hands-on exposure, setup difficulties, and unclear workflows can reduce the time available for meaningful practice, potentially resulting in <strong>lower engagement, weaker practical skill development, and suboptimal learning outcomes</strong>.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="research-table-wrapper">
@@ -213,14 +299,10 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
                     <span class="rq-number">1</span>
                 </td>
                 <td>
-                    What are the standard architectures, tools, and configurations required to design and build a blue team defense lab within a SOC lab with minimal resources using open source tools such as Wazuh, ClamAV, and TheHive?
+                    What tools, architecture, configurations, and integrations are required to design and develop a low-resource blue team defense lab using open-source tools?
                 </td>
                 <td>
-                    <ul class="compact-list" style="margin:0; padding-left:1rem;">
-                        <li>To identify the tools and justify the selection of blue team tools (e.g., Wazuh agent/manager, ClamAV, TheHive) and their roles within a SOC architecture.</li>
-                        <li>To develop a design for constructing a blue team defense lab.</li>
-                        <li>To define the configurations, integrations, and communication flow between components (endpoint → SIEM → response platform).</li>
-                    </ul>
+                    To identify and design a suitable blue team lab architecture by selecting appropriate open-source tools and defining their configurations, roles, integrations, and communication flow.
                 </td>
                 <td>
                     <span class="method-badge">Literature review</span>
@@ -241,14 +323,10 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
                     <span class="rq-number">2</span>
                 </td>
                 <td>
-                    How are the workflow and operational procedure carried out in real-world SOC environments for blue team activities particularly in relation to detection, incident analysis, and response coordination?
+                    How are blue team activities such as alert detection, triage, incident analysis, escalation, and response carried out in real-world SOC environments?
                 </td>
                 <td>
-                    <ul class="compact-list" style="margin:0; padding-left:1rem;">
-                        <li>To understand real-world blue team workflow including alert triage, incident escalation, and response procedures.</li>
-                        <li>Understand procedures followed by SOC analyst in the blue team and how they interact with SIEM and incident response platforms during malware-related incidents.</li>
-                        <li>Incorporate the workflow and procedure from insights taken from interviews into the lab design, ensuring alignment with realistic blue team operations.</li>
-                    </ul>
+                    To investigate real-world SOC workflows and procedures and incorporate relevant practices into the design and operation of the blue team lab.
                 </td>
                 <td>
                     <span class="method-badge">Interview</span>
@@ -267,14 +345,10 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
                     <span class="rq-number">3</span>
                 </td>
                 <td>
-                    How effective is the developed lab in terms of workflow and system integration with the existing infrastructure?
+                    How effective is the developed blue team lab in supporting detection, analysis, response, and integration of its components?
                 </td>
                 <td>
-                    <ul class="compact-list" style="margin:0; padding-left:1rem;">
-                        <li>To test whether all the components (Wazuh, ClamAV, TheHive) set up function as intended cohesively across detection, analysis, and response stages.</li>
-                        <li>Assess the efficiency and accuracy of the workflow, including alert generation, investigation, and containment actions.</li>
-                        <li>Measure the lab’s effectiveness using performance metrics such as detection accuracy and response time.</li>
-                    </ul>
+                    To evaluate the functionality and effectiveness of the developed lab by assessing system integration, workflow accuracy, detection performance, and response efficiency.
                 </td>
                 <td>
                     <span class="method-badge">Experiment</span>
@@ -352,27 +426,285 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     </div>
   </div>
 
- 
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">FEEDBACK FROM FYP 1</div>
+      <div class="feedback-split">
+        <div class="feedback-col">
+          <div class="feedback-col-label">The Concern</div>
+          <p>FYP 1 feedback highlighted that the project needed clearer evidence of technical implementation. Selecting and describing open-source SOC tools was not enough on its own — the lab also required custom configuration, integration, automation, and network management so the components would operate as one environment.</p>
+        </div>
+        <div class="feedback-col">
+          <div class="feedback-col-label">Addressing the Concern</div>
+          <p>Technical work was carried out to customize, integrate, automate, and manage the different components of the SOC lab. The implementation focuses on system configuration, security monitoring, automation, containerization, and network management.</p>
+          <table class="feedback-table">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Brief Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Wazuh XML Configuration Files</td>
+                <td>XML configuration files were used to configure Wazuh components, including custom rules and monitoring settings required to detect and classify security events.</td>
+              </tr>
+              <tr>
+                <td>Custom Decoders</td>
+                <td>Custom decoders were configured to allow Wazuh to interpret and extract relevant information from logs generated by services and security tools that are not natively supported.</td>
+              </tr>
+              <tr>
+                <td>Docker Configuration</td>
+                <td>Docker configuration files were used to define and deploy containerized services, including their images, networks, volumes, ports, and dependencies, allowing the SOC components to operate within a consistent environment.</td>
+              </tr>
+              <tr>
+                <td>Cron Jobs</td>
+                <td>Cron jobs were configured to automate recurring tasks within the SOC lab, such as scheduled scripts, maintenance operations, and synchronization processes.</td>
+              </tr>
+              <tr>
+                <td>IP Tables Routing</td>
+                <td>IP tables rules were configured to control and route network traffic between components of the lab. This supports network segmentation and ensures communication follows the intended SOC network architecture.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">CONCEPTUAL DIAGRAM</div>
+      <div class="concept-diagram">
+        <div class="concept-node concept-actor">
+          <div class="kicker">Student</div>
+          <strong>Blue Team Analyst</strong>
+        </div>
+        <div class="concept-flow">Investigates alerts</div>
+        <div class="concept-lab">
+          <div class="concept-lab-title">Blue Team SOC Learning Lab</div>
+          <div class="concept-stack">
+            <div class="concept-node concept-attack">
+              <h4>Attack / Vulnerable Web Application</h4>
+              <p>SeedLabs</p>
+            </div>
+            <div class="concept-flow">Attack generates logs</div>
+            <div class="concept-node concept-block concept-logs">
+              <h4>Log Sources</h4>
+              <div class="concept-chips">
+                <span>Apache Access/Error</span>
+                <span>MySQL Query</span>
+                <span>Application Logs</span>
+              </div>
+            </div>
+            <div class="concept-flow">Forwarded to SIEM</div>
+            <div class="concept-node concept-block concept-wazuh">
+              <h4>Wazuh SIEM</h4>
+              <ul class="concept-items">
+                <li>Log collection</li>
+                <li>Decoders</li>
+                <li>Detection rules</li>
+                <li>Correlation rules</li>
+                <li>MITRE ATT&amp;CK mapping</li>
+                <li>Alert generation</li>
+              </ul>
+            </div>
+            <div class="concept-flow">Critical alert</div>
+            <div class="concept-node concept-block concept-hive">
+              <h4>TheHive</h4>
+              <ul class="concept-items">
+                <li>Case creation</li>
+                <li>Triage</li>
+                <li>Investigation</li>
+                <li>Task / playbook</li>
+                <li>Evidence</li>
+                <li>Response documentation</li>
+                <li>Case closure</li>
+              </ul>
+            </div>
+            <div class="concept-flow">Guides the response</div>
+            <div class="concept-node concept-block concept-kb">
+              <h4>Knowledge Base / Playbooks</h4>
+              <ul class="concept-items">
+                <li>Log retrieval</li>
+                <li>Attack identification</li>
+                <li>Vulnerability analysis</li>
+                <li>Remediation guidance</li>
+                <li>Retesting</li>
+              </ul>
+            </div>
+            <div class="concept-flow">Student completes response tasks</div>
+            <div class="concept-node concept-closed">
+              <div class="kicker">Outcome</div>
+              <strong>Closed / Solved Case</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">RESEARCH OUTCOMES</div>
+      <div class="outcome-metrics">
+        <div class="metric-card">
+          <div class="metric-name">Incident Recognition</div>
+          <div class="metric-score"><strong>100%</strong><span>9/9</span></div>
+          <div class="metric-bar"><i style="width:100%;background:var(--c3c)"></i></div>
+          <div class="metric-dots" aria-hidden="true">
+            <span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Playbook Adherence</div>
+          <div class="metric-score"><strong>100%</strong><span>9/9</span></div>
+          <div class="metric-bar"><i style="width:100%;background:var(--c3c)"></i></div>
+          <div class="metric-dots" aria-hidden="true">
+            <span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span><span class="metric-dot on-high"></span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Correct Attack Identification</div>
+          <div class="metric-score"><strong>56%</strong><span>5/9</span></div>
+          <div class="metric-bar"><i style="width:56%;background:var(--c3a)"></i></div>
+          <div class="metric-dots" aria-hidden="true">
+            <span class="metric-dot on-mid"></span><span class="metric-dot on-mid"></span><span class="metric-dot on-mid"></span><span class="metric-dot on-mid"></span><span class="metric-dot on-mid"></span><span class="metric-dot"></span><span class="metric-dot"></span><span class="metric-dot"></span><span class="metric-dot"></span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Relevant Log Analysis</div>
+          <div class="metric-score"><strong>56%</strong><span>5/9</span></div>
+          <div class="metric-bar"><i style="width:56%;background:var(--c3a)"></i></div>
+          <div class="metric-dots" aria-hidden="true">
+            <span class="metric-dot on-mid"></span><span class="metric-dot on-mid"></span><span class="metric-dot on-mid"></span><span class="metric-dot on-mid"></span><span class="metric-dot on-mid"></span><span class="metric-dot"></span><span class="metric-dot"></span><span class="metric-dot"></span><span class="metric-dot"></span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Successful Remediation</div>
+          <div class="metric-score"><strong>44%</strong><span>4/9</span></div>
+          <div class="metric-bar"><i style="width:44%;background:var(--c2b)"></i></div>
+          <div class="metric-dots" aria-hidden="true">
+            <span class="metric-dot on-low"></span><span class="metric-dot on-low"></span><span class="metric-dot on-low"></span><span class="metric-dot on-low"></span><span class="metric-dot"></span><span class="metric-dot"></span><span class="metric-dot"></span><span class="metric-dot"></span><span class="metric-dot"></span>
+          </div>
+        </div>
+        <div class="metric-card qual">
+          <div class="metric-name">Independent Completion</div>
+          <div class="metric-score"><strong>Limited</strong><span>not scored</span></div>
+          <p style="font-size:.72rem;line-height:1.5;color:var(--muted);margin:0">A numeric count was not recorded. Practical independence was limited in log analysis, attack identification, remediation, and case documentation.</p>
+        </div>
+      </div>
+      <div class="outcome-findings">
+        <div class="finding-box">
+          <div class="finding-kicker">Key Findings</div>
+          <h3>Strong procedural understanding, but limited practical independence.</h3>
+          <p>Participants demonstrated strong understanding of the SOC workflow and were able to follow the provided incident response playbook. However, practical difficulties were observed in log analysis, attack identification, remediation, and case documentation.</p>
+        </div>
+        <div class="finding-box">
+          <div class="finding-kicker">Identified Skill Gap</div>
+          <h3>Log analysis and evidence interpretation were identified as the primary practical skill gaps.</h3>
+          <p>Only 5 of 9 participants (56%) correctly examined the relevant logs, while 5 of 9 (56%) correctly identified the attack type. This indicates that students understood what they were supposed to do, but struggled with how to interpret the evidence required to do it.</p>
+        </div>
+        <div class="finding-box">
+          <div class="finding-kicker">System Effectiveness</div>
+          <h3>Structured SOC workflow learning, with more practice needed for independent execution.</h3>
+          <p>The results suggest that the lab successfully provides a structured environment for learning the SOC workflow, but additional progressive training is required to develop independent technical execution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">RECOMMENDED IMPROVEMENTS</div>
+      <div class="improve-grid">
+        <div class="improve-card">
+          <span class="improve-num">01</span>
+          <div>
+            <h3>Improve log analysis skills</h3>
+            <p>Help students identify and interpret relevant logs for investigation.</p>
+          </div>
+        </div>
+        <div class="improve-card">
+          <span class="improve-num">02</span>
+          <div>
+            <h3>Improve system navigation guidance</h3>
+            <p>Provide more specific guidance for navigating the SOC infrastructure.</p>
+          </div>
+        </div>
+        <div class="improve-card">
+          <span class="improve-num">03</span>
+          <div>
+            <h3>Use a progressive learning approach</h3>
+            <p>Introduce SIEM navigation → log analysis → full end-to-end investigation.</p>
+          </div>
+        </div>
+        <div class="improve-card">
+          <span class="improve-num">04</span>
+          <div>
+            <h3>Gradually build student independence</h3>
+            <p>Develop individual skills before requiring students to complete the full workflow independently.</p>
+          </div>
+        </div>
+      </div>
+      <div class="progress-path" aria-label="Progressive learning path">
+        <div class="path-step">
+          <div class="path-kicker">Stage 1</div>
+          <strong>SIEM navigation</strong>
+        </div>
+        <div class="path-arrow">→</div>
+        <div class="path-step">
+          <div class="path-kicker">Stage 2</div>
+          <strong>Log analysis</strong>
+        </div>
+        <div class="path-arrow">→</div>
+        <div class="path-step">
+          <div class="path-kicker">Stage 3</div>
+          <strong>End-to-end investigation</strong>
+        </div>
+        <div class="path-arrow">→</div>
+        <div class="path-step" style="border-color:var(--c2c)">
+          <div class="path-kicker" style="color:var(--c2c)">Stage 4</div>
+          <strong>Independent completion</strong>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="info-block">
     <div class="block-label">DELIVERABLES &amp; STATUS</div>
     <div class="deliverable-grid">
       <div class="deliverable-item">
-        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Hardened VM templates (documented configurations)</div><span class="status-badge wip">WIP</span></div>
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Hardened Blue Team SOC VM Environment</div><span class="status-badge done">DONE</span></div>
+        <div class="deliverable-item-detail">Documented VM configuration, network settings, Docker services, and CIS hardening implementation.</div>
       </div>
       <div class="deliverable-item">
-        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Blue Team exercise manuals (5 exercises)</div><span class="status-badge wip">WIP</span></div>
-        <div class="deliverable-item-detail">Fulfilling 1 exercise, malware containment</div>
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Blue Team Scenario-Based Exercises</div><span class="status-badge done">DONE</span></div>
+        <div class="deliverable-item-detail">Development of practical exercises covering SQL injection scenarios, including authentication bypass, UPDATE injection, and function injection.</div>
       </div>
       <div class="deliverable-item">
-        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Incident response playbook</div><span class="status-badge wip">WIP</span></div>
-        <div class="deliverable-item-detail">Integrating theHIVE for the response</div>
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Incident Response Playbooks</div><span class="status-badge done">DONE</span></div>
+        <div class="deliverable-item-detail">Structured response procedures covering detection, triage, analysis, containment, eradication, recovery, and post-incident activities.</div>
       </div>
       <div class="deliverable-item">
-        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Integration documentation (Blue Team → SIEM workflow)</div><span class="status-badge wip">WIP</span></div>
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">TheHive Case Management Integration</div><span class="status-badge done">DONE</span></div>
+        <div class="deliverable-item-detail">Integration of Wazuh alerts with TheHive to support case creation, investigation, task management, evidence collection, and case closure.</div>
       </div>
       <div class="deliverable-item">
-        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Performance metrics report (detection rates, false positives)</div><span class="status-badge tentative">TENTATIVE</span></div>
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Blue Team SOC Workflow &amp; Integration Documentation</div><span class="status-badge done">DONE</span></div>
+        <div class="deliverable-item-detail">Documentation of the workflow and communication between the vulnerable application, log sources, Wazuh SIEM, and TheHive.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Knowledge Base for Blue Team Exercises</div><span class="status-badge done">DONE</span></div>
+        <div class="deliverable-item-detail">Step-by-step guidance for log retrieval, attack identification, vulnerability tracing, remediation, and retesting.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">Detection Rule &amp; Decoder Implementation</div><span class="status-badge done">DONE</span></div>
+        <div class="deliverable-item-detail">Custom Wazuh detection rules, decoders, and correlation rules developed for the exercise scenarios.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-item-header"><div class="check"></div><div class="deliverable-item-title">System Validation &amp; Evaluation Report</div><span class="status-badge done">DONE</span></div>
+        <div class="deliverable-item-detail">Documentation of detection testing, workflow validation, procedure accuracy, limitations, and supervisor feedback.</div>
       </div>
     </div>
   </div>
