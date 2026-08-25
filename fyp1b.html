@@ -214,36 +214,35 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">PROJECT SCOPE — TABLE 1</div>
-      <p class="note" style="margin:0 0 .75rem">Intermediate is the implemented laboratory. Advanced is future work and is not claimed as a result of this sitting.</p>
       <div class="table-wrap">
         <table class="scope-table">
           <thead>
-            <tr><th>Feature</th><th>Basic</th><th>Intermediate (this project)</th><th>Advanced (future)</th></tr>
+            <tr><th>Feature</th><th>Basic</th><th>Intermediate</th><th>Advanced</th></tr>
           </thead>
           <tbody>
             <tr>
               <td class="level-basic">Networking</td>
-              <td>Student OPNsense: DHCP, DNS, and NAT; ping between hosts</td>
-              <td>LabEye four-guest overlay: student OPNsense, VyOS static routing, Ubuntu Server, and Windows</td>
+              <td>Task 1 — Configure WAN and LAN on student OPNsense; set addresses on VyOS; set static IPs on Ubuntu Server and Windows; use VyOS to route both hosts to OPNsense so all devices can ping each other.</td>
+              <td>Task 2 and 3 — Internet through the student OPNsense (WAN NAT and a default route toward the lab uplink); simple VyOS firewall.</td>
               <td>Policy-based routing, VPN tunnels, multisite topology</td>
             </tr>
             <tr>
               <td class="level-inter">Security</td>
               <td>Isolated student overlay; default deny between exercise VLANs</td>
               <td>IEEE 802.1Q VLANs 90, 900, 901, 911, and 921. Documented teaching paths only. University LAN blocked from staff dashboards.</td>
-              <td>Honeypot class; standing red/blue sitting</td>
+              <td>IDS/IPS setup, VPN config, firewall tuning</td>
             </tr>
             <tr>
               <td class="level-cell">Monitoring</td>
               <td>Staff open ntopng and see live traffic</td>
               <td>SPAN on switch port 18 plus NetFlow into ntopng; d3.js (Cluster Mesh); Wazuh on the infrastructure plane. Students do not open these pages.</td>
-              <td>Student-facing observability exercise</td>
+              <td>Student pinging observability: when students run cybersecurity labs (nmap or code injection on a server), monitoring can see that activity and Cluster Mesh shows a particle flying to the target.</td>
             </tr>
             <tr>
               <td class="level-basic">Network labs</td>
-              <td>Guided ping and NAT on the four-guest combination</td>
-              <td>One Networking exercise from Lenovo PCs through LabEye. Students configure OPNsense and VyOS without hypervisor administrator rights.</td>
-              <td>Extra lab packs: pen-test, IDS/IPS, SOC-style sittings</td>
+              <td>Task 1 — Configure WAN and LAN on student OPNsense; VyOS routing and NAT; static IPs on Ubuntu and Windows; ping between the four guests.</td>
+              <td>Task 2 and 3 — Internet through the student OPNsense; simple VyOS firewall.</td>
+              <td>Extra lab packs</td>
             </tr>
             <tr>
               <td class="level-inter">Firewall</td>
@@ -394,11 +393,11 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
     <div class="info-block">
       <div class="block-label">CURRENT IMPLEMENTATION &amp; ACHIEVEMENTS</div>
       <div class="achievement-grid">
-        <div class="achievement-card"><strong>RO1 · Cluster</strong><p>lab-d-cluster on Acer nodes and the Dell node. Class clones on Acer. Shared services on Dell. Twenty Lenovo seats.</p></div>
-        <div class="achievement-card"><strong>RO2 · Student overlay</strong><p>Students access virtual machines or network labs through LabEye.</p></div>
-        <div class="achievement-card"><strong>RO3 · Staff observability</strong><p>Lecturers opened ntopng, Cluster Mesh, and Wazuh. Students did not open those pages in UAT.</p></div>
-        <div class="achievement-card"><strong>RO4 · Guided labs</strong><p>One Networking sitting at Basic/Intermediate. Advanced packs were not a Chapter 7 class.</p></div>
-        <div class="achievement-card"><strong>RO5 · Student UAT</strong><p>n = 10 consented. Strongest Likert: prefer this lab to a textbook (8/10). Weakest: fix mistakes without help.</p></div>
+        <div class="achievement-card"><strong>RO1 · Cluster</strong><p>lab-d-cluster on Acer nodes and the Dell node. Class clones on Acer. Shared services on Dell. Twenty Lenovo seats for students to use.</p></div>
+        <div class="achievement-card"><strong>RO2 · Student overlay</strong><p>Students access virtual machines or network labs through LabEye with limited access compared to administrator or lecturer.</p></div>
+        <div class="achievement-card"><strong>RO3 · Staff observability</strong><p>Lecturers opened ntopng, Cluster Mesh, and Wazuh to view monitoring logs, security logs and network visualisation.</p></div>
+        <div class="achievement-card"><strong>RO4 · Guided labs</strong><p>One Networking sitting at Basic/Intermediate was created for students to get familiarity of the environment.</p></div>
+        <div class="achievement-card"><strong>RO5 · Student UAT</strong><p>10 students consented to take part; usability and the difference of the network lab environment was gotten.</p></div>
         <div class="achievement-card"><strong>RO6 · Documentation</strong><p>Report and topology diagrams exist. A standing student handbook is still a product gap.</p></div>
       </div>
     </div>
