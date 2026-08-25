@@ -231,7 +231,7 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
               <td class="level-inter">Security</td>
               <td>Isolated student overlay; default deny between exercise VLANs</td>
               <td>IEEE 802.1Q VLANs 90, 900, 901, 911, and 921. Documented teaching paths only. University LAN blocked from staff dashboards.</td>
-              <td>VLAN 931 honeypot class; standing red/blue sitting</td>
+              <td>Honeypot class; standing red/blue sitting</td>
             </tr>
             <tr>
               <td class="level-cell">Monitoring</td>
@@ -323,7 +323,7 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
   <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">VLAN ALLOCATION</div>
-      <p class="note" style="margin:0 0 .75rem">IEEE 802.1Q on the TL-SG1024DE. Opnsense-main is the <code style="color:var(--c1b)">.1</code> gateway on each laboratory prefix. Hosts in the same VLAN switch at Layer 2. Inter-VLAN traffic is default-deny except the pairs below. VLAN 931 is on the switch; it is not yet an Opnsense-main interface.</p>
+      <p class="note" style="margin:0 0 .75rem">IEEE 802.1Q on the TL-SG1024DE. Opnsense-main is the <code style="color:var(--c1b)">.1</code> gateway on each laboratory prefix. Hosts in the same VLAN switch at Layer 2. Inter-VLAN traffic is default-deny except the pairs below.</p>
       <div class="table-wrap">
         <table class="vlan-table">
           <thead>
@@ -384,15 +384,6 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
               <td>911 (victims) and the Internet</td>
               <td>90, 900, and 901 (blue). Red meets blue only on the victim segment.</td>
             </tr>
-            <tr>
-              <td>931</td>
-              <td>honeypot</td>
-              <td>planned 172.29.31.0/24</td>
-              <td>—</td>
-              <td>Switch VLAN for a future honeypot class. Not claimed as a result of this sitting.</td>
-              <td>—</td>
-              <td>No Opnsense-main forwarding yet, so it is not in the allow/deny matrix.</td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -435,6 +426,10 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
     <div class="block-label">FUTURE ENHANCEMENT</div>
     <ol class="scope-list">
       <li><span class="num">01</span><span>More standardised guidebook for lecturer and student, and more network labs.</span></li>
+      <li><span class="num">02</span><span>More RAM and CPU for the Dell node.</span></li>
+      <li><span class="num">03</span><span>Allow students to upgrade the system.</span></li>
+      <li><span class="num">04</span><span>Allow other students to add on to the infrastructure for their final year project.</span></li>
+      <li><span class="num">05</span><span>Improve security.</span></li>
     </ol>
   </div>
 
@@ -454,7 +449,7 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
       <div class="diagram-container">
         <img src="assets/fyp1b/network-topology.png" alt="Physical topology of the Lab D platform: TP-Link TL-SG1024DE, Acer Proxmox nodes, Dell rack, and VLAN plan">
       </div>
-      <p class="note">Physical fabric of Lab D: TL-SG1024DE core, ten Acer Proxmox nodes for class clones, Dell node for Opnsense-main and shared services, and twenty Lenovo seats routed to 172.29.0.0/24. SPAN into ntopng uses switch port 18. VLAN 931 remains the planned honeypot path. Click the diagram to enlarge.</p>
+      <p class="note">Physical fabric of Lab D: TL-SG1024DE core, ten Acer Proxmox nodes for class clones, Dell node for Opnsense-main and shared services, and twenty Lenovo seats routed to 172.29.0.0/24. SPAN into ntopng uses switch port 18. Click the diagram to enlarge.</p>
     </div>
   </div>
 
