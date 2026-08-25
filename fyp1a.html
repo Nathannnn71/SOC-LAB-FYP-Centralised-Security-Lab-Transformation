@@ -62,8 +62,14 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 .research-q-list li::before{content:'RQ' counter(rq);font-family:'Space Grotesk',sans-serif;font-size:.6rem;padding:.2rem .4rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);flex-shrink:0;margin-top:.1rem}
 .method-tags{display:flex;flex-wrap:wrap;gap:.4rem}
 .method-tag{font-family:'Space Grotesk',sans-serif;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid}
-.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
+.hl{color:var(--c1a);font-weight:600}
+.hl-num{color:var(--bright);font-weight:700}
+.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--c2a);cursor:pointer;z-index:200;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .edit-hint span{color:var(--c2a)}
+.edit-hint .hint-body{display:none}
+.edit-hint.expanded{border-radius:6px;width:auto;height:auto;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;display:block}
+.edit-hint.expanded .hint-icon{display:none}
+.edit-hint.expanded .hint-body{display:block}
 @media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
 
 </style>
@@ -112,14 +118,14 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
   <div class="section-grid">
     <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-      <div class="editable" contenteditable="true">The physical lab has no centralised virtual machine repository. Each session requires manual OS installation on individual machines. There is no snapshot or rollback mechanism — a corrupted VM means a full reinstallation, wasting class time and lecturer effort.</div>
+      <div class="editable" contenteditable="true">Lab D's <span class="hl-num">10</span> <span class="hl">Acer Predator</span> PCs run standalone with <span class="hl">no centralised virtual machine repository</span>. Each session requires manual OS installation on individual machines, and with <span class="hl">no snapshot or rollback mechanism</span>, a corrupted VM means a full reinstallation — wasting class time and lecturer effort.</div>
     </div>
     <div class="info-block">
       <div class="block-label">RESEARCH QUESTIONS</div>
       <ol class="research-q-list">
-        <li contenteditable="true">How can a single Dell R440 server serve as a centralised image repository for 20 edge Proxmox nodes simultaneously?</li>
-        <li contenteditable="true">What thin-provisioning and snapshot strategy minimises storage consumption while supporting rapid VM rollback?</li>
-        <li contenteditable="true">What are the minimum VM specifications (RAM, vCPU, disk) needed for each course type to function adequately on Acer hardware?</li>
+        <li><span contenteditable="true">How can a <span class="hl">Dell R440</span> master node coordinate a centralised image repository distributed as <span class="hl">node-local golden templates</span> across <span class="hl-num">10</span> <span class="hl">Acer Predator</span> edge nodes (<span class="hl">lab-d-cluster</span>) simultaneously?</span></li>
+        <li><span contenteditable="true">What <span class="hl">thin-provisioning</span> and <span class="hl">snapshot</span> strategy minimises storage consumption while supporting rapid VM rollback?</span></li>
+        <li><span contenteditable="true">What are the minimum VM specifications (<span class="hl-num">RAM, vCPU, disk</span>) needed for each course type to function adequately on <span class="hl">Acer</span> hardware?</span></li>
       </ol>
     </div>
   </div>
@@ -128,11 +134,11 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     <div class="info-block">
       <div class="block-label">SCOPE &amp; TASKS</div>
       <ol class="scope-list">
-        <li><span class="num">01</span><span contenteditable="true">Install and configure Proxmox VE on Dell R440; partition storage for image repository vs running VMs.</span></li>
-        <li><span class="num">02</span><span contenteditable="true">Create 7 golden VM images: Ubuntu Server 22.04, Windows Server 2022 + AD, DVWA, Kali Linux 2024, OPNsense, Docker Host, Windows 10 workstation.</span></li>
-        <li><span class="num">03</span><span contenteditable="true">Implement thin provisioning (Proxmox linked clones) and automated daily snapshot strategy.</span></li>
-        <li><span class="num">04</span><span contenteditable="true">Document image creation SOP and produce capacity planning report (max concurrent VMs given RAM/storage).</span></li>
-        <li><span class="num">05</span><span contenteditable="true">Build and test backup/restore automation scripts; measure boot time benchmarks per image type.</span></li>
+        <li><span class="num">01</span><span contenteditable="true">Install and configure <span class="hl">Proxmox VE</span> across the <span class="hl">Dell R440</span> master node and the <span class="hl-num">10</span> <span class="hl">Acer Predator</span> edge nodes (<span class="hl">lab-d-cluster</span>); partition storage for image repository vs running VMs.</span></li>
+        <li><span class="num">02</span><span contenteditable="true">Create <span class="hl-num">7</span> golden VM images: Ubuntu Server 22.04, Windows Server 2022 + AD, DVWA, Kali Linux 2024, OPNsense, Docker Host, Windows 10 workstation.</span></li>
+        <li><span class="num">03</span><span contenteditable="true">Implement <span class="hl">thin provisioning</span> (Proxmox linked clones) and automated daily <span class="hl">snapshot</span> strategy; expose <span class="hl">node-local golden templates</span> for <span class="hl">FYP-1C's Terraform</span> automation to clone from.</span></li>
+        <li><span class="num">04</span><span contenteditable="true">Document image creation SOP and produce <span class="hl">capacity planning report</span> (max concurrent VMs given RAM/storage) — validated in practice at roughly <span class="hl-num">6 concurrent student VMs</span> per Acer node with a <span class="hl-num">3-deployment-per-student</span> cap.</span></li>
+        <li><span class="num">05</span><span contenteditable="true">Build and test <span class="hl">backup/restore automation</span> scripts; measure <span class="hl">boot time benchmarks</span> per image type.</span></li>
       </ol>
     </div>
   </div>
@@ -146,7 +152,7 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Iterative Build</span>
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Documentation</span>
       </div>
-      <div class="editable" contenteditable="true" style="margin-top:.75rem;font-size:.8rem">Build-test-document cycle. Each VM image is built, snapshot tested, stress-tested for boot time, and documented before being considered production-ready. Capacity planning uses empirical RAM/CPU measurements under load.</div>
+      <div class="editable" contenteditable="true" style="margin-top:.75rem;font-size:.8rem"><span class="hl">Build-test-document</span> cycle. Each VM image is built, <span class="hl">snapshot tested</span>, <span class="hl">stress-tested for boot time</span>, and documented before being considered production-ready. Capacity planning uses <span class="hl">empirical RAM/CPU measurements</span> under load.</div>
     </div>
     <div class="info-block">
       <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
@@ -154,8 +160,10 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
         <span class="method-tag" style="color:var(--c1a);border-color:var(--c1a)">Proxmox VE</span>
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Bash</span>
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">ZFS / LVM</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Ceph</span>
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">qemu-img</span>
         <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Cloud-Init</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Terraform (consumer)</span>
       </div>
     </div>
     <div class="info-block">
@@ -174,25 +182,31 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
   <div class="info-block">
     <div class="block-label">DELIVERABLES &amp; STATUS</div>
     <div class="deliverable-grid">
-      <div class="deliverable-item"><div class="check"></div>VM template repository on Dell R440<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Image creation documentation (step-by-step guides)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Snapshot / rollback automation scripts<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Capacity planning report<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Boot time &amp; resource usage testing report<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>VM template repository across lab-d-cluster nodes<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Image creation documentation (step-by-step guides)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Snapshot / rollback automation scripts<span class="status-badge wip">WIP</span></div>
+      <div class="deliverable-item"><div class="check"></div>Capacity planning report<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Boot time &amp; resource usage testing report<span class="status-badge wip">WIP</span></div>
     </div>
   </div>
 
   <div class="info-block" style="margin-top:1.25rem;border-left:3px solid var(--c1a)">
     <div class="block-label">HOW THIS SECTION ENABLES OTHERS</div>
-    <div class="editable" contenteditable="true">FYP-1C (Automation) cannot push images without the image repository. FYP-2A/2B/2C cannot run exercises without the VM templates. FYP-3C (Portal) integrates with the Proxmox API that I configure. My golden images define what every student in every class works with — this is the foundational layer.</div>
+    <div class="editable" contenteditable="true"><span class="hl">FYP-1C's</span> Terraform automation clones student VMs from the <span class="hl">node-local golden templates</span> I build across <span class="hl">lab-d-cluster</span>. <span class="hl">FYP-2A's LabEye</span> dashboard reads live node and VM status directly from the <span class="hl">Proxmox VE API</span> on my cluster. <span class="hl">FYP-2B/2C</span> cannot run exercises without the VM templates. <span class="hl">FYP-3C's</span> portal integrates with the same Proxmox API that I configure. My <span class="hl">golden images</span> define what every student in every class works with — this is the foundational layer.</div>
   </div>
 </div>
-<div class="edit-hint">
-  <span>✏ EDITABLE</span><br>
-  Click any grey text block or name field to edit directly in the browser.<br><br>
-  Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
+<div class="edit-hint" id="editHint">
+  <span class="hint-icon">✏</span>
+  <div class="hint-body">
+    <span>✏ EDITABLE</span><br>
+    Click any grey text block or name field to edit directly in the browser.<br><br>
+    Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
+  </div>
 </div>
 <script>
+document.getElementById('editHint').addEventListener('click', function(e) {
+  this.classList.toggle('expanded');
+});
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('status-badge')) {
     const cycle = ['planned', 'wip', 'done'];

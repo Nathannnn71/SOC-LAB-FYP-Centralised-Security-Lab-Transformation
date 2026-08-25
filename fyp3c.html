@@ -62,8 +62,12 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 .research-q-list li::before{content:'RQ' counter(rq);font-family:'Space Grotesk',sans-serif;font-size:.6rem;padding:.2rem .4rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);flex-shrink:0;margin-top:.1rem}
 .method-tags{display:flex;flex-wrap:wrap;gap:.4rem}
 .method-tag{font-family:'Space Grotesk',sans-serif;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid}
-.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
+.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--c2a);cursor:pointer;z-index:200;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .edit-hint span{color:var(--c2a)}
+.edit-hint .hint-body{display:none}
+.edit-hint.expanded{border-radius:6px;width:auto;height:auto;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;display:block}
+.edit-hint.expanded .hint-icon{display:none}
+.edit-hint.expanded .hint-body{display:block}
 @media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
 
 </style>
@@ -191,12 +195,18 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     <div class="editable" contenteditable="true">My portal is the visible face of the entire 3-semester project. Every FYP before mine builds infrastructure; I make it usable by non-technical people. A student can book a lab, open a VM in their browser, complete a cybersecurity exercise, and log out — all without knowing what Proxmox or Ansible is. When my portal is complete, the SOC Lab transformation is operationally finished.</div>
   </div>
 </div>
-<div class="edit-hint">
-  <span>✏ EDITABLE</span><br>
-  Click any grey text block or name field to edit directly in the browser.<br><br>
-  Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
+<div class="edit-hint" id="editHint">
+  <span class="hint-icon">✏</span>
+  <div class="hint-body">
+    <span>✏ EDITABLE</span><br>
+    Click any grey text block or name field to edit directly in the browser.<br><br>
+    Click <span>status badges</span> to cycle: PLANNED → WIP → DONE
+  </div>
 </div>
 <script>
+document.getElementById('editHint').addEventListener('click', function(e) {
+  this.classList.toggle('expanded');
+});
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('status-badge')) {
     const cycle = ['planned', 'wip', 'done'];

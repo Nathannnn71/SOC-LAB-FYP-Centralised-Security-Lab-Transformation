@@ -112,8 +112,12 @@ table.rdt-table td:first-child{font-family:'Space Grotesk',sans-serif;font-size:
 .lightbox.open{display:flex}
 .lightbox img{max-width:92vw;max-height:88vh;border-radius:6px;border:1px solid var(--border)}
 .lightbox-close{position:absolute;top:1.25rem;right:1.5rem;font-family:'Space Grotesk',sans-serif;font-size:.85rem;color:var(--muted);cursor:pointer;background:var(--panel);border:1px solid var(--border);padding:.3rem .7rem;border-radius:3px}
-.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
+.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--c2a);cursor:pointer;z-index:200;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .edit-hint span{color:var(--c2a)}
+.edit-hint .hint-body{display:none}
+.edit-hint.expanded{border-radius:6px;width:auto;height:auto;padding:.75rem 1rem;font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;display:block}
+.edit-hint.expanded .hint-icon{display:none}
+.edit-hint.expanded .hint-body{display:block}
 .hl{color:var(--c1b)}
 @media(max-width:900px){.pipeline-flow{grid-template-columns:1fr 1fr}.problem-grid{grid-template-columns:1fr}}
 @media(max-width:768px){
@@ -522,11 +526,19 @@ table.rdt-table td:first-child{font-family:'Space Grotesk',sans-serif;font-size:
 
 </div>
 
-<div class="edit-hint">
-  <span>STATUS BADGES</span><br>
-  Click a badge to cycle PLANNED → WIP → DONE.<br><br>
-  Click diagrams or mockups to enlarge.
+<div class="edit-hint" id="editHint">
+  <span class="hint-icon">✏</span>
+  <div class="hint-body">
+    <span>STATUS BADGES</span><br>
+    Click a badge to cycle PLANNED → WIP → DONE.<br><br>
+    Click diagrams or mockups to enlarge.
+  </div>
 </div>
+<script>
+document.getElementById('editHint').addEventListener('click', function() {
+  this.classList.toggle('expanded');
+});
+</script>
 
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close" id="lbClose">✕ CLOSE</span>
