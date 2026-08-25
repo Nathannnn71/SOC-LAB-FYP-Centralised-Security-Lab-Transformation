@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FYP-2A Monitoring — SOC Lab FYP</title>
+<title>FYP-2A LabEye — SOC Lab FYP</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <style>
 
@@ -122,6 +122,17 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
 .hl-o{color:var(--c1c)}
 .hl-p{color:var(--c1b)}
 .hl-r{color:var(--c2b)}
+.hl{color:var(--c2a)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+.problem-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--c2a);border-radius:4px;padding:.85rem;font-size:.8rem;line-height:1.55}
+.problem-card strong{display:block;color:var(--bright);font-size:.78rem;margin-bottom:.35rem;font-family:'Space Grotesk',sans-serif;letter-spacing:.06em}
+.note{font-size:.78rem;color:var(--muted);line-height:1.55;margin-top:.65rem}
+.table-wrap{overflow-x:auto}
+.rdt-table{width:100%;border-collapse:collapse;font-size:.78rem;margin-bottom:.75rem}
+.rdt-table th{background:rgba(169,199,255,.07);color:var(--c2a);font-family:'Space Grotesk',sans-serif;font-size:.6rem;letter-spacing:.08em;text-align:left;padding:.45rem .65rem;border-bottom:1px solid var(--border)}
+.rdt-table td{padding:.42rem .65rem;border-bottom:1px solid rgba(65,71,85,.55);color:var(--text);vertical-align:top;line-height:1.5;font-size:.78rem}
+.method-pill{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:.6rem;padding:.18rem .45rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);margin:.12rem .12rem .12rem 0}
+@media(max-width:900px){.problem-grid{grid-template-columns:1fr}}
 @media(max-width:768px){.section-grid{grid-template-columns:1fr}.section-grid.three{grid-template-columns:1fr}.candidate-header{flex-direction:column}.nav-tabs{flex-wrap:wrap}header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}}
 
 </style>
@@ -151,7 +162,7 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     <div class="candidate-badge" style="color:var(--c2a);border-color:var(--c2a)">FYP-2A</div>
     <div class="candidate-meta">
       <div class="phase-tag" style="color:var(--c2a)">PHASE 2 · INTERMEDIATE · SEMESTER 2</div>
-      <h2>Lab Security Monitoring Dashboard with Centralised Logging</h2>
+      <h2>LabEye — Security Dashboard for University Laboratory (SDUL)</h2>
       <div class="course-tags">
         <span class="course-tag">System Security</span>
         <span class="course-tag">Cybersecurity</span>
@@ -165,63 +176,47 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     </div>
   </div>
 
-  <div class="section-grid">
+  <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">PROBLEM STATEMENT</div>
-      <div class="editable" contenteditable="true">
-        The problem within the university's educational laboratory environment is the <span class="hl-r"> lack of unified and real-time structure visibility. </span> Enterprise-grade monitoring platform are often overkill, configure-complex and resources-heavy for educational settings. Traditional way of monitoring through separated tools and scattered logs weakened incident response time (Khan et al., 2023). Besides, absence of historical trend data limit proactive monitoring and unable to improve fault diagnosis (Simões et al., 1999).
-      </div> 
+      <p class="note" style="margin:0 0 .75rem">From the LabEye / SDUL prefinal report (Ch. 1). Staff currently tab-hop between Proxmox VE, Wazuh Manager, and Wazuh Indexer — the same fabric that <a href="fyp1b.html" style="color:var(--c1b)">FYP-1B</a> isolates and that <a href="fyp1a.html" style="color:var(--c1a)">FYP-1A</a> virtualises.</p>
+      <div class="problem-grid">
+        <div class="problem-card"><strong>01 · SEPARATED HEALTH MONITORING</strong>Laboratory IT monitoring is reactive. Real-time visibility is needed for early detection (Thota, 2026). Node and VM health live in the Proxmox console, not in one classroom pane.</div>
+        <div class="problem-card"><strong>02 · SCATTERED LOGS</strong>Security events stay isolated on endpoints. Tab-hopping raises missed IoCs and weak correlation (Thota, 2026; Khan et al., 2023). Wazuh is on the infrastructure plane (<a href="fyp1b.html" style="color:var(--c1b)">1B</a>); LabEye must read it, not replace it.</div>
+        <div class="problem-card"><strong>03 · NO LIGHTWEIGHT PANE</strong>Enterprise stacks (Grafana/Zabbix/ELK) are overkill: configuration-heavy and resource-heavy for an education lab (Jangam &amp; Karri, 2023; Strilețchi et al., 2025).</div>
+        <div class="problem-card"><strong>04 · NO HISTORICAL TRENDS</strong>Without stored resource and alert history, staff cannot set a baseline or diagnose faults from past performance (Simões et al., 1999; Bezas &amp; Filippidou, 2023).</div>
+        <div class="problem-card"><strong>05 · NO CLASS VM DOOR</strong>Spawning, deleting, and accessing teaching VMs is slow and scales with class size (Al-Zubaidie et al., 2024). That door is <a href="fyp1c.html" style="color:var(--c1c)">1C normal deploy</a> and <a href="fyp2b.html" style="color:var(--c2b)">2B provisioned / red-team deploy</a> — LabEye is the UX façade, not Terraform/Ansible itself.</div>
+      </div>
     </div>
+  </div>
 
+  <div class="section-grid">
     <div class="info-block">
-    <div class="block-label">PROBLEM SOLUTION</div>
-      <div class="editable" contenteditable="true">
-        Custom built <span class="hl-g">web-based Lab Security Monitoring Dashboard </span>integrated with centralzied log. System retreives live metrics from Proxmox VE API (node status, VM status, resource utilisation) and logs retreived from Wazuh Centralised Log. Both are presented through an unified intreactive real-time dashbaord built with Python Flask-SocketIO and JavaScript and handling historical data through local database.
-      </div> 
+      <div class="block-label">PROBLEM SOLUTION</div>
+      <p>Build <span class="hl">LabEye</span> (Security Dashboard for University Laboratory / SDUL): a lightweight web pane that unifies Proxmox VE APIs (node/VM status and utilisation), Wazuh Manager and Indexer APIs (alerts and searchable logs), and teaching deploy/Live controllers.</p>
+      <p style="margin-top:.7rem">Frontend is a <span class="hl">React + TypeScript + Vite + Tailwind</span> SPA. Backend is <span class="hl">Python Flask-SocketIO</span> with JWT login, InfluxDB history, and Facade clients for Proxmox, Wazuh, Influx, and deploy hooks. Live UI uses a Strategy fallback (Socket.IO → REST → stale Influx) so the pane does not go blank when WebSocket fails.</p>
+      <p style="margin-top:.7rem">Wazuh remains the log store (F011 is out of the LabEye feature set). LabEye displays and searches alerts. Deploy wizards call <a href="fyp1c.html" style="color:var(--c1c)">1C</a> / <a href="fyp2b.html" style="color:var(--c2b)">2B</a> APIs (catalog → deploy → status poll); Proxmox stays the hypervisor.</p>
     </div>
-    
     <div class="info-block">
       <div class="block-label">RESEARCH QUESTIONS</div>
       <ol class="research-q-list">
-        <li contenteditable="true">What are the existing centralized logging systems, security monitoring tools, and 
-        dashboard visualization techniques that can collect and aggregate log data from 
-        infrastructures within an educational laboratory environment? 
-        </li>
-        <li contenteditable="true">
-            How to design and develop a Lab Security Monitoring Dashboard that integrate a 
-        centralized logging stack integrated with Proxmox hypervisor infrastructure to provide 
-        real-time visibility into system resource utilization, network activity, and security 
-        events across the laboratory environment? 
-        </li>
-        <li contenteditable="true">Can the Lab Security Monitoring Dashboard effectively address the issue of 
-        fragmented log management and improve infrastructure monitoring efficiency within a 
-        university laboratory environment? 
-        </li>
+        <li>What existing centralised logging dashboards, logging systems, security monitoring tools, and visualisation techniques can aggregate infrastructure and VM data for an educational laboratory?</li>
+        <li>How can a Security Dashboard for University Laboratory be designed that integrates the centralised logging stack, Proxmox VE, and virtual-machine deploying systems to give real-time visibility of resources, VM status, security events, and teaching VM management?</li>
+        <li>Can that dashboard address fragmented log management, infrastructure monitoring, and educational VM management efficiency in a university laboratory?</li>
       </ol>
     </div>
+  </div>
 
+  <div class="section-grid full">
     <div class="info-block">
       <div class="block-label">RESEARCH OBJECTIVES</div>
       <ol class="research-o-list">
-        <li contenteditable="true">To investigate the existing centralized logging systems, security monitoring tools, and 
-        dashboard visualization techniques that can collect and aggregate log data from 
-        infrastructures within an educational laboratory environment. 
-        </li>
-        <li contenteditable="true">
-        To design and develop a Lab Security Monitoring Dashboard by deploying a 
-        centralized logging stack integrated with Proxmox hypervisor infrastructure, capable 
-        of collecting and aggregating logs from multiple infrastructure sources and providing 
-        real-time visibility into system resource utilization, network activity, and security 
-        events across the laboratory environment. 
-        </li>
-        <li contenteditable="true">
-            To validate the effectiveness of the Lab Security Monitoring Dashboard in improving 
-            infrastructure visibility and log management efficiency through user acceptance 
-            testing with system administrators. 
-        </li>
+        <li>Investigate existing centralised dashboard visualisation techniques that collect, process, and aggregate data from infrastructure and security services in educational labs.</li>
+        <li>Design and develop LabEye so it unifies data from Wazuh and Proxmox VE, aggregating and visualising multiple sources with real-time laboratory visibility.</li>
+        <li>Design and connect operational deployment backends with a simple guided flow so lecturers can manage and access academic VMs (<a href="fyp1c.html" style="color:var(--c1c)">1C</a> normal labs, <a href="fyp2b.html" style="color:var(--c2b)">2B</a> provisioned / red-team labs).</li>
+        <li>Validate effectiveness for infrastructure visibility, log access, and academic VM deployment through UAT with laboratory administrators.</li>
       </ol>
     </div>
-
   </div>
 
   <div class="section-grid full">
@@ -233,9 +228,49 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
         <div class="scope-row"><span class="scope-num">04</span><span class="scope-level sl-b">BASIC</span><span class="scope-text">Provide <strong>colour-coded infrastructure health indicators</strong> to distinguish states at-a-glance</span></div>
         <div class="scope-row"><span class="scope-num">05</span><span class="scope-level sl-i">INTERMEDIATE</span><span class="scope-text">Integrate the centralised logging platform <strong>Wazuh</strong> to retrieve and display security logs</span></div>
         <div class="scope-row"><span class="scope-num">06</span><span class="scope-level sl-i">INTERMEDIATE</span><span class="scope-text">Provide a <strong>centralised log view</strong> to browse and search normalised log entries </span></div>
-        <div class="scope-row"><span class="scope-num">07</span><span class="scope-level sl-i">INTERMEDIATE</span><span class="scope-text"> <strong>Store infrastructure metrics in a local database</strong> (SQLite / InfluxDB) to support historical trend display</span></div>
-        <div class="scope-row"><span class="scope-num">08</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Provide <strong>historical trend visualisation for resource utilisation</strong> over selected time ranges</span></div>
-        <div class="scope-row"><span class="scope-num">09</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Provide <strong>historical trend visualisation for security events</strong> over selected periods</span></div>
+        <div class="scope-row"><span class="scope-num">07</span><span class="scope-level sl-i">INTERMEDIATE</span><span class="scope-text"><strong>Store infrastructure metrics in InfluxDB</strong> (downsampled buckets) to support historical trend display</span></div>
+        <div class="scope-row"><span class="scope-num">08</span><span class="scope-level sl-i">INTERMEDIATE</span><span class="scope-text"><strong>Control access by login account roles</strong> (JWT + RBAC; lecturers vs administrators)</span></div>
+        <div class="scope-row"><span class="scope-num">09</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Provide <strong>historical trend visualisation for resource utilisation</strong> over selected time ranges</span></div>
+        <div class="scope-row"><span class="scope-num">10</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Provide <strong>historical trend visualisation for security events</strong> over selected periods</span></div>
+        <div class="scope-row"><span class="scope-num">11</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Provide a <strong>management interface for educational VMs</strong> (list / destroy across workstations) via <a href="fyp1c.html" style="color:var(--c1c)">1C</a> and <a href="fyp2b.html" style="color:var(--c2b)">2B</a> APIs</span></div>
+        <div class="scope-row"><span class="scope-num">12</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Provide a <strong>simple guided flow for educational VM deployment</strong> (catalog → deploy → status poll)</span></div>
+        <div class="scope-row"><span class="scope-num">13</span><span class="scope-level sl-a">ADVANCED</span><span class="scope-text">Identify the <strong>workstation by IP</strong> so deploy/Live functions bind to the correct seat (F013 seat policy)</span></div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">RESEARCH DESIGN TABLE</div>
+      <div class="table-wrap">
+        <table class="rdt-table">
+          <thead>
+            <tr><th>No.</th><th>Research question</th><th>Objective</th><th>Methods</th><th>Expected outcome</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RQ1</td>
+              <td>What dashboards, logging systems, and visualisation techniques fit an education lab?</td>
+              <td>RO1 — Investigate existing techniques</td>
+              <td><span class="method-pill">Literature</span><span class="method-pill">Tool compare</span></td>
+              <td>Wazuh selected for SIEM ingest; custom LabEye pane instead of Grafana/ELK as the classroom UI.</td>
+            </tr>
+            <tr>
+              <td>RQ2</td>
+              <td>How to design LabEye with Wazuh, Proxmox VE, and VM deploying systems?</td>
+              <td>RO2 — Unified real-time dashboard<br>RO3 — Connect 1C/2B deploy backends</td>
+              <td><span class="method-pill">Design</span><span class="method-pill">Agile sprints</span></td>
+              <td>React SPA + Flask-SocketIO; Facade to Proxmox/Wazuh/Influx/deploy; F001–F010 and F012–F015.</td>
+            </tr>
+            <tr>
+              <td>RQ3</td>
+              <td>Does LabEye improve fragmented monitoring, logs, and teaching VM management?</td>
+              <td>RO4 — UAT with lab administrators</td>
+              <td><span class="method-pill">UAT</span><span class="method-pill">Test cases</span></td>
+              <td>Runnable Dockerised system; UAT: clear for non-technical users; requests for hover help and seat↔node mapping.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -270,6 +305,7 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
         <p>Integrated monitoring: <span class="hl-o">63% MTTD improvement</span> and <span class="hl-o">56% MTTR reduction</span>. Centralised logging saves avg. <span class="hl-o">20 minutes</span> per incident in error diagnosis (Jangam &amp; Karri, 2023; Strilețchi et al., 2025).</p>
         </div>
     </div>
+    <p class="note">LabEye is the <strong>custom classroom pane</strong>. Wazuh stays the SIEM (ingest, index, retain). Product feature <strong>F011 Centralized Log Storing is out of the LabEye feature set</strong> — it is owned by the Wazuh Indexer on the infrastructure plane (<a href="fyp1b.html" style="color:var(--c1b)">FYP-1B</a>). LabEye reads Manager/Indexer APIs and displays alerts. History is an InfluxDB read path for metrics, not a second SIEM warehouse. Educational VM spawn stays with <a href="fyp1c.html" style="color:var(--c1c)">1C</a> / <a href="fyp2b.html" style="color:var(--c2b)">2B</a>; LabEye is the UX façade.</p>
     </div>
     </div>
 
@@ -277,24 +313,28 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     <div class="divider"></div>
     <div class="info-block">
         <div class="block-label">FUNCTIONAL REQUIREMENTS</div>
+        <p class="note" style="margin:0 0 .75rem">IDs follow the LabEye prefinal report (Ch. 4–6). Core monitoring is F001–F010. <strong>Product feature F011 (centralised log storing) is removed from LabEye</strong> — Wazuh Indexer / <a href="fyp1b.html" style="color:var(--c1b)">1B</a> keep the store. RQ_F005 / RQ_F006 describe that SIEM path, not a LabEye database. Added product features: F012–F015.</p>
         <table>
     <thead>
       <tr><th>Req. ID</th><th>Description</th><th>Feature</th><th>Priority</th></tr>
     </thead>
     <tbody>
       <tr><td class="req-id">RQ_F001</td><td>System shall authenticate administrators and lecturers via username and password before granting dashboard access</td><td>F001 Admin Login</td><td><span class="priority p-c">CRITICAL</span></td></tr>
-      <tr><td class="req-id">RQ_F002</td><td>System shall retrieve node status information from the virtualised infrastructure through Proxmox VE API</td><td>F003 View Node Status</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F002</td><td>System shall retrieve node status information from the virtualised infrastructure through Proxmox VE API (<a href="fyp1a.html" style="color:var(--c1a)">1A</a>)</td><td>F003 View Node Status</td><td><span class="priority p-c">CRITICAL</span></td></tr>
       <tr><td class="req-id">RQ_F003</td><td>System shall display the operational status (online / offline) of each Proxmox node using colour-coded status badges</td><td>F003 View Node Status</td><td><span class="priority p-c">CRITICAL</span></td></tr>
       <tr><td class="req-id">RQ_F004</td><td>System shall display the number of virtual machines and their status (running / stopped) on each node</td><td>F004 View VM Status</td><td><span class="priority p-c">CRITICAL</span></td></tr>
-      <tr><td class="req-id">RQ_F005</td><td>System shall collect and normalise system logs and sensor logs from Wazuh agents and send to centralised logging platform</td><td>F011 Centralised Log Storing</td><td><span class="priority p-h">HIGH</span></td></tr>
-      <tr><td class="req-id">RQ_F006</td><td>System shall store collected logs within the centralised logging system (Wazuh Indexer) for monitoring and forensic investigation</td><td>F011 Centralised Log Storing</td><td><span class="priority p-h">HIGH</span></td></tr>
-      <tr><td class="req-id">RQ_F007</td><td>System shall display centralised logs through the monitoring dashboard in a clear, structured, chronological view</td><td>F006 View Centralised Logs</td><td><span class="priority p-h">HIGH</span></td></tr>
-      <tr><td class="req-id">RQ_F008</td><td>System shall update all monitoring data in real time via WebSocket to reflect current infrastructure health status</td><td>F010 Real-Time Data Update</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F005</td><td><strong>Out of LabEye:</strong> collect and normalise sensor logs into the SIEM. Implemented by Wazuh agents + Manager on <a href="fyp1b.html" style="color:var(--c1b)">1B</a>.</td><td>F011 Log storing (removed)</td><td><span class="priority p-m">N/A</span></td></tr>
+      <tr><td class="req-id">RQ_F006</td><td><strong>Out of LabEye:</strong> persist logs in the Wazuh Indexer for monitoring and forensics. LabEye does not own a log warehouse.</td><td>F011 Log storing (removed)</td><td><span class="priority p-m">N/A</span></td></tr>
+      <tr><td class="req-id">RQ_F007</td><td>System shall display centralised logs and allow search/filter by time, node, type, or keyword (Manager/Indexer APIs — display only)</td><td>F006 / F007 Logs + filter</td><td><span class="priority p-h">HIGH</span></td></tr>
+      <tr><td class="req-id">RQ_F008</td><td>System shall update all monitoring data in real time via Socket.IO (REST fallback) without a full page refresh</td><td>F010 Real-Time Data Update</td><td><span class="priority p-c">CRITICAL</span></td></tr>
       <tr><td class="req-id">RQ_F009</td><td>System shall display resource utilisation metrics (CPU and memory usage) for each node within the laboratory network</td><td>F005 View Resource Utilisation</td><td><span class="priority p-c">CRITICAL</span></td></tr>
       <tr><td class="req-id">RQ_F010</td><td>System shall visualise infrastructure metrics using numbers, charts, and graphical indicators on the dashboard</td><td>F002 View Monitoring Dashboard</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">F009</td><td>System shall show historical resource and security-event trends over selected ranges via InfluxDB (not a LabEye-owned SIEM warehouse)</td><td>F009 View Historical Metrics</td><td><span class="priority p-m">MEDIUM</span></td></tr>
       <tr><td class="req-id">RQ_F011</td><td>System shall display alerts when nodes become unavailable or when monitoring data cannot be retrieved</td><td>F008 View System Alerts</td><td><span class="priority p-h">HIGH</span></td></tr>
-      <tr><td class="req-id">RQ_F012</td><td>System shall allow search and filtering of logs by time range, node, log type, or keyword</td><td>F007 Search &amp; Filter Logs</td><td><span class="priority p-h">HIGH</span></td></tr>
-      <tr><td class="req-id">RQ_F013</td><td>System shall allow administrators and lecturers to view historical trend charts of resource utilisation and security event frequency over selected time ranges</td><td>F009 View Historical Metrics</td><td><span class="priority p-m">MEDIUM</span></td></tr>
+      <tr><td class="req-id">RQ_F012</td><td>System shall issue a JWT to a successful login and refresh it while the session is valid</td><td>F012 JWT initializing</td><td><span class="priority p-c">CRITICAL</span></td></tr>
+      <tr><td class="req-id">RQ_F013</td><td>System shall map the workstation (IP / seat policy) so students only manage VMs for their seat; staff may select multiple seats</td><td>F013 Seat locking</td><td><span class="priority p-h">HIGH</span></td></tr>
+      <tr><td class="req-id">RQ_F014</td><td>System shall display connectivity of LabEye to upstream services (Proxmox, Wazuh, Influx, deploy APIs)</td><td>F014 System Status</td><td><span class="priority p-h">HIGH</span></td></tr>
+      <tr><td class="req-id">RQ_F015</td><td>System shall guide template / vulnerability / service selection and deploy onto selected workstations via <a href="fyp1c.html" style="color:var(--c1c)">1C</a> / <a href="fyp2b.html" style="color:var(--c2b)">2B</a> APIs — not Terraform/Ansible inside LabEye</td><td>F015 Deploy + Live VMs</td><td><span class="priority p-h">HIGH</span></td></tr>
     </tbody>
     </table>
         </div>
@@ -320,24 +360,28 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
     <div class="info-block">
       <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
       <div class="method-tags">
-        <span class="method-tag" style="color:var(--c2a);border-color:var(--c2a)">Wazuh</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Flask and FlaskSocketIO</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">SQLite / InfluxDB</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Python</span>
-        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">JavaScript</span>
+        <span class="method-tag" style="color:var(--c2a);border-color:var(--c2a)">React 19 + TypeScript</span>
+        <span class="method-tag" style="color:var(--c2a);border-color:var(--c2a)">Vite + Tailwind CSS</span>
+        <span class="method-tag" style="color:var(--c2a);border-color:var(--c2a)">Flask-SocketIO</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">JWT + RBAC</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">InfluxDB (history)</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Docker / Compose</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Proxmox VE API (consumer)</span>
+        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Wazuh Manager + Indexer APIs</span>
+        <span class="method-tag" style="color:var(--c1c);border-color:var(--c1c)">1C / 2B deploy APIs (façade)</span>
       </div>
     </div>
 
     <div class="info-block">
       <div class="block-label">SYSTEM ARCHITECTURE</div>
       <div class="arch-layer">
-    <div class="arch-layer-label">LAYER 1 — PRESENTATION (Browser Client)</div>
+    <div class="arch-layer-label">LAYER 1 — PRESENTATION (React SPA)</div>
     <div class="arch-row">
-      <div class="arch-node c">Dashboard UI<br><span style="font-size:.62rem;color:var(--muted)">HTML + Tailwind CSS</span></div>
-      <div class="arch-node c">WebSocket Client<br><span style="font-size:.62rem;color:var(--muted)">Socket.IO JS</span></div>
-      <div class="arch-node c">Chart Renderer<br><span style="font-size:.62rem;color:var(--muted)">Chart.js</span></div>
-      <div class="arch-node c">Log Viewer<br><span style="font-size:.62rem;color:var(--muted)">Search + Filter UI</span></div>
-      <div class="arch-node c">Alert Display<br><span style="font-size:.62rem;color:var(--muted)">Toast Notifications</span></div>
+      <div class="arch-node c">LabEye UI<br><span style="font-size:.62rem;color:var(--muted)">React + TS + Vite + Tailwind</span></div>
+      <div class="arch-node c">Auth / RBAC<br><span style="font-size:.62rem;color:var(--muted)">RequireAuth · RequireRole</span></div>
+      <div class="arch-node c">Live client<br><span style="font-size:.62rem;color:var(--muted)">Socket.IO → REST → Influx</span></div>
+      <div class="arch-node c">Charts + logs<br><span style="font-size:.62rem;color:var(--muted)">Dashboard · History · Logs</span></div>
+      <div class="arch-node c">Deploy / Live<br><span style="font-size:.62rem;color:var(--muted)">UX façade over 1C / 2B</span></div>
     </div>
   </div>
   <div class="arch-arrow">↕ WebSocket (bidirectional, real-time) + HTTP REST (authenticated)</div>
@@ -357,8 +401,8 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
   <div class="arch-layer">
     <div class="arch-layer-label">LAYER 3 — INTEGRATION (API Adapters &amp; Business Logic)</div>
     <div class="arch-row">
-      <div class="arch-node o">Proxmox VE API<br><span style="font-size:.62rem;color:var(--muted)">ProxmoxAPIAdapter</span></div>
-      <div class="arch-node g">Wazuh REST API<br><span style="font-size:.62rem;color:var(--muted)">WazuhAPIAdapter</span></div>
+      <div class="arch-node o">Proxmox VE API<br><span style="font-size:.62rem;color:var(--muted)">Hosts from 1A cluster</span></div>
+      <div class="arch-node g">Wazuh APIs<br><span style="font-size:.62rem;color:var(--muted)">Manager + Indexer (1B)</span></div>
       <div class="arch-node o">CachingProxy<br><span style="font-size:.62rem;color:var(--muted)">Fault Tolerance</span></div>
       <div class="arch-node g">Alert Strategies<br><span style="font-size:.62rem;color:var(--muted)">Strategy Pattern</span></div>
       <div class="arch-node o">MetricsCollectorFactory<br><span style="font-size:.62rem;color:var(--muted)">Factory Method</span></div>
@@ -369,9 +413,9 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
   <div class="arch-layer">
     <div class="arch-layer-label">LAYER 4 — DATA (Storage)</div>
     <div class="arch-row">
-      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">SQLite<br><span style="font-size:.62rem">Relational metrics</span></div>
-      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">InfluxDB<br><span style="font-size:.62rem">Time-series data</span></div>
-      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">Wazuh Indexer<br><span style="font-size:.62rem">Security log store</span></div>
+      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">SQLite<br><span style="font-size:.62rem">Users / JWT revoke</span></div>
+      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">InfluxDB<br><span style="font-size:.62rem">Metric history (LabEye)</span></div>
+      <div class="arch-node" style="border-color:var(--muted);color:var(--muted)">Wazuh Indexer<br><span style="font-size:.62rem">Log store — not LabEye (1B)</span></div>
     </div>
   </div>
   <div class="arch-arrow">↕ Physical infrastructure in laboratory environment</div>
@@ -392,18 +436,50 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:7
   <div class="info-block">
     <div class="block-label">DELIVERABLES &amp; STATUS</div>
     <div class="deliverable-grid">
-      <div class="deliverable-item"><div class="check"></div>Main Dashboard<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Infrastructure Monitoring (VMs, Nodes, Resources)<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Centralized Log Search and Filtering<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Historical Trend Data<span class="status-badge planned">PLANNED</span></div>
-      <div class="deliverable-item"><div class="check"></div>Abnormality Alert<span class="status-badge planned">PLANNED</span></div>
+      <div class="deliverable-item"><div class="check"></div>JWT login + RBAC (F001 / F012)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Main dashboard + nodes / VMs / resources (F002–F005)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Wazuh log display + search/filter (F006–F007) — display only<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Alerts + real-time Socket.IO with REST fallback (F008 / F010)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Influx historical trends (F009)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>System Status (F014)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Seat locking / workstation IP (F013)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Guided deploy + Live VMs façade (F015 → 1C / 2B)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>F011 centralised log storing inside LabEye<span class="status-badge planned">OUT OF SCOPE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Light theme NFR<span class="status-badge planned">NOT IMPLEMENTED</span></div>
     </div>
+    <p class="note">Status from the LabEye report Ch. 6 feature coverage checklist. Click a badge to cycle locally; it is not saved.</p>
     <div style="height: 20px;"></div>
     <div class="info-block">
     <div class="block-label">INTERACTIVE PROTOTYPE</div>
         <a class="figma-btn" href="https://www.figma.com/proto/ntclOqSa14XaTP8o4EBmMo/SELF?page-id=469%3A6451&node-id=786-11639&viewport=918%2C-594%2C0.25&t=HixjBcCb84achn0N-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=786%3A11639">&#128279; OPEN FIGMA PROTOTYPE</a>
   </div>
   </div>
+
+  <div class="info-block" style="margin-bottom:1.25rem;border-left:3px solid var(--c2a)">
+    <div class="block-label">HOW THIS SECTION ENABLES OTHERS</div>
+    <p>LabEye is the <span class="hl">class door</span> onto the same fabric the other FYPs build. It does not virtualise hosts, isolate VLANs, or run IaC.</p>
+    <ul class="scope-list" style="margin-top:.75rem">
+      <li><span class="num">1A</span><span><a href="fyp1a.html" style="color:var(--c1a)">Virtualisation</a> supplies the Proxmox cluster and images LabEye polls (nodes, qemu/lxc, utilisation).</span></li>
+      <li><span class="num">1B</span><span><a href="fyp1b.html" style="color:var(--c1b)">Infrastructure</a> holds Opnsense, VLANs, and Wazuh. LabEye reads Manager/Indexer APIs; Cluster Mesh / ntopng stay staff tools on that plane.</span></li>
+      <li><span class="num">1C</span><span><a href="fyp1c.html" style="color:var(--c1c)">Normal deploy</a> is the catalog → deploy → status API behind the Normal wizard (F015). LabEye does not embed Terraform/Ansible.</span></li>
+      <li><span class="num">2B</span><span><a href="fyp2b.html" style="color:var(--c2b)">Provisioned / red-team deploy</a> is the same façade for red / blue / network labs and Live VMs.</span></li>
+      <li><span class="num">2C · 3A · 3B</span><span><a href="fyp2c.html" style="color:var(--c2c)">Blue</a>, <a href="fyp3a.html" style="color:var(--c3a)">honeypot</a>, and <a href="fyp3b.html" style="color:var(--c3b)">IDS/IPS</a> generate traffic and alerts that staff can see in one pane instead of hopping Proxmox and Wazuh consoles.</span></li>
+    </ul>
+  </div>
+
+  <div class="info-block" style="margin-bottom:1.25rem">
+    <div class="block-label">FUTURE ENHANCEMENT</div>
+    <p class="note" style="margin:0 0 .5rem">UAT verdict (report Ch. 7): accepted with follow-ups. Core monitoring is usable for non-technical users.</p>
+    <ol class="scope-list">
+      <li><span class="num">01</span><span>ACT-01 — Hover / tooltip plain-language help for Dashboard graph titles.</span></li>
+      <li><span class="num">02</span><span>ACT-02 — Show which workstation (WS) maps to which Proxmox node on Nodes (and detail).</span></li>
+      <li><span class="num">03</span><span>ACT-03 — Keep a flow-oriented user manual (login → monitor → status → deploy → live → logout).</span></li>
+      <li><span class="num">04</span><span>ACT-04 / ACT-05 — Plain UI copy; comments in source for teaching handoff.</span></li>
+      <li><span class="num">05</span><span>NFR light theme (not implemented). Optional later: extra alerting channels; more hypervisor types — still without making LabEye a SIEM.</span></li>
+    </ol>
+  </div>
+
+</div>
 <script>
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('status-badge')) {
