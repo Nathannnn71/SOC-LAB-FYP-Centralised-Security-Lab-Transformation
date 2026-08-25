@@ -7,124 +7,122 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0a0e17; --surface:#101622; --panel:#161e30; --border:#253650;
-  --text:#ddeeff; --muted:#6a85a8; --bright:#f0f8ff;
+  --bg:#0a0e17; --surface:#101622; --panel:#141c2e; --border:#1e2d4a;
+  --text:#c8d8f0; --muted:#4a6080; --bright:#e8f4ff;
   --c1a:#00e5ff; --c1b:#b388ff; --c1c:#ffa726;
   --c2a:#69f0ae; --c2b:#ff5252; --c2c:#448aff;
   --c3a:#ffd740; --c3b:#f06292; --c3c:#b2ff59;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:16px}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
-
-/* HEADER */
 header{border-bottom:1px solid var(--border);padding:0 2.5rem;position:sticky;top:0;z-index:100;background:rgba(10,14,23,.92);backdrop-filter:blur(12px);display:flex;align-items:center;gap:1.5rem;height:60px}
-.logo-badge{font-family:'Share Tech Mono',monospace;font-size:.78rem;letter-spacing:.15em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
-header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
+.logo-badge{font-family:'Share Tech Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--c2a);border:1px solid var(--c2a);padding:.25rem .6rem;border-radius:3px;white-space:nowrap;text-decoration:none}
+header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:var(--bright);letter-spacing:.04em;flex:1}
 .nav-tabs{display:flex;gap:.25rem}
-.nav-tab{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
+.nav-tab{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.08em;padding:.35rem .75rem;border:1px solid transparent;border-radius:3px;cursor:pointer;background:none;color:var(--muted);transition:all .2s;white-space:nowrap;text-decoration:none;display:inline-block}
 .nav-tab:hover{color:var(--bright);border-color:var(--border)}
 .nav-tab.active{color:var(--bright);background:var(--panel);border-color:var(--border)}
-
-/* PAGE */
-.candidate-page{max-width:1000px;margin:0 auto;padding:2.5rem}
-
-/* CANDIDATE HEADER */
+.candidate-page{max-width:960px;margin:0 auto;padding:2.5rem}
 .candidate-header{display:flex;align-items:flex-start;gap:1.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
-.candidate-badge{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;border:2px solid;border-radius:6px;padding:.5rem 1rem;white-space:nowrap;line-height:1;flex-shrink:0;text-align:center}
+.candidate-badge{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;border:2px solid;border-radius:6px;padding:.5rem 1rem;white-space:nowrap;line-height:1;flex-shrink:0;text-align:center}
 .candidate-meta{flex:1}
-.candidate-meta h2{font-family:'Barlow Condensed',sans-serif;font-size:2.1rem;font-weight:900;line-height:1.1;color:var(--bright);margin-bottom:.5rem}
-.candidate-meta .course-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem}
-.course-tag{font-family:'Share Tech Mono',monospace;font-size:.7rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:2px;color:var(--muted)}
-.candidate-name-block{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:.85rem 1.1rem;font-family:'Share Tech Mono',monospace;font-size:.76rem;color:var(--muted);white-space:nowrap}
-.candidate-name-block strong{color:var(--bright);font-size:.9rem;display:block;margin:.25rem 0}
-
-/* INFO BLOCK */
-.info-block{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.6rem;margin-bottom:1.4rem;position:relative}
-.info-block .block-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.candidate-meta .phase-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.15em;margin-bottom:.4rem}
+.candidate-meta h2{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;line-height:1.1;color:var(--bright);margin-bottom:.5rem}
+.candidate-meta .course-tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.course-tag{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:2px;color:var(--muted)}
+.candidate-name-block{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--muted);white-space:nowrap}
+.candidate-name-block strong{color:var(--bright);font-size:.8rem;display:block;margin:.25rem 0}
+.section-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
+.section-grid.full{grid-template-columns:1fr}
+.section-grid.three{grid-template-columns:1fr 1fr 1fr}
+.info-block{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.25rem;position:relative}
+.info-block .block-label{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
 .info-block .block-label::after{content:'';flex:1;height:1px;background:var(--border)}
-
-/* PROBLEM STATEMENT */
-.scope-list{list-style:none;font-size:1rem;line-height:1.75}
-.scope-list li{display:flex;align-items:flex-start;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--border)}
+.info-block p,.info-block .editable{font-size:.85rem;line-height:1.65;color:var(--text)}
+.scope-list{list-style:none;font-size:.85rem;line-height:1.7}
+.scope-list li{display:flex;align-items:flex-start;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)}
 .scope-list li:last-child{border-bottom:none}
-.scope-list li .num{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--muted);padding-top:.2rem;flex-shrink:0}
-
-/* SECTION LABEL */
-.section-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
-.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
-
-/* TABLE WRAPPER */
-.table-wrapper{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:1.6rem;margin-bottom:1.4rem;overflow-x:auto}
-
-/* RDT TABLE */
-.rdt-table{width:100%;border-collapse:collapse;font-size:1rem}
-.rdt-table th{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;text-align:left;padding:.65rem 1rem;border-bottom:2px solid var(--border);white-space:nowrap;background:rgba(255,255,255,.03)}
-.rdt-table td{padding:.9rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.75;font-size:1rem}
-.rdt-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
-.rdt-table tr:last-child td{border-bottom:none}
-.rdt-table tr:hover td{background:rgba(179,136,255,.05)}
-.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--c1b);white-space:nowrap;padding-top:1rem;font-weight:700}
-.method-pill{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.68rem;padding:.22rem .55rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);margin:.2rem .2rem .2rem 0;line-height:1.4}
-
-/* PROJECT SCOPE TABLE — new format with level/scope/description */
-.scope-table{width:100%;border-collapse:collapse;font-size:1rem}
-.scope-table th{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;text-align:left;padding:.65rem 1rem;border-bottom:2px solid var(--border);background:rgba(255,255,255,.03)}
-.scope-table td{padding:.9rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.75;font-size:1rem}
-.scope-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
-.scope-table tr:last-child td{border-bottom:none}
-.scope-table tr:hover td{background:rgba(255,255,255,.03)}
-/* Level badge column */
-.scope-table td.level-cell{white-space:nowrap;font-family:'Share Tech Mono',monospace;font-size:.82rem;font-weight:700;padding-top:1rem;letter-spacing:.05em}
-.level-basic  {color:var(--c2a)}
-.level-inter  {color:var(--c1c)}
-.level-advance{color:var(--c2b)}
-/* Scope/description use ordered lists */
-.scope-table ol{padding-left:1.2rem;margin:0}
-.scope-table ol li{padding:.25rem 0;line-height:1.7}
-
-/* TOOLS */
-.method-tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.method-tag{font-family:'Share Tech Mono',monospace;font-size:.72rem;padding:.32rem .72rem;border-radius:3px;border:1px solid}
-
-/* EDITABLE */
-.editable{font-size:1rem;line-height:1.8;color:var(--text);min-height:60px;outline:none;border:1px dashed transparent;border-radius:3px;padding:.25rem;transition:border-color .2s}
-.editable:focus{border-color:var(--border)}
-.editable:empty::before{content:attr(data-placeholder);color:var(--muted);font-style:italic;pointer-events:none}
-
-/* MOCKUP GALLERY */
-.mockup-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+.scope-list li .num{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--c1b);padding-top:.15rem;flex-shrink:0}
+.research-q-list,.research-o-list{list-style:none;counter-reset:rq}
+.research-o-list{counter-reset:ro}
+.research-q-list li,.research-o-list li{display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 0;border-bottom:1px solid var(--border);font-size:.85rem;line-height:1.5}
+.research-q-list li{counter-increment:rq}
+.research-o-list li{counter-increment:ro}
+.research-q-list li:last-child,.research-o-list li:last-child{border-bottom:none}
+.research-q-list li::before,.research-o-list li::before{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.2rem .4rem;border:1px solid var(--border);border-radius:2px;color:var(--c1b);flex-shrink:0;margin-top:.1rem}
+.research-q-list li::before{content:'RQ' counter(rq)}
+.research-o-list li::before{content:'RO' counter(ro)}
+.method-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.method-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid}
+.method-pill{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.18rem .45rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);margin:.12rem .12rem .12rem 0}
+.deliverable-grid{display:grid;grid-template-columns:1fr;gap:.4rem}
+.deliverable-item{display:flex;align-items:center;gap:.6rem;font-size:.8rem;padding:.4rem .5rem;border:1px solid var(--border);border-radius:3px;background:var(--bg)}
+.deliverable-item .check{width:14px;height:14px;border-radius:2px;border:1px solid var(--border);flex-shrink:0}
+.status-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:.15rem .4rem;border-radius:2px;border:1px solid;margin-left:auto;cursor:pointer}
+.status-badge.planned{color:var(--muted);border-color:var(--muted)}
+.status-badge.wip{color:var(--c1c);border-color:var(--c1c)}
+.status-badge.done{color:var(--c2a);border-color:var(--c2a)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+.problem-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--c1b);border-radius:4px;padding:.85rem;font-size:.8rem;line-height:1.55}
+.problem-card strong{display:block;color:var(--bright);font-size:.78rem;margin-bottom:.35rem;font-family:'Share Tech Mono',monospace;letter-spacing:.06em}
+.note{font-size:.78rem;color:var(--muted);line-height:1.55;margin-top:.65rem}
+.table-wrap{overflow-x:auto}
+table.rdt-table,table.scope-table,table.lit-table,table.result-table{width:100%;border-collapse:collapse;font-size:.78rem}
+table.rdt-table th,table.scope-table th,table.lit-table th,table.result-table th{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--c1b);text-transform:uppercase;text-align:left;padding:.55rem .65rem;border-bottom:2px solid var(--border);background:rgba(179,136,255,.06)}
+table.rdt-table td,table.scope-table td,table.lit-table td,table.result-table td{padding:.65rem .65rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+table.rdt-table tbody tr:nth-child(even) td,table.scope-table tbody tr:nth-child(even) td,table.lit-table tbody tr:nth-child(even) td,table.result-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--c1b);white-space:nowrap;font-weight:700}
+.level-basic{color:var(--c2a);font-family:'Share Tech Mono',monospace;font-size:.72rem;font-weight:700}
+.level-inter{color:var(--c1c);font-family:'Share Tech Mono',monospace;font-size:.72rem;font-weight:700}
+.level-cell{font-family:'Share Tech Mono',monospace;font-size:.72rem;font-weight:700;color:var(--c1b);white-space:nowrap}
+.tag{font-family:'Share Tech Mono',monospace;font-size:.58rem;padding:.15rem .4rem;border-radius:2px;border:1px solid;display:inline-block}
+.tag.g{color:var(--c2a);border-color:var(--c2a)}
+.tag.o{color:var(--c1c);border-color:var(--c1c)}
+.arch-layer{margin-bottom:.45rem}
+.arch-layer-label{font-family:'Share Tech Mono',monospace;font-size:.55rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.28rem}
+.arch-row{display:flex;gap:.38rem;flex-wrap:wrap}
+.arch-node{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.35rem .55rem;font-size:.7rem;flex:1;text-align:center;min-width:110px;line-height:1.4}
+.arch-node.p{border-color:var(--c1b);color:var(--c1b)}
+.arch-node.g{border-color:var(--c2a);color:var(--c2a)}
+.arch-node.o{border-color:var(--c1c);color:var(--c1c)}
+.arch-arrow{text-align:center;color:var(--muted);font-size:.8rem;padding:.2rem 0}
+.achievement-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.achievement-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--c2a);border-radius:4px;padding:.85rem}
+.achievement-card.partial{border-left-color:var(--c1c)}
+.achievement-card strong{display:block;color:var(--bright);font-size:.82rem;margin-bottom:.35rem}
+.achievement-card p{font-size:.74rem;line-height:1.55;color:var(--text)}
+.pipeline-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:.55rem}
+.pipeline-step{background:var(--bg);border:1px solid var(--border);border-top:2px solid var(--c1b);border-radius:4px;padding:.7rem .55rem;min-height:110px}
+.pipeline-step .pipeline-num{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--c1b);margin-bottom:.35rem}
+.pipeline-step strong{display:block;color:var(--bright);font-size:.74rem;line-height:1.25;margin-bottom:.3rem}
+.pipeline-step span{display:block;color:var(--muted);font-size:.64rem;line-height:1.35}
+.mockup-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem;margin-top:.75rem}
 .mockup-card{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--bg);cursor:pointer;transition:border-color .25s,transform .25s}
 .mockup-card:hover{border-color:var(--c1b);transform:translateY(-2px)}
 .mockup-img-wrap{width:100%;aspect-ratio:16/10;overflow:hidden;background:#000}
-.mockup-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
-.mockup-card:hover .mockup-img-wrap img{transform:scale(1.04)}
-.mockup-caption{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.07em;color:var(--muted);padding:.55rem .85rem;border-top:1px solid var(--border)}
-
-/* LIGHTBOX */
+.mockup-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.mockup-caption{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--muted);padding:.5rem .7rem;border-top:1px solid var(--border)}
+.diagram-container{display:flex;justify-content:center;align-items:center;padding:.5rem;background:var(--bg);border-radius:6px;cursor:pointer}
+.diagram-container img{max-width:100%;height:auto;display:block;border-radius:4px;background:#fff}
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:10000;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
 .lightbox.open{display:flex}
-.lightbox img{max-width:92vw;max-height:88vh;border-radius:6px;border:1px solid var(--border);box-shadow:0 0 60px rgba(0,0,0,.8)}
-.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;font-family:'Share Tech Mono',monospace;font-size:.9rem;color:var(--muted);cursor:pointer;background:var(--panel);border:1px solid var(--border);padding:.3rem .7rem;border-radius:3px}
-.lightbox-close:hover{color:var(--bright)}
-
-/* EDIT HINT */
-.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.6;z-index:200}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:6px;border:1px solid var(--border)}
+.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;font-family:'Share Tech Mono',monospace;font-size:.85rem;color:var(--muted);cursor:pointer;background:var(--panel);border:1px solid var(--border);padding:.3rem .7rem;border-radius:3px}
+.edit-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);max-width:220px;line-height:1.5;z-index:200}
 .edit-hint span{color:var(--c2a)}
-
+.hl{color:var(--c1b)}
+@media(max-width:900px){.pipeline-flow{grid-template-columns:1fr 1fr}.problem-grid{grid-template-columns:1fr}}
 @media(max-width:768px){
   header{height:auto;padding:.75rem 1rem;flex-wrap:wrap}
   .nav-tabs{flex-wrap:wrap}
+  .section-grid,.section-grid.three,.achievement-grid{grid-template-columns:1fr}
   .candidate-header{flex-direction:column}
-  .mockup-gallery{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){
-  .mockup-gallery{grid-template-columns:1fr}
+  .pipeline-flow{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-
 <header>
   <a href="index.html" class="logo-badge">SOC-LAB-FYP</a>
   <h1>Centralised Security Lab Transformation — Final Year Project Map</h1>
@@ -146,279 +144,421 @@ header h1{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight
 
 <div class="candidate-page">
 
-  <!-- CANDIDATE HEADER -->
   <div class="candidate-header">
-    <div class="candidate-badge" style="color:var(--c1b);border-color:var(--c1b)">FYP<br><span style="font-size:1rem;font-weight:700;letter-spacing:.05em">1B</span></div>
+    <div class="candidate-badge" style="color:var(--c1b);border-color:var(--c1b)">FYP-1B</div>
     <div class="candidate-meta">
+      <div class="phase-tag" style="color:var(--c1b)">PHASE 1 · FOUNDATION · NETWORKING LAYER</div>
       <h2>Virtualised Cybersecurity &amp; Networking Learning Platform</h2>
       <div class="course-tags">
-        <span class="course-tag">Proxmox VE · OPNsense · VyOS</span>
         <span class="course-tag">Network Security</span>
-        <span class="course-tag">Grafana · Wazuh XDR</span>
+        <span class="course-tag">DCN</span>
+        <span class="course-tag">Proxmox VE</span>
+        <span class="course-tag">OPNsense · VyOS</span>
+        <span class="course-tag">ntopng · Cluster Mesh · Wazuh</span>
       </div>
     </div>
     <div class="candidate-name-block">
       CANDIDATE<br>
-      <strong contenteditable="true">Gan Ming Yan</strong>
-      <span style="font-size:.68rem">Supervisor: Ts. Dr. Khoo Li Jing</span>
+      <strong>Gan Ming Yan 0137658</strong>
+      <span style="font-size:.65rem">Supervisor: Ts. Dr. Khoo Li Jing</span>
     </div>
   </div>
 
-  <!-- PROBLEM STATEMENT -->
-  <div class="info-block">
-    <div class="block-label">PROBLEM STATEMENT</div>
-    <ol class="scope-list">
-      <li><span class="num">01</span><span>Computer science students at the University of Wollongong Malaysia lack access to a dedicated, production-grade cybersecurity and networking laboratory. Existing solutions are too costly to license at university scale, too limited in realism, or unavailable for safe, isolated practice of adversarial security scenarios.</span></li>
-      <li><span class="num">02</span><span>There is a persistent gap between the practical skills demanded by industry and the hands-on competencies graduates can demonstrate. Without a structured lab, students cannot develop proficiency in topologies, firewall policy, routing protocols, or responding to security events in a controlled environment.</span></li>
-      <li><span class="num">03</span><span>Lab D hardware remains underutilised. Repurposing it through open-source virtualisation would maximise existing assets, eliminate recurring licensing costs, and keep a self-hosted platform under institutional control.</span></li>
-    </ol>
-  </div>
-
-  <!-- RESEARCH OBJECTIVES -->
-  <div class="info-block">
-    <div class="block-label">RESEARCH OBJECTIVES</div>
-    <ol class="scope-list">
-      <li><span class="num">RO1</span><span>To design and deploy a Proxmox VE-based virtualisation cluster using the existing hardware in Lab D, capable of hosting multiple concurrent student virtual machine sessions.</span></li>
-      <li><span class="num">RO2</span><span>To provide realistic student networking workloads, using OPNsense and VyOS, from classroom PCs without granting hypervisor administrator rights.</span></li>
-      <li><span class="num">RO3</span><span>To provide lecturer-facing observability of laboratory traffic and security events using ntopng, d3.js (Cluster Mesh), and Wazuh.</span></li>
-      <li><span class="num">RO4</span><span>To develop a set of structured, guided lab exercises covering core networking topics at Basic, Intermediate, and Advanced difficulty levels.</span></li>
-      <li><span class="num">RO5</span><span>To evaluate the usability and educational difference of the platform through user acceptance testing with student participants and structured feedback collection.</span></li>
-      <li><span class="num">RO6</span><span>To produce comprehensive technical documentation, including setup guides, lab manuals, physical and logical network topology diagrams, and a final project report.</span></li>
-    </ol>
-  </div>
-
-  <!-- RESEARCH QUESTIONS -->
-  <div class="info-block">
-    <div class="block-label">RESEARCH QUESTIONS</div>
-    <ol class="scope-list">
-      <li><span class="num">RQ1</span><span>How can the existing hardware assets in Lab D at UOWM be repurposed into a scalable, multi-node virtualised cybersecurity and networking education platform using open-source tools?</span></li>
-      <li><span class="num">RQ2</span><span>To what extent does a virtualised lab environment using production-grade tools such as OPNsense and VyOS provide a more realistic and effective learning experience compared to simulation-based alternatives such as Cisco Packet Tracer or hardware?</span></li>
-      <li><span class="num">RQ3</span><span>Can lecturers observe live traffic and security events on ntopng, d3.js (Cluster Mesh), and Wazuh during a class, without placing those dashboards on the student path?</span></li>
-      <li><span class="num">RQ4</span><span>What structured lab exercises and guided scenarios are most effective in developing students' practical competencies in networking at progressively higher skill levels?</span></li>
-      <li><span class="num">RQ5</span><span>How usable and accessible is the platform for students with varying levels of prior technical experience, as assessed through user acceptance testing?</span></li>
-    </ol>
-  </div>
-
-  <!-- RDT -->
-  <div class="table-wrapper">
-    <div class="section-label">Research Design Table (RDT)</div>
-    <table class="rdt-table">
-      <thead>
-        <tr>
-          <th>No.</th>
-          <th>Research Question</th>
-          <th>Research Objective</th>
-          <th>Methods</th>
-          <th>Expected Outcome</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>RQ1</td>
-          <td>How can the existing hardware assets in Lab D at UOWM be repurposed into a scalable, multi-node virtualised cybersecurity and networking education platform using open-source tools?</td>
-          <td>RO1. To design and deploy a Proxmox VE-based virtualisation cluster using the existing hardware in Lab D, capable of hosting multiple concurrent student virtual machine sessions.</td>
-          <td><span class="method-pill">Literature Review</span><span class="method-pill">Study Existing Systems</span><span class="method-pill">Deploy on Lab D</span></td>
-          <td>An operational Proxmox VE cluster on the Acer and Dell nodes, able to host concurrent student guests, with documented physical and logical topology.</td>
-        </tr>
-        <tr>
-          <td>RQ2</td>
-          <td>To what extent does a virtualised lab using OPNsense and VyOS provide a more realistic and effective learning experience compared with Cisco Packet Tracer or hardware?</td>
-          <td>RO2. To provide realistic student networking workloads, using OPNsense and VyOS, from classroom PCs without granting hypervisor administrator rights.</td>
-          <td><span class="method-pill">Observation</span><span class="method-pill">Student questionnaire</span></td>
-          <td>Students configure a LabEye four-guest overlay (OPNsense, VyOS, Ubuntu, Windows) from Lenovo PCs. Realism is compared with prior Packet Tracer or hardware experience.</td>
-        </tr>
-        <tr>
-          <td>RQ3</td>
-          <td>Can lecturers observe live traffic and security events on ntopng, d3.js (Cluster Mesh), and Wazuh during a class, without placing those dashboards on the student path?</td>
-          <td>RO3. To provide lecturer-facing observability of laboratory traffic and security events using ntopng, d3.js (Cluster Mesh), and Wazuh.</td>
-          <td><span class="method-pill">Lecturer functional cases</span></td>
-          <td>Staff can open ntopng, d3.js (Cluster Mesh), and Wazuh on VLAN 900. Students on the Networking sitting do not.</td>
-        </tr>
-        <tr>
-          <td>RQ4</td>
-          <td>What structured lab exercises and guided scenarios are most effective in developing students' practical competencies in networking at progressively higher skill levels?</td>
-          <td>RO4. To develop a set of structured, guided lab exercises covering core networking topics at Basic, Intermediate, and Advanced difficulty levels.</td>
-          <td><span class="method-pill">Guided lab sheets</span><span class="method-pill">Networking sitting</span></td>
-          <td>A guided Networking exercise at Basic and Intermediate scope. Advanced packs remain future work. One sitting cannot rank three levels.</td>
-        </tr>
-        <tr>
-          <td>RQ5</td>
-          <td>How usable and accessible is the platform for students with varying levels of prior technical experience, as assessed through user acceptance testing?</td>
-          <td>RO5. To evaluate the usability and educational difference of the platform through user acceptance testing with student participants and structured feedback collection.</td>
-          <td><span class="method-pill">Questionnaire / Survey</span><span class="method-pill">User Acceptance Testing</span></td>
-          <td>UAT data and structured comments from consented students after the Networking exercise.</td>
-        </tr>
-        <tr>
-          <td>—</td>
-          <td>Documentation is an objective without a numbered question.</td>
-          <td>RO6. To produce comprehensive technical documentation, including setup guides, lab manuals, physical and logical network topology diagrams, and a final project report.</td>
-          <td><span class="method-pill">Report</span><span class="method-pill">Topology diagrams</span></td>
-          <td>Final project report with physical and logical topology diagrams. A standing student handbook remains a product gap.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- PROJECT SCOPE -->
-  <div class="table-wrapper">
-    <div class="section-label">Project Scope — Table 1</div>
-    <p style="font-size:.9rem;color:var(--muted);margin:-.35rem 0 1rem;line-height:1.6">The Intermediate column is the implemented laboratory. Advanced is future work and is not claimed as a result of this sitting.</p>
-    <table class="scope-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Basic</th>
-          <th>Intermediate (this project)</th>
-          <th>Advanced (future)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="level-cell level-basic">Networking</td>
-          <td>Student OPNsense: DHCP, DNS, and NAT; ping between hosts</td>
-          <td>LabEye four-guest overlay: student OPNsense, VyOS static routing, Ubuntu Server, and Windows</td>
-          <td>Policy-based routing, VPN tunnels, multisite topology</td>
-        </tr>
-        <tr>
-          <td class="level-cell level-inter">Security</td>
-          <td>Isolated student overlay; default deny between exercise VLANs</td>
-          <td>IEEE 802.1Q VLANs 90, 900, 901, 911, and 921. Only documented teaching paths (blue to victim, red to victim). University LAN blocked from staff dashboards.</td>
-          <td>VLAN 931 honeypot class; standing red/blue sitting</td>
-        </tr>
-        <tr>
-          <td class="level-cell">Monitoring</td>
-          <td>Staff open ntopng and see live traffic</td>
-          <td>SPAN on switch port 18 plus NetFlow into ntopng; d3.js (Cluster Mesh); Wazuh on the infrastructure plane. Students do not open these pages. Tokens stay in Express.</td>
-          <td>Student-facing observability exercise</td>
-        </tr>
-        <tr>
-          <td class="level-cell level-basic">Network labs</td>
-          <td>Guided ping and NAT on the four-guest combination</td>
-          <td>One Networking exercise from Lenovo PCs through LabEye. Students configure OPNsense and VyOS without hypervisor administrator rights.</td>
-          <td>Extra lab packs: pen-test, IDS/IPS, SOC-style sittings</td>
-        </tr>
-        <tr>
-          <td class="level-cell level-inter">Firewall</td>
-          <td>Student OPNsense rules on the overlay</td>
-          <td>Opnsense-main as the laboratory firewall and Kea DHCPv4 server; a disposable student OPNsense in each LabEye combination</td>
-          <td>IDS/IPS tuning; extra VPN gateway</td>
-        </tr>
-        <tr>
-          <td class="level-cell">Documentation</td>
-          <td>Author setup notes</td>
-          <td>This report plus physical and logical topology diagrams. A standing student handbook was requested and is not yet an operating product.</td>
-          <td>Standing lab manuals and video walkthroughs</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- TOOLS & TECHNOLOGY -->
-  <div class="info-block">
-    <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
-    <div class="method-tags">
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Proxmox VE</span>
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">OPNsense</span>
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">VyOS</span>
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Nmap</span>
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Wireshark</span>
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">draw.io</span>
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Grafana</span>
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Netdata</span>
-      <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Wazuh XDR</span>
-    </div>
-  </div>
-
-  <!-- CONCEPTUAL FRAMEWORK -->
-  <div class="info-block">
-    <div class="block-label">CONCEPTUAL FRAMEWORK — USER INTERACTION FLOW</div>
-    <div style="text-align:center;cursor:pointer" id="cfWrap">
-      <img id="cfImg"
-           src="assets/fyp1b/conceptual-framework.jpg"
-           alt="User Interaction Flow — Conceptual Framework"
-           style="max-width:520px;width:100%;border-radius:6px;border:1px solid var(--border);transition:transform .3s">
-      <div style="font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);margin-top:.5rem;letter-spacing:.08em">
-        CLICK TO ENLARGE
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">PROBLEM STATEMENT</div>
+      <div class="problem-grid">
+        <div class="problem-card"><strong>01 · NO DEDICATED LAB</strong>Computer science students at UOW Malaysia lack a production-grade cybersecurity and networking laboratory. Existing options are too costly to licence, too limited in realism, or unsafe for isolated practice.</div>
+        <div class="problem-card"><strong>02 · SKILLS GAP</strong>Industry expects topologies, firewall policy, routing protocols, and event response. Without a structured lab, graduates cannot demonstrate those competencies on real appliances.</div>
+        <div class="problem-card"><strong>03 · UNUSED HARDWARE</strong>Lab D Acer and Dell hardware remains underutilised. Open-source virtualisation can reuse it, cut recurring licences, and keep the platform under institutional control.</div>
       </div>
     </div>
   </div>
 
-  <!-- HOW MY WORK ENABLES OTHERS + MOCKUP -->
-  <div class="info-block" style="border-left:3px solid var(--c1b)">
-    <div class="block-label">HOW MY WORK ENABLES OTHERS</div>
-    <div class="editable" contenteditable="true">I'm essentially the infrastructure guy — if the system base is not built, others are unable to build on top of mine. The virtualisation cluster, virtual networking layer, and monitoring stack all serve as the foundation upon which the other FYP projects depend.</div>
+  <div class="section-grid">
+    <div class="info-block">
+      <div class="block-label">PROBLEM SOLUTION</div>
+      <p>Build an <span class="hl">on-premises Lab D cluster</span>, not a cloud or mobile lab. Acer nodes host concurrent student VMs. The Dell node hosts shared services. IEEE 802.1Q VLANs and <span class="hl">Opnsense-main</span> isolate the campus LAN from the exercise fabric.</p>
+      <p style="margin-top:.7rem">Students sit at Lenovo PCs, open <span class="hl">LabEye</span> (teammate portal), and configure a four-guest overlay: student OPNsense, VyOS, Ubuntu, Windows — without hypervisor administrator rights. Staff open ntopng, d3.js (Cluster Mesh), Wazuh, and Proxmox on VLAN 900. Tokens stay in Express on guest <code style="color:var(--c1b)">d3.js</code> at 172.29.0.51. Grafana, Netdata, and pfSense are not used.</p>
+    </div>
+    <div class="info-block">
+      <div class="block-label">RESEARCH QUESTIONS</div>
+      <ol class="research-q-list">
+        <li>How can existing Lab D hardware be repurposed into a scalable, multi-node virtualised cybersecurity and networking education platform using open-source tools?</li>
+        <li>To what extent does a virtualised lab using OPNsense and VyOS provide a more realistic learning experience than Cisco Packet Tracer or hardware?</li>
+        <li>Can lecturers observe live traffic and security events on ntopng, d3.js (Cluster Mesh), and Wazuh during a class, without placing those dashboards on the student path?</li>
+        <li>What guided networking exercises work at progressively higher skill levels?</li>
+        <li>How usable is the platform for students with mixed prior experience, as assessed through UAT?</li>
+      </ol>
+    </div>
   </div>
 
-  <div class="info-block" style="border-left:3px solid var(--c1b)">
-    <div style="margin-top:1.5rem">
-      <div class="section-label" style="margin-bottom:.75rem">MOCKUP — SYSTEM IN ACTION</div>
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">RESEARCH OBJECTIVES</div>
+      <ol class="research-o-list">
+        <li>Design and deploy a Proxmox VE cluster on Lab D hardware, capable of hosting concurrent student virtual machine sessions.</li>
+        <li>Provide realistic student networking workloads using OPNsense and VyOS from classroom PCs, without granting hypervisor administrator rights.</li>
+        <li>Provide lecturer-facing observability of laboratory traffic and security events using ntopng, d3.js (Cluster Mesh), and Wazuh.</li>
+        <li>Develop guided lab exercises covering core networking topics at Basic, Intermediate, and Advanced difficulty levels.</li>
+        <li>Evaluate usability and educational difference through user acceptance testing with student participants.</li>
+        <li>Produce technical documentation: setup notes, lab manuals, physical and logical topology diagrams, and the final report.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">PROJECT SCOPE — TABLE 1</div>
+      <p class="note" style="margin:0 0 .75rem">Intermediate is the implemented laboratory. Advanced is future work and is not claimed as a result of this sitting.</p>
+      <div class="table-wrap">
+        <table class="scope-table">
+          <thead>
+            <tr><th>Feature</th><th>Basic</th><th>Intermediate (this project)</th><th>Advanced (future)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="level-basic">Networking</td>
+              <td>Student OPNsense: DHCP, DNS, and NAT; ping between hosts</td>
+              <td>LabEye four-guest overlay: student OPNsense, VyOS static routing, Ubuntu Server, and Windows</td>
+              <td>Policy-based routing, VPN tunnels, multisite topology</td>
+            </tr>
+            <tr>
+              <td class="level-inter">Security</td>
+              <td>Isolated student overlay; default deny between exercise VLANs</td>
+              <td>IEEE 802.1Q VLANs 90, 900, 901, 911, and 921. Documented teaching paths only. University LAN blocked from staff dashboards.</td>
+              <td>VLAN 931 honeypot class; standing red/blue sitting</td>
+            </tr>
+            <tr>
+              <td class="level-cell">Monitoring</td>
+              <td>Staff open ntopng and see live traffic</td>
+              <td>SPAN on switch port 18 plus NetFlow into ntopng; d3.js (Cluster Mesh); Wazuh on the infrastructure plane. Students do not open these pages.</td>
+              <td>Student-facing observability exercise</td>
+            </tr>
+            <tr>
+              <td class="level-basic">Network labs</td>
+              <td>Guided ping and NAT on the four-guest combination</td>
+              <td>One Networking exercise from Lenovo PCs through LabEye. Students configure OPNsense and VyOS without hypervisor administrator rights.</td>
+              <td>Extra lab packs: pen-test, IDS/IPS, SOC-style sittings</td>
+            </tr>
+            <tr>
+              <td class="level-inter">Firewall</td>
+              <td>Student OPNsense rules on the overlay</td>
+              <td>Opnsense-main as the laboratory firewall and Kea DHCPv4 server; a disposable student OPNsense in each LabEye combination</td>
+              <td>IDS/IPS tuning; extra VPN gateway</td>
+            </tr>
+            <tr>
+              <td class="level-cell">Documentation</td>
+              <td>Author setup notes</td>
+              <td>Report plus physical and logical topology diagrams. A standing student handbook is not yet an operating product.</td>
+              <td>Standing lab manuals and video walkthroughs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">RESEARCH DESIGN TABLE</div>
+      <div class="table-wrap">
+        <table class="rdt-table">
+          <thead>
+            <tr><th>No.</th><th>Research question</th><th>Objective</th><th>Methods</th><th>Expected outcome</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RQ1</td>
+              <td>How can Lab D hardware become a multi-node open-source education platform?</td>
+              <td>RO1 — Proxmox VE cluster on Lab D hardware</td>
+              <td><span class="method-pill">Literature</span><span class="method-pill">Deploy</span></td>
+              <td>Operational cluster on Acer + Dell nodes; documented topology.</td>
+            </tr>
+            <tr>
+              <td>RQ2</td>
+              <td>How realistic is OPNsense + VyOS versus Packet Tracer or hardware?</td>
+              <td>RO2 — Student overlay without hypervisor admin</td>
+              <td><span class="method-pill">Observation</span><span class="method-pill">Questionnaire</span></td>
+              <td>Students configure the LabEye four-guest overlay from Lenovo PCs.</td>
+            </tr>
+            <tr>
+              <td>RQ3</td>
+              <td>Can lecturers observe ntopng, Cluster Mesh, and Wazuh off the student path?</td>
+              <td>RO3 — Lecturer observability</td>
+              <td><span class="method-pill">Lecturer cases</span></td>
+              <td>Staff open those tools on VLAN 900. Networking students do not.</td>
+            </tr>
+            <tr>
+              <td>RQ4</td>
+              <td>Which guided networking exercises work at higher skill levels?</td>
+              <td>RO4 — Guided labs Basic / Intermediate / Advanced</td>
+              <td><span class="method-pill">Lab sheets</span><span class="method-pill">Sitting</span></td>
+              <td>One Networking sitting. Advanced packs remain future work.</td>
+            </tr>
+            <tr>
+              <td>RQ5</td>
+              <td>How usable is the platform for mixed prior experience?</td>
+              <td>RO5 — Student UAT</td>
+              <td><span class="method-pill">Survey</span><span class="method-pill">UAT</span></td>
+              <td>UAT data and comments after the Networking exercise.</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td>Documentation is an objective without a numbered question.</td>
+              <td>RO6 — Report and diagrams</td>
+              <td><span class="method-pill">Report</span></td>
+              <td>Final report and topology diagrams. Handbook still a product gap.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid three">
+    <div class="info-block">
+      <div class="block-label">METHODOLOGY</div>
+      <div class="method-tags">
+        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">DSRM</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Hybrid Agile</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">UAT</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Lecturer cases</span>
+      </div>
+      <p style="margin-top:.75rem;font-size:.8rem">Design Science Research Methodology (identify, design, implement, evaluate). Hybrid Agile-prototyping inside that loop: infrastructure, then isolation, then observability, then the LabEye overlay, then evaluation.</p>
+    </div>
+    <div class="info-block">
+      <div class="block-label">TOOLS &amp; TECHNOLOGY</div>
+      <div class="method-tags">
+        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">Proxmox VE</span>
+        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">OPNsense</span>
+        <span class="method-tag" style="color:var(--c1b);border-color:var(--c1b)">VyOS</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Kea DHCPv4</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">LabEye</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">ntopng</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">d3.js Cluster Mesh</span>
+        <span class="method-tag" style="color:var(--muted);border-color:var(--border)">Wazuh</span>
+      </div>
+    </div>
+    <div class="info-block">
+      <div class="block-label">COURSE ALIGNMENT</div>
+      <ul style="list-style:none;font-size:.8rem">
+        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Network Security — VLANs, firewall, isolation</li>
+        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">DCN — routing, NAT, addressing</li>
+        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">System Security — least privilege, SIEM</li>
+        <li style="padding:.25rem 0">Cybersecurity — realistic lab vs simulator</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">LITERATURE / EXISTING SYSTEMS</div>
+      <div class="table-wrap">
+        <table class="lit-table">
+          <thead>
+            <tr><th>Platform</th><th>Type</th><th>Limitation for this lab</th><th>Selected?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Cisco Packet Tracer</strong></td><td>Simulator</td><td>Cisco-only; no real OS firewalls; limited realism for enterprise/security scenarios</td><td>—</td></tr>
+            <tr><td><strong>GNS3 / EVE-NG</strong></td><td>Emulator</td><td>Complex setup; images or licences; high hardware demand</td><td>—</td></tr>
+            <tr><td><strong>TryHackMe / HackTheBox</strong></td><td>Cloud lab</td><td>No infrastructure ownership; weak networking-engineering focus</td><td>—</td></tr>
+            <tr><td><strong>Lab D (this project)</strong></td><td>On-prem cluster</td><td>Needs a handbook and a staffed first sitting; Advanced packs not run</td><td><span class="tag g">✓ SELECTED</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">CONCEPTUAL FRAMEWORK</div>
+      <div class="diagram-container" id="cfWrap">
+        <img id="cfImg" src="assets/fyp1b/conceptual-framework.png" alt="Conceptual framework of the Lab D teaching laboratory">
+      </div>
+      <p class="note">Context (unused Lab D hardware) leads to the artefact: Proxmox cluster, then Opnsense-main. Students open LabEye and configure the four-guest overlay without hypervisor admin. Lecturers open ntopng, d3.js (Cluster Mesh), Wazuh, and Proxmox. LabEye is the teammate portal; Cluster Mesh is this author’s visualisation. Grafana, Netdata, and pfSense sit outside the framework. Click the diagram to enlarge.</p>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">SYSTEM ARCHITECTURE</div>
+      <div class="arch-layer">
+        <div class="arch-layer-label">LAYER 1 — PHYSICAL</div>
+        <div class="arch-row">
+          <div class="arch-node p">20× Lenovo PCs</div>
+          <div class="arch-node p">10× Acer Proxmox</div>
+          <div class="arch-node p">Dell lab-d-proxmox-server</div>
+          <div class="arch-node p">TL-SG1024DE · SPAN port 18</div>
+        </div>
+      </div>
+      <div class="arch-arrow">↕ VLAN 90 hypervisor · VLAN 900 student on-ramp</div>
+      <div class="arch-layer">
+        <div class="arch-layer-label">LAYER 2 — HYPERVISOR</div>
+        <div class="arch-row">
+          <div class="arch-node o">lab-d-cluster</div>
+          <div class="arch-node o">Ceph vm-storage</div>
+          <div class="arch-node o">Templates · snapshots</div>
+        </div>
+      </div>
+      <div class="arch-arrow">↕ tagged guest NICs</div>
+      <div class="arch-layer">
+        <div class="arch-layer-label">LAYER 3 — NETWORK SERVICES</div>
+        <div class="arch-row">
+          <div class="arch-node g">Opnsense-main + Kea</div>
+          <div class="arch-node g">VLANs 10 / 90 / 900 / 901 / 911 / 921</div>
+          <div class="arch-node g">Student OPNsense · VyOS</div>
+        </div>
+      </div>
+      <div class="arch-arrow">↕ staff path on VLAN 900 · student path via LabEye</div>
+      <div class="arch-layer">
+        <div class="arch-layer-label">LAYER 4 — OBSERVABILITY (STAFF)</div>
+        <div class="arch-row">
+          <div class="arch-node p">ntopng 172.29.0.102</div>
+          <div class="arch-node p">d3.js Cluster Mesh 172.29.0.51</div>
+          <div class="arch-node p">Wazuh</div>
+        </div>
+      </div>
+      <div class="arch-layer" style="margin-top:.7rem">
+        <div class="arch-layer-label">LAYER 5 — STUDENT WORKLOAD</div>
+        <div class="arch-row">
+          <div class="arch-node o">LabEye (teammate)</div>
+          <div class="arch-node o">OPNsense · VyOS · Ubuntu · Windows</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">IMPLEMENTATION LOOP</div>
+      <div class="pipeline-flow">
+        <div class="pipeline-step"><div class="pipeline-num">01</div><strong>Infrastructure</strong><span>Acer clones + Dell shared services on lab-d-cluster</span></div>
+        <div class="pipeline-step"><div class="pipeline-num">02</div><strong>Isolation</strong><span>802.1Q, Opnsense-main matrix, WAN blocks to staff dashboards</span></div>
+        <div class="pipeline-step"><div class="pipeline-num">03</div><strong>Observability</strong><span>SPAN + NetFlow → ntopng; Cluster Mesh; Wazuh</span></div>
+        <div class="pipeline-step"><div class="pipeline-num">04</div><strong>Class overlay</strong><span>LabEye Networking sitting: four guests per Lenovo</span></div>
+        <div class="pipeline-step"><div class="pipeline-num">05</div><strong>Evaluation</strong><span>3 lecturers · 10 consented students</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">CURRENT IMPLEMENTATION &amp; ACHIEVEMENTS</div>
+      <div class="achievement-grid">
+        <div class="achievement-card"><strong>RO1 · Cluster — achieved</strong><p>lab-d-cluster on Acer nodes and the Dell node. Class clones on Acer. Shared services on Dell. Twenty Lenovo seats.</p></div>
+        <div class="achievement-card partial"><strong>RO2 · Student overlay — partial</strong><p>Four-guest LabEye combination exists. 7/10 routed Ubuntu and Windows to OPNsense. 9/10 still needed help. VyOS was the hard step.</p></div>
+        <div class="achievement-card"><strong>RO3 · Staff observability — achieved</strong><p>Lecturers opened ntopng, Cluster Mesh, and Wazuh (3/3 Pass). Students did not open those pages in UAT.</p></div>
+        <div class="achievement-card partial"><strong>RO4 · Guided labs — partial</strong><p>One Networking sitting at Basic/Intermediate. Advanced packs were not a Chapter 7 class.</p></div>
+        <div class="achievement-card"><strong>RO5 · Student UAT — run</strong><p>n = 10 consented. Strongest Likert: prefer this lab to a textbook (8/10). Weakest: fix mistakes without help.</p></div>
+        <div class="achievement-card partial"><strong>RO6 · Documentation — partial</strong><p>Report and topology diagrams exist. A standing student handbook is still a product gap.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">EVALUATION RESULTS</div>
+      <div class="table-wrap">
+        <table class="result-table">
+          <thead>
+            <tr><th>Group</th><th>n</th><th>What was tested</th><th>Outcome</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Lecturers</td><td>3</td><td>Isolation, ntopng, Cluster Mesh, Wazuh, Proxmox / Ceph</td><td>All functional cases Pass (3/3)</td></tr>
+            <tr><td>Students</td><td>10 consented</td><td>LabEye Networking sitting + UAT form</td><td>7/10 hit the routing goal; 9/10 needed a person in the room</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Versus Packet Tracer: usually more realistic, not easier. Versus hardware: only two testers had used hardware, so that comparison is too small to conclude. The remaining gap is a handbook and a staffed first sitting, not another dashboard.</p>
+    </div>
+  </div>
+
+  <div class="section-grid full">
+    <div class="info-block">
+      <div class="block-label">PROTOTYPE / SYSTEM IN ACTION</div>
       <div class="mockup-gallery">
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/fyp1b/proxmox-ve.jpg" alt="Proxmox VE — 2-Node Cluster">
-          </div>
-          <div class="mockup-caption">Proxmox VE</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/fyp1b/opnsense.jpg" alt="OPNsense — Router/Firewall VM">
-          </div>
-          <div class="mockup-caption">OPNsense — Router/Firewall VM</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/fyp1b/vyos.jpg" alt="VyOS — Layer-3 Network Router">
-          </div>
-          <div class="mockup-caption">VyOS — Layer-3 Network Router</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/fyp1b/ubuntu-server.jpg" alt="Ubuntu Server — Ping Test">
-          </div>
-          <div class="mockup-caption">Ubuntu Server — Ping Test</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/fyp1b/linux-lite.jpg" alt="End-User VM (Linux Lite)">
-          </div>
-          <div class="mockup-caption">End-User VM (Linux Lite)</div>
-        </div>
-        <div class="mockup-card">
-          <div class="mockup-img-wrap">
-            <img src="assets/fyp1b/kali-linux.jpg" alt="Kali Linux — Attacker VM">
-          </div>
-          <div class="mockup-caption">Kali Linux</div>
-        </div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/proxmox-cluster.png" alt="Proxmox VE lab-d-cluster"></div><div class="mockup-caption">Proxmox VE — lab-d-cluster</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/opnsense.jpg" alt="OPNsense laboratory firewall"></div><div class="mockup-caption">OPNsense — Opnsense-main</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/labeye.png" alt="LabEye teammate class portal"></div><div class="mockup-caption">LabEye — teammate portal</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/ntopng.png" alt="ntopng live traffic"></div><div class="mockup-caption">ntopng — staff traffic view</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/cluster-mesh.png" alt="d3.js Cluster Mesh"></div><div class="mockup-caption">d3.js (Cluster Mesh)</div></div>
+        <div class="mockup-card"><div class="mockup-img-wrap"><img src="assets/fyp1b/wazuh.png" alt="Wazuh agents"></div><div class="mockup-caption">Wazuh — infrastructure SIEM</div></div>
       </div>
     </div>
   </div>
 
-</div><!-- /candidate-page -->
+  <div class="info-block" style="margin-bottom:1.25rem">
+    <div class="block-label">DELIVERABLES &amp; STATUS</div>
+    <div class="deliverable-grid">
+      <div class="deliverable-item"><div class="check"></div>Proxmox VE cluster on Lab D hardware<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>VLAN plan + Opnsense-main firewall matrix + Kea<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Staff observability: ntopng, Cluster Mesh, Wazuh<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>d3.js (Cluster Mesh) source pack (tokens not included)<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Networking sitting + lecturer cases + student UAT<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Final report and topology diagrams<span class="status-badge done">DONE</span></div>
+      <div class="deliverable-item"><div class="check"></div>Standing student handbook<span class="status-badge wip">WIP</span></div>
+      <div class="deliverable-item"><div class="check"></div>Advanced lab packs / student-facing observability<span class="status-badge planned">PLANNED</span></div>
+    </div>
+  </div>
 
-<!-- LIGHTBOX -->
+  <div class="info-block" style="margin-bottom:1.25rem;border-left:3px solid var(--c1b)">
+    <div class="block-label">HOW THIS SECTION ENABLES OTHERS</div>
+    <p>This is the networking and isolation layer. If the cluster, VLANs, and Opnsense-main are not up, the other FYP projects have nowhere safe to land. 1A’s images clone onto this fabric. 1C’s automation pushes guests onto these nodes. 2A/2B/2C watch or attack across these VLANs. 3A’s honeypot is planned as VLAN 931 on the same switch. LabEye is the class door; Cluster Mesh, ntopng, and Wazuh are how staff see whether isolation is holding.</p>
+  </div>
+
+  <div class="info-block" style="margin-bottom:1.25rem">
+    <div class="block-label">FUTURE ENHANCEMENT</div>
+    <ol class="scope-list">
+      <li><span class="num">01</span><span>Standing student handbook: VyOS interface map, command intent, guided sitting before an unguided one.</span></li>
+      <li><span class="num">02</span><span>Student-facing observability exercise on ntopng / Cluster Mesh / Wazuh without giving students VLAN 90.</span></li>
+      <li><span class="num">03</span><span>VLAN 931 honeypot as a class overlay; extra RAM on the Dell node.</span></li>
+      <li><span class="num">04</span><span>Larger student sample; hardware comparison only with testers who have used a rack.</span></li>
+    </ol>
+  </div>
+
+</div>
+
+<div class="edit-hint">
+  <span>STATUS BADGES</span><br>
+  Click a badge to cycle PLANNED → WIP → DONE.<br><br>
+  Click diagrams or mockups to enlarge.
+</div>
+
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close" id="lbClose">✕ CLOSE</span>
   <img id="lbImg" src="" alt="">
 </div>
 
 <script>
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('status-badge')) {
+    const cycle = ['planned', 'wip', 'done'];
+    for (let i = 0; i < cycle.length; i++) {
+      if (e.target.classList.contains(cycle[i])) {
+        e.target.classList.remove(cycle[i]);
+        const next = cycle[(i + 1) % cycle.length];
+        e.target.classList.add(next);
+        e.target.textContent = next.toUpperCase();
+        return;
+      }
+    }
+  }
+});
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+function openLb(src, alt) {
+  lbImg.src = src;
+  lbImg.alt = alt || '';
+  lb.classList.add('open');
+}
 const cfWrap = document.getElementById('cfWrap');
 const cfImg = document.getElementById('cfImg');
 if (cfWrap && cfImg) {
-  cfWrap.addEventListener('click', () => {
-    document.getElementById('lbImg').src = cfImg.src;
-    document.getElementById('lbImg').alt = 'Conceptual Framework';
-    document.getElementById('lightbox').classList.add('open');
-  });
+  cfWrap.addEventListener('click', () => openLb(cfImg.src, cfImg.alt));
 }
-const lb = document.getElementById('lightbox');
-const lbImg = document.getElementById('lbImg');
 document.querySelectorAll('.mockup-card img').forEach(img => {
-  img.addEventListener('click', () => {
-    lbImg.src = img.src;
-    lbImg.alt = img.alt;
-    lb.classList.add('open');
-  });
+  img.addEventListener('click', () => openLb(img.src, img.alt));
 });
 document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
 lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
