@@ -11,6 +11,9 @@
   --text:#c3c9da; --muted:#8b90a1; --bright:#eef1fa;
   --blue:#3c90ff; --blue-soft:#a9c7ff; --purple:#b166ff; --orange:#fe8b3e;
   --teal:#33d6a6; --green:#4ade80; --red:#fc5844; --amber:#fdba74;
+  --c1a:#3C90FF; --c1b:#B166FF; --c1c:#FE651E;
+  --c2a:#A9C7FF; --c2b:#FC5844; --c2c:#60A5FA;
+  --c3a:#FDBA74; --c3b:#FFB598; --c3c:#4ADE80;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#262A34 transparent}
@@ -33,6 +36,7 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;
 .nav-tab{font-family:'Space Grotesk',sans-serif;font-size:.68rem;letter-spacing:.06em;padding:.35rem .7rem;
   border:1px solid transparent;border-radius:4px;cursor:pointer;color:var(--muted);transition:all .2s;text-decoration:none}
 .nav-tab:hover{color:var(--blue);border-color:var(--border);background:var(--panel)}
+.nav-tab.active{color:var(--blue);background:var(--panel);border-color:var(--border)}
 
 .wrap{max-width:1000px;margin:0 auto;padding:2.5rem 2rem 5rem}
 
@@ -148,14 +152,21 @@ header h1{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;
 <body>
 
 <header>
-  <a class="logo-badge" href="#top">FYP2</a>
-  <h1>Honeypot Attack Analysis &amp; Classification</h1>
+  <a href="index.html" class="logo-badge">SOC-LAB-FYP</a>
+  <h1>Centralised Security Lab Transformation — Final Year Project Map</h1>
   <nav class="nav-tabs">
-    <a class="nav-tab" href="#problem">Problem</a>
-    <a class="nav-tab" href="#rqro">RQ &amp; RO</a>
-    <a class="nav-tab" href="#feedback">FYP1 Feedback</a>
-    <a class="nav-tab" href="#system">System</a>
-    <a class="nav-tab" href="#demo">Demo</a>
+    <a class="nav-tab" href="index.html">Overview</a>
+    <a class="nav-tab" href="architecture.html">Architecture</a>
+    <a class="nav-tab" href="phases.html">Phase Map</a>
+    <a class="nav-tab" href="fyp1a.html" style="color:var(--c1a)">1A</a>
+    <a class="nav-tab" href="fyp1b.html" style="color:var(--c1b)">1B</a>
+    <a class="nav-tab" href="fyp1c.html" style="color:var(--c1c)">1C</a>
+    <a class="nav-tab" href="fyp2a.html" style="color:var(--c2a)">2A</a>
+    <a class="nav-tab" href="fyp2b.html" style="color:var(--c2b)">2B</a>
+    <a class="nav-tab" href="fyp2c.html" style="color:var(--c2c)">2C</a>
+    <a class="nav-tab active" href="fyp3a.html" style="color:var(--c3a)">3A</a>
+    <a class="nav-tab" href="fyp3b.html" style="color:var(--c3b)">3B</a>
+    <a class="nav-tab" href="fyp3c.html" style="color:var(--c3c)">3C</a>
   </nav>
 </header>
 
