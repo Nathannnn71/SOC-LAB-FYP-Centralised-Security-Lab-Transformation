@@ -150,11 +150,11 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
   <div class="candidate-header">
     <div class="candidate-badge" style="color:var(--c1b);border-color:var(--c1b)">FYP-1B</div>
     <div class="candidate-meta">
-      <div class="phase-tag" style="color:var(--c1b)">PHASE 1 · FOUNDATION · NETWORKING LAYER</div>
-      <h2>Virtualised Cybersecurity &amp; Networking Learning Platform</h2>
+      <div class="phase-tag" style="color:var(--c1b)">PHASE 1 · FOUNDATION · INFRASTRUCTURE</div>
+      <h2>Building a Networking and Cybersecurity Lab Infrastructure Using Old University Hardware</h2>
       <div class="course-tags">
         <span class="course-tag">Network Security</span>
-        <span class="course-tag">DCN</span>
+        <span class="course-tag">Data Communication &amp; Networking</span>
         <span class="course-tag">Proxmox VE</span>
         <span class="course-tag">OPNsense · VyOS</span>
         <span class="course-tag">ntopng · Cluster Mesh · Wazuh</span>
@@ -384,7 +384,7 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
       <div class="block-label">COURSE ALIGNMENT</div>
       <ul style="list-style:none;font-size:.8rem">
         <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Network Security — VLANs, firewall, isolation</li>
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">DCN — routing, NAT, addressing</li>
+        <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">Data Communication &amp; Networking — routing, NAT, addressing</li>
         <li style="padding:.25rem 0;border-bottom:1px solid var(--border)">System Security — least privilege, SIEM</li>
         <li style="padding:.25rem 0">Cybersecurity — realistic lab vs simulator</li>
       </ul>
@@ -406,68 +406,6 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
             <tr><td><strong>Lab D (this project)</strong></td><td>On-prem cluster</td><td>Needs a handbook and a staffed first sitting; Advanced packs not run</td><td><span class="tag g">✓ SELECTED</span></td></tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-grid full">
-    <div class="info-block">
-      <div class="block-label">SYSTEM ARCHITECTURE</div>
-      <div class="arch-layer">
-        <div class="arch-layer-label">LAYER 1 — PHYSICAL</div>
-        <div class="arch-row">
-          <div class="arch-node p">20× Lenovo PCs</div>
-          <div class="arch-node p">10× Acer Proxmox</div>
-          <div class="arch-node p">Dell lab-d-proxmox-server</div>
-          <div class="arch-node p">TL-SG1024DE · SPAN port 18</div>
-        </div>
-      </div>
-      <div class="arch-arrow">↕ VLAN 90 hypervisor · VLAN 900 student on-ramp</div>
-      <div class="arch-layer">
-        <div class="arch-layer-label">LAYER 2 — HYPERVISOR</div>
-        <div class="arch-row">
-          <div class="arch-node o">lab-d-cluster</div>
-          <div class="arch-node o">Ceph vm-storage</div>
-          <div class="arch-node o">Templates · snapshots</div>
-        </div>
-      </div>
-      <div class="arch-arrow">↕ tagged guest NICs</div>
-      <div class="arch-layer">
-        <div class="arch-layer-label">LAYER 3 — NETWORK SERVICES</div>
-        <div class="arch-row">
-          <div class="arch-node g">Opnsense-main + Kea</div>
-          <div class="arch-node g">VLANs 10 / 90 / 900 / 901 / 911 / 921</div>
-          <div class="arch-node g">Student OPNsense · VyOS</div>
-        </div>
-      </div>
-      <div class="arch-arrow">↕ staff path on VLAN 900 · student path via LabEye</div>
-      <div class="arch-layer">
-        <div class="arch-layer-label">LAYER 4 — OBSERVABILITY (STAFF)</div>
-        <div class="arch-row">
-          <div class="arch-node p">ntopng 172.29.0.102</div>
-          <div class="arch-node p">d3.js Cluster Mesh 172.29.0.51</div>
-          <div class="arch-node p">Wazuh</div>
-        </div>
-      </div>
-      <div class="arch-layer" style="margin-top:.7rem">
-        <div class="arch-layer-label">LAYER 5 — STUDENT WORKLOAD</div>
-        <div class="arch-row">
-          <div class="arch-node o">LabEye (teammate)</div>
-          <div class="arch-node o">OPNsense · VyOS · Ubuntu · Windows</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-grid full">
-    <div class="info-block">
-      <div class="block-label">IMPLEMENTATION LOOP</div>
-      <div class="pipeline-flow">
-        <div class="pipeline-step"><div class="pipeline-num">01</div><strong>Infrastructure</strong><span>Acer clones + Dell shared services on lab-d-cluster</span></div>
-        <div class="pipeline-step"><div class="pipeline-num">02</div><strong>Isolation</strong><span>802.1Q, Opnsense-main matrix, WAN blocks to staff dashboards</span></div>
-        <div class="pipeline-step"><div class="pipeline-num">03</div><strong>Observability</strong><span>SPAN + NetFlow → ntopng; Cluster Mesh; Wazuh</span></div>
-        <div class="pipeline-step"><div class="pipeline-num">04</div><strong>Class overlay</strong><span>LabEye Networking sitting: four guests per Lenovo</span></div>
-        <div class="pipeline-step"><div class="pipeline-num">05</div><strong>Evaluation</strong><span>3 lecturers · 10 consented students</span></div>
       </div>
     </div>
   </div>
@@ -505,25 +443,6 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
   </div>
 
   <div class="info-block" style="margin-bottom:1.25rem">
-    <div class="block-label">DELIVERABLES &amp; STATUS</div>
-    <div class="deliverable-grid">
-      <div class="deliverable-item"><div class="check"></div>Proxmox VE cluster on Lab D hardware<span class="status-badge done">DONE</span></div>
-      <div class="deliverable-item"><div class="check"></div>VLAN plan + Opnsense-main firewall matrix + Kea<span class="status-badge done">DONE</span></div>
-      <div class="deliverable-item"><div class="check"></div>Staff observability: ntopng, Cluster Mesh, Wazuh<span class="status-badge done">DONE</span></div>
-      <div class="deliverable-item"><div class="check"></div>d3.js (Cluster Mesh) source pack (tokens not included)<span class="status-badge done">DONE</span></div>
-      <div class="deliverable-item"><div class="check"></div>Networking sitting + lecturer cases + student UAT<span class="status-badge done">DONE</span></div>
-      <div class="deliverable-item"><div class="check"></div>Final report and topology diagrams<span class="status-badge done">DONE</span></div>
-      <div class="deliverable-item"><div class="check"></div>Standing student handbook<span class="status-badge wip">WIP</span></div>
-      <div class="deliverable-item"><div class="check"></div>Advanced lab packs / student-facing observability<span class="status-badge planned">PLANNED</span></div>
-    </div>
-  </div>
-
-  <div class="info-block" style="margin-bottom:1.25rem;border-left:3px solid var(--c1b)">
-    <div class="block-label">HOW THIS SECTION ENABLES OTHERS</div>
-    <p>This is the networking and isolation layer. If the cluster, VLANs, and Opnsense-main are not up, the other FYP projects have nowhere safe to land. 1A’s images clone onto this fabric. 1C’s automation pushes guests onto these nodes. 2A/2B/2C watch or attack across these VLANs. 3A’s honeypot is planned as VLAN 931 on the same switch. LabEye is the class door; Cluster Mesh, ntopng, and Wazuh are how staff see whether isolation is holding.</p>
-  </div>
-
-  <div class="info-block" style="margin-bottom:1.25rem">
     <div class="block-label">FUTURE ENHANCEMENT</div>
     <ol class="scope-list">
       <li><span class="num">01</span><span>Standing student handbook: VyOS interface map, command intent, guided sitting before an unguided one.</span></li>
@@ -536,8 +455,6 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
 </div>
 
 <div class="edit-hint">
-  <span>STATUS BADGES</span><br>
-  Click a badge to cycle PLANNED → WIP → DONE.<br><br>
   Click diagrams or mockups to enlarge.
 </div>
 
