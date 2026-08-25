@@ -222,39 +222,33 @@ table.rdt-table td:first-child{font-family:'Share Tech Mono',monospace;font-size
           <tbody>
             <tr>
               <td class="level-basic">Networking</td>
-              <td>Student OPNsense: DHCP, DNS, and NAT; ping between hosts</td>
-              <td>LabEye four-guest overlay: student OPNsense, VyOS static routing, Ubuntu Server, and Windows</td>
-              <td>Policy-based routing, VPN tunnels, multisite topology</td>
+              <td>OPNsense: DHCP, DNS, NAT basics, sufficient networking speed</td>
+              <td>Static routing, VLANs, allow Lenovo workstations to connect to the server. SPAN plus NetFlow into ntopng</td>
+              <td>Policy-based routing, multisite topology</td>
             </tr>
             <tr>
               <td class="level-inter">Security</td>
-              <td>Isolated student overlay; default deny between exercise VLANs</td>
-              <td>IEEE 802.1Q VLANs 90, 900, 901, 911, and 921. Documented teaching paths only. University LAN blocked from staff dashboards.</td>
+              <td>Basic firewall rules to segregate the VLANs</td>
+              <td>Basic SIEM and XDR tools used to detect vulnerabilities and collect security logs</td>
               <td>IDS/IPS setup, VPN config, firewall tuning</td>
             </tr>
             <tr>
               <td class="level-cell">Monitoring</td>
-              <td>Staff open ntopng and see live traffic</td>
-              <td>SPAN on switch port 18 plus NetFlow into ntopng; d3.js (Cluster Mesh); Wazuh on the infrastructure plane. Students do not open these pages.</td>
-              <td>Student pinging observability: when students run cybersecurity labs (nmap or code injection on a server), monitoring can see that activity and Cluster Mesh shows a particle flying to the target.</td>
+              <td>Basic network monitoring tool ntopng used to get network traffic logs and monitoring</td>
+              <td>d3.js (Cluster Mesh) network traffic visualisation overlay; Wazuh collection and alert</td>
+              <td>Student pinging observability: can see student activity like hacking or scanning</td>
             </tr>
             <tr>
-              <td class="level-basic">Network labs</td>
-              <td>Task 1 — Configure WAN and LAN on student OPNsense; VyOS routing and NAT; static IPs on Ubuntu and Windows; ping between the four guests.</td>
-              <td>Task 2 and 3 — Internet through the student OPNsense; simple VyOS firewall.</td>
-              <td>Extra lab packs</td>
-            </tr>
-            <tr>
-              <td class="level-inter">Firewall</td>
-              <td>Student OPNsense rules on the overlay</td>
-              <td>Opnsense-main as the laboratory firewall and Kea DHCPv4 server; a disposable student OPNsense in each LabEye combination</td>
-              <td>IDS/IPS tuning; extra VPN gateway</td>
+              <td class="level-basic">Topology</td>
+              <td>Simple flat virtual network diagram</td>
+              <td>Multi-VLAN segmented network topology with LAN and WAN</td>
+              <td>Enterprise-grade layered topology with DMZ</td>
             </tr>
             <tr>
               <td class="level-cell">Documentation</td>
-              <td>Author setup notes</td>
-              <td>Report plus physical and logical topology diagrams. A standing student handbook is not yet an operating product.</td>
-              <td>Standing lab manuals and video walkthroughs</td>
+              <td>Basic setup guide</td>
+              <td>Lab manuals with troubleshooting notes</td>
+              <td>Full technical report + topology diagrams + video walkthroughs</td>
             </tr>
           </tbody>
         </table>
